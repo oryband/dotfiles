@@ -1,0 +1,18 @@
+# Mac OS X Finder and whatnot
+.DS_Store
+
+# Python compiled files.
+.pyc
+
+# automatic backup files
+*.swp
+
+# Vim files to be ignored.
+.VimballRecord
+
+# Python compiled files.
+*.pyc
+
+# Vim backup folder (.swp and ~* files)
+^backup/
+
