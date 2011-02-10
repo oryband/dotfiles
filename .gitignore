@@ -13,6 +13,7 @@
 # Python compiled files.
 *.pyc
 
-# Vim backup folder (.swp and ~* files)
-^backup/
+# Vim backup & swap folder (.swp and ~* files)
+backup/
+swap/
 
