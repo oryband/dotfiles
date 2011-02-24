@@ -7,8 +7,7 @@ set nocompatible  " disable vi compatibility (more efficient).
 filetype plugin indent on  " Automatically detect file types.
 
 
-" Bundles - http://vim-scripts.org/vim/scripts.html
-
+" Plugin Bundles - http://vim-scripts.org/vim/scripts.html
 " To install/update type  ':BundleInstall!'  <-- NOTE the exclamation mark '!'
 " To clean ununsed plugins type  ':BundleClean!'
 
@@ -22,8 +21,12 @@ Bundle "desert256.vim"
 
 " Syntax
 Bundle "python.vim--Vasiliev"
+:let python_highlight_all=1
+:let python_slow_sync=1
+:let python_print_as_function=1
+
 Bundle "django.vim"
-Bundle "Better-CSS-Syntax-for-Vim"
+"Bundle "Better-CSS-Syntax-for-Vim"
 
 " Indentation
 Bundle "indentpython.vim"
@@ -34,12 +37,33 @@ Bundle "pyflakes.vim"
 
 " Other plugins
 Bundle "taglist.vim"
+
 Bundle "buftabs"
+:let g:buftabs_only_basename=1  " only print the filename of each buffer, omitting the preceding directory name.
+:let g:buftabs_in_statusline=1  " show the buftabs in the statusline instead of the command line.
+:let g:buftabs_active_highlight_group="Visual"  " Highlight selected buffer.
 
 
 " Colors
 colorscheme jellybeans  " or desert256
 set background=dark  " or light
+
+
+" Formatting
+"set fo+=o  " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+set fo-=r  " Do not automatically insert a comment leader after an enter.
+set fo-=t  " Do no auto-wrap text using textwidth (does not apply to comments).
+
+set nowrap  " No line wrapping.
+set linebreak  " Wrap at word.
+
+set backspace=indent  " Erase previously entered characters in insert mode.
+set backspace+=eol
+set backspace+=start
+
+set number " Show line numbers.
+"set nonumber " Hide line numbers.
+set numberwidth=4  " Width of numbers column.
 
 
 " Syntax
@@ -65,8 +89,8 @@ set expandtab  " Replace tabs with ${tabstop} spaces.
 set smarttab
 
 " Special indentation for specific file types.
-autocmd FileType *.html set filetype=html tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
-autocmd FileType *.css  set filetype=css  tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
+autocmd FileType html set filetype=html tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
+autocmd FileType css  set filetype=css  tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
 
 
 " Searching
@@ -85,23 +109,6 @@ set foldlevel=100  " Don't autofold anything (but I can still fold manually).
 set foldopen=block,hor,tag  " What movements open folds.
 set foldopen+=percent,mark
 set foldopen+=quickfix
-
-
-" Formatting
-"set fo+=o  " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
-set fo-=r  " Do not automatically insert a comment leader after an enter.
-set fo-=t  " Do no auto-wrap text using textwidth (does not apply to comments).
-
-set nowrap  " No line wrapping.
-set linebreak  " Wrap at word.
-
-set backspace=indent  " Erase previously entered characters in insert mode.
-set backspace+=eol
-set backspace+=start
-
-set number " Show line numbers.
-"set nonumber " Hide line numbers.
-set numberwidth=4  " Width of numbers column.
 
 
 " Backup
@@ -153,7 +160,6 @@ set t_Co=256  " Set terminal with 256 colors.
 set guifont=Monaco:h14  " gVim font.
 set guioptions-=T  " disables gVim toolbar (iconbar).
 set guicursor=a:blinkon0  " disable gVim cursor blinking.
-set fullscreen  " gVim will be fullscreen (no menu-bar interruptions!).
 
 "set cursorline  " Set cursor to line.
 "set cursorcolumn  " Set cursor to column.

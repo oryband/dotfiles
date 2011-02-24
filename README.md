@@ -1,6 +1,7 @@
 ## About
 
 This is my .vimrc.
+
 I'm usually working with Python/Django and HTML/CSS/JavaScript, so everything is configured to work with these languages.
 
 All of the plugins are installed via [Vundle plugin manager](http://github.com/gmarik/vundle) for easy installation!

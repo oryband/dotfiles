@@ -1,20 +1,6 @@
-# Mac OS X Finder and whatnot
+# Mac OS X Finder control file.
 .DS_Store
 
-# Python compiled files.
-.pyc
-
-# automatic backup files
-*.swp
-
-# Vim files to be ignored.
-.VimballRecord
-
-# Python compiled files.
-*.pyc
-
 # Vim backup & swap folder (.swp and ~* files)
-bundle/
-backup/
-swap/
+/bundle/
 
