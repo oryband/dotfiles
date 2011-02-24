@@ -1,0 +1,15 @@
+[ui]
+username = Ory Band <oryband@gmail.com>
+verbose = True
+merge = vimdiff
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
+
+[extensions]
+hgext.extdiff =
+
+[extdiff]
+cmd.vimdiff =
+
