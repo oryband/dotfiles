@@ -1,0 +1,3 @@
+[submodule "vundle.git"]
+	path = vundle.git
+	url = http://github.com/gmarik/vundle.git
