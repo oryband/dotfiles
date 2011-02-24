@@ -1,14 +1,14 @@
 ## This is my .vimrc.
 
-I'm usually working with Python/Django and HTML/CSS/JavaScript, so everything is configured to work with these languages.
+I'm usually working with Python/Django and HTML/CSS/JavaScript, so my Vim IDE is configured for these languages.
 
-All of the plugins are installed via [Vundle plugin manager](http://github.com/gmarik/vundle) for easy installation!
+All of the plugins are installed and updated via [Vundle plugin manager](http://github.com/gmarik/vundle)!
 
 Have fun and fork at will! :)
 
 ## Quick start
 
-1. Clone this repo: `git clone git://github.com/oryband/dotvim.git` ~/.vim. (Be careful not to override your own configuration...)
+1. Clone this repo: `git clone git://github.com/oryband/dotvim.git ~/.vim` - (Be careful not to override your own configuration...)
 2. Initialize the [Vundle](http://github.com/gmarik/vundle) plugin as a sub-repository:
 
     `git submodule add http://github.com/gmarik/vundle.git ~/.vim/vundle.git`
