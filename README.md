@@ -15,7 +15,7 @@ Have fun and fork at will! :)
         git submodule init
         git submodule update
 
-3. You can use then `git submodule update` to update [Vundle](http://github.com/gmarik/vundle) any time.
+3. You can then use `git submodule update` to update [Vundle](http://github.com/gmarik/vundle) any time.
 4. Open vim and type `:BundleInstall!` to install all the plugins.
 5. The rest is fully commented and explained in the `.virmc` file itself.
 
