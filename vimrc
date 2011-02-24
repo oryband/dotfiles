@@ -3,9 +3,9 @@
 " Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
 " Initialization
-set nocompatible  " disable vi compatibility (more efficient).
+set nocompatible  " Disable vi compatibility (more efficient, and besides we're using non-vi tricks here).
+set fileformats=dos,unix,mac  " Set new file format and file format support (everything).
 filetype plugin indent on  " Automatically detect file types.
-
 
 " Plugin Bundles - http://vim-scripts.org/vim/scripts.html
 " To install/update type  ':BundleInstall!'  <-- NOTE the exclamation mark '!'
@@ -21,12 +21,12 @@ Bundle "desert256.vim"
 
 " Syntax
 Bundle "python.vim--Vasiliev"
-:let python_highlight_all=1
-:let python_slow_sync=1
-:let python_print_as_function=1
+:let python_highlight_all=1  " Enable all plugin's highlighting.
+:let python_slow_sync=1  " For fast machines.
+:let python_print_as_function=1  " Color 'print' function.
 
 Bundle "django.vim"
-"Bundle "Better-CSS-Syntax-for-Vim"
+Bundle "JavaScript-syntax"
 
 " Indentation
 Bundle "indentpython.vim"
@@ -36,6 +36,7 @@ Bundle "JavaScript-Indent"
 Bundle "pyflakes.vim"
 
 " Other plugins
+Bundle "Tabular"
 Bundle "taglist.vim"
 
 Bundle "buftabs"
@@ -44,20 +45,35 @@ Bundle "buftabs"
 :let g:buftabs_active_highlight_group="Visual"  " Highlight selected buffer.
 
 
+" GUI
+" Terminal
+set t_Co=256  " Set terminal with 256 colors.
+
+" gVim / MacVim
+set guifont=Monaco:h14  " gVim font.
+set guioptions-=T  " disables gVim toolbar (iconbar).
+set guicursor=a:blinkon0  " disable gVim cursor blinking.
+
+"set cursorline  " Set cursor to line.
+"set cursorcolumn  " Set cursor to column.
+
+
 " Colors
+set background=dark  " or light (this needs to come before 'colorscheme' decleration)
 colorscheme jellybeans  " or desert256
-set background=dark  " or light
 
 
 " Formatting
-"set fo+=o  " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
-set fo-=r  " Do not automatically insert a comment leader after an enter.
+set fo+=2  " Keep indentation of last line when creating a new line.
+
+set fo-=o  " Do not insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+set fo-=r  " Do not insert a comment leader after an enter.
 set fo-=t  " Do no auto-wrap text using textwidth (does not apply to comments).
 
 set nowrap  " No line wrapping.
 set linebreak  " Wrap at word.
 
-set backspace=indent  " Erase previously entered characters in insert mode.
+set backspace=indent  " Activate backspace key. Erase previously entered characters in insert mode.
 set backspace+=eol
 set backspace+=start
 
@@ -69,6 +85,11 @@ set numberwidth=4  " Width of numbers column.
 " Syntax
 syntax on  " Syntax highlighting.
 autocmd FileType html set filetype=html syntax=htmldjango  " Special syntax for html+django.
+
+" Show matching brace on insertion or cursor over.
+set showmatch
+set matchtime=3
+set matchpairs+=<:>  " Treat '<','>' as a matching braces.
 
 
 " Omni Completion
@@ -89,8 +110,8 @@ set expandtab  " Replace tabs with ${tabstop} spaces.
 set smarttab
 
 " Special indentation for specific file types.
-autocmd FileType html set filetype=html tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
-autocmd FileType css  set filetype=css  tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
+autocmd FileType html set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
+autocmd FileType css  set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
 
 
 " Searching
@@ -116,18 +137,16 @@ set nowritebackup  " Disable backup
 set nobackup
 "set backupdir=~/.vim/backup  " Setup backup location and enable
 "set backup
+
 set directory=/tmp//  " Set swap directory. prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
+
+set undofile  " Set up persistent undo.
+set undodir=~/.undo
 
 
 " Window splitting
 set equalalways  " Multiple windows, when created, are equal in size.
 set splitbelow splitright  " New windows are created to the bottom-right.
-
-
-" Bells
-set novisualbell  " No blinking
-"set noerrorbells  " No noise.
-"set vb t_vb= " Disable any beeps or flashes on error
 
 
 " Status Line
@@ -136,6 +155,7 @@ set laststatus=2  " Always show status line.
 set showcmd  " Display an incomplete command in status line.
 set ruler  " Doesn't work with buftabs.vim plugin.
 "set ch=2  " Make command line two lines high
+
 
 " Invisible characters.
 set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
@@ -152,33 +172,30 @@ behave xterm  " Make mouse behave like in xterm (instead of, e.g. Windows' comma
 set selectmode=mouse  " Enable visule selection with mouse.
 
 
-" GUI
-" Terminal
-set t_Co=256  " Set terminal with 256 colors.
+" Bells
+set novisualbell  " No blinking
+"set noerrorbells  " No noise.
+"set vb t_vb= " Disable any beeps or flashes on error
 
-" gVim / MacVim
-set guifont=Monaco:h14  " gVim font.
-set guioptions-=T  " disables gVim toolbar (iconbar).
-set guicursor=a:blinkon0  " disable gVim cursor blinking.
 
-"set cursorline  " Set cursor to line.
-"set cursorcolumn  " Set cursor to column.
+" Ignored files
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif  " Ignore images
+set wildignore+=*.pdf  " Ignore PDF files
+set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 
 
 " General
 set history=256  " Number of things to remember in history.
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
 "set autoread  " Reload file if changed outside of vim (DANGEROUS!).
-set clipboard+=unnamed  " Enable OS Clipboard integration.
+set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
-" Sets path to directory buffer was loaded from
-autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * lcd %:p:h  " Sets path to directory buffer was loaded from.
 
 
 " Additional Functions
 
-" Source .vimrc after saving it.
 "if has("autocmd")
-  "autocmd bufwritepost .vimrc source $MYVIMRC
+  "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
 "endif
 
