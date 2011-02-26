@@ -26,7 +26,7 @@ Bundle "python.vim--Vasiliev"
 :let python_print_as_function=1  " Color 'print' function.
 
 Bundle "django.vim"
-Bundle "JavaScript-syntax"
+"Bundle 'https://github.com/oryband/Better-CSS-Syntax-for-Vim'
 
 " Indentation
 Bundle "indentpython.vim"
@@ -38,10 +38,13 @@ Bundle "pyflakes.vim"
 " Other plugins
 Bundle "Tabular"
 Bundle "taglist.vim"
+:let Tlist_Use_Right_Window = 1  " Open tag list window to the right (instead to the left).
+:let Tlist_Exit_OnlyWindow = 1  " Exit Vim if the tag list window is the only one left open.
+:let Tlist_File_Fold_Auto_Close = 0  " Automatically close folds for non-active files in tag list.
 
 Bundle "buftabs"
-:let g:buftabs_only_basename=1  " only print the filename of each buffer, omitting the preceding directory name.
-:let g:buftabs_in_statusline=1  " show the buftabs in the statusline instead of the command line.
+:let g:buftabs_only_basename=1  " Only print the filename of each buffer, omitting the preceding directory name.
+:let g:buftabs_in_statusline=1  " Show the buftabs in the statusline instead of the command line.
 :let g:buftabs_active_highlight_group="Visual"  " Highlight selected buffer.
 
 
