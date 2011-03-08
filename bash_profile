@@ -1,3 +1,8 @@
+export CLICOLOR=1  # Enable terminal colors
+export LSCOLORS=Gxfxbxdxcxegedabagacad  # File-type color definition (e.g. files=grey, directories=bold cyan, etc.) -- Dark background.
+#export LSCOLORS=ExFxCxDxBxegedabagacad  # Light background.
+
+
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim  # Override pre-installed Vim and use MacVim instead (Newer version).
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
