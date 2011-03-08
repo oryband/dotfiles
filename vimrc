@@ -1,10 +1,11 @@
-" Sources -
-" gmarik's vimrc - https://github.com/gmarik/vimfiles/blob/master/vimrc - Thanks! :)
+" Great sources -
+" gmarik's vimrc - https://github.com/gmarik/vimfiles/blob/master/vimrc
+" durdn's vimrc - https://github.com/durdn/cfg/blob/master/.vimrc
 " Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
 " Initialization
 set nocompatible  " Disable vi compatibility (more efficient, and besides we're using non-vi tricks here).
-set fileformats=dos,unix,mac  " Set new file format and file format support (everything).
+set fileformats=mac,unix,dos  " Set new file format and file format support (everything).
 filetype plugin indent on  " Automatically detect file types.
 
 " Plugin Bundles - http://vim-scripts.org/vim/scripts.html
@@ -18,13 +19,13 @@ call vundle#rc()
 " Colors
 Bundle "jellybeans.vim"
 Bundle "desert256.vim"
+Bundle "herald.vim"
 
 " Syntax
 Bundle "python.vim--Vasiliev"
-:let python_highlight_all=1  " Enable all plugin's highlighting.
-:let python_slow_sync=1  " For fast machines.
-:let python_print_as_function=1  " Color 'print' function.
-
+let python_highlight_all=1  " Enable all plugin's highlighting.
+let python_slow_sync=1  " For fast machines.
+let python_print_as_function=1  " Color 'print' function.
 Bundle "django.vim"
 "Bundle 'https://github.com/oryband/Better-CSS-Syntax-for-Vim'
 
@@ -36,16 +37,57 @@ Bundle "JavaScript-Indent"
 Bundle "pyflakes.vim"
 
 " Other plugins
-Bundle "Tabular"
-Bundle "taglist.vim"
-:let Tlist_Use_Right_Window = 1  " Open tag list window to the right (instead to the left).
-:let Tlist_Exit_OnlyWindow = 1  " Exit Vim if the tag list window is the only one left open.
-:let Tlist_File_Fold_Auto_Close = 0  " Automatically close folds for non-active files in tag list.
+"Bundle 'EnhCommentify.vim'
+"let g:EnhCommentifyRespectIndent='Yes'  " Put comment sign near text, not at beginning of line.
+"let g:EnhCommentifyUseAltKeys='Yes'  " Comment using <Meta-x> instead of <Leader>x
+"let g:EnhCommentifyTraditionalMode='Yes'  " Comment/Uncommend each line seperately.
+"let g:EnhCommentifyFirstLineMode='Yes'  " Comment/Uncomment according to status of first line of code block.
+"let g:EnhCommentifyMultiPartBlocks = 'Yes'  " Wrap comment signs around code blocks, not line-by-line.
+"let g:EnhCommentifyUseSyntax='Yes'  " Use smart-commenting (e.g. <script> inside and *.html file will do a JavaScript commenting).
+"imap <C-c> <Esc><Plug>Traditional
 
-Bundle "buftabs"
-:let g:buftabs_only_basename=1  " Only print the filename of each buffer, omitting the preceding directory name.
-:let g:buftabs_in_statusline=1  " Show the buftabs in the statusline instead of the command line.
-:let g:buftabs_active_highlight_group="Visual"  " Highlight selected buffer.
+Bundle "camelcasemotion"
+" Make word skip actions stop at new camelCaseWord or new_underscore_word.
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
+Bundle "ShowMarks"
+" Only show alphabetic marks.
+let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+" Don't show anything else on the mark ruler besides the mark's name.
+let g:showmarks_textlower="m\t"
+let g:showmarks_textupper="m\t"
+let g:showmarks_textother="m\t"
+
+Bundle "Tabular"
+
+Bundle "taglist.vim"
+let Tlist_WinWidth=30  " Window width in chars.
+let Tlist_Use_Right_Window=1  " Open tag list window to the right (instead to the left).
+let Tlist_Exit_OnlyWindow=1  " Exit Vim if the tag list window is the only one left open.
+let Tlist_File_Fold_Auto_Close=0  " Automatically close folds for non-active files in tag list.
+let Tlist_Compact_Format=0  " No spaces and additional help.
+
+"Bundle 'buftabs'
+"let g:buftabs_only_basename=1  " Only print the filename of each buffer, omitting the preceding directory name.
+"let g:buftabs_in_statusline=1  " Show the buftabs in the statusline instead of the command line.
+"let g:buftabs_active_highlight_group="Visual"  " Highlight selected buffer.
+
+Bundle 'minibufexpl.vim'
+"let g:miniBufExplVSplit = 13  " Vertical column static width in chars
+"let g:miniBufExplMaxSize = 2   " Vertical column max size.
+let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window) -- I think this can cause a bug where two MiniBufExpl windows get opened every now and then.
+"let g:miniBufExplForceSyntaxEnable = 1  " Use this if you encounter highlighting bugs (colors not changing).
+
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+"map <leader>f :FufFileWithCurrentBufferDir **/<C-M> 
+"map <leader>b :FufBuffer<C-M>
 
 
 " GUI
@@ -54,26 +96,27 @@ set t_Co=256  " Set terminal with 256 colors.
 
 " gVim / MacVim
 set guifont=Monaco:h14  " gVim font.
-set guioptions-=T  " disables gVim toolbar (iconbar).
-set guicursor=a:blinkon0  " disable gVim cursor blinking.
 
+set guioptions=a  " Disables all GUI options (menu, scrollbar, etc.)
+"set guioptions-=T  " disables gVim toolbar (iconbar).
+
+set guicursor=a:blinkon0  " disable gVim cursor blinking.
 "set cursorline  " Set cursor to line.
 "set cursorcolumn  " Set cursor to column.
 
 
 " Colors
-set background=dark  " or light (this needs to come before 'colorscheme' decleration)
-colorscheme jellybeans  " or desert256
+set background=dark
+"colorscheme jellybeans
+colorscheme desert256
+"colorscheme herald
 
 
 " Formatting
-set fo+=2  " Keep indentation of last line when creating a new line.
+"set formatoptions+=r  " Insert comment leader after hitting <Enter> in insert mode.
+set formatoptions+=2  " Keep last line indentation. NOTE: Requires 'set autoindent'.
 
-set fo-=o  " Do not insert the current comment leader after hitting 'o' or 'O' in Normal mode.
-set fo-=r  " Do not insert a comment leader after an enter.
-set fo-=t  " Do no auto-wrap text using textwidth (does not apply to comments).
-
-set nowrap  " No line wrapping.
+set nowrap     " No line wrapping.
 set linebreak  " Wrap at word.
 
 set backspace=indent  " Activate backspace key. Erase previously entered characters in insert mode.
@@ -82,12 +125,12 @@ set backspace+=start
 
 set number " Show line numbers.
 "set nonumber " Hide line numbers.
-set numberwidth=4  " Width of numbers column.
+set numberwidth=5  " Width of numbers column.
 
 
 " Syntax
 syntax on  " Syntax highlighting.
-autocmd FileType html set filetype=html syntax=htmldjango  " Special syntax for html+django.
+autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for html+django.
 
 " Show matching brace on insertion or cursor over.
 set showmatch
@@ -106,15 +149,11 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
 
-set tabstop=4  " Tab size eql 4 spaces.
-set softtabstop=4
-set shiftwidth=4  " Default shift width for indents.
-set expandtab  " Replace tabs with ${tabstop} spaces.
-set smarttab
-
-" Special indentation for specific file types.
-autocmd FileType html set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
-autocmd FileType css  set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
+" expandtab  = All tabs will be spaces.         | tabstop    = How many spaces is a tab (visually).
+" smarttab   = delete chunks of spaces as tabs. | softabstop = How many spaces will a tab take when 'expandtab' is on.
+" shiftwidth = How many spaces will a 'shift' command take.
+autocmd BufWinEnter,FileType *,python,javascript set tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab  " This includes default behaviour.
+autocmd BufWinEnter,FileType html,css            set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
 
 
 " Searching
@@ -187,18 +226,24 @@ set wildignore+=*.pdf  " Ignore PDF files
 set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 
 
+" Key mappings
+" Map arrow keys to window-change actions.
+"map <Up> <C-w>k
+map <Down> <C-w>j
+"map <Left> <C-w>h
+map <Right> <C-w>l
+
+" Map up/down keys to page-up/down.
+map <Up> <C-b>
+map <Down> <C-f>
+
+
 " General
 set history=256  " Number of things to remember in history.
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
-"set autoread  " Reload file if changed outside of vim (DANGEROUS!).
+"set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
 set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
-autocmd BufEnter * lcd %:p:h  " Sets path to directory buffer was loaded from.
-
-
-" Additional Functions
-
-"if has("autocmd")
-  "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
-"endif
+autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file.
+"autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
 
