@@ -11,11 +11,10 @@ Have fun and fork at will! :)
 1. Clone this repo: `git clone git://github.com/oryband/dotvim.git ~/.vim` - (Be careful not to override your own configuration...)
 2. Initialize the [Vundle](http://github.com/gmarik/vundle) plugin as a sub-repository:
 
-        git submodule add http://github.com/gmarik/vundle.git ~/.vim/vundle.git
         git submodule init
         git submodule update
 
-3. You can then use `git submodule update` to update [Vundle](http://github.com/gmarik/vundle) any time.
+3. You can now use `git submodule update` to update [Vundle](http://github.com/gmarik/vundle) any time you want.
 4. Open vim and type `:BundleInstall!` to install all the plugins.
 5. The rest is fully commented and explained in the `.virmc` file itself.
 

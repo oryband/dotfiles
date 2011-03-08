@@ -13,7 +13,12 @@ filetype plugin indent on  " Automatically detect file types.
 " To clean ununsed plugins type  ':BundleClean!'
 
 " Initialization
-set runtimepath+=~/.vim/vundle.git/ 
+if has ("win32")
+    set runtimepath+=$HOME/vimfiles/vundle.git/ 
+else
+    set runtimepath+=$HOME/vim/vundle.git/ 
+endif
+
 call vundle#rc()
 
 " Colors
@@ -95,7 +100,11 @@ let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffe
 set t_Co=256  " Set terminal with 256 colors.
 
 " gVim / MacVim
-set guifont=Monaco:h14  " gVim font.
+if has("win32")
+    set guifont=Consolas:h12  " gVim font.
+else
+    set guifont=Monaco:h14  " gVim font.
+endif
 
 set guioptions=a  " Disables all GUI options (menu, scrollbar, etc.)
 "set guioptions-=T  " disables gVim toolbar (iconbar).
@@ -180,7 +189,11 @@ set nobackup
 "set backupdir=~/.vim/backup  " Setup backup location and enable
 "set backup
 
-set directory=/tmp//  " Set swap directory. prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
+if has ("win32")
+    set directory=C:\windows/temp/
+else
+    set directory=/tmp//  " Set swap directory. prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
+endif
 
 set undofile  " Set up persistent undo.
 set undodir=~/.undo
@@ -200,8 +213,10 @@ set ruler  " Doesn't work with buftabs.vim plugin.
 
 
 " Invisible characters.
-set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
-"set listchars=tab:°\ ,trail:·,eol:☠  " Alternate invisible characters.
+if ! has("win32")
+    set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
+    "set listchars=tab:°\ ,trail:·,eol:☠  " Alternate invisible characters.
+endif
 "set list  " Display invisible characters.
 set nolist  " Don't display invisible characters.
 
