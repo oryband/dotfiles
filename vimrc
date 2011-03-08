@@ -102,6 +102,7 @@ set t_Co=256  " Set terminal with 256 colors.
 " gVim / MacVim
 if has("win32")
     set guifont=Consolas:h12  " gVim font.
+    set encoding=utf-8
 else
     set guifont=Monaco:h14  " gVim font.
 endif
