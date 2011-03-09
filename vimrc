@@ -23,7 +23,7 @@ filetype plugin indent on  " Automatically detect file types.
 if has ("win32")
     set runtimepath+=$HOME/vimfiles/vundle.git/ 
 else
-    set runtimepath+=$HOME/vim/vundle.git/ 
+    set runtimepath+=$HOME/.vim/vundle.git/ 
 endif
 
 call vundle#rc()
