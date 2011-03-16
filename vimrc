@@ -5,7 +5,7 @@
 
 " Initialization
 set nocompatible  " Disable vi compatibility (more efficient, and besides we're using non-vi tricks here).
-set fileformats=mac,unix,dos  " Set new file format and file format support (everything).
+set fileformats=unix,dos,mac  " Set new file format and file format support (everything).
 filetype plugin indent on  " Automatically detect file types.
 
 " Plugin Bundles - http://vim-scripts.org/vim/scripts.html
@@ -25,12 +25,14 @@ call vundle#rc()
 Bundle "jellybeans.vim"
 Bundle "desert256.vim"
 Bundle "herald.vim"
+Bundle "tir_black"
 
 " Syntax
 Bundle "python.vim--Vasiliev"
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
+
 Bundle "django.vim"
 "Bundle 'https://github.com/oryband/Better-CSS-Syntax-for-Vim'
 
@@ -64,7 +66,7 @@ Bundle "ShowMarks"
 " Only show alphabetic marks.
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-" Don't show anything else on the mark ruler besides the mark's name.
+" Marks will be shown in format of 'm[mark char]' e.g. 'mA'.
 let g:showmarks_textlower="m\t"
 let g:showmarks_textupper="m\t"
 let g:showmarks_textother="m\t"
@@ -72,11 +74,14 @@ let g:showmarks_textother="m\t"
 Bundle "Tabular"
 
 Bundle "taglist.vim"
+" Sort tags by name (alternative is 'order' - of appearance).
+let Tlist_Sort_Type="name"
 let Tlist_WinWidth=30  " Window width in chars.
 let Tlist_Use_Right_Window=1  " Open tag list window to the right (instead to the left).
+let Tlist_GainFocus_On_ToggleOpen=1  " Switch to tag list window after opening it.
 let Tlist_Exit_OnlyWindow=1  " Exit Vim if the tag list window is the only one left open.
-let Tlist_File_Fold_Auto_Close=0  " Automatically close folds for non-active files in tag list.
-let Tlist_Compact_Format=0  " No spaces and additional help.
+let Tlist_File_Fold_Auto_Close=1  " Automatically close folds for non-active files in tag list.
+"let Tlist_Compact_Format=1  " No spaces and additional help.
 
 "Bundle 'buftabs'
 "let g:buftabs_only_basename=1  " Only print the filename of each buffer, omitting the preceding directory name.
@@ -117,24 +122,31 @@ set guicursor=a:blinkon0  " disable gVim cursor blinking.
 
 " Colors
 set background=dark
-"colorscheme jellybeans
-colorscheme desert256
-"colorscheme herald
+colorscheme jellybeans
+"colorscheme desert256
+"colorscheme tir_black
+
+function! GlobalColorSettings()  " Set global color settings, regardless of colorscheme currently in use.
+    " Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
+    highlight Todo term=standout ctermfg=196 ctermbg=226 guifg=#ff4500 guibg=#eeee00
+
+    " Set cursor color to be like in jellybeans.vim colorscheme, but with black text (previously white).
+    highlight Cursor ctermfg=Black ctermbg=153 guifg=#000000 guibg=#b0d0f0
+endfunction
+
+autocmd ColorScheme * call GlobalColorSettings()  " Call the global color settings on every colorscheme change.
 
 
 " Formatting
-"set formatoptions+=r  " Insert comment leader after hitting <Enter> in insert mode.
-set formatoptions+=2  " Keep last line indentation. NOTE: Requires 'set autoindent'.
+set textwidth=80  " Desirable text width. Used for text auto-wrapping.
+set formatoptions=r,2  " Insert comment leader after hitting <Enter> in insert mode, and keep last line indentation. NOTE: Requires 'set autoindent'.
 
 set nowrap     " No line wrapping.
 set linebreak  " Wrap at word.
 
-set backspace=indent  " Activate backspace key. Erase previously entered characters in insert mode.
-set backspace+=eol
-set backspace+=start
+set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
 
 set number " Show line numbers.
-"set nonumber " Hide line numbers.
 set numberwidth=5  " Width of numbers column.
 
 
@@ -145,7 +157,7 @@ autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for h
 " Show matching brace on insertion or cursor over.
 set showmatch
 set matchtime=3
-set matchpairs+=<:>  " Treat '<','>' as a matching braces.
+set matchpairs+=<:>  " Treat '<','>' as matching braces.
 
 
 " Omni Completion
@@ -175,20 +187,13 @@ set ignorecase  " Ignore case when searching.
 
 " Folding
 set foldenable  " Turn on folding.
-"set nofoldenable  " Turn off folding.
 set foldmethod=marker  " Fold on the marker.
 set foldlevel=100  " Don't autofold anything (but I can still fold manually).
-
-set foldopen=block,hor,tag  " What movements open folds.
-set foldopen+=percent,mark
-set foldopen+=quickfix
-
+set foldopen=block,hor,tag,percent,mark,quickfix  " What movements open folds.
 
 " Backup
-set nowritebackup  " Disable backup
-set nobackup
-"set backupdir=~/.vim/backup  " Setup backup location and enable
-"set backup
+set nobackup  " Disable file backup beforew file overwrrite attempt.
+set nowritebackup
 
 if has ("win32")
     set directory=C:\windows/temp/
@@ -201,7 +206,7 @@ set undodir=~/.undo
 
 
 " Window splitting
-set equalalways  " Multiple windows, when created, are equal in size.
+"set equalalways  " Multiple windows, when created, are equal in size. NOTE: Doesn't work well with MiniBufExpl.vim
 set splitbelow splitright  " New windows are created to the bottom-right.
 
 
