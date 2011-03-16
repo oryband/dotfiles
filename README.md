@@ -1,4 +1,4 @@
-# This is my .vimrc.
+# This is my .vimrc
 
 I'm usually working with Python/Django and HTML/CSS/JavaScript, so my Vim IDE is configured for these languages.
 
