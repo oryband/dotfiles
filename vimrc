@@ -6,7 +6,15 @@
 " Initialization
 set nocompatible  " Disable vi compatibility (more efficient, and besides we're using non-vi tricks here).
 set fileformats=unix,dos,mac  " Set new file format and file format support (everything).
+
+if has ("win32")
+    behave mswin
+else
+    behave xterm
+endif
+
 filetype plugin indent on  " Automatically detect file types.
+
 
 " Plugin Bundles - http://vim-scripts.org/vim/scripts.html
 " To install/update type  ':BundleInstall!'  <-- NOTE the exclamation mark '!'
@@ -214,7 +222,7 @@ set splitbelow splitright  " New windows are created to the bottom-right.
 set shortmess=atI  " Shortens messages in status line.
 set laststatus=2  " Always show status line.
 set showcmd  " Display an incomplete command in status line.
-set ruler  " Doesn't work with buftabs.vim plugin.
+set ruler  " Show file status ruler. NOTE: Doesn't work with buftabs.vim plugin.
 "set ch=2  " Make command line two lines high
 
 
@@ -250,7 +258,7 @@ set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 " Key mappings
 " Map arrow keys to window-change actions.
 "map <Up> <C-w>k
-map <Down> <C-w>j
+map <Left> <C-w>j
 "map <Left> <C-w>h
 map <Right> <C-w>l
 

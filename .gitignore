@@ -4,3 +4,6 @@
 # Vim backup & swap folder (.swp and ~* files)
 /bundle/
 
+# Apple TimeMachine
+.com.apple.timemachine.supported
+
