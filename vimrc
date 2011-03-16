@@ -32,7 +32,6 @@ call vundle#rc()
 " Colors
 Bundle "jellybeans.vim"
 Bundle "desert256.vim"
-Bundle "herald.vim"
 Bundle "tir_black"
 
 " Syntax
