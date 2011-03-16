@@ -9,7 +9,7 @@ alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 alias todo=/usr/local/bin/todo.sh  # todo.txt app
 
 alias ll='ls -l'
-alias la='ls -Al'  # show hidden files, -l-style.
+alias la='ls -Al'  # show hidden files, with -l
 
 
 # Setting PATH for MacPython 2.6
@@ -27,4 +27,8 @@ export PYTHONPATH
 # MacPorts Installer addition on 2011-01-12_at_01:56:09: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# Add Adobe AIR SDK to Path.
+PATH="/Users/ory/Applications/AdobeAIRSDK/bin:${PATH}"
 
