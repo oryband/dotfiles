@@ -1,6 +1,7 @@
-" Great sources -
+" Great sources & credits -
 " gmarik's vimrc - https://github.com/gmarik/vimfiles/blob/master/vimrc
 " durdn's vimrc - https://github.com/durdn/cfg/blob/master/.vimrc
+" Example vimrc - http://www.vi-improved.org/vimrc.php
 " Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
 " Initialization
@@ -165,9 +166,8 @@ set numberwidth=5  " Width of numbers column.
 syntax on  " Syntax highlighting.
 autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for html+django.
 
-" Show matching brace on insertion or cursor over.
-set showmatch
-set matchtime=3
+set showmatch  " Show matching brace on insertion or cursor over.
+set matchtime=3  " How many tenths of a second to wait before showing matching braces.
 set matchpairs+=<:>  " Treat '<','>' as matching braces.
 
 
@@ -181,12 +181,16 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " Indentation
 set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
+"set shiftround  " Round shift actions. i.e. When at 3 spaces, and I hit > ... go to 4, not 5.
 
-" expandtab  = All tabs will be spaces.         | tabstop    = How many spaces is a tab (visually).
-" smarttab   = delete chunks of spaces as tabs. | softabstop = How many spaces will a tab take when 'expandtab' is on.
+" expandtab  = All tabs will be spaces.
+" softabstop = How many spaces will a tab take when 'expandtab' is on.
+" smarttab   = delete chunks of spaces like tabs.
+" tabstop    = How many spaces is a tab (visually).
 " shiftwidth = How many spaces will a 'shift' command take.
-autocmd BufWinEnter,FileType *,python,javascript set tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab  " This includes default behaviour.
-autocmd BufWinEnter,FileType html,css            set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
+autocmd BufWinEnter,FileType *,python,javascript set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4  " This includes default behaviour.
+autocmd BufWinEnter,FileType html,css            set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 
+
 
 
 " Searching
@@ -202,18 +206,19 @@ set foldmethod=marker  " Fold on the marker.
 set foldlevel=100  " Don't autofold anything (but I can still fold manually).
 set foldopen=block,hor,tag,percent,mark,quickfix  " What movements open folds.
 
+
 " Backup
 set nobackup  " Disable file backup beforew file overwrrite attempt.
 set nowritebackup
 
-if has ("win32")
-    set directory=C:\windows/temp/
-else
-    set directory=/tmp//  " Set swap directory. prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
-endif
-
 set undofile  " Keep undo actions even when a file (buffer) is closed.
-set undodir=$TEMP
+if has ("win32")  " Set swap and undo files location.
+    set directory  =C:\tmp,C:\temp,.
+    set undodir   ="C:\tmp,C:\temp,."
+else
+    set directory  =/var/tmp,/tmp,~/tmp,.
+    set undodir   ="/var/tmp,/tmp,~/tmp,."
+endif
 
 
 " Window splitting
@@ -276,6 +281,6 @@ set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
 "set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
 set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
-autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file.
+autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
 
