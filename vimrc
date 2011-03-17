@@ -212,12 +212,16 @@ set nobackup  " Disable file backup beforew file overwrrite attempt.
 set nowritebackup
 
 set undofile  " Keep undo actions even when a file (buffer) is closed.
-if has ("win32")  " Set swap and undo files location.
-    set directory  =C:\tmp,C:\temp,.
-    set undodir   ="C:\tmp,C:\temp,."
+if has ("win32")  " Set undo files location.
+    set undodir=$HOME\vimfiles\undo
+    set undodir+=C:\tmp
+    set undodir+=C:\temp
+    set undodir+=.
 else
-    set directory  =/var/tmp,/tmp,~/tmp,.
-    set undodir   ="/var/tmp,/tmp,~/tmp,."
+    set undodir=$HOME/.vim/undo
+    set undodir+=/var/tmp
+    set undodir+=/tmp
+    set undodir+=.
 endif
 
 
