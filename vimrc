@@ -5,6 +5,7 @@
 
 " Initialization
 set nocompatible  " Disable vi compatibility (more efficient, and besides we're using non-vi tricks here).
+
 set fileformats=unix,dos,mac  " Set new file format and file format support (everything).
 
 if has ("win32")
@@ -89,6 +90,9 @@ let Tlist_GainFocus_On_ToggleOpen=1  " Switch to tag list window after opening i
 let Tlist_Exit_OnlyWindow=1  " Exit Vim if the tag list window is the only one left open.
 let Tlist_File_Fold_Auto_Close=1  " Automatically close folds for non-active files in tag list.
 "let Tlist_Compact_Format=1  " No spaces and additional help.
+
+" Add JavaScript tag listing.
+let g:tlist_javascript_settings='javascript;s:string;a:array;o:object;f:function'
 
 "Bundle 'buftabs'
 "let g:buftabs_only_basename=1  " Only print the filename of each buffer, omitting the preceding directory name.
@@ -209,7 +213,7 @@ else
 endif
 
 set undofile  " Keep undo actions even when a file (buffer) is closed.
-set undodir+=$HOME/.undo
+set undodir=$TEMP
 
 
 " Window splitting
