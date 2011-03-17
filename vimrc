@@ -141,7 +141,7 @@ function! GlobalColorSettings()  " Set global color settings, regardless of colo
     highlight Cursor ctermfg=Black ctermbg=153 guifg=#000000 guibg=#b0d0f0
 endfunction
 
-autocmd ColorScheme * call GlobalColorSettings()  " Call the global color settings on every colorscheme change.
+autocmd colorscheme * call GlobalColorSettings()  " Call the global color settings on every colorscheme change.
 
 
 " Formatting
@@ -208,8 +208,8 @@ else
     set directory=/tmp//  " Set swap directory. prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
 endif
 
-set undofile  " Set up persistent undo.
-set undodir=~/.undo
+set undofile  " Keep undo actions even when a file (buffer) is closed.
+set undodir+=$HOME/.undo
 
 
 " Window splitting
@@ -218,7 +218,7 @@ set splitbelow splitright  " New windows are created to the bottom-right.
 
 
 " Status Line
-set shortmess=atI  " Shortens messages in status line.
+set shortmess=at  " Shortens messages in status line, truncates long messages.
 set laststatus=2  " Always show status line.
 set showcmd  " Display an incomplete command in status line.
 set ruler  " Show file status ruler. NOTE: Doesn't work with buftabs.vim plugin.
