@@ -1,8 +1,11 @@
 # Mac OS X Finder control file.
 .DS_Store
 
-# Vim backup, undo & swap folders.
+# Vim backup, undo folders.
 /bundle/
+/undo/
+
+# Stub file for undo/ , so only the dir will be committed (but not the files inside).
 !/undo/.empty
 
 # Apple TimeMachine
