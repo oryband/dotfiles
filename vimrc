@@ -2,20 +2,21 @@
 " gmarik's vimrc - https://github.com/gmarik/vimfiles/blob/master/vimrc
 " durdn's vimrc - https://github.com/durdn/cfg/blob/master/.vimrc
 " Example vimrc - http://www.vi-improved.org/vimrc.php
+"
 " Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
 " Initialization
 set nocompatible  " Disable vi compatibility (more efficient, and besides we're using non-vi tricks here).
 
-set fileformats=unix,dos,mac  " Set new file format and file format support (everything).
+set fileformats=unix,dos,mac  " Set file end-of-line priority.
 
-if has ("win32")
+if has ("win32")  " Set mouse behaviour to be like the OS's.
     behave mswin
 else
     behave xterm
 endif
 
-filetype plugin indent on  " Automatically detect file types.
+filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
 
 
 " Plugin Bundles - http://vim-scripts.org/vim/scripts.html
@@ -49,21 +50,14 @@ Bundle "django.vim"
 Bundle "indentpython.vim"
 Bundle "JavaScript-Indent"
 
-" Linting - Error correction
+" Linting / Error correction
 Bundle "pyflakes.vim"
 
 " Other plugins
-"Bundle 'EnhCommentify.vim'
-"let g:EnhCommentifyRespectIndent='Yes'  " Put comment sign near text, not at beginning of line.
-"let g:EnhCommentifyUseAltKeys='Yes'  " Comment using <Meta-x> instead of <Leader>x
-"let g:EnhCommentifyTraditionalMode='Yes'  " Comment/Uncommend each line seperately.
-"let g:EnhCommentifyFirstLineMode='Yes'  " Comment/Uncomment according to status of first line of code block.
-"let g:EnhCommentifyMultiPartBlocks = 'Yes'  " Wrap comment signs around code blocks, not line-by-line.
-"let g:EnhCommentifyUseSyntax='Yes'  " Use smart-commenting (e.g. <script> inside and *.html file will do a JavaScript commenting).
-"imap <C-c> <Esc><Plug>Traditional
+Bundle "The-NERD-Commenter"
 
 Bundle "camelcasemotion"
-" Make word skip actions stop at new camelCaseWord or new_underscore_word.
+" Make word-skip actions stop at new camelCaseWord or new_underscore_word.
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
@@ -76,9 +70,9 @@ Bundle "ShowMarks"
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 " Marks will be shown in format of 'm[mark char]' e.g. 'mA'.
-let g:showmarks_textlower="m\t"
-let g:showmarks_textupper="m\t"
-let g:showmarks_textother="m\t"
+let g:showmarks_textlower="\.\t"
+let g:showmarks_textupper="\.\t"
+let g:showmarks_textother="\.\t"
 
 Bundle "Tabular"
 
@@ -101,35 +95,18 @@ let g:tlist_javascript_settings='javascript;s:string;a:array;o:object;f:function
 "let g:buftabs_active_highlight_group="Visual"  " Highlight selected buffer.
 
 Bundle 'minibufexpl.vim'
+let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
 "let g:miniBufExplVSplit = 13  " Vertical column static width in chars
 "let g:miniBufExplMaxSize = 2   " Vertical column max size.
-let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window) -- I think this can cause a bug where two MiniBufExpl windows get opened every now and then.
 "let g:miniBufExplForceSyntaxEnable = 1  " Use this if you encounter highlighting bugs (colors not changing).
 
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"map <leader>f :FufFileWithCurrentBufferDir **/<C-M> 
-"map <leader>b :FufBuffer<C-M>
 
+" Terminal / GUI
+set t_Co=256  " Set terminal to display 256 colors.
 
-" GUI
-" Terminal
-set t_Co=256  " Set terminal with 256 colors.
-
-" gVim / MacVim
-if has("win32")
-    set guifont=Consolas:h12  " gVim font.
+if has("win32")  " Fix Windows specific encoding problem.
     set encoding=utf-8
-else
-    set guifont=Monaco:h14  " gVim font.
 endif
-
-set guioptions=a  " Disables all GUI options (menu, scrollbar, etc.)
-"set guioptions-=T  " disables gVim toolbar (iconbar).
-
-set guicursor=a:blinkon0  " disable gVim cursor blinking.
-"set cursorline  " Set cursor to line.
-"set cursorcolumn  " Set cursor to column.
 
 
 " Colors
@@ -151,7 +128,7 @@ autocmd colorscheme * call GlobalColorSettings()  " Call the global color settin
 
 " Formatting
 set textwidth=80  " Desirable text width. Used for text auto-wrapping.
-set formatoptions=r,2  " Insert comment leader after hitting <Enter> in insert mode, and keep last line indentation. NOTE: Requires 'set autoindent'.
+set formatoptions=r,2  " FIXME: Doesn't work, unless re-sourcing .vimrc. Enable comment leader insertion after hitting <Enter> in insert mode, and keep last line indentation. Disable all other format options. NOTE: Requires 'set autoindent'.
 
 set nowrap     " No line wrapping.
 set linebreak  " Wrap at word.
@@ -181,7 +158,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " Indentation
 set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
-"set shiftround  " Round shift actions. i.e. When at 3 spaces, and I hit > ... go to 4, not 5.
+"set shiftround  " Round shift actions. i.e. When at 3 spaces, and I hit > ... go to 4, not 5. FIXME: Doesn't work.
 
 " expandtab  = All tabs will be spaces.
 " softabstop = How many spaces will a tab take when 'expandtab' is on.
@@ -189,7 +166,7 @@ set smartindent
 " tabstop    = How many spaces is a tab (visually).
 " shiftwidth = How many spaces will a 'shift' command take.
 autocmd BufWinEnter,FileType *,python,javascript set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4  " This includes default behaviour.
-autocmd BufWinEnter,FileType html,css            set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 
+autocmd BufWinEnter,FileType html,css            set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2  " FIXME: Doesn't work.
 
 
 
@@ -208,21 +185,21 @@ set foldopen=block,hor,tag,percent,mark,quickfix  " What movements open folds.
 
 
 " Backup
-set nobackup  " Disable file backup beforew file overwrrite attempt.
+set nobackup  " Disable file backup before file overwrite attempt.
 set nowritebackup
 
-set undofile  " Keep undo actions even when a file (buffer) is closed.
-if has ("win32")  " Set undo files location.
-    set undodir=$HOME\vimfiles\undo
-    set undodir+=C:\tmp
-    set undodir+=C:\temp
-    set undodir+=.
-else
-    set undodir=$HOME/.vim/undo
-    set undodir+=/var/tmp
-    set undodir+=/tmp
-    set undodir+=.
-endif
+"set undofile  " Keep undo actions even when a file (buffer) is closed.
+"if has ("win32")  " Set undo files location.
+    "set undodir=$HOME\vimfiles\undo
+    "set undodir+=C:\tmp
+    "set undodir+=C:\temp
+    "set undodir+=.
+"else
+    "set undodir=$HOME/.vim/undo
+    "set undodir+=/var/tmp
+    "set undodir+=/tmp
+    "set undodir+=.
+"endif
 
 
 " Window splitting
@@ -280,11 +257,18 @@ map <Down> <C-f>
 
 
 " General
+let mapleader=","  " Set <leader> key to comma.
+
 set history=256  " Number of things to remember in history.
+
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
+
 "set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
+
 set clipboard+=unnamed  " Enable OS clipboard integration.
+
 set hidden  " The current buffer can be put to the background without writing to disk.
+
 autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
 

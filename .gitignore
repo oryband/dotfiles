@@ -1,8 +1,9 @@
 # Mac OS X Finder control file.
 .DS_Store
 
-# Vim backup & swap folder (.swp and ~* files)
+# Vim backup, undo & swap folders.
 /bundle/
+!/undo/.empty
 
 # Apple TimeMachine
 .com.apple.timemachine.supported
