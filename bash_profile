@@ -11,9 +11,10 @@ alias todo=/usr/local/bin/todo.sh  # todo.txt app.
 alias ll='ls -l'
 alias la='ls -Al'  # show hidden files, with -l.
 
-alias grep='grep --color=auto'  # Colorful grep.
+alias grep='grep --color=auto -Ii'  # Colorful, case-INsensitive, skipping binary files.
 
 alias less='less -R'  # Colorful less.
+
 export LESS='FRSXQ'  # For colorful diffing in Mercurial.
 
 export LESS_TERMCAP_mb=$'\E[01;31m'  # Colorful man pages.
