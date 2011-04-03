@@ -17,3 +17,7 @@ Have fun and fork at will! :)
 3. Open vim and type `:BundleInstall!` to install all the plugins.
 4. The rest is fully commented and explained in the `.virmc` file itself.
 
+# Notes
+
+1. To add JavaScript tag listing, add the .ctags file from my [dotfiles](http://github.com/oryband/dotfiles) repository to your home folder. For me information, see [this](http://stackoverflow.com/questions/1790623/how-can-i-make-vims-taglist-plugin-show-useful-information-for-javascript/1792043#1792043).
+
