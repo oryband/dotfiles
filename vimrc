@@ -119,6 +119,9 @@ function! GlobalColorSettings()  " Set global color settings, regardless of colo
     " Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
     highlight Todo term=standout ctermfg=196 ctermbg=226 guifg=#ff4500 guibg=#eeee00
 
+    " TODO: colorscheme jellybeans only.
+    highlight Operator term=underline ctermfg=215 guifg=#ffb964
+
     " Set cursor color to be like in jellybeans.vim colorscheme, but with black text (previously white).
     highlight Cursor ctermfg=Black ctermbg=153 guifg=#000000 guibg=#b0d0f0
 endfunction
@@ -247,8 +250,8 @@ set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 " Key mappings
 " Map arrow keys to window-change actions.
 "map <Up> <C-w>k
-map <Left> <C-w>j
-"map <Left> <C-w>h
+"map <Down> <C-w>j
+map <Left> <C-w>h
 map <Right> <C-w>l
 
 " Map up/down keys to page-up/down.
