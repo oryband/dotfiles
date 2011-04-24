@@ -10,6 +10,8 @@ vimdiff.args = -d $base $local $output $other +close +close
 
 
 [extensions]
+hgattic=~/.hg/extensions/attic.py
+
 hgext.extdiff =
 
 # Enable colorful `hg diff`.
