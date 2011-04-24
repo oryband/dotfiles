@@ -1,3 +1,5 @@
+PS1="\w$ "  # Custom prompt text (full pwd).
+
 export CLICOLOR=1  # Enable terminal colors
 export LSCOLORS=Gxfxbxdxcxegedabagacad  # File-type color definition (e.g. files=grey, directories=bold cyan, etc.) -- Dark background.
 #export LSCOLORS=ExFxCxDxBxegedabagacad  # Light background.
