@@ -44,7 +44,7 @@ let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
 
 Bundle "django.vim"
-"Bundle 'https://github.com/oryband/Better-CSS-Syntax-for-Vim'
+Bundle "Better-CSS-Syntax-for-Vim"
 
 " Indentation
 Bundle "indentpython.vim"
