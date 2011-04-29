@@ -1,3 +1,9 @@
 [submodule "vim"]
 	path = vim
 	url = git@github.com:oryband/dotvim.git
+[submodule "solarized"]
+	path = solarized
+	url = https://github.com/altercation/solarized.git
+[submodule "doctorjs"]
+	path = doctorjs
+	url = git://github.com/mozilla/doctorjs.git
