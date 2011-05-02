@@ -29,7 +29,8 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-PATH="/usr/local/share/python:${PATH}"  # Add Homebrew"s Python to $PATH, before the system"s Python.
+PATH="/usr/local/bin:/usr/local/sbin:${PATH}"  # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
+PATH="/usr/local/share/python:${PATH}"  # Add Homebrew's Python to $PATH, before the system"s Python.
 export PATH
 
 NODE_PATH="/usr/local/lib/node:${NODE_PATH}"  # Add Homebrew"s node.js package dir to path.
