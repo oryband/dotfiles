@@ -1,6 +1,9 @@
 # Mac OS X Finder control file.
 .DS_Store
 
+# Vim swap files.
+.swp
+
 # Vim backup, undo folders.
 /bundle/
 /undo/

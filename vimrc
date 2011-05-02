@@ -21,9 +21,9 @@ filetype plugin indent on  " Automatically detect file types, and enable file-ty
 
 " Plugin Bundles - http://vim-scripts.org/vim/scripts.html
 " To install/update type  ':BundleInstall!'  <-- NOTE the exclamation mark '!'
-" To clean ununsed plugins type  ':BundleClean!'
+" To clean ununsed plugins type ':BundleClean!'
 
-" Initialization
+" Plugin manager initialization
 if has ("win32")
     set runtimepath+=$HOME/vimfiles/vundle.git/ 
 else
@@ -33,29 +33,35 @@ endif
 call vundle#rc()
 
 " Colors
-Bundle "Solarized"
-Bundle "jellybeans.vim"
+Bundle "altercation/vim-colors-solarized"
+Bundle "nanotech/jellybeans.vim"
 Bundle "desert256.vim"
-Bundle "tir_black"
 
 " Syntax
+Bundle "tpope/vim-markdown"
+Bundle "pangloss/vim-javascript"
+Bundle "ChrisYip/Better-CSS-Syntax-for-Vim"
+Bundle "django.vim"
 Bundle "python.vim--Vasiliev"
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
 
-Bundle "django.vim"
-Bundle "Better-CSS-Syntax-for-Vim"
-
 " Indentation
 Bundle "indentpython.vim"
-Bundle "JavaScript-Indent"
 
 " Linting / Error correction
-Bundle "pyflakes.vim"
+Bundle "scrooloose/syntastic"
+let g:syntastic_enable_signs=1  " Show sidebar signs.
+"let g:syntastic_auto_loc_list=1  " Auto open errors window upon detection.
+"set statusline+=%#warningmsg#  " Add Error ruler.
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+" NOTE: Execute `npm install jshint` & Delete .vim/bundle/syntastic/syntax_checkers/javascript.vim to use the custom jshint syntax checker.
 
 " Other plugins
-Bundle "The-NERD-Commenter"
+Bundle "scrooloose/nerdcommenter"
 
 Bundle "camelcasemotion"
 " Make word-skip actions stop at new camelCaseWord or new_underscore_word.
@@ -75,31 +81,19 @@ let g:showmarks_textlower="\.\t"
 let g:showmarks_textupper="\.\t"
 let g:showmarks_textother="\.\t"
 
-Bundle "Tabular"
+Bundle "godlygeek/tabular"
 
-Bundle "taglist.vim"
-" Sort tags by name (alternative is 'order' - of appearance).
-let Tlist_Sort_Type="name"
-let Tlist_WinWidth=30  " Window width in chars.
-let Tlist_Use_Right_Window=1  " Open tag list window to the right (instead to the left).
-let Tlist_GainFocus_On_ToggleOpen=1  " Switch to tag list window after opening it.
-let Tlist_Exit_OnlyWindow=1  " Exit Vim if the tag list window is the only one left open.
-let Tlist_File_Fold_Auto_Close=1  " Automatically close folds for non-active files in tag list.
-"let Tlist_Compact_Format=1  " No spaces and additional help.
-
-" Add JavaScript tag listing.
-let g:tlist_javascript_settings='javascript;s:string;a:array;o:object;f:function'
-
-"Bundle 'buftabs'
-"let g:buftabs_only_basename=1  " Only print the filename of each buffer, omitting the preceding directory name.
-"let g:buftabs_in_statusline=1  " Show the buftabs in the statusline instead of the command line.
-"let g:buftabs_active_highlight_group="Visual"  " Highlight selected buffer.
+Bundle "majutsushi/tagbar"
 
 Bundle 'minibufexpl.vim'
 let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
 "let g:miniBufExplVSplit = 13  " Vertical column static width in chars
 "let g:miniBufExplMaxSize = 2   " Vertical column max size.
 "let g:miniBufExplForceSyntaxEnable = 1  " Use this if you encounter highlighting bugs (colors not changing).
+
+Bundle "IndexedSearch"
+
+"Bundle Raimondi/delimitMate"
 
 
 " Terminal / GUI
@@ -113,20 +107,20 @@ endif
 " Colors
 set background=dark
 " let g:solarized_termcolors=256  " Use this if you don't use Solazried as your terminal colors.
-colorscheme solarized
-"colorscheme jellybeans
+"colorscheme solarized
+colorscheme jellybeans
 "colorscheme desert256
 "colorscheme tir_black
 
 function! GlobalColorSettings()  " Set global color settings, regardless of colorscheme currently in use.
     " Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
-    "highlight Todo term=standout ctermfg=196 ctermbg=226 guifg=#ff4500 guibg=#eeee00
+    highlight Todo term=standout ctermfg=196 ctermbg=226 guifg=#ff4500 guibg=#eeee00
 
     " TODO: colorscheme jellybeans only.
-    "highlight Operator term=underline ctermfg=215 guifg=#ffb964
+    highlight Operator term=underline ctermfg=215 guifg=#ffb964
 
     " Set cursor color to be like in jellybeans.vim colorscheme, but with black text (previously white).
-    "highlight Cursor ctermfg=Black ctermbg=153 guifg=#000000 guibg=#b0d0f0
+    highlight Cursor ctermfg=Black ctermbg=153 guifg=#000000 guibg=#b0d0f0
 endfunction
 
 autocmd colorscheme * call GlobalColorSettings()  " Call the global color settings on every colorscheme change.
