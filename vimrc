@@ -43,28 +43,31 @@ Bundle "pangloss/vim-javascript"
 Bundle "ChrisYip/Better-CSS-Syntax-for-Vim"
 Bundle "django.vim"
 Bundle "python.vim--Vasiliev"
+Bundle "indentpython.vim"
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
-
-" Indentation
-Bundle "indentpython.vim"
 
 " Linting / Error correction
 Bundle "scrooloose/syntastic"
 let g:syntastic_enable_signs=1  " Show sidebar signs.
 "let g:syntastic_auto_loc_list=1  " Auto open errors window upon detection.
-"set statusline+=%#warningmsg#  " Add Error ruler.
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#  " Add Error ruler.
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+nnoremap <silent> ` :Errors<CR>
 
-" NOTE: Execute `npm install jshint` & Delete .vim/bundle/syntastic/syntax_checkers/javascript.vim to use the custom jshint syntax checker.
+" NOTE: For Javascript:
+"    1. Install exuberant-ctags & Node.js using your favorite package manager,
+"    2. Install Node Package Manager (npm): Execute `curl http://npmjs.org/install.sh | sh` - See http://npmjs.org for more info.
+"    3. Install jshint: Execute `npm install jshint`
+"    4. Create a .jshintrc file in your HOME (~/) dir. Example: https://github.com/oryband/dotfiles/blob/master/jshintrc
+"    5. Overwrite .vim/bundle/syntastic/syntax_checkers/javascript.vim with this one: https://github.com/oryband/dotvim/blob/master/syntax_checkers/javascript.vim  TODO: Find a way to not need this line.
 
 " Other plugins
 Bundle "scrooloose/nerdcommenter"
 
 Bundle "camelcasemotion"
-" Make word-skip actions stop at new camelCaseWord or new_underscore_word.
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
@@ -84,6 +87,7 @@ let g:showmarks_textother="\.\t"
 Bundle "godlygeek/tabular"
 
 Bundle "majutsushi/tagbar"
+nnoremap <silent> \ :TagbarToggle<CR>
 
 Bundle 'minibufexpl.vim'
 let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
@@ -94,6 +98,8 @@ let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffe
 Bundle "IndexedSearch"
 
 "Bundle Raimondi/delimitMate"
+
+Bundle "tpope/vim-unimpaired"
 
 
 " Terminal / GUI
@@ -106,11 +112,10 @@ endif
 
 " Colors
 set background=dark
-" let g:solarized_termcolors=256  " Use this if you don't use Solazried as your terminal colors.
-"colorscheme solarized
 colorscheme jellybeans
 "colorscheme desert256
-"colorscheme tir_black
+" let g:solarized_termcolors=256  " Use this if you don't use Solarized as your terminal colors.
+"colorscheme solarized
 
 function! GlobalColorSettings()  " Set global color settings, regardless of colorscheme currently in use.
     " Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
@@ -127,11 +132,11 @@ autocmd colorscheme * call GlobalColorSettings()  " Call the global color settin
 
 
 " Formatting
-set textwidth=80  " Desirable text width. Used for text auto-wrapping.
-set formatoptions=r,2  " FIXME: Doesn't work, unless re-sourcing .vimrc. Enable comment leader insertion after hitting <Enter> in insert mode, and keep last line indentation. Disable all other format options. NOTE: Requires 'set autoindent'.
-
 set nowrap     " No line wrapping.
 set linebreak  " Wrap at word.
+
+set textwidth=80  " Desirable text width. Used for text auto-wrapping.
+set formatoptions+=r,2  " FIXME: Doesn't work, unless re-sourcing .vimrc. Enable comment leader insertion after hitting <Enter> in insert mode, and keep last line indentation. Disable all other format options. NOTE: Requires 'set autoindent'.
 
 set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
 
@@ -271,4 +276,3 @@ set hidden  " The current buffer can be put to the background without writing to
 
 autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
-
