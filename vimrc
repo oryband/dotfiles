@@ -10,6 +10,8 @@ set nocompatible  " Disable vi compatibility (more efficient, and besides we're 
 
 set fileformats=unix,dos,mac  " Set file end-of-line priority.
 
+"set statusline=  " FIXME: Reset status line here.
+
 if has ("win32")  " Set mouse behaviour to be like the OS's.
     behave mswin
 else
@@ -135,8 +137,8 @@ autocmd colorscheme * call GlobalColorSettings()  " Call the global color settin
 set nowrap     " No line wrapping.
 set linebreak  " Wrap at word.
 
-set textwidth=80  " Desirable text width. Used for text auto-wrapping.
-set formatoptions+=r,2  " FIXME: Doesn't work, unless re-sourcing .vimrc. Enable comment leader insertion after hitting <Enter> in insert mode, and keep last line indentation. Disable all other format options. NOTE: Requires 'set autoindent'.
+set textwidth=0  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
+autocmd FileType * set formatoptions=r,2  " Enable auto-wrapping comments, comment leader auto-insertion in <Insert> mode, auto-format paragraphs, keep last line indentation. Disable all other format options. NOTE: Requires 'set autoindent'. autocmd FileType is required since formatoptions i set differently for each fiel type (.c, .py, etc.).
 
 set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
 
@@ -276,3 +278,6 @@ set hidden  " The current buffer can be put to the background without writing to
 
 autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
+
+" Search tag list from current dir up till root.
+"set tags=./tags;/  " FIXME: Make Vim search tags by project.
