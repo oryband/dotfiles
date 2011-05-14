@@ -14,7 +14,7 @@ alias vim="vi"
 alias ll="ls -l"
 alias la="ls -Al"  # show hidden files, with -l.
 
-alias grep="grep --color=auto -Ii"  # Colorful, case-INsensitive, skipping binary files.
+alias grep="grep --color=auto -I"  # Colorful, skipping binary files.
 
 alias less="less -R"  # Colorful less.
 

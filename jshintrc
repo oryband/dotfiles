@@ -37,6 +37,6 @@
     "regexp"   : true,
     "undef"    : true,
     "sub"      : false,
-    "strict"   : false,
+    "strict"   : true,
     "white"    : true
 }
