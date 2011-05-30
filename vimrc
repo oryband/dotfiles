@@ -1,12 +1,13 @@
-" Great sources & credits -
+" Great sources & credits:
 " gmarik's vimrc - https://github.com/gmarik/vimfiles/blob/master/vimrc
 " durdn's vimrc - https://github.com/durdn/cfg/blob/master/.vimrc
+" FactoryLab's Vim Git repo - https://github.com/factorylabs/vimfiles
 " Example vimrc - http://www.vi-improved.org/vimrc.php
 "
 " Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
 " Initialization
-set nocompatible  " Disable vi compatibility (more efficient, and besides we're using non-vi tricks here).
+set nocompatible  " Disable vi compatibility (more efficient, and besides - we're using non-vi tricks here).
 
 set fileformats=unix,dos,mac  " Set file end-of-line priority.
 
@@ -63,10 +64,12 @@ nnoremap <silent> ` :Errors<CR>
 "    1. Install exuberant-ctags & Node.js using your favorite package manager,
 "    2. Install Node Package Manager (npm): Execute `curl http://npmjs.org/install.sh | sh` - See http://npmjs.org for more info.
 "    3. Install jshint: Execute `npm install jshint`
-"    4. Create a .jshintrc file in your HOME (~/) dir. Example: https://github.com/oryband/dotfiles/blob/master/jshintrc
+"    4. Create a .jshintrc file @ your HOME dir (~/). Example: https://github.com/oryband/dotfiles/blob/master/jshintrc
 "    5. Overwrite .vim/bundle/syntastic/syntax_checkers/javascript.vim with this one: https://github.com/oryband/dotvim/blob/master/syntax_checkers/javascript.vim  TODO: Find a way to not need this line.
 
 " Other plugins
+Bundle "AutoTag"
+
 Bundle "scrooloose/nerdcommenter"
 
 Bundle "camelcasemotion"
@@ -188,7 +191,7 @@ set ignorecase  " Ignore case when searching.
 set foldenable  " Turn on folding.
 set foldmethod=marker  " Fold on the marker.
 set foldlevel=100  " Don't autofold anything (but I can still fold manually).
-set foldopen=block,hor,tag,percent,mark,quickfix  " What movements open folds.
+set foldopen=block,hor,tag,percent,mark,quickfix  " Which movements open folds.
 
 
 " Backup
@@ -280,4 +283,4 @@ autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file
 "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
 
 " Search tag list from current dir up till root.
-"set tags=./tags;/  " FIXME: Make Vim search tags by project.
+set tags=./tags;/
