@@ -43,7 +43,9 @@ Bundle "desert256.vim"
 " Syntax
 Bundle "tpope/vim-markdown"
 Bundle "pangloss/vim-javascript"
-Bundle "ChrisYip/Better-CSS-Syntax-for-Vim"
+Bundle "briangershon/html5.vim"
+"Bundle "ChrisYip/Better-CSS-Syntax-for-Vim"
+Bundle "css3"
 Bundle "django.vim"
 Bundle "python.vim--Vasiliev"
 Bundle "indentpython.vim"
@@ -89,8 +91,6 @@ let g:showmarks_textlower="\.\t"
 let g:showmarks_textupper="\.\t"
 let g:showmarks_textother="\.\t"
 
-Bundle "godlygeek/tabular"
-
 Bundle "majutsushi/tagbar"
 nnoremap <silent> \ :TagbarToggle<CR>
 
@@ -100,11 +100,10 @@ let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffe
 "let g:miniBufExplMaxSize = 2   " Vertical column max size.
 "let g:miniBufExplForceSyntaxEnable = 1  " Use this if you encounter highlighting bugs (colors not changing).
 
+Bundle "godlygeek/tabular"
 Bundle "IndexedSearch"
-
-"Bundle Raimondi/delimitMate"
-
 Bundle "tpope/vim-unimpaired"
+Bundle "AutoComplPop"
 
 
 " Terminal / GUI
