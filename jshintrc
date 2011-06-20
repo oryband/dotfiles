@@ -20,7 +20,7 @@
     "boss"     : false,
     "curly"    : true,
     "debug"    : true,
-    "devel"    : false,
+    "devel"    : true,
     "eqeqeq"   : true,
     "eqnull"   : false,
     "evil"     : false,
@@ -37,6 +37,6 @@
     "regexp"   : true,
     "undef"    : true,
     "sub"      : false,
-    "strict"   : true,
+    "strict"   : false,
     "white"    : true
 }
