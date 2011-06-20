@@ -3,6 +3,8 @@ username = Ory Band <oryband@gmail.com>
 verbose = True
 merge = vimdiff
 
+[web]
+cacerts = /etc/hg-dummy-cert.pem
 
 [merge-tools]
 vimdiff.executable = vim

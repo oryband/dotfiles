@@ -6,7 +6,7 @@ export LSCOLORS=Gxfxbxdxcxegedabagacad  # File-type color definition (e.g. files
 #export LSCOLORS=ExFxCxDxBxegedabagacad  # Light background.
 
 
-alias vi=~/Applications/MacVim.app/Contents/MacOS/Vim  # Override pre-installed Vim and use Homebrew"s newer version MacVim instead.
+alias vi=/Applications/MacVim.app/Contents/MacOS/Vim  # Override pre-installed Vim and use Homebrew"s newer version MacVim instead.
 alias vim="vi"
 
 #alias todo=/usr/local/bin/todo.sh  # todo.txt app.
