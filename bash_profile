@@ -9,12 +9,13 @@ export LSCOLORS=Gxfxbxdxcxegedabagacad  # File-type color definition (e.g. files
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim  # Override pre-installed Vim and use Homebrew"s newer version MacVim instead.
 alias vim="vi"
 
-#alias todo=/usr/local/bin/todo.sh  # todo.txt app.
 
 alias ll="ls -l"
 alias la="ls -Al"  # show hidden files, with -l.
 
+
 alias grep="grep --color=auto -I"  # Colorful, skipping binary files.
+
 
 alias less="less -R"  # Colorful less.
 
