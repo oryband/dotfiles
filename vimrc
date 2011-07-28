@@ -55,6 +55,7 @@ let python_print_as_function=1  " Color 'print' function.
 
 " Linting / Error correction
 Bundle "scrooloose/syntastic"
+"Bundle oryband/syntastic"
 let g:syntastic_enable_signs=1  " Show sidebar signs.
 "let g:syntastic_auto_loc_list=1  " Auto open errors window upon detection.
 set statusline+=%#warningmsg#  " Add Error ruler.
@@ -178,7 +179,6 @@ autocmd BufWinEnter,FileType *,python,javascript set expandtab smarttab tabstop=
 autocmd BufWinEnter,FileType html,css            set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2  " FIXME: Doesn't work.
 
 
-
 " Searching
 "set hlsearch  " Highlight search.
 set smartcase  " Be case sensitive when input has a capital letter.
@@ -283,3 +283,9 @@ autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file
 
 " Search tag list from current dir up till root.
 set tags=./tags;/
+
+"set debug=msg  " Show Vim error messages.
+
+"set timeoutlen=500  " Set key-combination timeout.
+
+set wildignorecase  " In-case-sensitive dir/file completion.
