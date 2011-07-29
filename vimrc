@@ -152,6 +152,7 @@ set numberwidth=5  " Width of numbers column.
 " Syntax
 syntax on  " Syntax highlighting.
 autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for html+django.
+autocmd BufWinEnter,FileType *.json,*jshintrc setfiletype javascript
 
 set showmatch  " Show matching brace on insertion or cursor over.
 set matchtime=3  " How many tenths of a second to wait before showing matching braces.
@@ -163,6 +164,7 @@ autocmd FileType python     set omnifunc=pythoncomplete#Complete
 autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+
 
 
 " Indentation
