@@ -55,7 +55,7 @@ let python_print_as_function=1  " Color 'print' function.
 
 " Linting / Error correction
 Bundle "scrooloose/syntastic"
-"Bundle oryband/syntastic"
+"Bundle "oryband/syntastic"
 let g:syntastic_enable_signs=1  " Show sidebar signs.
 "let g:syntastic_auto_loc_list=1  " Auto open errors window upon detection.
 set statusline+=%#warningmsg#  " Add Error ruler.
