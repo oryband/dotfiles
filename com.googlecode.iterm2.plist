@@ -544,13 +544,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>313 263 445 270 0 0 1280 698 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>272 216 805 484 0 0 1280 778 </string>
+	<string>272 157 851 483 0 0 1280 698 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>790 179 384 129 0 0 1280 698 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>80 194 592 584 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 26 1274 752 0 0 1280 778 </string>
+	<string>131 58 650 501 0 0 1280 698 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -768,6 +768,8 @@
 			<string>No</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
+			<key>Disable Printing</key>
+			<false/>
 			<key>Disable Smcup Rmcup</key>
 			<false/>
 			<key>Disable Window Resizing</key>
@@ -791,6 +793,13 @@
 			<integer>0</integer>
 			<key>Initial Text</key>
 			<string></string>
+			<key>Jobs to Ignore</key>
+			<array>
+				<string>rlogin</string>
+				<string>ssh</string>
+				<string>slogin</string>
+				<string>telnet</string>
+			</array>
 			<key>Keyboard Map</key>
 			<dict>
 				<key>0x2d-0x40000</key>
@@ -1034,6 +1043,8 @@
 			<string>Monaco 12</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
+			<key>Prompt Before Closing</key>
+			<integer>1</integer>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
@@ -1242,6 +1253,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Automatically Log</key>
+			<false/>
 			<key>BM Growl</key>
 			<true/>
 			<key>Background Color</key>
@@ -1261,6 +1274,8 @@
 			<false/>
 			<key>Blur</key>
 			<false/>
+			<key>Blur Radius</key>
+			<real>2</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1304,6 +1319,8 @@
 			<string>No</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
+			<key>Disable Printing</key>
+			<false/>
 			<key>Disable Smcup Rmcup</key>
 			<false/>
 			<key>Disable Window Resizing</key>
@@ -1325,6 +1342,15 @@
 			<real>1</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Text</key>
+			<string></string>
+			<key>Jobs to Ignore</key>
+			<array>
+				<string>rlogin</string>
+				<string>ssh</string>
+				<string>slogin</string>
+				<string>telnet</string>
+			</array>
 			<key>Keyboard Map</key>
 			<dict>
 				<key>0x2d-0x40000</key>
@@ -1552,6 +1578,8 @@
 					<string>[1;5F</string>
 				</dict>
 			</dict>
+			<key>Log Directory</key>
+			<string></string>
 			<key>Minimum Contrast</key>
 			<real>0.0</real>
 			<key>Mouse Reporting</key>
@@ -1566,6 +1594,8 @@
 			<string>Monaco 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
+			<key>Prompt Before Closing</key>
+			<integer>1</integer>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
@@ -1657,7 +1687,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2011-08-13T21:53:11Z</date>
+	<date>2011-09-06T13:51:32Z</date>
 	<key>SUSkippedVersion</key>
 	<string>0.20.20110619</string>
 	<key>SavePasteHistory</key>
@@ -1695,6 +1725,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>1.0.0.20110810</string>
+	<string>1.0.0.20110828</string>
 </dict>
 </plist>
