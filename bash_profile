@@ -32,11 +32,10 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 PATH="/usr/local/bin:/usr/local/sbin:${PATH}"  # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
 PATH="/usr/local/share/python:${PATH}"  # Add Homebrew's Python to $PATH, before the system's Python.
-PATH="/usr/local/Cellar/ruby/1.9.2-p180/bin:${PATH}"  # Add Homebrew's Ruby to $PATH as well.
-PATH="/usr/local/Cellar/ruby/1.9.2-p290/bin:${PATH}"
-PATH="~/Documents/dotfiles/doctorjs/bin/:${PATH}"  # Add doctorjs bin to $PATH, until the fix their broken Makefile.
+PATH="~/Documents/dotfiles/doctorjs/bin/:${PATH}"  # Add doctorjs bin to $PATH, until they fix their broken Makefile.
+PATH="~/Applications/google-appengine:${PATH}"  # Necessary for using with django-nonrel.
 export PATH
 
-NODE_PATH="/usr/local/lib/node:${NODE_PATH}"  # Add Homebrew"s node.js package dir to path.
+NODE_PATH="/usr/local/lib/node:${NODE_PATH}"  # Add Homebrew's node.js package dir to path.
 export NODE_PATH
 
