@@ -6,6 +6,22 @@ export LSCOLORS=Gxfxbxdxcxegedabagacad  # File-type color definition (e.g. files
 #export LSCOLORS=ExFxCxDxBxegedabagacad  # Light background.
 
 
+# STDERR Red.
+# NOTE: Installing on OS X will break the `open` command line utility. So
+# things like `mvim` and `open` itself will not work unless the application being
+# opened is already opened. It's because of flat namespace forced by
+# `DYLD_FORCE_FLAT_NAMESPACE` which is required by `DYLD_INSERT_LIBRARIES`.
+
+# Alternative to enabling it globally via shell config is to create alias and
+# use it to selectively colorize stderr for the commands you run:
+
+# $ alias stderred='LD_PRELOAD=/absolute/path/to/lib/stderred.so'
+# $ stderred java lol
+export DYLD_INSERT_LIBRARIES=/Users/Ory/Documents/dotfiles/stderred/lib/stderred.dylib DYLD_FORCE_FLAT_NAMESPACE=1
+
+
+alias cls="clear"  # Windows command. :)
+
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim  # Override pre-installed Vim and use Homebrew"s newer version MacVim instead.
 alias vim="vi"
 
@@ -32,10 +48,10 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 PATH="/usr/local/bin:/usr/local/sbin:${PATH}"  # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
 PATH="/usr/local/share/python:${PATH}"  # Add Homebrew's Python to $PATH, before the system's Python.
-PATH="~/Documents/dotfiles/doctorjs/bin/:${PATH}"  # Add doctorjs bin to $PATH, until they fix their broken Makefile.
 PATH="~/Applications/google-appengine:${PATH}"  # Necessary for using with django-nonrel.
 export PATH
 
+NODE_PATH="/usr/local/lib/jsctags:${NODE_PATH}"  # Add doctorjs to Node's library path.
 NODE_PATH="/usr/local/lib/node:${NODE_PATH}"  # Add Homebrew's node.js package dir to path.
 export NODE_PATH
 
