@@ -7,3 +7,6 @@
 [submodule "doctorjs"]
 	path = doctorjs
 	url = git://github.com/mozilla/doctorjs.git
+[submodule "stderred"]
+	path = stderred
+	url = ./stderred/
