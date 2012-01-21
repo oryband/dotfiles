@@ -9,4 +9,6 @@
 	url = git://github.com/mozilla/doctorjs.git
 [submodule "stderred"]
 	path = stderred
-	url = ./stderred/
+	;url = ./stderred/
+    url = git://github.com/sickill/stderred.git
+
