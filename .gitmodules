@@ -2,3 +2,6 @@
 [submodule "vim"]
 	path = vim
 	url = git@github.com:oryband/dotvim.git
+[submodule "stderred"]
+	path = stderred
+	url = git://github.com/sickill/stderred.git
