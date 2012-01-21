@@ -1,14 +1,4 @@
 [submodule "vim"]
 	path = vim
 	url = git@github.com:oryband/dotvim.git
-[submodule "solarized"]
-	path = solarized
-	url = https://github.com/altercation/solarized.git
-[submodule "doctorjs"]
-	path = doctorjs
-	url = git://github.com/mozilla/doctorjs.git
-[submodule "stderred"]
-	path = stderred
-	;url = ./stderred/
-    url = git://github.com/sickill/stderred.git
 
