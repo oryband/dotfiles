@@ -128,10 +128,10 @@ function! GlobalColorSettings()  " Set global color settings, regardless of colo
     highlight Todo term=standout ctermfg=196 ctermbg=226 guifg=#ff4500 guibg=#eeee00
 
     " TODO: colorscheme jellybeans only.
-    highlight Operator term=underline ctermfg=215 guifg=#ffb964
+    "highlight Operator term=underline ctermfg=215 guifg=#ffb964
 
     " Set cursor color to be like in jellybeans.vim colorscheme, but with black text (previously white).
-    highlight Cursor ctermfg=Black ctermbg=153 guifg=#000000 guibg=#b0d0f0
+    "highlight Cursor ctermfg=Black ctermbg=153 guifg=#000000 guibg=#b0d0f0
 endfunction
 
 autocmd colorscheme * call GlobalColorSettings()  " Call the global color settings on every colorscheme change.
