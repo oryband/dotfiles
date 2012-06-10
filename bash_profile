@@ -35,7 +35,7 @@ alias grep="grep --color=auto -I"  # Colorful, skipping binary files.
 
 alias less="less -R"  # Colorful less.
 
-export LESS="FRSXQ"  # For colorful diffing in Mercurial.
+export LESS="FRSXQ"  # Colorful diffing in Mercurial.
 
 export LESS_TERMCAP_mb=$'\E[01;31m'  # Colorful man pages.
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -46,12 +46,12 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-PATH="/usr/local/bin:/usr/local/sbin:${PATH}"  # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
-PATH="/usr/local/share/python:${PATH}"  # Add Homebrew's Python to $PATH, before the system's Python.
-PATH="~/Applications/google-appengine:${PATH}"  # Necessary for using with django-nonrel.
+PATH="/usr/local/bin:/usr/local/sbin:${PATH}"   # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
+PATH="/usr/local/share/python:${PATH}"          # Add Homebrew's Python to $PATH, before the system's Python.
+#PATH="~/Applications/google-appengine:${PATH}"  # Necessary for using with django-nonrel.
 export PATH
 
-NODE_PATH="/usr/local/lib/jsctags:${NODE_PATH}"  # Add doctorjs to Node's library path.
-NODE_PATH="/usr/local/lib/node:${NODE_PATH}"  # Add Homebrew's node.js package dir to path.
+#NODE_PATH="/usr/local/lib/jsctags:${NODE_PATH}"       # Add doctorjs to Node's library path.
+NODE_PATH="/usr/local/lib/node_modules:${NODE_PATH}"  # Add Homebrew's node.js package dir to path.
 export NODE_PATH
 
