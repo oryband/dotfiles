@@ -8,9 +8,7 @@
 
 " Initialization
 set nocompatible  " Disable vi compatibility (more efficient, and besides - we're using non-vi tricks here).
-
 set fileformats=unix,dos,mac  " Set file end-of-line priority.
-
 "set statusline=  " FIXME: Reset status line here.
 
 if has ("win32")  " Set mouse behaviour to be like the OS's.
@@ -36,17 +34,20 @@ endif
 call vundle#rc()
 
 " Colors
-Bundle "altercation/vim-colors-solarized"
 Bundle "nanotech/jellybeans.vim"
-Bundle "desert256.vim"
+"Bundle "chriskempson/vim-tomorrow-theme"
+"Bundle "tomasr/molokai"
 
 " Syntax
 Bundle "tpope/vim-markdown"
+
+" Web
 Bundle "pangloss/vim-javascript"
 Bundle "briangershon/html5.vim"
 "Bundle "ChrisYip/Better-CSS-Syntax-for-Vim"
-Bundle "sukima/xmledit"
 Bundle "css3"
+
+" Python
 Bundle "django.vim"
 Bundle "python.vim--Vasiliev"
 Bundle "indentpython.vim"
@@ -54,9 +55,20 @@ let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
 
-" Linting / Error correction
+" Haskell
+Bundle "bitc/lushtags"
+Bundle "indenthaskell.vim"
+"let g:haskell_indent_if=3
+"let g:haskell_indent_case=5
+Bundle "Twinside/vim-haskellConceal"
+
+" Syntax Checking
 Bundle "scrooloose/syntastic"
 "Bundle "oryband/syntastic"
+"let g:syntastic_mode_map = {
+            "\ 'mode': 'active',
+            "\ 'active_filetypes':  [],
+            "\ 'passive_filetypes': [] }
 let g:syntastic_enable_signs=1  " Show sidebar signs.
 "let g:syntastic_auto_loc_list=1  " Auto open errors window upon detection.
 set statusline+=%#warningmsg#  " Add Error ruler.
@@ -73,9 +85,7 @@ nnoremap <silent> ` :Errors<CR>
 
 " Other plugins
 Bundle "AutoTag"
-
 Bundle "scrooloose/nerdcommenter"
-
 Bundle "camelcasemotion"
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -84,23 +94,29 @@ sunmap w
 sunmap b
 sunmap e
 
-Bundle "ShowMarks"
+"Bundle "ShowMarks"
 " Only show alphabetic marks.
-let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
+"let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 " Marks will be shown in format of 'm[mark char]' e.g. 'mA'.
-let g:showmarks_textlower="\.\t"
-let g:showmarks_textupper="\.\t"
-let g:showmarks_textother="\.\t"
+"let g:showmarks_textlower="\.\t"
+"let g:showmarks_textupper="\.\t"
+"let g:showmarks_textother="\.\t"
 
 Bundle "majutsushi/tagbar"
 nnoremap <silent> \ :TagbarToggle<CR>
 
-Bundle 'minibufexpl.vim'
+Bundle "fholgado/minibufexpl.vim"
 let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
 "let g:miniBufExplVSplit = 13  " Vertical column static width in chars
 "let g:miniBufExplMaxSize = 2   " Vertical column max size.
 "let g:miniBufExplForceSyntaxEnable = 1  " Use this if you encounter highlighting bugs (colors not changing).
+" Colors override.
+hi MBEVisibleActive guifg=#A6DB29 guibg=fg
+hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+hi MBEVisibleChanged guifg=#F1266F guibg=fg
+hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+hi MBEChanged guifg=#CD5907 guibg=fg
+hi MBENormal guifg=#808080 guibg=fg
 
 Bundle "godlygeek/tabular"
 Bundle "IndexedSearch"
@@ -111,17 +127,16 @@ Bundle "AutoComplPop"
 " Terminal / GUI
 set t_Co=256  " Set terminal to display 256 colors.
 
-if has("win32")  " Fix Windows specific encoding problem.
+"if has("win32")  " Fix Windows specific encoding problem.
     set encoding=utf-8
-endif
+"endif
 
 
 " Colors
 set background=dark
 colorscheme jellybeans
-"colorscheme desert256
-" let g:solarized_termcolors=256  " Use this if you don't use Solarized as your terminal colors.
-"colorscheme solarized
+"colorscheme tomorrow-night-bright
+"colorscheme molokai
 
 function! GlobalColorSettings()  " Set global color settings, regardless of colorscheme currently in use.
     " Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
@@ -147,7 +162,7 @@ autocmd FileType * set formatoptions=r,2  " Enable auto-wrapping comments, comme
 set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
 
 set number " Show line numbers.
-set numberwidth=5  " Width of numbers column.
+"set numberwidth=5  " Width of numbers column.
 
 
 " Syntax
@@ -230,7 +245,7 @@ set ruler  " Show file status ruler. NOTE: Doesn't work with buftabs.vim plugin.
 " Invisible characters.
 if ! has("win32")
     set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
-    "set listchars=tab:°\ ,trail:·,eol:☠  " Alternate invisible characters.
+    "set listchars=tab:°\ ,trail:·,eol:☠  " Alternative invisible characters.
 endif
 "set list  " Display invisible characters.
 set nolist  " Don't display invisible characters.
@@ -270,25 +285,15 @@ map <Down> <C-f>
 
 " General
 let mapleader=","  " Set <leader> key to comma.
-
 set history=256  " Number of things to remember in history.
-
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
-
 "set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
-
 set clipboard+=unnamed  " Enable OS clipboard integration.
-
 set hidden  " The current buffer can be put to the background without writing to disk.
-
 autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
-
 " Search tag list from current dir up till root.
 set tags=./tags;/
-
 "set debug=msg  " Show Vim error messages.
-
 "set timeoutlen=500  " Set key-combination timeout.
-
 set wildignorecase  " In-case-sensitive dir/file completion.
