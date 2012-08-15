@@ -1,7 +1,8 @@
 " Great sources & credits:
-" gmarik's vimrc - https://github.com/gmarik/vimfiles/blob/master/vimrc
-" durdn's vimrc - https://github.com/durdn/cfg/blob/master/.vimrc
-" FactoryLab's Vim Git repo - https://github.com/factorylabs/vimfiles
+" gmarik - https://github.com/gmarik/vimfiles/blob/master/vimrc
+" durdn - https://github.com/durdn/cfg/blob/master/.vimrc
+" FactoryLab - https://github.com/factorylabs/vimfiles
+" lukerandall - https://github.com/lukerandall/dotvim/blob/master/vimrc
 " Example vimrc - http://www.vi-improved.org/vimrc.php
 "
 " Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
@@ -9,9 +10,19 @@
 " Initialization
 set nocompatible  " Disable vi compatibility (more efficient, and besides - we're using non-vi tricks here).
 set fileformats=unix,dos,mac  " Set file end-of-line priority.
-"set statusline=  " FIXME: Reset status line here.
 
-if has ("win32")  " Set mouse behaviour to be like the OS's.
+
+" Status Line
+"set statusline=  " FIXME: Reset status line here.
+set shortmess=at  " Shortens messages in status line, truncates long messages.
+set laststatus=2  " Always show status line.
+set showcmd  " Display an incomplete command in status line.
+set ruler  " Show file status ruler. NOTE: Doesn't work with buftabs.vim plugin.
+"set ch=2  " Make command line two lines high
+
+
+" Set mouse behaviour to be like the OS's.
+if has ("win32")
     behave mswin
 else
     behave xterm
@@ -33,19 +44,21 @@ endif
 
 call vundle#rc()
 
-" Colors
-Bundle "nanotech/jellybeans.vim"
-"Bundle "chriskempson/vim-tomorrow-theme"
-"Bundle "tomasr/molokai"
 
 " Syntax
-Bundle "tpope/vim-markdown"
+syntax on
+autocmd BufWinEnter,FileType * set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
 
 " Web
 Bundle "pangloss/vim-javascript"
 Bundle "briangershon/html5.vim"
 "Bundle "ChrisYip/Better-CSS-Syntax-for-Vim"
 Bundle "css3"
+autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd BufWinEnter,FileType *.json,*jshintrc setfiletype javascript
+autocmd BufWinEnter,FileType html,css set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2  " FIXME: Doesn't work.
 
 " Python
 Bundle "django.vim"
@@ -54,13 +67,22 @@ Bundle "indentpython.vim"
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd BufWinEnter,FileType python set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
+autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for html+django.
+set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 
 " Haskell
+autocmd Bufenter *.hs compiler ghc
 Bundle "bitc/lushtags"
+Bundle "Twinside/vim-haskellConceal"
 Bundle "indenthaskell.vim"
 "let g:haskell_indent_if=3
 "let g:haskell_indent_case=5
-Bundle "Twinside/vim-haskellConceal"
+set wildignore+=*.hi,*.o
+
+" Markdown
+Bundle "tpope/vim-markdown"
 
 " Syntax Checking
 Bundle "scrooloose/syntastic"
@@ -83,6 +105,7 @@ nnoremap <silent> ` :Errors<CR>
 "    4. Create a .jshintrc file @ your HOME dir (~/). Example: https://github.com/oryband/dotfiles/blob/master/jshintrc
 "    5. Overwrite .vim/bundle/syntastic/syntax_checkers/javascript.vim with this one: https://github.com/oryband/dotvim/blob/master/syntax_checkers/javascript.vim  TODO: Find a way to not need this line.
 
+
 " Other plugins
 Bundle "AutoTag"
 Bundle "scrooloose/nerdcommenter"
@@ -104,7 +127,11 @@ sunmap e
 
 Bundle "majutsushi/tagbar"
 nnoremap <silent> \ :TagbarToggle<CR>
+" Search tag list from current dir up till root.
+set tags=./tags;/
 
+Bundle "godlygeek/tabular"
+Bundle "tpope/vim-unimpaired"
 Bundle "fholgado/minibufexpl.vim"
 let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
 "let g:miniBufExplVSplit = 13  " Vertical column static width in chars
@@ -118,21 +145,24 @@ hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
 hi MBEChanged guifg=#CD5907 guibg=fg
 hi MBENormal guifg=#808080 guibg=fg
 
-Bundle "godlygeek/tabular"
+
+" Searching & matching.
 Bundle "IndexedSearch"
-Bundle "tpope/vim-unimpaired"
 Bundle "AutoComplPop"
-
-
-" Terminal / GUI
-set t_Co=256  " Set terminal to display 256 colors.
-
-"if has("win32")  " Fix Windows specific encoding problem.
-    set encoding=utf-8
-"endif
+"set hlsearch  " Highlight search.
+set smartcase  " Be case sensitive when input has a capital letter.
+set incsearch  " Show matches while typing.
+set ignorecase  " Ignore case when searching.
+set wildignorecase  " In-case-sensitive dir/file completion.
+set wildmenu  " Enable menu for commands
+set wildmode=list:longest  " List options when hitting tab, and match longest common command.
 
 
 " Colors
+set t_Co=256  " Set terminal to display 256 colors.
+Bundle "nanotech/jellybeans.vim"
+"Bundle "chriskempson/vim-tomorrow-theme"
+"Bundle "tomasr/molokai"
 set background=dark
 colorscheme jellybeans
 "colorscheme tomorrow-night-bright
@@ -152,56 +182,31 @@ endfunction
 autocmd colorscheme * call GlobalColorSettings()  " Call the global color settings on every colorscheme change.
 
 
-" Formatting
-set nowrap     " No line wrapping.
+" Formatting & Text
+set encoding=utf-8
+set nowrap  " No line wrapping.
 set linebreak  " Wrap at word.
-
 set textwidth=0  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
 autocmd FileType * set formatoptions=r,2  " Enable auto-wrapping comments, comment leader auto-insertion in <Insert> mode, auto-format paragraphs, keep last line indentation. Disable all other format options. NOTE: Requires 'set autoindent'. autocmd FileType is required since formatoptions i set differently for each fiel type (.c, .py, etc.).
-
 set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
-
-set number " Show line numbers.
+set number  " Show line numbers.
 "set numberwidth=5  " Width of numbers column.
-
-
-" Syntax
-syntax on  " Syntax highlighting.
-autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for html+django.
-autocmd BufWinEnter,FileType *.json,*jshintrc setfiletype javascript
-
 set showmatch  " Show matching brace on insertion or cursor over.
 set matchtime=3  " How many tenths of a second to wait before showing matching braces.
 set matchpairs+=<:>  " Treat '<','>' as matching braces.
-
-
-" Omni Completion
-autocmd FileType python     set omnifunc=pythoncomplete#Complete
-autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-
+" Invisible characters.
+if ! has("win32")
+    set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
+    "set listchars=tab:°\ ,trail:·,eol:☠  " Alternative invisible characters.
+endif
+"set list  " Display invisible characters.
+set nolist  " Don't display invisible characters.
 
 
 " Indentation
 set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
 "set shiftround  " Round shift actions. i.e. When at 3 spaces, and I hit > ... go to 4, not 5. FIXME: Doesn't work.
-
-" expandtab  = All tabs will be spaces.
-" softabstop = How many spaces will a tab take when 'expandtab' is on.
-" smarttab   = delete chunks of spaces like tabs.
-" tabstop    = How many spaces is a tab (visually).
-" shiftwidth = How many spaces will a 'shift' command take.
-autocmd BufWinEnter,FileType *,python,javascript set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4  " This includes default behaviour.
-autocmd BufWinEnter,FileType html,css            set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2  " FIXME: Doesn't work.
-
-
-" Searching
-"set hlsearch  " Highlight search.
-set smartcase  " Be case sensitive when input has a capital letter.
-set incsearch  " Show matches while typing.
-set ignorecase  " Ignore case when searching.
 
 
 " Folding
@@ -234,23 +239,6 @@ set nowritebackup
 set splitbelow splitright  " New windows are created to the bottom-right.
 
 
-" Status Line
-set shortmess=at  " Shortens messages in status line, truncates long messages.
-set laststatus=2  " Always show status line.
-set showcmd  " Display an incomplete command in status line.
-set ruler  " Show file status ruler. NOTE: Doesn't work with buftabs.vim plugin.
-"set ch=2  " Make command line two lines high
-
-
-" Invisible characters.
-if ! has("win32")
-    set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
-    "set listchars=tab:°\ ,trail:·,eol:☠  " Alternative invisible characters.
-endif
-"set list  " Display invisible characters.
-set nolist  " Don't display invisible characters.
-
-
 " Mouse
 set mouse=a  " Enable mouse.
 "set mouse-=a  " Disable mouse.
@@ -268,7 +256,6 @@ set novisualbell  " No blinking
 " Ignored files
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif  " Ignore images
 set wildignore+=*.pdf  " Ignore PDF files
-set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 
 
 " Key mappings
@@ -277,13 +264,12 @@ set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 "map <Down> <C-w>j
 map <Left> <C-w>h
 map <Right> <C-w>l
-
 " Map up/down keys to page-up/down.
 map <Up> <C-b>
 map <Down> <C-f>
 
 
-" General
+" Misc.
 let mapleader=","  " Set <leader> key to comma.
 set history=256  " Number of things to remember in history.
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
@@ -292,8 +278,8 @@ set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
 autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
-" Search tag list from current dir up till root.
-set tags=./tags;/
-"set debug=msg  " Show Vim error messages.
 "set timeoutlen=500  " Set key-combination timeout.
-set wildignorecase  " In-case-sensitive dir/file completion.
+set title  " Show title in app title bar.
+set ttyfast  " Fast drawing.
+set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
+"set debug=msg  " Show Vim error messages.
