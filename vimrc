@@ -13,9 +13,9 @@ filetype off
 
 " Plugin manager initialization
 if has ("win32")
-    set runtimepath+=$HOME/vimfiles/vundle.git/ 
+    set runtimepath+=$HOME/vimfiles/bundle/vundle/ 
 else
-    set runtimepath+=$HOME/.vim/vundle.git/ 
+    set runtimepath+=$HOME/.vim/bundle/vundle/ 
 endif
 
 call vundle#rc()
