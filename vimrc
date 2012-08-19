@@ -73,12 +73,18 @@ autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for h
 set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 
 " Haskell
-autocmd Bufenter *.hs compiler ghc
+"autocmd Bufenter *.hs compiler ghc  " FIXME: Generates an error.
 Bundle "bitc/lushtags"
 Bundle "Twinside/vim-haskellConceal"
 Bundle "indenthaskell.vim"
 "let g:haskell_indent_if=3
 "let g:haskell_indent_case=5
+"Bundle "haskell.vim"
+Bundle "syntaxhaskell.vim"
+let hs_highlight_boolean=1
+let hs_highlight_types=1
+let hs_highlight_debug=1
+let hs_allow_hash_operator=1
 set wildignore+=*.hi,*.o
 
 " Markdown
