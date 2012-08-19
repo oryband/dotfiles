@@ -1,39 +1,15 @@
 " Great sources & credits:
+" Example vimrc - http://www.vi-improved.org/vimrc.php
 " gmarik - https://github.com/gmarik/vimfiles/blob/master/vimrc
 " durdn - https://github.com/durdn/cfg/blob/master/.vimrc
 " FactoryLab - https://github.com/factorylabs/vimfiles
 " lukerandall - https://github.com/lukerandall/dotvim/blob/master/vimrc
-" Example vimrc - http://www.vi-improved.org/vimrc.php
-"
 " Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
-" Initialization
+" Initialization / Vundle Plugin Mangaer
 set nocompatible  " Disable vi compatibility (more efficient, and besides - we're using non-vi tricks here).
 set fileformats=unix,dos,mac  " Set file end-of-line priority.
-
-
-" Status Line
-"set statusline=  " FIXME: Reset status line here.
-set shortmess=at  " Shortens messages in status line, truncates long messages.
-set laststatus=2  " Always show status line.
-set showcmd  " Display an incomplete command in status line.
-set ruler  " Show file status ruler. NOTE: Doesn't work with buftabs.vim plugin.
-"set ch=2  " Make command line two lines high
-
-
-" Set mouse behaviour to be like the OS's.
-if has ("win32")
-    behave mswin
-else
-    behave xterm
-endif
-
-filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
-
-
-" Plugin Bundles - http://vim-scripts.org/vim/scripts.html
-" To install/update type  ':BundleInstall!'  <-- NOTE the exclamation mark '!'
-" To clean ununsed plugins type ':BundleClean!'
+filetype off
 
 " Plugin manager initialization
 if has ("win32")
@@ -43,12 +19,11 @@ else
 endif
 
 call vundle#rc()
+Bundle "gmarik/vundle"
+filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
 
 
-" Syntax
-syntax on
-autocmd BufWinEnter,FileType * set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
-
+" Plugin bundles
 " Web
 Bundle "pangloss/vim-javascript"
 Bundle "briangershon/html5.vim"
@@ -152,6 +127,20 @@ hi MBEChanged guifg=#CD5907 guibg=fg
 hi MBENormal guifg=#808080 guibg=fg
 
 
+" Status Line
+"set statusline=  " FIXME: Reset status line here.
+set shortmess=at  " Shortens messages in status line, truncates long messages.
+set laststatus=2  " Always show status line.
+set showcmd  " Display an incomplete command in status line.
+set ruler  " Show file status ruler. NOTE: Doesn't work with buftabs.vim plugin.
+"set ch=2  " Make command line two lines high
+
+
+" Syntax
+syntax on
+autocmd BufWinEnter,FileType * set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
+
+
 " Searching & matching.
 Bundle "IndexedSearch"
 Bundle "AutoComplPop"
@@ -246,6 +235,12 @@ set splitbelow splitright  " New windows are created to the bottom-right.
 
 
 " Mouse
+"Set mouse behaviour to be like the OS's.
+if has ("win32")
+    behave mswin
+else
+    behave xterm
+endif
 set mouse=a  " Enable mouse.
 "set mouse-=a  " Disable mouse.
 set mousehide  " Hide mouse after chars typed.
