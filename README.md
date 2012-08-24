@@ -9,7 +9,7 @@ Have fun and fork at will! :)
 # Quick start
 
 1. Clone repo.
-2. Initialize [Vundle](https://github.com/gmarik/vundle/blob/master/README.md), instructions at his repo.
+2. [Initialize Vundle](https://github.com/gmarik/vundle/blob/master/README.md).
 3. My `vimrc` is written to be easy to grasp.
 
 **Enjoy!** :)
