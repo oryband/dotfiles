@@ -48,9 +48,9 @@ autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for h
 set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
 
 " Haskell
-"autocmd Bufenter *.hs compiler ghc  " FIXME: Generates an error.
 Bundle "bitc/lushtags"
 Bundle "Twinside/vim-haskellConceal"
+Bundle "Twinside/vim-hoogle"
 Bundle "indenthaskell.vim"
 "let g:haskell_indent_if=3
 "let g:haskell_indent_case=5
@@ -78,13 +78,6 @@ set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 nnoremap <silent> ` :Errors<CR>
-
-" NOTE: For Javascript:
-"    1. Install exuberant-ctags & Node.js using your favorite package manager,
-"    2. Install Node Package Manager (npm): Execute `curl http://npmjs.org/install.sh | sh` - See http://npmjs.org for more info.
-"    3. Install jshint: Execute `npm install jshint`
-"    4. Create a .jshintrc file @ your HOME dir (~/). Example: https://github.com/oryband/dotfiles/blob/master/jshintrc
-"    5. Overwrite .vim/bundle/syntastic/syntax_checkers/javascript.vim with this one: https://github.com/oryband/dotvim/blob/master/syntax_checkers/javascript.vim  TODO: Find a way to not need this line.
 
 
 " Other plugins
