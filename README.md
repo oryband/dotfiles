@@ -9,12 +9,7 @@ Have fun and fork at will! :)
 # Quick start
 
 1. Clone this repo: `git clone git://github.com/oryband/dotvim.git ~/.vim` - **Be careful not to override your own configuration...**
-2. Initialize the [Vundle](http://github.com/gmarik/vundle) plugin as a sub-repository:
-
-        git submodule init
-        git submodule update
-
-3. Open vim and type `:BundleInstall!` to install all the plugins.
-4. The rest is fully documented in the `.virmc` source itself.
+2. Initialize [Vundle](http://github.com/gmarik/vundle), instructions at his repo.
+3. My `vimrc` is documented and designed to be easy to grasp.
 
 **Enjoy!** :)
