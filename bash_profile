@@ -21,19 +21,14 @@ export DYLD_INSERT_LIBRARIES=$HOME/Documents/dotfiles/stderred/lib/stderred.dyli
 
 
 alias cls="clear"  # Windows command. :)
-
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim  # Override pre-installed Vim and use Homebrew"s newer version MacVim instead.
 alias vim="vi"
-
-
 alias ll="ls -l"
 alias la="ls -Al"  # show hidden files, with -l.
-
-
 alias grep="grep --color=auto -I"  # Colorful, skipping binary files.
-
-
 alias less="less -R"  # Colorful less.
+alias ghci="ghci-color"
+
 
 export LESS="FRSXQ"  # Colorful diffing in Mercurial.
 
