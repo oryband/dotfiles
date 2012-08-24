@@ -5,3 +5,6 @@
 [submodule "stderred"]
 	path = stderred
 	url = git://github.com/sickill/stderred.git
+[submodule "ghci-color"]
+	path = ghci-color
+	url = git://github.com/rhysd/ghci-color.git
