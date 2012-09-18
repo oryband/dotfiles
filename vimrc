@@ -26,26 +26,31 @@ filetype plugin indent on  " Automatically detect file types, and enable file-ty
 " Plugin bundles
 " Web
 Bundle "pangloss/vim-javascript"
-Bundle "briangershon/html5.vim"
+"Bundle "briangershon/html5.vim"
+Bundle "lepture/vim-css"
 "Bundle "ChrisYip/Better-CSS-Syntax-for-Vim"
-Bundle "css3"
+"Bundle "hail2u/vim-css3-syntax"
 autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd BufWinEnter,FileType *.json,*jshintrc setfiletype javascript
-autocmd BufWinEnter,FileType html,css set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2  " FIXME: Doesn't work.
+autocmd BufWinEnter,FileType html,css,jinja,htmldjango setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
 
 " Python
-Bundle "django.vim"
+Bundle "lepture/vim-jinja"
+"Bundle "django.vim"
+"Bundle "indentpython.vim"
+Bundle "hynek/vim-python-pep8-indent"
 Bundle "python.vim--Vasiliev"
-Bundle "indentpython.vim"
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd BufWinEnter,FileType python set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
-autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for html+django.
+autocmd BufWinEnter,FileType python setlocal expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
+autocmd BufWinEnter,FileType html setfiletype jinja  " Special syntax for html+django.
+"autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for html+django.
 set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
+set wildignore+=*.egg,*.egg-info
 
 " Haskell
 Bundle "bitc/lushtags"
@@ -78,10 +83,14 @@ set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 nnoremap <silent> ` :Errors<CR>
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_enable_balloons=1
 
 
 " Other plugins
 Bundle "AutoTag"
+Bundle "AutoClose"
 Bundle "scrooloose/nerdcommenter"
 Bundle "camelcasemotion"
 map <silent> w <Plug>CamelCaseMotion_w
@@ -90,6 +99,9 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
+
+Bundle "Lokaltog/vim-powerline"
+let g:Powerline_symbols="unicode"
 
 "Bundle "ShowMarks"
 " Only show alphabetic marks.
@@ -111,6 +123,12 @@ let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffe
 "let g:miniBufExplVSplit = 13  " Vertical column static width in chars
 "let g:miniBufExplMaxSize = 2   " Vertical column max size.
 "let g:miniBufExplForceSyntaxEnable = 1  " Use this if you encounter highlighting bugs (colors not changing).
+"let g:miniBufExplMapWindowNavVim = 1    " <CTRL> + [hjkl] window movement commands
+"let g:miniBufExplMapWindowNavArrows = 1 " <CTRL> + Arrow Keys window movement commands
+"let g:miniBufExplMapCTabSwitchBufs = 1  " <C-TAB> and <C-S-TAB> next or previous buffer in the current window
+"let g:miniBufExplUseSingleClick = 1     " Single click on tabs to goto the selected buffer
+"let g:miniBufExplModSelTarget = 1       " If using other explorers like TagList
+
 " Colors override.
 hi MBEVisibleActive guifg=#A6DB29 guibg=fg
 hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
@@ -155,27 +173,24 @@ set background=dark
 colorscheme jellybeans
 "colorscheme tomorrow-night-bright
 "colorscheme molokai
+set cc=+1  " Highlight one column after 'textwidth'.
+hi ColorColumn ctermbg=lightgrey guibg=lightgrey
+highlight WhitespaceEOL ctermbg=red guibg=red
 
-function! GlobalColorSettings()  " Set global color settings, regardless of colorscheme currently in use.
-    " Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
-    highlight Todo term=standout ctermfg=196 ctermbg=226 guifg=#ff4500 guibg=#eeee00
-
-    " TODO: colorscheme jellybeans only.
-    "highlight Operator term=underline ctermfg=215 guifg=#ffb964
-
-    " Set cursor color to be like in jellybeans.vim colorscheme, but with black text (previously white).
-    "highlight Cursor ctermfg=Black ctermbg=153 guifg=#000000 guibg=#b0d0f0
-endfunction
-
-autocmd colorscheme * call GlobalColorSettings()  " Call the global color settings on every colorscheme change.
-
+" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
+let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
 
 " Formatting & Text
 set encoding=utf-8
 set nowrap  " No line wrapping.
 set linebreak  " Wrap at word.
-set textwidth=0  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
-autocmd FileType * set formatoptions=r,2  " Enable auto-wrapping comments, comment leader auto-insertion in <Insert> mode, auto-format paragraphs, keep last line indentation. Disable all other format options. NOTE: Requires 'set autoindent'. autocmd FileType is required since formatoptions i set differently for each fiel type (.c, .py, etc.).
+set textwidth=80  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
+" Enable auto-wrapping comments, comment leader auto-insertion
+" in <Insert> mode, auto-format paragraphs, keep last line indentation.
+" Disable all other format options.
+" NOTE: Requires 'set autoindent'. autocmd FileType is required since
+" formatoptions I set differently for each file type (.c, .py, etc.)."
+autocmd FileType * set formatoptions=r,2
 set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
 set number  " Show line numbers.
 "set numberwidth=5  " Width of numbers column.
@@ -250,6 +265,7 @@ set novisualbell  " No blinking
 " Ignored files
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif  " Ignore images
 set wildignore+=*.pdf  " Ignore PDF files
+set wildignore+=*.DS_STORE
 
 
 " Key mappings
