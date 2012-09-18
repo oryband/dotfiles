@@ -17,8 +17,8 @@ export LSCOLORS=Gxfxbxdxcxegedabagacad  # File-type color definition (e.g. files
 
 # $ alias stderred='LD_PRELOAD=/absolute/path/to/lib/stderred.so'
 # $ stderred java lol
-export DYLD_INSERT_LIBRARIES=$HOME/Documents/dotfiles/stderred/lib/stderred.dylib DYLD_FORCE_FLAT_NAMESPACE=1
-
+#export DYLD_INSERT_LIBRARIES=$HOME/Documents/dotfiles/stderred/lib/stderred.dylib DYLD_FORCE_FLAT_NAMESPACE=1
+#export DYLD_INSERT_LIBRARIES=""$HOME/Documents/dotfiles/stderred/lib/stderred.dylib${DYLD_INSERT_LIBRARIES:+:$DYLD_INSERT_LIBRARIES}"
 
 alias cls="clear"  # Windows command. :)
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim  # Override pre-installed Vim and use Homebrew"s newer version MacVim instead.
@@ -45,6 +45,7 @@ PATH="/usr/local/bin:/usr/local/sbin:${PATH}"   # Give priority to Homebrew's bi
 PATH="/usr/local/share/python:${PATH}"          # Add Homebrew's Python to $PATH, before the system's Python.
 #PATH="~/Applications/google-appengine:${PATH}"  # Necessary for using with django-nonrel.
 PATH="$HOME/.cabal/bin:$PATH"  # Haskell Packages.
+#PATH="$HOME/.bin:$PATH"  # /bin overrides.
 export PATH
 
 #NODE_PATH="/usr/local/lib/jsctags:${NODE_PATH}"       # Add doctorjs to Node's library path.

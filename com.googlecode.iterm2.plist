@@ -577,7 +577,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>313 263 445 270 0 0 1280 698 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>69 293 924 485 0 0 1280 778 </string>
+	<string>80 257 924 485 0 0 1280 778 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>790 179 384 129 0 0 1280 698 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
@@ -585,7 +585,7 @@
 	<key>NSWindow Frame com.apple.typography_panel_Monaco</key>
 	<string>294 453 260 120 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>316 147 650 501 0 0 1280 778 </string>
+	<string>411 138 650 501 0 0 1280 778 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1770,7 +1770,7 @@
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
-			<true/>
+			<false/>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2108,7 +2108,7 @@
 				<real>1</real>
 			</dict>
 			<key>Bonjour Service Address</key>
-			<string>10.0.0.12</string>
+			<string>10.0.0.5</string>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
@@ -2116,7 +2116,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>ssh 10.0.0.12</string>
+			<string>ssh 10.0.0.5</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2163,7 +2163,7 @@
 				<real>1</real>
 			</dict>
 			<key>Guid</key>
-			<string>D2300C3A-C0BB-49A9-B64B-D75A75DE07B2</string>
+			<string>71C4C172-48C8-4EB9-A1F8-9E30F180FBD7</string>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
@@ -2674,7 +2674,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2012-08-19T10:36:06Z</date>
+	<date>2012-09-12T20:49:02Z</date>
 	<key>SUSkippedVersion</key>
 	<string>0.20.20110619</string>
 	<key>SavePasteHistory</key>
