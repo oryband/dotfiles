@@ -43,7 +43,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 PATH="/usr/local/bin:/usr/local/sbin:${PATH}"   # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
 PATH="/usr/local/share/python:${PATH}"          # Add Homebrew's Python to $PATH, before the system's Python.
-#PATH="~/Applications/google-appengine:${PATH}"  # Necessary for using with django-nonrel.
+PATH="/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH"  # Ruby
 PATH="$HOME/.cabal/bin:$PATH"  # Haskell Packages.
 #PATH="$HOME/.bin:$PATH"  # /bin overrides.
 export PATH
