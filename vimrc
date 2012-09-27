@@ -11,7 +11,6 @@ set nocompatible  " Disable vi compatibility (more efficient, and besides - we'r
 set fileformats=unix,dos,mac  " Set file end-of-line priority.
 filetype off
 
-" Plugin manager initialization
 if has ("win32")
     set runtimepath+=$HOME/vimfiles/bundle/vundle/
 else
@@ -22,34 +21,34 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
 
+set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
+syntax on
 
-" Plugin bundles
 " Web
 Bundle "pangloss/vim-javascript"
-"Bundle "briangershon/html5.vim"
+Bundle "lepture/vim-jinja"
 Bundle "lepture/vim-css"
-"Bundle "ChrisYip/Better-CSS-Syntax-for-Vim"
-"Bundle "hail2u/vim-css3-syntax"
-autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+Bundle "cakebaker/scss-syntax.vim"
+Bundle "matchit.zip"
+autocmd BufWinEnter *.json,*jshintrc setfiletype javascript
+autocmd BufWinEnter *.scss setfiletype scss
+autocmd BufWinEnter *.html,*.htm setfiletype html
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd BufWinEnter,FileType *.json,*jshintrc setfiletype javascript
-autocmd BufWinEnter,FileType html,css,jinja,htmldjango setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+"autocmd FileType html,jinja set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal syntax=jinja
+autocmd FileType html,css,scss setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType html,jinja runtime! macros/matchit.vim
 
 " Python
-Bundle "lepture/vim-jinja"
-"Bundle "django.vim"
-"Bundle "indentpython.vim"
 Bundle "hynek/vim-python-pep8-indent"
 Bundle "python.vim--Vasiliev"
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
+autocmd FileType python setlocal linebreak
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd BufWinEnter,FileType python setlocal expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
-autocmd BufWinEnter,FileType html setfiletype jinja  " Special syntax for html+django.
-"autocmd BufWinEnter,FileType html setfiletype htmldjango  " Special syntax for html+django.
-set wildignore+=*.pyc,*.pyo  " Ignore compiled Python files
+set wildignore+=*.pyc,*.pyo
 set wildignore+=*.egg,*.egg-info
 
 " Haskell
@@ -87,11 +86,6 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_enable_balloons=1
 
-
-" Other plugins
-Bundle "AutoTag"
-Bundle "AutoClose"
-Bundle "scrooloose/nerdcommenter"
 Bundle "camelcasemotion"
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -102,14 +96,7 @@ sunmap e
 
 Bundle "Lokaltog/vim-powerline"
 let g:Powerline_symbols="unicode"
-
-"Bundle "ShowMarks"
-" Only show alphabetic marks.
-"let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-" Marks will be shown in format of 'm[mark char]' e.g. 'mA'.
-"let g:showmarks_textlower="\.\t"
-"let g:showmarks_textupper="\.\t"
-"let g:showmarks_textother="\.\t"
+let g:Powerline_stl_path_style = 'short'
 
 Bundle "majutsushi/tagbar"
 nnoremap <silent> \ :TagbarToggle<CR>
@@ -120,41 +107,34 @@ Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
 Bundle "fholgado/minibufexpl.vim"
 let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
-"let g:miniBufExplVSplit = 13  " Vertical column static width in chars
-"let g:miniBufExplMaxSize = 2   " Vertical column max size.
-"let g:miniBufExplForceSyntaxEnable = 1  " Use this if you encounter highlighting bugs (colors not changing).
-"let g:miniBufExplMapWindowNavVim = 1    " <CTRL> + [hjkl] window movement commands
-"let g:miniBufExplMapWindowNavArrows = 1 " <CTRL> + Arrow Keys window movement commands
-"let g:miniBufExplMapCTabSwitchBufs = 1  " <C-TAB> and <C-S-TAB> next or previous buffer in the current window
-"let g:miniBufExplUseSingleClick = 1     " Single click on tabs to goto the selected buffer
-"let g:miniBufExplModSelTarget = 1       " If using other explorers like TagList
 
-" Colors override.
+" Colors
+Bundle "nanotech/jellybeans.vim"
+"Bundle "chriskempson/vim-tomorrow-theme"
+"Bundle "tomasr/molokai"
+" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
+let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
 hi MBEVisibleActive guifg=#A6DB29 guibg=fg
 hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
 hi MBEVisibleChanged guifg=#F1266F guibg=fg
 hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
 hi MBEChanged guifg=#CD5907 guibg=fg
 hi MBENormal guifg=#808080 guibg=fg
-
+set t_Co=256  " Set terminal to display 256 colors.
+set background=dark
+colorscheme jellybeans
+"colorscheme tomorrow-night-bright
+"colorscheme molokai
+set cc=+1  " Highlight one column AFTER 'textwidth'.
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+highlight WhitespaceEOL ctermbg=red guibg=red
 
 " Status Line
-"set statusline=  " FIXME: Reset status line here.
 set shortmess=at  " Shortens messages in status line, truncates long messages.
 set laststatus=2  " Always show status line.
 set showcmd  " Display an incomplete command in status line.
-set ruler  " Show file status ruler. NOTE: Doesn't work with buftabs.vim plugin.
-"set ch=2  " Make command line two lines high
 
-
-" Syntax
-syntax on
-autocmd BufWinEnter,FileType * set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
-
-
-" Searching & matching.
-Bundle "IndexedSearch"
-Bundle "AutoComplPop"
+" Searching
 "set hlsearch  " Highlight search.
 set smartcase  " Be case sensitive when input has a capital letter.
 set incsearch  " Show matches while typing.
@@ -162,23 +142,6 @@ set ignorecase  " Ignore case when searching.
 set wildignorecase  " In-case-sensitive dir/file completion.
 set wildmenu  " Enable menu for commands
 set wildmode=list:longest  " List options when hitting tab, and match longest common command.
-
-
-" Colors
-set t_Co=256  " Set terminal to display 256 colors.
-Bundle "nanotech/jellybeans.vim"
-"Bundle "chriskempson/vim-tomorrow-theme"
-"Bundle "tomasr/molokai"
-set background=dark
-colorscheme jellybeans
-"colorscheme tomorrow-night-bright
-"colorscheme molokai
-set cc=+1  " Highlight one column after 'textwidth'.
-hi ColorColumn ctermbg=lightgrey guibg=lightgrey
-highlight WhitespaceEOL ctermbg=red guibg=red
-
-" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
-let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
 
 " Formatting & Text
 set encoding=utf-8
@@ -189,35 +152,28 @@ set textwidth=80  " Desirable text width. Used for text auto-wrapping. 0 means n
 " in <Insert> mode, auto-format paragraphs, keep last line indentation.
 " Disable all other format options.
 " NOTE: Requires 'set autoindent'. autocmd FileType is required since
-" formatoptions I set differently for each file type (.c, .py, etc.)."
+" I set `formatoptions` differently for each file type (.c, .py, etc.)."
 autocmd FileType * set formatoptions=r,2
 set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
 set number  " Show line numbers.
-"set numberwidth=5  " Width of numbers column.
 set showmatch  " Show matching brace on insertion or cursor over.
 set matchtime=3  " How many tenths of a second to wait before showing matching braces.
-set matchpairs+=<:>  " Treat '<','>' as matching braces.
 " Invisible characters.
 if ! has("win32")
     set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
-    "set listchars=tab:°\ ,trail:·,eol:☠  " Alternative invisible characters.
 endif
-"set list  " Display invisible characters.
 set nolist  " Don't display invisible characters.
-
 
 " Indentation
 set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
 "set shiftround  " Round shift actions. i.e. When at 3 spaces, and I hit > ... go to 4, not 5. FIXME: Doesn't work.
 
-
 " Folding
 set foldenable  " Turn on folding.
 set foldmethod=marker  " Fold on the marker.
 set foldlevel=100  " Don't autofold anything (but I can still fold manually).
 set foldopen=block,hor,tag,percent,mark,quickfix  " Which movements open folds.
-
 
 " Backup
 set nobackup  " Disable file backup before file overwrite attempt.
@@ -236,11 +192,9 @@ set nowritebackup
     "set undodir+=.
 "endif
 
-
 " Window splitting
 "set equalalways  " Multiple windows, when created, are equal in size. NOTE: Doesn't work well with MiniBufExpl.vim
 set splitbelow splitright  " New windows are created to the bottom-right.
-
 
 " Mouse
 "Set mouse behaviour to be like the OS's.
@@ -249,35 +203,32 @@ if has ("win32")
 else
     behave xterm
 endif
-set mouse=a  " Enable mouse.
-"set mouse-=a  " Disable mouse.
+"set mouse=a  " Enable mouse.
+set mouse-=a  " Disable mouse.
 set mousehide  " Hide mouse after chars typed.
 behave xterm  " Make mouse behave like in xterm (instead of, e.g. Windows' command-prompt mouse).
 set selectmode=mouse  " Enable visule selection with mouse.
-
 
 " Bells
 set novisualbell  " No blinking
 "set noerrorbells  " No noise.
 "set vb t_vb= " Disable any beeps or flashes on error
 
-
 " Ignored files
-set wildignore+=*.jpg,*.jpeg,*.png,*.gif  " Ignore images
+set wildignore+=*.swp  " Vim
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd  " Ignore images
 set wildignore+=*.pdf  " Ignore PDF files
 set wildignore+=*.DS_STORE
 
-
 " Key mappings
-" Map arrow keys to window-change actions.
-"map <Up> <C-w>k
-"map <Down> <C-w>j
-map <Left> <C-w>h
-map <Right> <C-w>l
-" Map up/down keys to page-up/down.
-map <Up> <C-b>
-map <Down> <C-f>
-
+" Page up/down.
+nnoremap <C-k> <C-b>
+nnoremap <C-j> <C-f>
+" Window-change actions.
+nnoremap <Up> <C-w>k
+nnoremap <Down> <C-w>j
+nnoremap <Left> <C-w>h
+nnoremap <Right> <C-w>l
 
 " Misc.
 let mapleader=","  " Set <leader> key to comma.
@@ -287,9 +238,14 @@ set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
 set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
 autocmd BufWinEnter * lcd %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
-"autocmd bufwritepost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
+"autocmd BufWritePost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
 "set timeoutlen=500  " Set key-combination timeout.
 set title  " Show title in app title bar.
 set ttyfast  " Fast drawing.
 set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
 "set debug=msg  " Show Vim error messages.
+
+Bundle "AutoTag"
+Bundle "IndexedSearch"
+Bundle "AutoComplPop"
+Bundle "scrooloose/nerdcommenter"
