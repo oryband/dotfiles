@@ -19,26 +19,29 @@ endif
 
 call vundle#rc()
 Bundle "gmarik/vundle"
-filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
 
+filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
 set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
 syntax on
 
 " Web
 Bundle "pangloss/vim-javascript"
 Bundle "lepture/vim-jinja"
-Bundle "lepture/vim-css"
+"Bundle "lepture/vim-css"
 Bundle "cakebaker/scss-syntax.vim"
+Bundle "groenewege/vim-less"
 Bundle "matchit.zip"
 autocmd BufWinEnter *.json,*jshintrc setfiletype javascript
 autocmd BufWinEnter *.scss setfiletype scss
+autocmd BufWinEnter *.less setfiletype less
 autocmd BufWinEnter *.html,*.htm setfiletype html
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css,scss,less set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType html,jinja set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType html setlocal syntax=jinja
-autocmd FileType html,css,scss setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType html,css,scss,less setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType html,jinja runtime! macros/matchit.vim
+autocmd BufWritePost *.scss,*.sass !compass compile ../ <afile> --force
 
 " Python
 Bundle "hynek/vim-python-pep8-indent"
@@ -222,13 +225,13 @@ set wildignore+=*.DS_STORE
 
 " Key mappings
 " Page up/down.
-nnoremap <C-k> <C-b>
-nnoremap <C-j> <C-f>
+noremap <C-k> <C-b>
+noremap <C-j> <C-f>
 " Window-change actions.
-nnoremap <Up> <C-w>k
-nnoremap <Down> <C-w>j
-nnoremap <Left> <C-w>h
-nnoremap <Right> <C-w>l
+noremap <Up> <C-w>k
+noremap <Down> <C-w>j
+noremap <Left> <C-w>h
+noremap <Right> <C-w>l
 
 " Misc.
 let mapleader=","  " Set <leader> key to comma.
