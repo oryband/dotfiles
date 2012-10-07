@@ -21,7 +21,6 @@ export LSCOLORS=Gxfxbxdxcxegedabagacad  # File-type color definition (e.g. files
 #export DYLD_INSERT_LIBRARIES=""$HOME/Documents/dotfiles/stderred/lib/stderred.dylib${DYLD_INSERT_LIBRARIES:+:$DYLD_INSERT_LIBRARIES}"
 
 alias cls="clear"  # Windows command. :)
-alias vi=/Applications/MacVim.app/Contents/MacOS/Vim  # Override pre-installed Vim and use Homebrew"s newer version MacVim instead.
 alias vim="vi"
 alias ll="ls -l"
 alias la="ls -Al"  # show hidden files, with -l.
@@ -41,14 +40,9 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-PATH="/usr/local/bin:/usr/local/sbin:${PATH}"   # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
-PATH="/usr/local/share/python:${PATH}"          # Add Homebrew's Python to $PATH, before the system's Python.
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"   # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
+PATH="/usr/local/share/python:$PATH"          # Add Homebrew's Python to $PATH, before the system's Python.
 PATH="/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH"  # Ruby
-PATH="$HOME/.cabal/bin:$PATH"  # Haskell Packages.
-#PATH="$HOME/.bin:$PATH"  # /bin overrides.
+PATH="$HOME/.cabal/bin:$PATH"  # Haskell
+PATH="/usr/local/share/npm/bin:$PATH"  # Node/npm
 export PATH
-
-#NODE_PATH="/usr/local/lib/jsctags:${NODE_PATH}"       # Add doctorjs to Node's library path.
-NODE_PATH="/usr/local/lib/node_modules:${NODE_PATH}"  # Add Homebrew's node.js package dir to path.
-export NODE_PATH
-

@@ -8,3 +8,6 @@
 [submodule "ghci-color"]
 	path = ghci-color
 	url = git://github.com/rhysd/ghci-color.git
+[submodule "doctorjs"]
+	path = doctorjs
+	url = git://github.com/mozilla/doctorjs.git
