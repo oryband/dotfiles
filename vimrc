@@ -49,7 +49,7 @@ Bundle "python.vim--Vasiliev"
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
-autocmd FileType python setlocal linebreak
+autocmd FileType python setlocal linebreak nosmartindent  " nosmartindent for comment indentation problem.
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 set wildignore+=*.pyc,*.pyo
 set wildignore+=*.egg,*.egg-info
@@ -98,7 +98,7 @@ sunmap b
 sunmap e
 
 Bundle "Lokaltog/vim-powerline"
-let g:Powerline_symbols="unicode"
+"let g:Powerline_symbols="unicode"
 let g:Powerline_stl_path_style = 'short'
 
 Bundle "majutsushi/tagbar"
@@ -150,7 +150,7 @@ set wildmode=list:longest  " List options when hitting tab, and match longest co
 set encoding=utf-8
 set nowrap  " No line wrapping.
 set linebreak  " Wrap at word.
-set textwidth=80  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
+set textwidth=76  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
 " Enable auto-wrapping comments, comment leader auto-insertion
 " in <Insert> mode, auto-format paragraphs, keep last line indentation.
 " Disable all other format options.
