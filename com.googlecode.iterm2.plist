@@ -488,7 +488,7 @@
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
-	<string>DA2F2FD8-80F7-4760-AFEB-7424AC4E2AE0</string>
+	<string>BAF685E4-D4CE-4A14-9E89-ACE0578A66C5</string>
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
@@ -585,7 +585,7 @@
 	<key>NSWindow Frame com.apple.typography_panel_Monaco</key>
 	<string>294 453 260 120 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>583 120 650 501 0 0 1280 778 </string>
+	<string>590 196 650 501 0 0 1280 778 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -896,6 +896,13 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x7f</string>
+				</dict>
+				<key>0x7f-0x0</key>
+				<dict>
+					<key>Action</key>
+					<integer>16</integer>
+					<key>Text</key>
+					<string></string>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
@@ -1447,7 +1454,7 @@
 				<real>1</real>
 			</dict>
 			<key>Bonjour Service Address</key>
-			<string>10.0.0.5</string>
+			<string>10.0.0.8</string>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
@@ -1455,7 +1462,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>ssh 10.0.0.5</string>
+			<string>ssh 10.0.0.8</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1502,7 +1509,7 @@
 				<real>1</real>
 			</dict>
 			<key>Guid</key>
-			<string>7A0A12EB-C93A-4CFB-8A61-5C37E31C2776</string>
+			<string>77A9EC77-8448-4E58-B76E-71993A6AFCD9</string>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
@@ -2013,7 +2020,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2012-09-29T11:57:22Z</date>
+	<date>2012-10-26T18:24:27Z</date>
 	<key>SUSkippedVersion</key>
 	<string>0.20.20110619</string>
 	<key>SavePasteHistory</key>

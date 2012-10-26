@@ -22,6 +22,9 @@ export LSCOLORS=Gxfxbxdxcxegedabagacad  # File-type color definition (e.g. files
 
 alias cls="clear"  # Windows command. :)
 alias vim="vi"
+if [ `uname` == "Linux" ]; then
+    alias ls="ls --color=auto"
+fi
 alias ll="ls -l"
 alias la="ls -Al"  # show hidden files, with -l.
 alias grep="grep --color=auto -I"  # Colorful, skipping binary files.
@@ -40,7 +43,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-if [ `hostname -s` = "Ory" ]; then
+if [ `hostname -s` == "Ory" ]; then
     PATH="/usr/local/bin:/usr/local/sbin:$PATH"   # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
     PATH="/usr/local/share/python:$PATH"          # Add Homebrew's Python to $PATH, before the system's Python.
     PATH="/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH"  # Ruby
