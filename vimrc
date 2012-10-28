@@ -142,7 +142,9 @@ set showcmd  " Display an incomplete command in status line.
 set smartcase  " Be case sensitive when input has a capital letter.
 set incsearch  " Show matches while typing.
 set ignorecase  " Ignore case when searching.
-set wildignorecase  " In-case-sensitive dir/file completion.
+if exists('&wildignorecase')
+    set wildignorecase  " In-case-sensitive dir/file completion.
+endif
 set wildmenu  " Enable menu for commands
 set wildmode=list:longest  " List options when hitting tab, and match longest common command.
 
