@@ -26,7 +26,8 @@ if [ `uname` == "Linux" ]; then
     alias ls="ls --color=auto"
 fi
 alias ll="ls -l"
-alias la="ls -Al"  # show hidden files, with -l.
+alias la="ls -a"  # show hidden files.
+alias lla="ls -al"  # show hidden files, with -l.
 alias grep="grep --color=auto -I"  # Colorful, skipping binary files.
 alias less="less -R"  # Colorful less.
 alias ghci="ghci-color"
