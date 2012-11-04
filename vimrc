@@ -70,6 +70,7 @@ let hs_allow_hash_operator=1
 set wildignore+=*.hi,*.o
 
 " Markdown
+autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 Bundle "tpope/vim-markdown"
 
 " Syntax Checking
@@ -242,7 +243,7 @@ set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
 "set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
 set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
-if strpart(expand("%:p:h"), 0, 7) == "scp://"
+if strpart(expand("%:p:h"), 0, 7) != "scp://"
     autocmd BufEnter * lchdir %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 endif
 "autocmd BufWritePost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
