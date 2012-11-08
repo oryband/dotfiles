@@ -2,6 +2,8 @@
 	name = Ory Band
 	email = oryband@gmail.com
 [credential]
-    helper = cache --timeout=3600
+    helper = cache --timeout=7200
 [color]
 	ui = true
+[core]
+	editor = vim
