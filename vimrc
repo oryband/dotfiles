@@ -69,6 +69,23 @@ let hs_highlight_debug=1
 let hs_allow_hash_operator=1
 set wildignore+=*.hi,*.o
 
+" C++
+let g:syntastic_cpp_check_header=1
+let g:syntastic_cpp_include_dirs=[ 'includes', 'include', 'inc',  'headers' ]
+let g:syntastic_cpp_auto_refresh_includes=1
+let g:syntastic_cpp_remove_include_errors=1
+let g:syntastic_cpp_compiler_options=' -Wall -Weffc++'
+" Run ../makefile if exists, else compile src/*.cpp, include/*.h, and output to bin/runme
+autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++\ -I\ ../include\ -Wall\ -Weffc++\ -g\ -o\ ../bin/runme\ ../src/*.cpp
+autocmd QuickfixCmdPost make call AfterMakeC()
+" Run output file after successful make.
+function! AfterMakeC()
+    if len(getqflist()) == 0
+        !../bin/runme
+    endif
+endfunction
+set wildignore+=*.o,*.a
+
 " Markdown
 autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 Bundle "tpope/vim-markdown"
