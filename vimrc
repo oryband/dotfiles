@@ -76,7 +76,9 @@ let g:syntastic_cpp_auto_refresh_includes=1
 let g:syntastic_cpp_remove_include_errors=1
 let g:syntastic_cpp_compiler_options=' -Wall -Weffc++'
 " Run ../makefile if exists, else compile src/*.cpp, include/*.h, and output to bin/runme
-autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++\ -I\ ../include\ -Wall\ -Weffc++\ -g\ -o\ ../bin/runme\ ../src/*.cpp
+"autocmd FileWritePost cpp setlocal args ../src/*.cpp
+"autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++\ -I\ ../include\ -Wall\ -Weffc++\ -g\ -o\ ../bin/runme\ ##
+autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++
 autocmd QuickfixCmdPost make call AfterMakeC()
 " Run output file after successful make.
 function! AfterMakeC()
