@@ -1,4 +1,4 @@
-# Huge credits go to https://github.com/mathiasbynens/dotfiles/blob/master/.inputrc
+# Huge credits go to https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on

@@ -1,0 +1,20 @@
+# Huge credits go to https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
+
+alias cls="clear"  # Windows command. :)
+alias vim="vi"
+
+# Always use color output for `ls`
+if ls --color > /dev/null 2>&1; then  # GNU `ls`
+    colorflag="--color"
+else  # OS X `ls`
+    colorflag="-G"
+fi
+
+alias ls="command ls ${colorflag}"
+alias ll="ls -l"
+alias la="ls -a"  # show hidden files.
+alias lla="ls -al"  # show hidden files, with -l.
+
+alias grep="grep --color=auto -I"  # Colorful, skipping binary files.
+alias less="less -R"  # Colorful less.
+alias ghci="ghci-color"
