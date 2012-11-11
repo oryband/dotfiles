@@ -79,13 +79,13 @@ let g:syntastic_cpp_compiler_options=' -Wall -Weffc++'
 "autocmd FileWritePost cpp setlocal args ../src/*.cpp
 "autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++\ -I\ ../include\ -Wall\ -Weffc++\ -g\ -o\ ../bin/runme\ ##
 autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++
-autocmd QuickfixCmdPost make call AfterMakeC()
 " Run output file after successful make.
-function! AfterMakeC()
-    if len(getqflist()) == 0
-        !../bin/runme
-    endif
-endfunction
+"autocmd QuickfixCmdPost make call AfterMakeC()
+"function! AfterMakeC()
+    "if len(getqflist()) == 0
+        "!../bin/runme
+    "endif
+"endfunction
 set wildignore+=*.o,*.a
 
 " Markdown
