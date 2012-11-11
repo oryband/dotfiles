@@ -1,0 +1,3 @@
+Host lvs
+    User oryb
+    HostName lvs.cs.bgu.ac.il
