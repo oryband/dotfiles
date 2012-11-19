@@ -24,6 +24,23 @@ filetype plugin indent on  " Automatically detect file types, and enable file-ty
 set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
 syntax on
 
+" Misc.
+let mapleader=","  " Set <leader> key to comma.
+set history=256  " Number of things to remember in history.
+set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
+"set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
+set clipboard+=unnamed  " Enable OS clipboard integration.
+set hidden  " The current buffer can be put to the background without writing to disk.
+if strpart(expand("%:p:h"), 0, 7) != "scp://"
+    autocmd BufEnter * lchdir %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
+endif
+"autocmd BufWritePost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
+"set timeoutlen=500  " Set key-combination timeout.
+set title  " Show title in app title bar.
+set ttyfast  " Fast drawing.
+set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
+"set debug=msg  " Show Vim error messages.
+
 " Web
 Bundle "pangloss/vim-javascript"
 Bundle "lepture/vim-jinja"
@@ -268,23 +285,6 @@ noremap <Up> <C-w>k
 noremap <Down> <C-w>j
 noremap <Left> <C-w>h
 noremap <Right> <C-w>l
-
-" Misc.
-let mapleader=","  " Set <leader> key to comma.
-set history=256  " Number of things to remember in history.
-set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
-"set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
-set clipboard+=unnamed  " Enable OS clipboard integration.
-set hidden  " The current buffer can be put to the background without writing to disk.
-if strpart(expand("%:p:h"), 0, 7) != "scp://"
-    autocmd BufEnter * lchdir %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
-endif
-"autocmd BufWritePost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
-"set timeoutlen=500  " Set key-combination timeout.
-set title  " Show title in app title bar.
-set ttyfast  " Fast drawing.
-set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
-"set debug=msg  " Show Vim error messages.
 
 Bundle "AutoTag"
 Bundle "IndexedSearch"
