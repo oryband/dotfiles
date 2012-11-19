@@ -128,13 +128,12 @@ set tags=./tags;/
 
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
-Bundle "fholgado/minibufexpl.vim"
-let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
 
 " Colors
 Bundle "nanotech/jellybeans.vim"
-"Bundle "chriskempson/vim-tomorrow-theme"
-"Bundle "tomasr/molokai"
+Bundle "jelera/vim-gummybears-colorscheme.git"
+Bundle "chriskempson/vim-tomorrow-theme"
+Bundle "tomasr/molokai"
 " Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
 let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
 hi MBEVisibleActive guifg=#A6DB29 guibg=fg
@@ -146,6 +145,7 @@ hi MBENormal guifg=#808080 guibg=fg
 set t_Co=256  " Set terminal to display 256 colors.
 set background=dark
 colorscheme jellybeans
+"colorscheme gummybears
 "colorscheme tomorrow-night-bright
 "colorscheme molokai
 set cc=+1  " Highlight one column AFTER 'textwidth'.
@@ -157,11 +157,25 @@ set shortmess=at  " Shortens messages in status line, truncates long messages.
 set laststatus=2  " Always show status line.
 set showcmd  " Display an incomplete command in status line.
 
+" Window/buffer mangement.
+" L9 is necessary for fuzzyfinder.
+Bundle "L9"
+Bundle "FuzzyFinder"
+let g:fuf_modesDisable = []
+let g:fuf_ignoreCase = 1
+let g:fuf_timeFormat = ''  " Remove time string.
+let g:fuf_maxMenuWidth = 70
+"let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+nnoremap <Leader>1 :FufBuffer<CR>
+nnoremap <Leader>2 :FufFileWithCurrentBufferDir<CR>
+nnoremap <Leader>3 :FufBufferTagAll<CR>
+
 " Searching
 "set hlsearch  " Highlight search.
 set smartcase  " Be case sensitive when input has a capital letter.
 set incsearch  " Show matches while typing.
 set ignorecase  " Ignore case when searching.
+set gdefault  " Make searched global `/g` by default.
 if exists('&wildignorecase')
     set wildignorecase  " In-case-sensitive dir/file completion.
 endif
