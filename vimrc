@@ -20,14 +20,77 @@ endif
 call vundle#rc()
 Bundle "gmarik/vundle"
 
+
+" Plugins
+" Colors
+Bundle "chriskempson/vim-tomorrow-theme"
+Bundle "tomasr/molokai"
+Bundle "jelera/vim-gummybears-colorscheme.git"
+Bundle "nanotech/jellybeans.vim"
+
+" Web
+Bundle "pangloss/vim-javascript"
+Bundle "lepture/vim-jinja"
+"Bundle "lepture/vim-css"
+Bundle "cakebaker/scss-syntax.vim"
+Bundle "groenewege/vim-less"
+Bundle "matchit.zip"
+
+" Python
+Bundle "hynek/vim-python-pep8-indent"
+Bundle "python.vim--Vasiliev"
+
+" Haskell
+Bundle "bitc/lushtags"
+Bundle "Twinside/vim-haskellConceal"
+Bundle "Twinside/vim-hoogle"
+Bundle "indenthaskell.vim"
+"Bundle "haskell.vim"
+Bundle "syntaxhaskell.vim"
+
+" Markdown
+Bundle "tpope/vim-markdown"
+
+" Syntax
+Bundle "scrooloose/syntastic"
+Bundle "scrooloose/nerdcommenter"
+
+" Navigation
+Bundle "IndexedSearch"
+Bundle "camelcasemotion"
+Bundle "Lokaltog/vim-powerline"
+Bundle "majutsushi/tagbar"
+Bundle "godlygeek/tabular"
+Bundle "tpope/vim-unimpaired"
+Bundle "L9"
+Bundle "FuzzyFinder"
+Bundle "fholgado/minibufexpl.vim"
+
+" Misc
+Bundle "tpope/vim-fugitive"
+Bundle "AutoTag"
+Bundle "AutoComplPop"
+Bundle "ryan-cf/netrw"
+
+
 filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
 set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
 syntax on
 
+" Colors
+set t_Co=256  " Set terminal to display 256 colors.
+set background=dark
+colorscheme jellybeans
+"colorscheme gummybears
+"colorscheme tomorrow-night-bright
+"colorscheme molokai
+" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
+let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
+
 " Misc.
 let mapleader=","  " Set <leader> key to comma.
-set history=256  " Number of things to remember in history.
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
+set history=256  " Number of things to remember in history.
 "set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
 set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
@@ -42,12 +105,6 @@ set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
 "set debug=msg  " Show Vim error messages.
 
 " Web
-Bundle "pangloss/vim-javascript"
-Bundle "lepture/vim-jinja"
-"Bundle "lepture/vim-css"
-Bundle "cakebaker/scss-syntax.vim"
-Bundle "groenewege/vim-less"
-Bundle "matchit.zip"
 autocmd BufWinEnter *.json,*jshintrc setfiletype javascript
 autocmd BufWinEnter *.scss setfiletype scss
 autocmd BufWinEnter *.less setfiletype less
@@ -61,8 +118,6 @@ autocmd FileType html,jinja runtime! macros/matchit.vim
 autocmd BufWritePost *.scss,*.sass !compass compile ../ <afile> --force
 
 " Python
-Bundle "hynek/vim-python-pep8-indent"
-Bundle "python.vim--Vasiliev"
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
@@ -72,14 +127,8 @@ set wildignore+=*.pyc,*.pyo
 set wildignore+=*.egg,*.egg-info
 
 " Haskell
-Bundle "bitc/lushtags"
-Bundle "Twinside/vim-haskellConceal"
-Bundle "Twinside/vim-hoogle"
-Bundle "indenthaskell.vim"
 "let g:haskell_indent_if=3
 "let g:haskell_indent_case=5
-"Bundle "haskell.vim"
-Bundle "syntaxhaskell.vim"
 let hs_highlight_boolean=1
 let hs_highlight_types=1
 let hs_highlight_debug=1
@@ -91,11 +140,9 @@ let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_include_dirs=[ 'includes', 'include', 'inc',  'headers' ]
 let g:syntastic_cpp_auto_refresh_includes=1
 let g:syntastic_cpp_remove_include_errors=1
-let g:syntastic_cpp_compiler_options=' -Wall -Weffc++'
-" Run ../makefile if exists, else compile src/*.cpp, include/*.h, and output to bin/runme
-"autocmd FileWritePost cpp setlocal args ../src/*.cpp
-"autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++\ -I\ ../include\ -Wall\ -Weffc++\ -g\ -o\ ../bin/runme\ ##
-autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++
+let g:syntastic_cpp_compiler_options=' -Wall -Wextra -Weffc++'
+" Run `make ../makefile` if exists, else use `g++`.
+"autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++
 " Run output file after successful make.
 "autocmd QuickfixCmdPost make call AfterMakeC()
 "function! AfterMakeC()
@@ -107,26 +154,25 @@ set wildignore+=*.o,*.a
 
 " Markdown
 autocmd BufWinEnter *.md,*.markdown setfiletype markdown
-Bundle "tpope/vim-markdown"
 
-" Syntax Checking
-Bundle "scrooloose/syntastic"
-"Bundle "oryband/syntastic"
+" Syntastic
 "let g:syntastic_mode_map = {
             "\ 'mode': 'active',
             "\ 'active_filetypes':  [],
             "\ 'passive_filetypes': [] }
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_check_on_open=1
+let g:syntastic_auto_loc_list=2  " Close error window automatically when there are no errors.
+let g:syntastic_loc_list_height=5
 let g:syntastic_enable_signs=1  " Show sidebar signs.
-"let g:syntastic_auto_loc_list=1  " Auto open errors window upon detection.
 set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+" Map '`' to open error window.
 nnoremap <silent> ` :Errors<CR>
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_enable_balloons=1
 
-Bundle "camelcasemotion"
+" Camelcase motion
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
@@ -134,40 +180,15 @@ sunmap w
 sunmap b
 sunmap e
 
-Bundle "Lokaltog/vim-powerline"
+" Powerline
 "let g:Powerline_symbols="unicode"
 let g:Powerline_stl_path_style = 'short'
 
-Bundle "majutsushi/tagbar"
+" Tagbar
 nnoremap <silent> \ :TagbarToggle<CR>
 " Search tag list from current dir up till root.
 set tags=./tags;/
 
-Bundle "godlygeek/tabular"
-Bundle "tpope/vim-unimpaired"
-
-" Colors
-Bundle "nanotech/jellybeans.vim"
-Bundle "jelera/vim-gummybears-colorscheme.git"
-Bundle "chriskempson/vim-tomorrow-theme"
-Bundle "tomasr/molokai"
-" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
-let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
-hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
-set t_Co=256  " Set terminal to display 256 colors.
-set background=dark
-colorscheme jellybeans
-"colorscheme gummybears
-"colorscheme tomorrow-night-bright
-"colorscheme molokai
-set cc=+1  " Highlight one column AFTER 'textwidth'.
-hi ColorColumn ctermbg=darkgrey guibg=darkgrey
-highlight WhitespaceEOL ctermbg=red guibg=red
 
 " Status Line
 set shortmess=at  " Shortens messages in status line, truncates long messages.
@@ -176,8 +197,6 @@ set showcmd  " Display an incomplete command in status line.
 
 " Window/buffer mangement.
 " L9 is necessary for fuzzyfinder.
-Bundle "L9"
-Bundle "FuzzyFinder"
 let g:fuf_modesDisable = []
 let g:fuf_ignoreCase = 1
 let g:fuf_timeFormat = ''  " Remove time string.
@@ -186,6 +205,19 @@ let g:fuf_maxMenuWidth = 70
 nnoremap <Leader>1 :FufBuffer<CR>
 nnoremap <Leader>2 :FufFileWithCurrentBufferDir<CR>
 nnoremap <Leader>3 :FufBufferTagAll<CR>
+
+" Mini buffer explorer
+let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
+let g:miniBufExplCheckDupeBufs = 0  " For working with many buffers simultaneously.
+let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
+hi MBEVisibleActive guifg=#A6DB29 guibg=fg
+hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+hi MBEVisibleChanged guifg=#F1266F guibg=fg
+hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+hi MBEChanged guifg=#CD5907 guibg=fg
+hi MBENormal guifg=#808080 guibg=fg
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+highlight WhitespaceEOL ctermbg=red guibg=red
 
 " Searching
 "set hlsearch  " Highlight search.
@@ -203,7 +235,8 @@ set wildmode=list:longest  " List options when hitting tab, and match longest co
 set encoding=utf-8
 set nowrap  " No line wrapping.
 set linebreak  " Wrap at word.
-set textwidth=76  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
+set textwidth=74  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
+set cc=+1  " Highlight one column AFTER 'textwidth'.
 " Enable auto-wrapping comments, comment leader auto-insertion
 " in <Insert> mode, auto-format paragraphs, keep last line indentation.
 " Disable all other format options.
@@ -227,8 +260,9 @@ set smartindent
 
 " Folding
 set foldenable  " Turn on folding.
-set foldmethod=marker  " Fold on the marker.
-set foldlevel=100  " Don't autofold anything (but I can still fold manually).
+set foldmethod=syntax  " Fold on the marker.
+set foldlevel=0  " Fold everything when opening a file.
+"set foldnestmax=1  " Don't fold inner blocks.
 set foldopen=block,hor,tag,percent,mark,quickfix  " Which movements open folds.
 
 " Backup
@@ -285,9 +319,3 @@ noremap <Up> <C-w>k
 noremap <Down> <C-w>j
 noremap <Left> <C-w>h
 noremap <Right> <C-w>l
-
-Bundle "AutoTag"
-Bundle "IndexedSearch"
-Bundle "AutoComplPop"
-Bundle "scrooloose/nerdcommenter"
-Bundle "ryan-cf/netrw"
