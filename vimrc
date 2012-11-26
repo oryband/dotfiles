@@ -235,7 +235,7 @@ set wildmode=list:longest  " List options when hitting tab, and match longest co
 set encoding=utf-8
 set nowrap  " No line wrapping.
 set linebreak  " Wrap at word.
-set textwidth=74  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
+set textwidth=80  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
 set cc=+1  " Highlight one column AFTER 'textwidth'.
 " Enable auto-wrapping comments, comment leader auto-insertion
 " in <Insert> mode, auto-format paragraphs, keep last line indentation.
