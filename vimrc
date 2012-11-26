@@ -80,12 +80,12 @@ syntax on
 " Colors
 set t_Co=256  " Set terminal to display 256 colors.
 set background=dark
+" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
+let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
 colorscheme jellybeans
 "colorscheme gummybears
 "colorscheme tomorrow-night-bright
 "colorscheme molokai
-" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
-let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
 
 " Misc.
 let mapleader=","  " Set <leader> key to comma.
