@@ -82,6 +82,14 @@ set t_Co=256  " Set terminal to display 256 colors.
 set background=dark
 " Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
 let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
+hi MBEVisibleActive guifg=#A6DB29 guibg=fg
+hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+hi MBEVisibleChanged guifg=#F1266F guibg=fg
+hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+hi MBEChanged guifg=#CD5907 guibg=fg
+hi MBENormal guifg=#808080 guibg=fg
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+highlight WhitespaceEOL ctermbg=red guibg=red
 colorscheme jellybeans
 "colorscheme gummybears
 "colorscheme tomorrow-night-bright
@@ -210,14 +218,6 @@ nnoremap <Leader>3 :FufBufferTagAll<CR>
 let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
 let g:miniBufExplCheckDupeBufs = 0  " For working with many buffers simultaneously.
 let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
-hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
-hi ColorColumn ctermbg=darkgrey guibg=darkgrey
-highlight WhitespaceEOL ctermbg=red guibg=red
 
 " Searching
 "set hlsearch  " Highlight search.
