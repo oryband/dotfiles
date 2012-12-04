@@ -4,6 +4,7 @@
 " durdn - https://github.com/durdn/cfg/blob/master/.vimrc
 " FactoryLab - https://github.com/factorylabs/vimfiles
 " lukerandall - https://github.com/lukerandall/dotvim/blob/master/vimrc
+" mathiasbynens - https://github.com/mathiasbynens/dotfiles/blob/master/.vimrc
 " Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
 " Initialization / Vundle Plugin Mangaer
@@ -23,9 +24,6 @@ Bundle "gmarik/vundle"
 
 " Plugins
 " Colors
-Bundle "chriskempson/vim-tomorrow-theme"
-Bundle "tomasr/molokai"
-Bundle "jelera/vim-gummybears-colorscheme.git"
 Bundle "nanotech/jellybeans.vim"
 
 " Web
@@ -35,6 +33,7 @@ Bundle "lepture/vim-jinja"
 Bundle "cakebaker/scss-syntax.vim"
 Bundle "groenewege/vim-less"
 Bundle "matchit.zip"
+Bundle "ap/vim-css-color"
 
 " Python
 Bundle "hynek/vim-python-pep8-indent"
@@ -64,10 +63,12 @@ Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
 Bundle "L9"
 Bundle "FuzzyFinder"
-Bundle "fholgado/minibufexpl.vim"
+"Bundle "fholgado/minibufexpl.vim"
+Bundle "techlivezheng/vim-plugin-minibufexpl"
 
 " Misc
 Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-surround"
 Bundle "AutoTag"
 Bundle "AutoComplPop"
 Bundle "ryan-cf/netrw"
@@ -80,23 +81,22 @@ syntax on
 " Colors
 set t_Co=256  " Set terminal to display 256 colors.
 set background=dark
-" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
-let g:jellybeans_overrides = { 'Todo': { 'guifg': 'ff4500', 'guibg': 'eeee00', 'ctermfg': '196', 'ctermbg': '226', 'attr': 'standout' }, }
-hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
-hi ColorColumn ctermbg=darkgrey guibg=darkgrey
-highlight WhitespaceEOL ctermbg=red guibg=red
+" Set 'TODO' & 'FIXME' strings to be bold and standout as hell. Works for jellybeans color scheme only.
+let g:jellybeans_overrides = {
+            \ 'Todo': {
+                \ 'guifg': 'ff4500',
+                \ 'guibg': 'eeee00',
+                \ 'ctermfg': '196',
+                \ 'ctermbg': '226',
+                \ 'attr': 'standout'
+            \ }
+        \ }
+" Misc color overrides.
 colorscheme jellybeans
-"colorscheme gummybears
-"colorscheme tomorrow-night-bright
-"colorscheme molokai
 
 " Misc.
 let mapleader=","  " Set <leader> key to comma.
+set nostartofline
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
 set history=256  " Number of things to remember in history.
 "set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
@@ -199,7 +199,7 @@ set tags=./tags;/
 
 
 " Status Line
-set shortmess=at  " Shortens messages in status line, truncates long messages.
+set shortmess=atI  " Shortens messages in status line, truncates long messages, no intro (Uganda) message.
 set laststatus=2  " Always show status line.
 set showcmd  " Display an incomplete command in status line.
 
