@@ -71,8 +71,8 @@ Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "AutoTag"
 Bundle "AutoComplPop"
-Bundle "ryan-cf/netrw"
-
+Bundle "embear/vim-localvimrc"
+"Bundle "ryan-cf/netrw"
 
 filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
 set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
@@ -180,6 +180,9 @@ set statusline+=%*
 " Map '`' to open error window.
 nnoremap <silent> ` :Errors<CR>
 
+" Local .vimrc
+let localvimrc_ask = 0  " Don't ask for permission to load, just do it.
+
 " Camelcase motion
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -196,7 +199,6 @@ let g:Powerline_stl_path_style = 'short'
 nnoremap <silent> \ :TagbarToggle<CR>
 " Search tag list from current dir up till root.
 set tags=./tags;/
-
 
 " Status Line
 set shortmess=atI  " Shortens messages in status line, truncates long messages, no intro (Uganda) message.
