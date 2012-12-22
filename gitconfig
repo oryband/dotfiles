@@ -1,6 +1,8 @@
 [user]
     name = Ory Band
     email = oryband@gmail.com
+[push]
+    default = simple
 [credential]
     helper = cache --timeout=3600
 [apply]
@@ -55,5 +57,3 @@
     ;reb = "!r() { git rebase -i HEAD~$1; }; r"
     # Undo a `git push`
     ;undopush = push -f origin HEAD^:master
-[push]
-    default = simple
