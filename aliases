@@ -12,8 +12,8 @@ fi
 
 alias ls="command ls ${colorflag}"
 alias ll="ls -l"
-alias la="ls -a"  # show hidden files.
-alias lla="ls -al"  # show hidden files, with -l.
+alias la="ls -A"  # show hidden files.
+alias lla="ll -A"  # show hidden files, with -l.
 
 alias grep="grep --color=auto -I"  # Colorful, skipping binary files.
 alias less="less -R"  # Colorful less.
