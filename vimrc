@@ -71,7 +71,7 @@ Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "AutoTag"
 Bundle "AutoComplPop"
-Bundle "embear/vim-localvimrc"
+"Bundle "embear/vim-localvimrc"
 "Bundle "ryan-cf/netrw"
 
 filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
@@ -181,7 +181,7 @@ set statusline+=%*
 nnoremap <silent> ` :Errors<CR>
 
 " Local .vimrc
-let localvimrc_ask = 0  " Don't ask for permission to load, just do it.
+"let localvimrc_ask = 0  " Don't ask for permission to load, just do it.
 
 " Camelcase motion
 map <silent> w <Plug>CamelCaseMotion_w
