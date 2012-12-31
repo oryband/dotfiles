@@ -211,7 +211,7 @@ let g:fuf_modesDisable = []
 let g:fuf_ignoreCase = 1
 let g:fuf_timeFormat = ''  " Remove time string.
 let g:fuf_maxMenuWidth = 70
-"let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:fuf_file_exclude = '\v\~$|\.(exe|dll|bak|orig|swp|o|a|pyc|class)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 nnoremap <Leader>1 :FufBuffer<CR>
 nnoremap <Leader>2 :FufFileWithCurrentBufferDir<CR>
 nnoremap <Leader>3 :FufBufferTagAll<CR>
