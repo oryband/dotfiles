@@ -158,7 +158,10 @@ let g:syntastic_cpp_compiler_options=' -Wall -Wextra -Weffc++'
         "!../bin/runme
     "endif
 "endfunction
-set wildignore+=*.o,*.a
+set wildignore+=*.a,*.o,*.so
+
+" Java
+set wildignore+=*.class
 
 " Markdown
 autocmd BufWinEnter *.md,*.markdown setfiletype markdown
