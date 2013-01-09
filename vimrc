@@ -70,7 +70,8 @@ Bundle "techlivezheng/vim-plugin-minibufexpl"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "AutoTag"
-Bundle "AutoComplPop"
+Bundle "Shougo/neocomplcache"
+"Bundle "AutoComplPop"
 "Bundle "embear/vim-localvimrc"
 "Bundle "ryan-cf/netrw"
 
@@ -161,6 +162,7 @@ let g:syntastic_cpp_compiler_options=' -Wall -Wextra -Weffc++'
 set wildignore+=*.a,*.o,*.so
 
 " Java
+autocmd FileType ant setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
 set wildignore+=*.class
 
 " Markdown
@@ -223,6 +225,18 @@ nnoremap <Leader>3 :FufBufferTagAll<CR>
 let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
 let g:miniBufExplCheckDupeBufs = 0  " For working with many buffers simultaneously.
 let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
+
+" Neo Complete Cache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_smart_case = 1
+" <CR>: Choose completion and close.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    "return neocomplcache#smart_close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
 
 " Searching
 "set hlsearch  " Highlight search.
