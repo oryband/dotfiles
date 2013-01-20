@@ -386,7 +386,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>808 374 445 270 0 0 1280 778 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>121 252 924 485 0 0 1280 778 </string>
+	<string>250 209 924 485 0 0 1280 778 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>790 179 384 129 0 0 1280 698 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
@@ -396,7 +396,7 @@
 	<key>NSWindow Frame com.apple.typography_panel_Monaco</key>
 	<string>294 453 260 120 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 290 730 476 0 0 1280 778 </string>
+	<string>133 244 730 520 0 0 1280 778 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1063,7 +1063,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.17588526010513306</real>
+			<real>0.13569480180740356</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -1152,7 +1152,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2012-12-20T13:37:37Z</date>
+	<date>2013-01-18T14:04:19Z</date>
 	<key>SUSkippedVersion</key>
 	<string>0.20.20110619</string>
 	<key>SavePasteHistory</key>
