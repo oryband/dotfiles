@@ -230,7 +230,27 @@ let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_smart_case = 1
-" <CR>: Choose completion and close.
+let g:neocomplcache_enable_auto_delimiter = 1
+
+" Neo Complete Cache - C/C++
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+if !exists('g:neocomplcache_same_filetype_lists')
+    let g:neocomplcache_same_filetype_lists = {}
+endif
+let g:neocomplcache_same_filetype_lists.c = 'cpp,d'
+let g:neocomplcache_same_filetype_lists.cpp = 'c'
+
+if !exists('g:neocomplcache_delimiter_patterns')
+    let g:neocomplcache_delimiter_patterns= {}
+endif
+let g:neocomplcache_delimiter_patterns.cpp = ['::']
+
+" Pressing `enter` will complete word and close completion menu.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
     return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
