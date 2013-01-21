@@ -71,8 +71,7 @@ Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "AutoTag"
 Bundle "Shougo/neocomplcache"
-"Bundle "AutoComplPop"
-"Bundle "embear/vim-localvimrc"
+Bundle "embear/vim-localvimrc"
 "Bundle "ryan-cf/netrw"
 
 filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
@@ -150,29 +149,31 @@ let g:syntastic_cpp_include_dirs=[ 'includes', 'include', 'inc',  'headers' ]
 let g:syntastic_cpp_auto_refresh_includes=1
 let g:syntastic_cpp_remove_include_errors=1
 let g:syntastic_cpp_compiler_options=' -Wall -Wextra -Weffc++'
-" Run `make ../makefile` if exists, else use `g++`.
-"autocmd FileType cpp setlocal makeprg=[[\ -f\ ../makefile\ ]]\ &&\ make\ ../makefile\ -C\ ..\ \\\|\\\|\ g++
-" Run output file after successful make.
-"autocmd QuickfixCmdPost make call AfterMakeC()
-"function! AfterMakeC()
-    "if len(getqflist()) == 0
-        "!../bin/runme
-    "endif
-"endfunction
 set wildignore+=*.a,*.o,*.so
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+if !exists('g:neocomplcache_same_filetype_lists')
+    let g:neocomplcache_same_filetype_lists = {}
+endif
+let g:neocomplcache_same_filetype_lists.c = 'cpp,d'
+let g:neocomplcache_same_filetype_lists.cpp = 'c'
+if !exists('g:neocomplcache_delimiter_patterns')
+    let g:neocomplcache_delimiter_patterns= {}
+endif
+let g:neocomplcache_delimiter_patterns.cpp = ['::']
 
 " Java
 autocmd FileType ant setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+let g:syntastic_java_javac_delete_output=0  " Don't delete .class files after syntax check.
 set wildignore+=*.class
 
 " Markdown
 autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 
 " Syntastic
-"let g:syntastic_mode_map = {
-            "\ 'mode': 'active',
-            "\ 'active_filetypes':  [],
-            "\ 'passive_filetypes': [] }
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_check_on_open=1
@@ -182,11 +183,11 @@ let g:syntastic_enable_signs=1  " Show sidebar signs.
 set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-" Map '`' to open error window.
+" Map '`' (~ key) to open error window.
 nnoremap <silent> ` :Errors<CR>
 
 " Local .vimrc
-"let localvimrc_ask = 0  " Don't ask for permission to load, just do it.
+let localvimrc_ask = 0  " Load .lvimrc without asking.
 
 " Camelcase motion
 map <silent> w <Plug>CamelCaseMotion_w
@@ -231,25 +232,6 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_auto_delimiter = 1
-
-" Neo Complete Cache - C/C++
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-if !exists('g:neocomplcache_same_filetype_lists')
-    let g:neocomplcache_same_filetype_lists = {}
-endif
-let g:neocomplcache_same_filetype_lists.c = 'cpp,d'
-let g:neocomplcache_same_filetype_lists.cpp = 'c'
-
-if !exists('g:neocomplcache_delimiter_patterns')
-    let g:neocomplcache_delimiter_patterns= {}
-endif
-let g:neocomplcache_delimiter_patterns.cpp = ['::']
-
 " Pressing `enter` will complete word and close completion menu.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
@@ -305,19 +287,6 @@ set foldopen=block,hor,tag,percent,mark,quickfix  " Which movements open folds.
 " Backup
 set nobackup  " Disable file backup before file overwrite attempt.
 set nowritebackup
-
-"set undofile  " Keep undo actions even when a file (buffer) is closed.
-"if has ("win32")  " Set undo files location.
-    "set undodir=$HOME\vimfiles\undo
-    "set undodir+=C:\tmp
-    "set undodir+=C:\temp
-    "set undodir+=.
-"else
-    "set undodir=$HOME/.vim/undo
-    "set undodir+=/var/tmp
-    "set undodir+=/tmp
-    "set undodir+=.
-"endif
 
 " Window splitting
 "set equalalways  " Multiple windows, when created, are equal in size. NOTE: Doesn't work well with MiniBufExpl.vim
