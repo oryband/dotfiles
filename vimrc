@@ -167,6 +167,7 @@ let g:neocomplcache_delimiter_patterns.cpp = ['::']
 
 " Java
 autocmd FileType ant setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+let g:syntastic_java_checker = "javac"
 let g:syntastic_java_javac_delete_output=0  " Don't delete .class files after syntax check.
 set wildignore+=*.class
 
