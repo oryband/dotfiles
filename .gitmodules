@@ -1,6 +1,3 @@
 [submodule "vim"]
 	path = vim
 	url = git@github.com:oryband/dotvim.git
-[submodule "ghci-color"]
-	path = ghci-color
-	url = git://github.com/rhysd/ghci-color.git
