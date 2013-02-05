@@ -58,9 +58,9 @@ if [ `hostname -s` == "Ory" ]; then
     # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
     alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
 
-    PATH="/usr/local/bin:/usr/local/sbin:$PATH"   # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
-    PATH="/usr/local/share/python:$PATH"          # Add Homebrew's Python to $PATH, before the system's Python.
-    PATH="/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH"  # Ruby
+    PATH="/usr/local/bin:/usr/local/sbin:$PATH"  # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
+    PATH="/usr/local/share/python:$PATH"         # Add Homebrew's Python to $PATH, before the system's Python.
+    PATH="/usr/local/opt/ruby/bin:$PATH"  # Same for Ruby
     PATH="$HOME/.cabal/bin:$PATH"  # Haskell
     PATH="/usr/local/share/npm/bin:$PATH"  # Node/npm
     export PATH
