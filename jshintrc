@@ -18,7 +18,8 @@
     "dojo"          : false,
 
     "predef"        : [  // Extra globals.
-        "google",
+        "google",  // Google API variable.
+        "Android"  // PhoneGap variable.
     ],
 
 
