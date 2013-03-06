@@ -54,6 +54,7 @@ Bundle "tpope/vim-markdown"
 " Syntax
 Bundle "scrooloose/syntastic"
 Bundle "scrooloose/nerdcommenter"
+Bundle "nathanaelkane/vim-indent-guides"
 
 " Navigation
 Bundle "IndexedSearch"
@@ -316,7 +317,7 @@ autocmd FileType css,scss,less set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType html,jinja set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType html setlocal syntax=jinja
-autocmd FileType html,css,scss,less setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType html,css,scss,less setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType html,jinja runtime! macros/matchit.vim
 autocmd BufWritePost *.scss,*.sass !compass compile ../ <afile> --force
 "}}}
@@ -329,6 +330,10 @@ autocmd FileType python setlocal linebreak nosmartindent  " nosmartindent for co
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 set wildignore+=*.pyc,*.pyo
 set wildignore+=*.egg,*.egg-info
+"}}}
+
+" Ruby {{{
+autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 "}}}
 
 " Haskell {{{
