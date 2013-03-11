@@ -30,6 +30,7 @@ Bundle "nanotech/jellybeans.vim"
 " Web
 Bundle "pangloss/vim-javascript"
 Bundle "lepture/vim-jinja"
+Bundle "tpope/vim-liquid"
 "Bundle "lepture/vim-css"
 Bundle "cakebaker/scss-syntax.vim"
 Bundle "groenewege/vim-less"
@@ -262,6 +263,7 @@ nnoremap <silent> ` :Errors<CR>
 
 " Local .vimrc {{{
 let localvimrc_ask = 0  " Load .lvimrc without asking.
+let g:localvimrc_sandbox = 0  " No sandbox (less secure).
 "}}}
 
 " Camelcase motion {{{
@@ -309,16 +311,16 @@ autocmd FileType vim setlocal foldmethod=marker
 "}}}
 
 " Web {{{
-autocmd BufWinEnter *.json,*jshintrc setfiletype javascript
+autocmd BufWinEnter *.html,*.htm setfiletype html
 autocmd BufWinEnter *.scss setfiletype scss
 autocmd BufWinEnter *.less setfiletype less
-autocmd BufWinEnter *.html,*.htm setfiletype html
+autocmd BufWinEnter *.json,*jshintrc setfiletype javascript
+autocmd FileType html setlocal filetype=jinja
 autocmd FileType css,scss,less set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html,jinja set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType html setlocal syntax=jinja
-autocmd FileType html,css,scss,less setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType html,jinja runtime! macros/matchit.vim
+"autocmd FileType html,jinja,liquid set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html,jinja,liquid,css,scss,less setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType html,jinja,liquid runtime! macros/matchit.vim
 autocmd BufWritePost *.scss,*.sass !compass compile ../ <afile> --force
 "}}}
 
