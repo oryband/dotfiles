@@ -321,7 +321,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType html,jinja,liquid set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType html,jinja,liquid,css,scss,less setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType html,jinja,liquid runtime! macros/matchit.vim
-autocmd BufWritePost *.scss,*.sass !compass compile ../ <afile> --force
+"autocmd BufWritePost *.scss,*.sass !compass compile ../ <afile> --force
 "}}}
 
 " Python {{{
@@ -371,5 +371,11 @@ set wildignore+=*.class
 
 " Markdown {{{
 autocmd BufWinEnter *.md,*.markdown setfiletype markdown
+"}}}
+
+" Other {{{
+autocmd BufWinEnter *bashrc,*bash_prompt,*bash_profile,*aliases setfiletype sh
+autocmd BufWinEnter *gitconfig setfiletype gitconfig
+autocmd BufWinEnter *sshconfig setfiletype sshconfig
 "}}}
 "}}}
