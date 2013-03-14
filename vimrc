@@ -373,9 +373,19 @@ set wildignore+=*.class
 autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 "}}}
 
-" Other {{{
+" Assembly {{{
+autocmd BufWinEnter *.s,*.bin setfiletype nasm
+"}}}
+
+" Bash/Shell {{{
 autocmd BufWinEnter *bashrc,*bash_prompt,*bash_profile,*aliases setfiletype sh
+"}}}
+
+" Git {{{
 autocmd BufWinEnter *gitconfig setfiletype gitconfig
+"}}}
+
+" SSH {{{
 autocmd BufWinEnter *sshconfig setfiletype sshconfig
 "}}}
 "}}}
