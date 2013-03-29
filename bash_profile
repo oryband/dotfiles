@@ -65,5 +65,6 @@ if [ `hostname -s` == "Ory" ]; then
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
     PATH="$HOME/.cabal/bin:$PATH"  # Haskell
     PATH="/usr/local/share/npm/bin:$PATH"  # Node/npm
+    PATH="/Applications/Racket v5.3.3/bin:$PATH"  # Racket
     export PATH
 fi
