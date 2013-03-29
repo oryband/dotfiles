@@ -52,6 +52,10 @@ Bundle "syntaxhaskell.vim"
 " Markdown
 Bundle "tpope/vim-markdown"
 
+" Racket
+Bundle "wlangstroth/vim-racket"
+Bundle "kien/rainbow_parentheses.vim"
+
 " Syntax
 Bundle "scrooloose/syntastic"
 Bundle "scrooloose/nerdcommenter"
@@ -99,6 +103,13 @@ let g:jellybeans_overrides = {
         \ }
 " Misc color overrides.
 colorscheme jellybeans
+
+" Rainbow Parenthesis.
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
 "}}}
 
 " Misc. {{{
@@ -375,6 +386,11 @@ autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 
 " Assembly {{{
 autocmd BufWinEnter *.s,*.bin setfiletype nasm
+"}}}
+
+" Racket {{{
+autocmd BufWinEnter *.rkt,*.rktl setfiletype scheme
+autocmd FileType scheme setlocal lisp tabstop=2 softtabstop=2 shiftwidth=2
 "}}}
 
 " Bash/Shell {{{
