@@ -106,10 +106,10 @@ colorscheme jellybeans
 
 " Rainbow Parenthesis.
 au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesLoadChevrons
+au Syntax * RainbowParenthesesLoadRound " ()
+au Syntax * RainbowParenthesesLoadSquare " []
+au Syntax * RainbowParenthesesLoadBraces " {}
+"au Syntax * RainbowParenthesesLoadChevrons " <>
 "}}}
 
 " Misc. {{{
