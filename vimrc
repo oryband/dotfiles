@@ -389,7 +389,7 @@ autocmd BufWinEnter *.s,*.bin setfiletype nasm
 "}}}
 
 " Racket {{{
-autocmd BufWinEnter *.rkt,*.rktl setfiletype scheme
+"autocmd BufWinEnter *.rkt,*.rktl setfiletype scheme
 autocmd FileType scheme setlocal lisp tabstop=2 softtabstop=2 shiftwidth=2
 "}}}
 
