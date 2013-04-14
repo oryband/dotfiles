@@ -359,14 +359,19 @@ let hs_allow_hash_operator=1
 set wildignore+=*.hi,*.o
 "}}}
 
-" C++ {{{
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_include_dirs = [ 'includes', 'include', 'inc',  'headers' ]
-let g:syntastic_cpp_auto_refresh_includes = 1
-let g:syntastic_cpp_remove_include_errors = 1
-let g:syntastic_cpp_compiler_options = ' -Wall -Wextra -Weffc++'
+" C/C++ {{{
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_include_dirs = [ 'includes', 'include', 'inc',  'headers' ]
+let g:syntastic_c_auto_refresh_includes = 1
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
+let g:syntastic_cpp_check_header = g:syntastic_c_check_header
+let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
+let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
+let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
+let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
 let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_omni_patterns.cpp = g:neocomplcache_omni_patterns.c . '\|\h\w*::'
 let g:neocomplcache_same_filetype_lists.c = 'cpp,d'
 let g:neocomplcache_same_filetype_lists.cpp = 'c'
 let g:neocomplcache_delimiter_patterns.cpp = ['::']
