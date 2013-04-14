@@ -171,6 +171,14 @@ if ! has("win32")
     set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
 endif
 set nolist  " Don't display invisible characters.
+" Add a custom command to strip trailing whitespaces.
+function! StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfunction
+command! StripTrailingWhitespaces call StripTrailingWhitespaces()
 "}}}
 
 " Indentation {{{
