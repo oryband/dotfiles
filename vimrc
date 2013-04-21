@@ -250,7 +250,7 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_lock_buffer_name_pattern = '\[fuf\]'
+let g:neocomplcache_lock_buffer_name_pattern = 'fuf'
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
 endif
