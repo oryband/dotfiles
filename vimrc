@@ -262,7 +262,7 @@ endfunction
 " Syntastic {{{
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
-let g:syntastic_check_on_open=1
+"let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=2  " Close error window automatically when there are no errors.
 let g:syntastic_loc_list_height=5
 let g:syntastic_enable_signs=1  " Show sidebar signs.
