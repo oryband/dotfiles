@@ -54,7 +54,6 @@ Bundle "tpope/vim-markdown"
 
 " Racket
 Bundle "wlangstroth/vim-racket"
-Bundle "kien/rainbow_parentheses.vim"
 
 " Syntax
 Bundle "scrooloose/syntastic"
@@ -103,13 +102,6 @@ let g:jellybeans_overrides = {
         \ }
 " Misc color overrides.
 colorscheme jellybeans
-
-" Rainbow Parenthesis.
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound " ()
-au Syntax * RainbowParenthesesLoadSquare " []
-au Syntax * RainbowParenthesesLoadBraces " {}
-"au Syntax * RainbowParenthesesLoadChevrons " <>
 "}}}
 
 " Misc. {{{
