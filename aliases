@@ -2,6 +2,7 @@
 
 alias cls="clear"  # Windows command. :)
 alias vim="vi"
+alias mvi="mvim"
 
 # Always use color output for `ls`
 if ls --color > /dev/null 2>&1; then  # GNU `ls`
@@ -18,3 +19,5 @@ alias lla="ll -A"  # show hidden files, with -l.
 alias grep="grep --color=auto -In"  # Colorful, skipping binary files.
 alias less="less -R"  # Colorful less.
 alias ghci="ghci-color"
+
+alias racket="racket -il readline"
