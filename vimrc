@@ -239,6 +239,10 @@ noremap <Right> <C-w>l
 "}}}
 
 " Plugin configurations {{{
+" YouCompleteMe {{{
+let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C/C++ conf.
+" }}}
+
 " Syntastic {{{
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
