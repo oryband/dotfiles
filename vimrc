@@ -80,6 +80,7 @@ Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "AutoTag"
 Bundle "embear/vim-localvimrc"
+Bundle "Valloric/ListToggle"
 "Bundle "ryan-cf/netrw"
 
 filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
@@ -248,7 +249,6 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 "let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=2  " Close error window automatically when there are no errors.
-let g:syntastic_loc_list_height=5
 let g:syntastic_enable_signs=1  " Show sidebar signs.
 set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -294,6 +294,11 @@ nnoremap <Leader>3 :FufBufferTagAll<CR>
 
 " Mini buffer explorer {{{
 let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
+"}}}
+
+" ListToggle {{{
+let g:lt_location_list_toggle_map = '<leader>`'
+let g:lt_height = 10
 "}}}
 "}}}
 
