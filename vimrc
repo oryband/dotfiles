@@ -76,7 +76,6 @@ Bundle "techlivezheng/vim-plugin-minibufexpl"
 
 " Misc {{{
 Bundle "Valloric/YouCompleteMe"
-Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "AutoTag"
 Bundle "embear/vim-localvimrc"
@@ -115,9 +114,7 @@ set history=256  " Number of things to remember in history.
 "set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
 set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
-if strpart(expand("%:p:h"), 0, 7) != "scp://"
-    autocmd BufEnter * lchdir %:p:h  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
-endif
+autocmd BufEnter * if expand('%:p') !~ '://' | :lchdir %:p:h | endif  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "autocmd BufWritePost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
 "set timeoutlen=500  " Set key-combination timeout.
 set title  " Show title in app title bar.
