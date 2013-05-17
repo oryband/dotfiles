@@ -36,7 +36,7 @@ Bundle "cakebaker/scss-syntax.vim"
 Bundle "groenewege/vim-less"
 Bundle "matchit.zip"
 Bundle "ap/vim-css-color"
-" }}}
+"}}}
 
 " Python
 Bundle "hynek/vim-python-pep8-indent"
@@ -49,7 +49,7 @@ Bundle "python.vim--Vasiliev"
 "Bundle "indenthaskell.vim"
 "Bundle "haskell.vim"
 "Bundle "syntaxhaskell.vim"
-" }}}
+"}}}
 
 " Markdown
 Bundle "tpope/vim-markdown"
@@ -72,7 +72,7 @@ Bundle "tpope/vim-unimpaired"
 Bundle "L9"
 Bundle "FuzzyFinder"
 Bundle "techlivezheng/vim-plugin-minibufexpl"
-" }}}
+"}}}
 
 " Misc {{{
 Bundle "Valloric/YouCompleteMe"
@@ -241,7 +241,7 @@ noremap <Right> <C-w>l
 " Plugin configurations {{{
 " YouCompleteMe {{{
 let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C/C++ conf.
-" }}}
+"}}}
 
 " Syntastic {{{
 let g:syntastic_error_symbol='✗'
@@ -253,8 +253,6 @@ let g:syntastic_enable_signs=1  " Show sidebar signs.
 set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-" Map '`' (~ key) to open error window.
-nnoremap <silent> ` :Errors<CR>
 "}}}
 
 " Local .vimrc {{{
