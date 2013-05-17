@@ -273,6 +273,7 @@ let g:Powerline_stl_path_style = 'short'
 "}}}
 
 " Tagbar {{{
+let g:tagbar_sort = 0
 nnoremap <silent> \ :TagbarToggle<CR>
 " Search tag list from current dir up till root.
 set tags=./tags;/
