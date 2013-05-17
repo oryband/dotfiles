@@ -242,6 +242,7 @@ noremap <Right> <C-w>l
 " Plugin configurations {{{
 " YouCompleteMe {{{
 let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C/C++ conf.
+let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
 "}}}
 
 " Syntastic {{{
