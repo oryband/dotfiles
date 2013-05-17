@@ -27,7 +27,7 @@ Bundle "gmarik/vundle"
 " Colors
 Bundle "nanotech/jellybeans.vim"
 
-" Web
+" Web {{{
 Bundle "pangloss/vim-javascript"
 Bundle "lepture/vim-jinja"
 Bundle "tpope/vim-liquid"
@@ -36,18 +36,20 @@ Bundle "cakebaker/scss-syntax.vim"
 Bundle "groenewege/vim-less"
 Bundle "matchit.zip"
 Bundle "ap/vim-css-color"
+" }}}
 
 " Python
 Bundle "hynek/vim-python-pep8-indent"
 Bundle "python.vim--Vasiliev"
 
-" Haskell
-Bundle "bitc/lushtags"
-Bundle "Twinside/vim-haskellConceal"
-Bundle "Twinside/vim-hoogle"
-Bundle "indenthaskell.vim"
+" Haskell {{{
+"Bundle "bitc/lushtags"
+"Bundle "Twinside/vim-haskellConceal"
+"Bundle "Twinside/vim-hoogle"
+"Bundle "indenthaskell.vim"
 "Bundle "haskell.vim"
-Bundle "syntaxhaskell.vim"
+"Bundle "syntaxhaskell.vim"
+" }}}
 
 " Markdown
 Bundle "tpope/vim-markdown"
@@ -60,7 +62,7 @@ Bundle "scrooloose/syntastic"
 Bundle "scrooloose/nerdcommenter"
 Bundle "nathanaelkane/vim-indent-guides"
 
-" Navigation
+" Navigation {{{
 Bundle "IndexedSearch"
 Bundle "camelcasemotion"
 Bundle "Lokaltog/vim-powerline"
@@ -69,14 +71,14 @@ Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
 Bundle "L9"
 Bundle "FuzzyFinder"
-"Bundle "fholgado/minibufexpl.vim"
 Bundle "techlivezheng/vim-plugin-minibufexpl"
+" }}}
 
 " Misc {{{
+Bundle "Valloric/YouCompleteMe"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "AutoTag"
-Bundle "Shougo/neocomplcache"
 Bundle "embear/vim-localvimrc"
 "Bundle "ryan-cf/netrw"
 
@@ -237,28 +239,6 @@ noremap <Right> <C-w>l
 "}}}
 
 " Plugin configurations {{{
-" Neo Complete Cache {{{
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_lock_buffer_name_pattern = 'fuf'
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-if !exists('g:neocomplcache_same_filetype_lists')
-    let g:neocomplcache_same_filetype_lists = {}
-endif
-if !exists('g:neocomplcache_delimiter_patterns')
-    let g:neocomplcache_delimiter_patterns= {}
-endif
-" Pressing `enter` will complete word and close completion menu.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-"}}}
-
 " Syntastic {{{
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -311,8 +291,6 @@ nnoremap <Leader>3 :FufBufferTagAll<CR>
 "}}}
 
 " Mini buffer explorer {{{
-let g:miniBufExplModSelTarget = 1  " Don't open buffer in a non-modifiable buffer (e.g. TagList window).
-let g:miniBufExplCheckDupeBufs = 0  " For working with many buffers simultaneously.
 let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
 "}}}
 "}}}
@@ -361,21 +339,18 @@ set wildignore+=*.hi,*.o
 "}}}
 
 " C/C++ {{{
-let g:syntastic_c_check_header = 1
+let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
+let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
 let g:syntastic_c_include_dirs = [ 'includes', 'include', 'inc',  'headers' ]
+
+let g:syntastic_c_check_header = 1
 let g:syntastic_c_auto_refresh_includes = 1
 let g:syntastic_c_remove_include_errors = 1
-let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
+
 let g:syntastic_cpp_check_header = g:syntastic_c_check_header
 let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
-let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = g:neocomplcache_omni_patterns.c . '\|\h\w*::'
-let g:neocomplcache_same_filetype_lists.c = 'cpp,d'
-let g:neocomplcache_same_filetype_lists.cpp = 'c'
-let g:neocomplcache_delimiter_patterns.cpp = ['::']
 set wildignore+=*.a,*.o,*.so
 "}}}
 
