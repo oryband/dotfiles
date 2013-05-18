@@ -42,15 +42,6 @@ Bundle "ap/vim-css-color"
 Bundle "hynek/vim-python-pep8-indent"
 Bundle "python.vim--Vasiliev"
 
-" Haskell {{{
-"Bundle "bitc/lushtags"
-"Bundle "Twinside/vim-haskellConceal"
-"Bundle "Twinside/vim-hoogle"
-"Bundle "indenthaskell.vim"
-"Bundle "haskell.vim"
-"Bundle "syntaxhaskell.vim"
-"}}}
-
 " Markdown
 Bundle "tpope/vim-markdown"
 
@@ -60,7 +51,6 @@ Bundle "wlangstroth/vim-racket"
 " Syntax
 Bundle "scrooloose/syntastic"
 Bundle "scrooloose/nerdcommenter"
-Bundle "nathanaelkane/vim-indent-guides"
 
 " Navigation {{{
 Bundle "IndexedSearch"
@@ -69,7 +59,6 @@ Bundle "Lokaltog/vim-powerline"
 Bundle "majutsushi/tagbar"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
-Bundle "L9"
 Bundle "wincent/Command-T"
 Bundle "techlivezheng/vim-plugin-minibufexpl"
 "}}}
@@ -77,7 +66,6 @@ Bundle "techlivezheng/vim-plugin-minibufexpl"
 " Misc {{{
 Bundle "Valloric/YouCompleteMe"
 Bundle "tpope/vim-surround"
-"Bundle "AutoTag"
 Bundle "xolox/vim-easytags"
 Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
@@ -315,16 +303,6 @@ set wildignore+=*.egg,*.egg-info
 
 " Ruby {{{
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-"}}}
-
-" Haskell {{{
-"let g:haskell_indent_if=3
-"let g:haskell_indent_case=5
-let hs_highlight_boolean=1
-let hs_highlight_types=1
-let hs_highlight_debug=1
-let hs_allow_hash_operator=1
-set wildignore+=*.hi,*.o
 "}}}
 
 " C/C++ {{{
