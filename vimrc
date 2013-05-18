@@ -77,7 +77,8 @@ Bundle "techlivezheng/vim-plugin-minibufexpl"
 " Misc {{{
 Bundle "Valloric/YouCompleteMe"
 Bundle "tpope/vim-surround"
-Bundle "AutoTag"
+"Bundle "AutoTag"
+Bundle "xolox/vim-easytags"
 Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
 "Bundle "ryan-cf/netrw"
@@ -251,7 +252,19 @@ let g:Powerline_stl_path_style = 'short'
 let g:tagbar_sort = 0
 nnoremap <silent> \ :TagbarToggle<CR>
 " Search tag list from current dir up till root.
+"}}}
+
+" EasyTags {{{
 set tags=./tags;/
+"let g:easytags_languages = {
+            "\   'language': {
+            "\     'cmd': g:easytags_cmd,
+            "\       'args': [],
+            "\       'fileoutput_opt': '-f',
+            "\       'stdout_opt': '-f-',
+            "\       'recurse_flag': '-R'
+            "\   }
+            "\}
 "}}}
 
 " Mini Buffer Explorer {{{
