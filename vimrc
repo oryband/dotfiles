@@ -53,14 +53,15 @@ Bundle "scrooloose/syntastic"
 Bundle "scrooloose/nerdcommenter"
 
 " Navigation {{{
-Bundle "IndexedSearch"
-Bundle "camelcasemotion"
-Bundle "Lokaltog/vim-powerline"
 Bundle "majutsushi/tagbar"
+Bundle "wincent/Command-T"
+Bundle "Lokaltog/vim-powerline"
+Bundle "techlivezheng/vim-plugin-minibufexpl"
+Bundle "scrooloose/nerdtree"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
-Bundle "wincent/Command-T"
-Bundle "techlivezheng/vim-plugin-minibufexpl"
+Bundle "IndexedSearch"
+Bundle "camelcasemotion"
 "}}}
 
 " Misc {{{
@@ -236,6 +237,12 @@ let g:Powerline_stl_path_style = 'short'
 let g:tagbar_sort = 0
 nnoremap <silent> \ :TagbarToggle<CR>
 " Search tag list from current dir up till root.
+"}}}
+
+" {{{ NERDTree
+let NERDTreeQuitOnOpen = 1
+let NERDTreeStatusline = 'NERDTree'
+noremap <Leader>e :NERDTreeToggle<CR>
 "}}}
 
 " EasyTags {{{
