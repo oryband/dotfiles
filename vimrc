@@ -70,7 +70,7 @@ Bundle "majutsushi/tagbar"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
 Bundle "L9"
-Bundle "FuzzyFinder"
+Bundle "wincent/Command-T"
 Bundle "techlivezheng/vim-plugin-minibufexpl"
 "}}}
 
@@ -107,20 +107,16 @@ colorscheme jellybeans
 "}}}
 
 " Misc. {{{
-let mapleader=","  " Set <leader> key to comma.
 set nostartofline
+set splitbelow splitright  " New windows are created to the bottom-right.
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
 set history=256  " Number of things to remember in history.
-"set autoread  " Reload file if changed outside of Vim (DANGEROUS!).
 set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
-autocmd BufEnter * if expand('%:p') !~ '://' | :lchdir %:p:h | endif  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
-"autocmd BufWritePost .vimrc source $MYVIMRC  " Source .vimrc after saving it.
-"set timeoutlen=500  " Set key-combination timeout.
 set title  " Show title in app title bar.
 set ttyfast  " Fast drawing.
 set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
-"set debug=msg  " Show Vim error messages.
+"autocmd BufEnter * if expand('%:p') !~ '://' | :lchdir %:p:h | endif  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "}}}
 
 " Status Line {{{
@@ -130,14 +126,11 @@ set showcmd  " Display an incomplete command in status line.
 "}}}
 
 " Searching {{{
-"set hlsearch  " Highlight search.
 set smartcase  " Be case sensitive when input has a capital letter.
 set incsearch  " Show matches while typing.
 set ignorecase  " Ignore case when searching.
 set gdefault  " Make searched global `/g` by default.
-if exists('&wildignorecase')
-    set wildignorecase  " In-case-sensitive dir/file completion.
-endif
+if exists('&wildignorecase') | set wildignorecase | endif  " In-case-sensitive dir/file completion.
 set wildmenu  " Enable menu for commands
 set wildmode=list:longest  " List options when hitting tab, and match longest common command.
 "}}}
@@ -158,12 +151,9 @@ set backspace=indent,eol,start  " Enable backspace key. Erase previously entered
 set number  " Show line numbers.
 set showmatch  " Show matching brace on insertion or cursor over.
 set matchtime=3  " How many tenths of a second to wait before showing matching braces.
-" Invisible characters.
-if ! has("win32")
-    set listchars=tab:▸\ ,trail:¬,eol:«  " Invisible characters.
-endif
+if ! has("win32") | set listchars=tab:▸\ ,trail:¬,eol:« | endif  " Invisible characters.
 set nolist  " Don't display invisible characters.
-" Add a custom command to strip trailing whitespaces.
+" Custom command to strip trailing whitespaces.
 function! StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -176,14 +166,12 @@ command! StripTrailingWhitespaces call StripTrailingWhitespaces()
 " Indentation {{{
 set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
-"set shiftround  " Round shift actions. i.e. When at 3 spaces, and I hit > ... go to 4, not 5. FIXME: Doesn't work.
 "}}}
 
 " Folding {{{
 set foldenable  " Turn on folding.
 set foldmethod=syntax  " Fold on the marker.
 set foldlevel=0  " Fold everything when opening a file.
-"set foldnestmax=1  " Don't fold inner blocks.
 set foldopen=block,hor,tag,percent,mark,quickfix  " Which movements open folds.
 ""}}}
 
@@ -192,19 +180,9 @@ set nobackup  " Disable file backup before file overwrite attempt.
 set nowritebackup
 "}}}
 
-" Window splitting {{{
-"set equalalways  " Multiple windows, when created, are equal in size. NOTE: Doesn't work well with MiniBufExpl.vim
-set splitbelow splitright  " New windows are created to the bottom-right.
-"}}}
-
 " Mouse {{{
 "Set mouse behaviour to be like the OS's.
-if has ("win32")
-    behave mswin
-else
-    behave xterm
-endif
-"set mouse=a  " Enable mouse.
+if has ("win32") | behave mswin | else | behave xterm | endif
 set mouse-=a  " Disable mouse.
 set mousehide  " Hide mouse after chars typed.
 behave xterm  " Make mouse behave like in xterm (instead of, e.g. Windows' command-prompt mouse).
@@ -213,8 +191,6 @@ set selectmode=mouse  " Enable visule selection with mouse.
 
 " Bells {{{
 set novisualbell  " No blinking
-"set noerrorbells  " No noise.
-"set vb t_vb= " Disable any beeps or flashes on error
 "}}}
 
 " Ignored files {{{
@@ -225,6 +201,7 @@ set wildignore+=*.DS_STORE
 "}}}
 
 " Key mappings {{{
+let mapleader=","  " Set <leader> key to comma.
 " Page up/down.
 noremap <C-k> <C-b>
 noremap <C-j> <C-f>
@@ -240,6 +217,8 @@ noremap <Right> <C-w>l
 " YouCompleteMe {{{
 let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C/C++ conf.
 let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
+let g:ycm_key_list_completion = [ "<C-n>", "<TAB>", "<Down>"]
+let g:ycm_key_list_previous_completion = [ "<C-p>", "<S-TAB>", "<Up>"]
 "}}}
 
 " Syntastic {{{
@@ -253,18 +232,14 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 "}}}
 
-" Local .vimrc {{{
-let localvimrc_ask = 0  " Load .lvimrc without asking.
-let g:localvimrc_sandbox = 0  " No sandbox (less secure).
-"}}}
-
-" Camelcase motion {{{
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
+" Command-T {{{
+let g:CommandTMaxDepth = 0  " Scan current dir only.
+let g:CommandTMaxHeight = 15  " Set max window height.
+let g:CommandTMatchWindowAtTop = 1  " Set window to top instead of bottom.
+nnoremap <silent> <Leader>g :CommandTTag<CR>
+nnoremap <silent> <Leader>f :CommandTRefreshMap<CR>
+let g:CommandTBackspaceMap = [ "<BS>", "<C-h>" ]
+let g:CommandTCancelMap = [ "<ESC>", "<C-c>" ]
 "}}}
 
 " Powerline {{{
@@ -279,20 +254,22 @@ nnoremap <silent> \ :TagbarToggle<CR>
 set tags=./tags;/
 "}}}
 
-" Window/buffer mangement. {{{
-" L9 is necessary for fuzzyfinder.
-let g:fuf_modesDisable = []
-let g:fuf_ignoreCase = 1
-let g:fuf_timeFormat = ''  " Remove time string.
-let g:fuf_maxMenuWidth = 70
-let g:fuf_file_exclude = '\v\~$|\.(exe|dll|bak|orig|swp|o|a|pyc|class)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-nnoremap <Leader>1 :FufBuffer<CR>
-nnoremap <Leader>2 :FufFileWithCurrentBufferDir<CR>
-nnoremap <Leader>3 :FufBufferTagAll<CR>
+" Mini Buffer Explorer {{{
+let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
 "}}}
 
-" Mini buffer explorer {{{
-let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
+" Local .vimrc {{{
+let localvimrc_ask = 0  " Load .lvimrc without asking.
+let g:localvimrc_sandbox = 0  " No sandbox (less secure).
+"}}}
+
+" Camelcase motion {{{
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
 "}}}
 
 " ListToggle {{{
