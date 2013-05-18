@@ -126,6 +126,22 @@ set laststatus=2  " Always show status line.
 set showcmd  " Display an incomplete command in status line.
 "}}}
 
+" Ignored files {{{
+set wildignore+=*.swp  " Vim
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd  " Ignore images
+set wildignore+=*.pdf  " Ignore PDF files
+set wildignore+=*.DS_STORE
+"}}}
+
+" Key mappings {{{
+let mapleader=","  " Set <leader> key to comma.
+" Window-change actions.
+noremap <Up> <C-w>k
+noremap <Down> <C-w>j
+noremap <Left> <C-w>h
+noremap <Right> <C-w>l
+"}}}
+
 " Searching {{{
 set smartcase  " Be case sensitive when input has a capital letter.
 set incsearch  " Show matches while typing.
@@ -193,25 +209,6 @@ set selectmode=mouse  " Enable visule selection with mouse.
 " Bells {{{
 set novisualbell  " No blinking
 "}}}
-
-" Ignored files {{{
-set wildignore+=*.swp  " Vim
-set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd  " Ignore images
-set wildignore+=*.pdf  " Ignore PDF files
-set wildignore+=*.DS_STORE
-"}}}
-
-" Key mappings {{{
-let mapleader=","  " Set <leader> key to comma.
-" Page up/down.
-noremap <C-k> <C-b>
-noremap <C-j> <C-f>
-" Window-change actions.
-noremap <Up> <C-w>k
-noremap <Down> <C-w>j
-noremap <Left> <C-w>h
-noremap <Right> <C-w>l
-"}}}
 "}}}
 
 " Plugin configurations {{{
@@ -234,12 +231,11 @@ set statusline+=%*
 "}}}
 
 " Command-T {{{
-let g:CommandTMaxDepth = 0  " Scan current dir only.
+"let g:CommandTMaxDepth = 0  " Scan current dir only.
 let g:CommandTMaxHeight = 15  " Set max window height.
 let g:CommandTMatchWindowAtTop = 1  " Set window to top instead of bottom.
 nnoremap <silent> <Leader>g :CommandTTag<CR>
 nnoremap <silent> <Leader>f :CommandTRefreshMap<CR>
-let g:CommandTBackspaceMap = [ "<BS>", "<C-h>" ]
 let g:CommandTCancelMap = [ "<ESC>", "<C-c>" ]
 "}}}
 
@@ -255,16 +251,13 @@ nnoremap <silent> \ :TagbarToggle<CR>
 "}}}
 
 " EasyTags {{{
-set tags=./tags;/
-"let g:easytags_languages = {
-            "\   'language': {
-            "\     'cmd': g:easytags_cmd,
-            "\       'args': [],
-            "\       'fileoutput_opt': '-f',
-            "\       'stdout_opt': '-f-',
-            "\       'recurse_flag': '-R'
-            "\   }
-            "\}
+set tags=./.tags;/
+let g:easytags_file = '~/.tags'  " Default tags file.
+let g:easytags_cmd = 'ctags'
+let g:easytags_dynamic_files = 1  " Search tag files.
+let g:easytags_auto_update = 0
+let g:easytags_auto_highlight = 0
+"let g:easytags_updatetime_min = 4000  " Update every 10 seconds.
 "}}}
 
 " Mini Buffer Explorer {{{
@@ -368,6 +361,15 @@ autocmd BufWinEnter *.s,*.bin setfiletype nasm
 " Racket {{{
 "autocmd BufWinEnter *.rkt,*.rktl setfiletype scheme
 autocmd FileType scheme setlocal lisp tabstop=2 softtabstop=2 shiftwidth=2
+let g:easytags_languages = {
+            \   'racket': {
+            \     'cmd': g:easytags_cmd,
+            \       'args': [],
+            \       'fileoutput_opt': '-f',
+            \       'stdout_opt': '-f-',
+            \       'recurse_flag': '-R'
+            \   }
+            \}
 "}}}
 
 " Bash/Shell {{{
