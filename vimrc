@@ -50,7 +50,8 @@ Bundle "wlangstroth/vim-racket"
 
 " Syntax
 Bundle "scrooloose/syntastic"
-Bundle "scrooloose/nerdcommenter"
+"Bundle "scrooloose/nerdcommenter"
+Bundle "tomtom/tcomment_vim"
 
 " Navigation {{{
 Bundle "majutsushi/tagbar"
@@ -125,10 +126,10 @@ set wildignore+=*.DS_STORE
 " Key mappings {{{
 let mapleader=","  " Set <leader> key to comma.
 " Window-change actions.
-noremap <Up> <C-w>k
-noremap <Down> <C-w>j
-noremap <Left> <C-w>h
-noremap <Right> <C-w>l
+" noremap <Up> <C-w>k
+" noremap <Down> <C-w>j
+" noremap <Left> <C-w>h
+" noremap <Right> <C-w>l
 "}}}
 
 " Searching {{{
