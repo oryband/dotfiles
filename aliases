@@ -20,4 +20,4 @@ alias grep="grep --color=auto -In"  # Colorful, skipping binary files.
 alias less="less -R"  # Colorful less.
 alias ghci="ghci-color"
 
-alias racket="racket -il readline"
+alias iracket="racket -il readline"
