@@ -243,7 +243,11 @@ nnoremap <silent> \ :TagbarToggle<CR>
 "}}}
 
 " {{{ NERDTree
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 1  " Close tree when opening a file.
+let NERDTreeShowHidden = 1  " Show hidden files.
+let NERDTreeChDirMode = 1  " Set tree root to :pwd.
+let NERDTreeShowFiles = 1  " Show files (+ dirs) on startup.
+let NERDTreeIgnore=[ '.DS_Store', '.*.swp$', '\~$' ]  " Ignore these file patterns.
 noremap <Leader>e :NERDTreeToggle<CR>
 "}}}
 
@@ -344,8 +348,6 @@ autocmd BufWinEnter *.s,*.bin setfiletype nasm
 "}}}
 
 " Racket {{{
-"autocmd BufWinEnter *.rkt,*.rktl setfiletype scheme
-autocmd FileType scheme setlocal lisp tabstop=2 softtabstop=2 shiftwidth=2
 let g:easytags_languages = {
             \   'racket': {
             \     'cmd': g:easytags_cmd,
