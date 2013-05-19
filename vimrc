@@ -58,7 +58,6 @@ Bundle "wincent/Command-T"
 Bundle "Lokaltog/vim-powerline"
 Bundle "techlivezheng/vim-plugin-minibufexpl"
 Bundle "scrooloose/nerdtree"
-Bundle "airblade/vim-rooter"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
 Bundle "tpope/vim-repeat"
@@ -67,7 +66,8 @@ Bundle "camelcasemotion"
 "}}}
 
 " Misc {{{
-Bundle "Valloric/YouCompleteMe"
+" Bundle "Valloric/YouCompleteMe"
+Bundle "AutoComplPop"
 Bundle "tpope/vim-surround"
 Bundle "xolox/vim-easytags"
 Bundle "embear/vim-localvimrc"
@@ -126,6 +126,7 @@ set wildignore+=*.DS_STORE
 " Key mappings {{{
 let mapleader=","  " Set <leader> key to comma.
 silent! call repeat#set("\<Plug>.", v:count)
+cnoremap help vert help
 " Window-change actions.
 " noremap <Up> <C-w>k
 " noremap <Down> <C-w>j
@@ -204,10 +205,10 @@ set novisualbell  " No blinking
 
 " Plugin configurations {{{
 " YouCompleteMe {{{
-let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C/C++ conf.
-let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
-let g:ycm_key_list_completion = [ "<C-n>", "<TAB>", "<Down>"]
-let g:ycm_key_list_previous_completion = [ "<C-p>", "<S-TAB>", "<Up>"]
+" let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C/C++ conf.
+" let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
+" let g:ycm_key_list_completion = [ "<C-n>", "<TAB>", "<Down>"]
+" let g:ycm_key_list_previous_completion = [ "<C-p>", "<S-TAB>", "<Up>"]
 "}}}
 
 " Syntastic {{{
@@ -243,24 +244,16 @@ nnoremap <silent> \ :TagbarToggle<CR>
 
 " {{{ NERDTree
 let NERDTreeQuitOnOpen = 1
-let NERDTreeStatusline = 'NERDTree'
 noremap <Leader>e :NERDTreeToggle<CR>
-"}}}
-
-" Vim-Rooter {{{
-autocmd BufEnter * :Rooter  " Activate for every file type.
-let g:rooter_patterns = [ '.tags', '.vimroot', '.git/', 'Rakefile' ]
 "}}}
 
 " EasyTags {{{
 set tags=./.tags;~/
 let g:easytags_file = '~/.tags'  " Default tags file.
 let g:easytags_cmd = 'ctags'
+let g:easytags_events = [ 'BufWritePost' ]  " Update on save only.
 let g:easytags_dynamic_files = 1  " Search tag files.
-let g:easytags_auto_update = 0
-let g:easytags_auto_highlight = 0
 let g:easytags_updatetime_warn = 0  " Don't show updatetime annoying warning.
-autocmd BufWritePost * call xolox#easytags#autoload('BufWritePost')  " Update tags on save.
 "}}}
 
 " Mini Buffer Explorer {{{
@@ -282,7 +275,6 @@ sunmap e
 "}}}
 
 " ListToggle {{{
-let g:lt_location_list_toggle_map = '<leader>`'
 let g:lt_height = 10
 "}}}
 "}}}
