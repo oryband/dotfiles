@@ -249,7 +249,7 @@ noremap <Leader>e :NERDTreeToggle<CR>
 
 " Vim-Rooter {{{
 autocmd BufEnter * :Rooter  " Activate for every file type.
-let g:rooter_patterns = [ '.vimroot', '.git/', 'Rakefile' ]
+let g:rooter_patterns = [ '.tags', '.vimroot', '.git/', 'Rakefile' ]
 "}}}
 
 " EasyTags {{{
@@ -259,7 +259,8 @@ let g:easytags_cmd = 'ctags'
 let g:easytags_dynamic_files = 1  " Search tag files.
 let g:easytags_auto_update = 0
 let g:easytags_auto_highlight = 0
-"let g:easytags_updatetime_min = 4000  " Update every 10 seconds.
+let g:easytags_updatetime_warn = 0  " Don't show updatetime annoying warning.
+autocmd BufWritePost * call xolox#easytags#autoload('BufWritePost')  " Update tags on save.
 "}}}
 
 " Mini Buffer Explorer {{{
