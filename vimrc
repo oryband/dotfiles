@@ -50,7 +50,6 @@ Bundle "wlangstroth/vim-racket"
 
 " Syntax
 Bundle "scrooloose/syntastic"
-"Bundle "scrooloose/nerdcommenter"
 Bundle "tomtom/tcomment_vim"
 
 " Navigation {{{
@@ -59,8 +58,10 @@ Bundle "wincent/Command-T"
 Bundle "Lokaltog/vim-powerline"
 Bundle "techlivezheng/vim-plugin-minibufexpl"
 Bundle "scrooloose/nerdtree"
+Bundle "airblade/vim-rooter"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
+Bundle "tpope/vim-repeat"
 Bundle "IndexedSearch"
 Bundle "camelcasemotion"
 "}}}
@@ -107,7 +108,6 @@ set hidden  " The current buffer can be put to the background without writing to
 set title  " Show title in app title bar.
 set ttyfast  " Fast drawing.
 set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
-"autocmd BufEnter * if expand('%:p') !~ '://' | :lchdir %:p:h | endif  " Sets current-directory of current buffer/file. We avoid using `set autchdir` instead, because it can cause problems with some plugins.
 "}}}
 
 " Status Line {{{
@@ -125,6 +125,7 @@ set wildignore+=*.DS_STORE
 
 " Key mappings {{{
 let mapleader=","  " Set <leader> key to comma.
+silent! call repeat#set("\<Plug>.", v:count)
 " Window-change actions.
 " noremap <Up> <C-w>k
 " noremap <Down> <C-w>j
@@ -246,8 +247,13 @@ let NERDTreeStatusline = 'NERDTree'
 noremap <Leader>e :NERDTreeToggle<CR>
 "}}}
 
+" Vim-Rooter {{{
+autocmd BufEnter * :Rooter  " Activate for every file type.
+let g:rooter_patterns = [ '.vimroot', '.git/', 'Rakefile' ]
+"}}}
+
 " EasyTags {{{
-set tags=./.tags;/
+set tags=./.tags;~/
 let g:easytags_file = '~/.tags'  " Default tags file.
 let g:easytags_cmd = 'ctags'
 let g:easytags_dynamic_files = 1  " Search tag files.
@@ -356,6 +362,7 @@ let g:easytags_languages = {
             \       'recurse_flag': '-R'
             \   }
             \}
+call tcomment#DefineType('racket', '; %s')
 "}}}
 
 " Bash/Shell {{{
