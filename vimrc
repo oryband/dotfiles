@@ -263,6 +263,12 @@ let g:easytags_updatetime_warn = 0  " Don't show updatetime annoying warning.
 let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
 "}}}
 
+" TComment {{{
+let g:tcommentMapLeader1 = '<Leader>c'
+" NERDCommenter-like behavior:
+noremap <Leader>cc :TCommentMaybeInline<CR>
+"}}}
+
 " Local .vimrc {{{
 let localvimrc_ask = 0  " Load .lvimrc without asking.
 let g:localvimrc_sandbox = 0  " No sandbox (less secure).
@@ -350,13 +356,12 @@ autocmd BufWinEnter *.s,*.bin setfiletype nasm
 let g:easytags_languages = {
             \   'racket': {
             \     'cmd': g:easytags_cmd,
-            \       'args': [],
+            \       'args': ['--langmap=scheme:.rkt'],
             \       'fileoutput_opt': '-f',
             \       'stdout_opt': '-f-',
             \       'recurse_flag': '-R'
             \   }
             \}
-call tcomment#DefineType('racket', '; %s')
 "}}}
 
 " Bash/Shell {{{
