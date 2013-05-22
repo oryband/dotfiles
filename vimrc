@@ -66,8 +66,7 @@ Bundle "camelcasemotion"
 "}}}
 
 " Misc {{{
-" Bundle "Valloric/YouCompleteMe"
-Bundle "AutoComplPop"
+Bundle "Valloric/YouCompleteMe"
 Bundle "tpope/vim-surround"
 Bundle "xolox/vim-easytags"
 Bundle "embear/vim-localvimrc"
@@ -205,18 +204,17 @@ set novisualbell  " No blinking
 
 " Plugin configurations {{{
 " YouCompleteMe {{{
-" let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C/C++ conf.
+let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C-languages configuration file.
+" let g:ycm_max_diagnostics_to_display = 30  " Maximum numbers of  errors/warnings to display.
 " let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
-" let g:ycm_key_list_completion = [ "<C-n>", "<TAB>", "<Down>"]
-" let g:ycm_key_list_previous_completion = [ "<C-p>", "<S-TAB>", "<Up>"]
 "}}}
 
 " Syntastic {{{
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-"let g:syntastic_check_on_open=1
-let g:syntastic_auto_loc_list=2  " Close error window automatically when there are no errors.
-let g:syntastic_enable_signs=1  " Show sidebar signs.
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_auto_loc_list = 2  " Close error window automatically when there are no errors.
+let g:syntastic_enable_signs = 1  " Show sidebar signs.
 set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -255,9 +253,9 @@ noremap <Leader>e :NERDTreeToggle<CR>
 set tags=./.tags;~/
 let g:easytags_file = '~/.tags'  " Default tags file.
 let g:easytags_cmd = 'ctags'
-let g:easytags_events = [ 'BufWritePost' ]  " Update on save only.
 let g:easytags_dynamic_files = 1  " Search tag files.
 let g:easytags_updatetime_warn = 0  " Don't show updatetime annoying warning.
+" let g:easytags_events = [ 'BufWritePost' ]  " Update on save only.
 "}}}
 
 " Mini Buffer Explorer {{{
