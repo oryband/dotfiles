@@ -203,8 +203,9 @@ set novisualbell  " No blinking
 "}}}
 
 " Plugin configurations {{{
-" YouCompleteMe {{{
+" YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C-languages configuration file.
+let g:ycm_autoclose_preview_window_after_insertion = 1  " Close function signature preview after exiting insert mode.
 " let g:ycm_max_diagnostics_to_display = 30  " Maximum numbers of  errors/warnings to display.
 " let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
 "}}}
