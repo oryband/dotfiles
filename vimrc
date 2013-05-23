@@ -247,6 +247,7 @@ let NERDTreeShowHidden = 1  " Show hidden files.
 let NERDTreeChDirMode = 1  " Set tree root to :pwd.
 let NERDTreeShowFiles = 1  " Show files (+ dirs) on startup.
 let NERDTreeIgnore=[ '.DS_Store', '.*.swp$', '\~$' ]  " Ignore these file patterns.
+let NERDTreeWinPos = 'right'  " Open window on right side.
 noremap <Leader>e :NERDTreeToggle<CR>
 "}}}
 
