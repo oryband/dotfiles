@@ -68,6 +68,8 @@ Bundle "camelcasemotion"
 " Misc {{{
 Bundle "Valloric/YouCompleteMe"
 Bundle "tpope/vim-surround"
+" vim-misc is necessary for vim-easytags.
+Bundle "xolox/vim-misc"
 Bundle "xolox/vim-easytags"
 Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
