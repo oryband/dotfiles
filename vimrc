@@ -74,6 +74,7 @@ Bundle "xolox/vim-misc"
 Bundle "xolox/vim-easytags"
 Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
+Bundle "airblade/vim-rooter"
 "Bundle "ryan-cf/netrw"
 
 filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
@@ -298,6 +299,11 @@ let g:lt_height = 10
 " Toggle key.
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()  " Auto-activate hard-mode.
+"}}}
+
+" Rooter {{{
+autocmd VimEnter * :Rooter
+let g:rooter_patterns = ['.tags', '.git/']
 "}}}
 "}}}
 
