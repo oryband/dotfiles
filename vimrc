@@ -63,6 +63,7 @@ Bundle "tpope/vim-unimpaired"
 Bundle "tpope/vim-repeat"
 Bundle "IndexedSearch"
 Bundle "camelcasemotion"
+Bundle "wikitopian/hardmode"
 "}}}
 
 " Misc {{{
@@ -126,8 +127,12 @@ set wildignore+=*.DS_STORE
 
 " Key mappings {{{
 let mapleader=","  " Set <leader> key to comma.
-silent! call repeat#set("\<Plug>.", v:count)
+silent! call repeat#set("\<Plug>.", v:count)  " activate vim-repeat plugin.
 cnoremap help vert help
+imap jk <Esc>
+imap kj <Esc>
+imap jj <Esc>
+imap kk <Esc>
 " Window-change actions.
 " noremap <Up> <C-w>k
 " noremap <Down> <C-w>j
@@ -288,6 +293,11 @@ sunmap e
 
 " ListToggle {{{
 let g:lt_height = 10
+"}}}
+" Hard-mode {{{
+" Toggle key.
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()  " Auto-activate hard-mode.
 "}}}
 "}}}
 
