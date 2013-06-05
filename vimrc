@@ -58,6 +58,7 @@ Bundle "wincent/Command-T"
 Bundle "Lokaltog/vim-powerline"
 Bundle "techlivezheng/vim-plugin-minibufexpl"
 Bundle "scrooloose/nerdtree"
+Bundle "Lokaltog/vim-easymotion"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
 Bundle "tpope/vim-repeat"
@@ -67,7 +68,8 @@ Bundle "wikitopian/hardmode"
 "}}}
 
 " Misc {{{
-Bundle "Valloric/YouCompleteMe"
+" Bundle "Valloric/YouCompleteMe"
+Bundle "AutoComplPop"
 Bundle "tpope/vim-surround"
 " vim-misc is necessary for vim-easytags.
 Bundle "xolox/vim-misc"
