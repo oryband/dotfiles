@@ -74,6 +74,7 @@ Bundle "tpope/vim-surround"
 " vim-misc is necessary for vim-easytags.
 Bundle "xolox/vim-misc"
 Bundle "xolox/vim-easytags"
+Bundle "tpope/vim-fugitive"
 Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
 Bundle "airblade/vim-rooter"
