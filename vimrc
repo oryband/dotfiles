@@ -301,7 +301,7 @@ let g:lt_height = 10
 " Hard-mode {{{
 " Toggle key.
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()  " Auto-activate hard-mode.
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()  " Auto-activate hard-mode.
 "}}}
 
 " Rooter {{{
