@@ -256,7 +256,7 @@ let NERDTreeQuitOnOpen = 1  " Close tree when opening a file.
 let NERDTreeShowHidden = 1  " Show hidden files.
 let NERDTreeChDirMode = 1  " Set tree root to :pwd.
 let NERDTreeShowFiles = 1  " Show files (+ dirs) on startup.
-let NERDTreeIgnore=[ '.DS_Store', '.*.swp$', '\~$' ]  " Ignore these file patterns.
+let NERDTreeIgnore = [ '.DS_Store', '.*.swp$', '\~$' ]  " Ignore these file patterns.
 let NERDTreeWinPos = 'right'  " Open window on right side.
 noremap <Leader>e :NERDTreeToggle<CR>
 "}}}
@@ -305,7 +305,6 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Rooter {{{
 autocmd VimEnter * :Rooter
-let g:rooter_patterns = ['.tags', '.git/']
 "}}}
 "}}}
 
@@ -336,6 +335,7 @@ autocmd FileType python setlocal linebreak nosmartindent  " nosmartindent for co
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 set wildignore+=*.pyc,*.pyo
 set wildignore+=*.egg,*.egg-info
+let NERDTreeIgnore += ['.*.pyc$', '*.pyc$']  " Don't display this in NERDTree.
 "}}}
 
 " Ruby {{{
