@@ -131,15 +131,12 @@ set wildignore+=*.DS_STORE
 let mapleader=","  " Set <leader> key to comma.
 silent! call repeat#set("\<Plug>.", v:count)  " activate vim-repeat plugin.
 cnoremap help vert help
-imap jk <Esc>
-imap kj <Esc>
-imap jj <Esc>
-imap kk <Esc>
-" Window-change actions.
-" noremap <Up> <C-w>k
-" noremap <Down> <C-w>j
-" noremap <Left> <C-w>h
-" noremap <Right> <C-w>l
+inoremap jk <Esc>
+inoremap kj <Esc>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 "}}}
 
 " Searching {{{
