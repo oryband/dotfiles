@@ -56,7 +56,6 @@ Bundle "tomtom/tcomment_vim"
 Bundle "majutsushi/tagbar"
 Bundle "wincent/Command-T"
 Bundle "Lokaltog/vim-powerline"
-Bundle "techlivezheng/vim-plugin-minibufexpl"
 Bundle "scrooloose/nerdtree"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "godlygeek/tabular"
@@ -268,10 +267,6 @@ let g:easytags_cmd = 'ctags'
 let g:easytags_dynamic_files = 1  " Search tag files.
 let g:easytags_updatetime_warn = 0  " Don't show updatetime annoying warning.
 " let g:easytags_events = [ 'BufWritePost' ]  " Update on save only.
-"}}}
-
-" Mini Buffer Explorer {{{
-let g:miniBufExplShowBufNumbers = 0  " No buffer numbers.
 "}}}
 
 " TComment {{{
