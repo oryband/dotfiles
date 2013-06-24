@@ -48,6 +48,9 @@ Bundle "tpope/vim-markdown"
 " Racket
 Bundle "wlangstroth/vim-racket"
 
+" Prolog
+Bundle "adimit/prolog.vim"
+
 " Syntax
 Bundle "scrooloose/syntastic"
 Bundle "tomtom/tcomment_vim"
@@ -56,6 +59,7 @@ Bundle "tomtom/tcomment_vim"
 Bundle "majutsushi/tagbar"
 Bundle "wincent/Command-T"
 Bundle "Lokaltog/vim-powerline"
+" Bundle "Lokaltog/powerline"
 Bundle "scrooloose/nerdtree"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "godlygeek/tabular"
