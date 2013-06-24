@@ -13,11 +13,8 @@ set nocompatible  " Disable vi compatibility (more efficient, and besides - we'r
 set fileformats=unix,dos,mac  " Set file end-of-line priority.
 filetype off
 
-if has ("win32")
-    set runtimepath+=$HOME/vimfiles/bundle/vundle/
-else
-    set runtimepath+=$HOME/.vim/bundle/vundle/
-endif
+if has ("win32") | set runtimepath+=$HOME/vimfiles/bundle/vundle/
+else | set runtimepath+=$HOME/.vim/bundle/vundle/ | endif
 
 call vundle#rc()
 Bundle "gmarik/vundle"
