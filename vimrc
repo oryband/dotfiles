@@ -228,6 +228,10 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 "}}}
 
+" Powerline {{{
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"}}}
+
 " Command-T {{{
 "let g:CommandTMaxDepth = 0  " Scan current dir only.
 let g:CommandTMaxHeight = 15  " Set max window height.
