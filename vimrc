@@ -55,8 +55,7 @@ Bundle "tomtom/tcomment_vim"
 " Navigation {{{
 Bundle "majutsushi/tagbar"
 Bundle "wincent/Command-T"
-Bundle "Lokaltog/vim-powerline"
-" Bundle "Lokaltog/powerline"
+Bundle "Lokaltog/powerline"
 Bundle "scrooloose/nerdtree"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "godlygeek/tabular"
@@ -118,6 +117,7 @@ set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
 " Status Line {{{
 set shortmess=atI  " Shortens messages in status line, truncates long messages, no intro (Uganda) message.
 set laststatus=2  " Always show status line.
+set noshowmode  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set showcmd  " Display an incomplete command in status line.
 "}}}
 
@@ -235,11 +235,6 @@ let g:CommandTMatchWindowAtTop = 1  " Set window to top instead of bottom.
 nnoremap <silent> <Leader>g :CommandTTag<CR>
 nnoremap <silent> <Leader>f :CommandTRefreshMap<CR>
 let g:CommandTCancelMap = [ "<ESC>", "<C-c>" ]
-"}}}
-
-" Powerline {{{
-"let g:Powerline_symbols="unicode"
-let g:Powerline_stl_path_style = 'short'
 "}}}
 
 " Tagbar {{{
