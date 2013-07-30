@@ -42,12 +42,6 @@ Bundle "python.vim--Vasiliev"
 " Markdown
 Bundle "tpope/vim-markdown"
 
-" Racket
-Bundle "wlangstroth/vim-racket"
-
-" Prolog
-Bundle "adimit/prolog.vim"
-
 " Syntax
 Bundle "scrooloose/syntastic"
 Bundle "tomtom/tcomment_vim"
@@ -288,6 +282,7 @@ sunmap e
 " ListToggle {{{
 let g:lt_height = 10
 "}}}
+
 " Hard-mode {{{
 " Toggle key.
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -358,18 +353,6 @@ autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 
 " Assembly {{{
 autocmd BufWinEnter *.s,*.bin setfiletype nasm
-"}}}
-
-" Racket {{{
-let g:easytags_languages = {
-            \   'racket': {
-            \     'cmd': g:easytags_cmd,
-            \       'args': ['--langmap=scheme:.rkt'],
-            \       'fileoutput_opt': '-f',
-            \       'stdout_opt': '-f-',
-            \       'recurse_flag': '-R'
-            \   }
-            \}
 "}}}
 
 " Bash/Shell {{{
