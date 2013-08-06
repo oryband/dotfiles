@@ -19,5 +19,3 @@ alias lla="ll -A"  # show hidden files, with -l.
 alias grep="grep --color=auto -In"  # Colorful, skipping binary files.
 alias less="less -R"  # Colorful less.
 alias ghci="ghci-color"
-
-alias iracket="racket -il readline"
