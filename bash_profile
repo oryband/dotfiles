@@ -59,12 +59,11 @@ if [ `hostname -s` == "Ory" ]; then
     alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
 
     PATH="/usr/local/bin:/usr/local/sbin:$PATH"  # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
-    # PATH="/usr/local/share/python:$PATH"         # Add Homebrew's Python to $PATH, before the system's Python.
-    PATH="/usr/local/opt/ruby/bin:$PATH"  # Same for Ruby
-    export RBENV_ROOT=/usr/local/opt/rbenv
+
+    # Ruby
+    PATH="/usr/local/opt/ruby/bin:$PATH"
+    export RBENV_ROOT=/usr/local/var/rbenv
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-    PATH="$HOME/.cabal/bin:$PATH"  # Haskell
-    PATH="/usr/local/share/npm/bin:$PATH"  # Node/npm
-    PATH="/Applications/Racket v5.3.3/bin:$PATH"  # Racket
+
     export PATH
 fi
