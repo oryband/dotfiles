@@ -25,12 +25,14 @@ Bundle "gmarik/vundle"
 Bundle "nanotech/jellybeans.vim"
 
 " Web {{{
+Bundle "othree/html5.vim"
 Bundle "pangloss/vim-javascript"
 Bundle "lepture/vim-jinja"
 Bundle "tpope/vim-liquid"
 "Bundle "lepture/vim-css"
 Bundle "cakebaker/scss-syntax.vim"
 Bundle "groenewege/vim-less"
+Bundle "wavded/vim-stylus"
 Bundle "matchit.zip"
 Bundle "ap/vim-css-color"
 "}}}
@@ -126,7 +128,7 @@ let mapleader=","  " Set <leader> key to comma.
 silent! call repeat#set("\<Plug>.", v:count)  " activate vim-repeat plugin.
 cnoremap help vert help
 inoremap jk <Esc>
-inoremap kj <Esc>
+" inoremap kj <Esc>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -216,9 +218,10 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list = 2  " Close error window automatically when there are no errors.
 let g:syntastic_enable_signs = 1  " Show sidebar signs.
-set statusline+=%#warningmsg#  " Add Error ruler.
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#  " Add Error ruler.
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
 "}}}
 
 " Powerline {{{
@@ -297,14 +300,14 @@ autocmd FileType vim setlocal foldmethod=marker
 
 " Web {{{
 autocmd BufWinEnter *.html,*.htm setfiletype html
-autocmd BufWinEnter *.scss setfiletype scss
+autocmd BufWinEnter *.sass,*.scss setfiletype scss
 autocmd BufWinEnter *.less setfiletype less
 autocmd BufWinEnter *.json,*jshintrc setfiletype javascript
-autocmd FileType html setlocal filetype=jinja
-autocmd FileType css,scss,less set omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html setlocal filetype=jinja
+autocmd FileType css,scss,less,stylus set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType html,jinja,liquid set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType html,jinja,liquid,css,scss,less setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType html,jinja,liquid,css,scss,less,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType html,jinja,liquid runtime! macros/matchit.vim
 "autocmd BufWritePost *.scss,*.sass !compass compile ../ <afile> --force
 "}}}
