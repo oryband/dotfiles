@@ -133,6 +133,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+" move line-wise, not screen-size.
+nnoremap j gj
+nnoremap k gk
 "}}}
 
 " Searching {{{
@@ -158,7 +161,7 @@ set colorcolumn=+1  " Highlight one column AFTER 'textwidth'.
 " I set `formatoptions` differently for each file type (.c, .py, etc.)."
 autocmd FileType * set formatoptions=r,2
 set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
-set number  " Show line numbers.
+set relativenumber  " Use relative line numbering.
 set showmatch  " Show matching brace on insertion or cursor over.
 set matchtime=3  " How many tenths of a second to wait before showing matching braces.
 if ! has("win32") | set listchars=tab:▸\ ,trail:¬,eol:« | endif  " Invisible characters.
@@ -218,9 +221,6 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list = 2  " Close error window automatically when there are no errors.
 let g:syntastic_enable_signs = 1  " Show sidebar signs.
-" set statusline+=%#warningmsg#  " Add Error ruler.
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
 let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
 "}}}
 
