@@ -50,7 +50,8 @@ Bundle "tomtom/tcomment_vim"
 
 " Navigation {{{
 Bundle "majutsushi/tagbar"
-Bundle "wincent/Command-T"
+" Requires ruby/make re-install?
+" Bundle "wincent/Command-T"
 Bundle "Lokaltog/powerline"
 Bundle "scrooloose/nerdtree"
 Bundle "Lokaltog/vim-easymotion"
@@ -107,6 +108,11 @@ set hidden  " The current buffer can be put to the background without writing to
 set title  " Show title in app title bar.
 set ttyfast  " Fast drawing.
 set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
+" Auto source .vimrc after saving.
+" augroup reload_vimrc
+"     autocmd!
+"     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" augroup END
 "}}}
 
 " Status Line {{{
