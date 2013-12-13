@@ -65,5 +65,8 @@ if [ `hostname -s` == "Ory" ]; then
     export RBENV_ROOT=/usr/local/var/rbenv
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+    # Node
+    PATH="/usr/local/share/npm/bin:$PATH"
+
     export PATH
 fi
