@@ -1,3 +1,3 @@
 [submodule "vim"]
 	path = vim
-	url = git@github.com:oryband/dotvim.git
+	url = https://github.com/oryband/dotvim.git
