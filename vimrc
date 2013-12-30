@@ -50,8 +50,7 @@ Bundle "tomtom/tcomment_vim"
 
 " Navigation {{{
 Bundle "majutsushi/tagbar"
-" Requires ruby/make re-install?
-" Bundle "wincent/Command-T"
+Bundle "kien/ctrlp.vim"
 Bundle "Lokaltog/powerline"
 Bundle "scrooloose/nerdtree"
 Bundle "Lokaltog/vim-easymotion"
@@ -234,19 +233,14 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "}}}
 
-" Command-T {{{
-"let g:CommandTMaxDepth = 0  " Scan current dir only.
-let g:CommandTMaxHeight = 15  " Set max window height.
-let g:CommandTMatchWindowAtTop = 1  " Set window to top instead of bottom.
-nnoremap <silent> <Leader>g :CommandTTag<CR>
-nnoremap <silent> <Leader>f :CommandTRefreshMap<CR>
-let g:CommandTCancelMap = [ "<ESC>", "<C-c>" ]
-"}}}
-
 " Tagbar {{{
 let g:tagbar_sort = 0
 nnoremap <silent> \ :TagbarToggle<CR>
 " Search tag list from current dir up till root.
+"}}}
+
+" CtrlP {{{
+let g:ctrlp_match_window = 'top'
 "}}}
 
 " {{{ NERDTree
