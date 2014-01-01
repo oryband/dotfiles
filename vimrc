@@ -240,7 +240,9 @@ nnoremap <silent> \ :TagbarToggle<CR>
 "}}}
 
 " CtrlP {{{
-let g:ctrlp_match_window = 'top'
+let g:ctrlp_map = '<Leader>p'
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>t :CtrlPTag<CR>
 "}}}
 
 " {{{ NERDTree
