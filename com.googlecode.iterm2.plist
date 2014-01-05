@@ -11,7 +11,7 @@
 	<key>AllowClipboardAccess</key>
 	<false/>
 	<key>AnimateDimming</key>
-	<false/>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -260,7 +260,7 @@
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
-	<false/>
+	<true/>
 	<key>EnableGrowl</key>
 	<false/>
 	<key>EnableRendezvous</key>
@@ -268,13 +268,15 @@
 	<key>FocusFollowsMouse</key>
 	<true/>
 	<key>FsTabDelay</key>
-	<real>1</real>
+	<real>0.10000000149011612</real>
 	<key>HiddenAFRStrokeThickness</key>
 	<real>0.0</real>
 	<key>HiddenAdvancedFontRendering</key>
 	<false/>
 	<key>HideActivityIndicator</key>
 	<false/>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
@@ -381,7 +383,7 @@
 	<key>NSWindow Frame com.apple.typography_panel_Monaco</key>
 	<string>294 453 260 120 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>67 52 1110 577 0 0 1280 778 </string>
+	<string>33 112 810 501 0 0 1280 778 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1145,7 +1147,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-06-27T19:25:23Z</date>
+	<date>2014-01-05T14:55:45Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1189,6 +1191,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>1.0.0.20130624</string>
+	<string>1.0.0.20131228</string>
 </dict>
 </plist>
