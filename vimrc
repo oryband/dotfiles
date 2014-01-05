@@ -40,6 +40,7 @@ Bundle "ap/vim-css-color"
 " Python
 Bundle "hynek/vim-python-pep8-indent"
 Bundle "python.vim--Vasiliev"
+Bundle "tmhedberg/SimpylFold"
 
 " Markdown
 Bundle "tpope/vim-markdown"
