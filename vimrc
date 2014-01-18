@@ -52,7 +52,7 @@ Bundle "tomtom/tcomment_vim"
 " Navigation {{{
 Bundle "majutsushi/tagbar"
 Bundle "kien/ctrlp.vim"
-Bundle "Lokaltog/powerline"
+Bundle "bling/vim-airline"
 Bundle "scrooloose/nerdtree"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "godlygeek/tabular"
@@ -70,6 +70,7 @@ Bundle "tpope/vim-surround"
 Bundle "xolox/vim-misc"
 Bundle "xolox/vim-easytags"
 Bundle "tpope/vim-fugitive"
+Bundle "airblade/vim-gitgutter"
 Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
 "Bundle "ryan-cf/netrw"
@@ -230,9 +231,11 @@ let g:syntastic_enable_signs = 1  " Show sidebar signs.
 let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
 "}}}
 
-" Powerline {{{
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" Airline {{{
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 "}}}
+
 
 " Tagbar {{{
 let g:tagbar_sort = 0
