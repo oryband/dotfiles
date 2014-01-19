@@ -1,16 +1,16 @@
 " Great sources & credits: {{{
-" Example vimrc - http://www.vi-improved.org/vimrc.php
-" gmarik - https://github.com/gmarik/vimfiles/blob/master/vimrc
-" durdn - https://github.com/durdn/cfg/blob/master/.vimrc
-" FactoryLab - https://github.com/factorylabs/vimfiles
-" lukerandall - https://github.com/lukerandall/dotvim/blob/master/vimrc
-" mathiasbynens - https://github.com/mathiasbynens/dotfiles/blob/master/.vimrc
-" Graphical cheat sheet - http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
+" Example vimrc - vi-improved.org/vimrc.php
+" janus - github.com/carlhuda/janus
+" gmarik - github.com/gmarik/vimfiles/blob/master/vimrc
+" durdn - github.com/durdn/cfg/blob/master/.vimrc
+" FactoryLab - github.com/factorylabs/vimfiles
+" lukerandall - github.com/lukerandall/dotvim/blob/master/vimrc
+" mathiasbynens - github.com/mathiasbynens/dotfiles/blob/master/.vimrc
+" Graphical cheat sheet - viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 "}}}
 
 " Initialization / Vundle Plugin Manager {{{
 set nocompatible  " Disable vi compatibility (more efficient, and besides - we're using non-vi tricks here).
-set fileformats=unix,dos,mac  " Set file end-of-line priority.
 filetype off
 
 if has ("win32") | set runtimepath+=$HOME/vimfiles/bundle/vundle/
@@ -73,11 +73,10 @@ Bundle "tpope/vim-fugitive"
 Bundle "airblade/vim-gitgutter"
 Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
+Bundle "tpope/vim-sensible"
 "Bundle "ryan-cf/netrw"
 
-filetype plugin indent on  " Automatically detect file types, and enable file-type-specific plugins and indentation.
-set expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4
-syntax on
+set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 "}}}
 "}}}
 
@@ -85,16 +84,18 @@ syntax on
 " Colors {{{
 set t_Co=256  " Set terminal to display 256 colors.
 set background=dark
-" Set 'TODO' & 'FIXME' strings to be bold and standout as hell. Works for jellybeans color scheme only.
+" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
+" Works for jellybeans color scheme only.
 let g:jellybeans_overrides = {
-            \ 'Todo': {
-                \ 'guifg': 'ff4500',
-                \ 'guibg': 'eeee00',
-                \ 'ctermfg': '196',
-                \ 'ctermbg': '226',
-                \ 'attr': 'standout'
-            \ }
-        \ }
+    \ 'Todo': {
+        \ 'guifg': 'ff4500',
+        \ 'guibg': 'eeee00',
+        \ 'ctermfg': '196',
+        \ 'ctermbg': '226',
+        \ 'attr': 'standout'
+    \ }
+\ }
+
 " Misc color overrides.
 colorscheme jellybeans
 "}}}
@@ -102,40 +103,29 @@ colorscheme jellybeans
 " Misc. {{{
 set nostartofline
 set splitbelow splitright  " New windows are created to the bottom-right.
-set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay).
-set history=256  " Number of things to remember in history.
 set clipboard+=unnamed  " Enable OS clipboard integration.
 set hidden  " The current buffer can be put to the background without writing to disk.
 set title  " Show title in app title bar.
 set ttyfast  " Fast drawing.
-set scrolloff=3  " Number of lines to keep above/below cursor when scrolling.
-" Auto source .vimrc after saving.
-" augroup reload_vimrc
-"     autocmd!
-"     autocmd BufWritePost $MYVIMRC source $MYVIMRC
-" augroup END
 "}}}
 
 " Status Line {{{
 set shortmess=atI  " Shortens messages in status line, truncates long messages, no intro (Uganda) message.
-set laststatus=2  " Always show status line.
 set noshowmode  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-set showcmd  " Display an incomplete command in status line.
 "}}}
 
 " Ignored files {{{
 set wildignore+=*.swp  " Vim
-set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd  " Ignore images
-set wildignore+=*.pdf  " Ignore PDF files
-set wildignore+=*.DS_STORE
+            \ *.jpg,*.jpeg,*.png,*.gif,*.psd  " Ignore images
+            \ *.pdf  " Ignore PDF files
+            \ *.DS_STORE
 "}}}
 
 " Key mappings {{{
 let mapleader=","  " Set <leader> key to comma.
 silent! call repeat#set("\<Plug>.", v:count)  " activate vim-repeat plugin.
-cnoremap help vert help
+cabbrev vhelp vert help
 inoremap jk <Esc>
-" inoremap kj <Esc>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -147,16 +137,13 @@ nnoremap k gk
 
 " Searching {{{
 set smartcase  " Be case sensitive when input has a capital letter.
-set incsearch  " Show matches while typing.
 set ignorecase  " Ignore case when searching.
 set gdefault  " Make searched global `/g` by default.
 if exists('&wildignorecase') | set wildignorecase | endif  " In-case-sensitive dir/file completion.
-set wildmenu  " Enable menu for commands
 set wildmode=list:longest  " List options when hitting tab, and match longest common command.
 "}}}
 
 " Formatting & Text {{{
-set encoding=utf-8
 set nowrap  " No line wrapping.
 set linebreak  " Wrap at word.
 set textwidth=80  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
@@ -167,11 +154,9 @@ set colorcolumn=+1  " Highlight one column AFTER 'textwidth'.
 " NOTE: Requires 'set autoindent'. autocmd FileType is required since
 " I set `formatoptions` differently for each file type (.c, .py, etc.)."
 autocmd FileType * set formatoptions=r,2
-set backspace=indent,eol,start  " Enable backspace key. Erase previously entered characters in insert mode.
 set relativenumber  " Use relative line numbering.
-set showmatch  " Show matching brace on insertion or cursor over.
 set matchtime=3  " How many tenths of a second to wait before showing matching braces.
-if ! has("win32") | set listchars=tab:▸\ ,trail:¬,eol:« | endif  " Invisible characters.
+" if ! has("win32") | set listchars=tab:▸\ ,trail:¬,eol:« | endif  " Invisible characters.
 set nolist  " Don't display invisible characters.
 " Custom command to strip trailing whitespaces.
 function! StripTrailingWhitespaces()
@@ -184,7 +169,6 @@ command! StripTrailingWhitespaces call StripTrailingWhitespaces()
 "}}}
 
 " Indentation {{{
-set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
 "}}}
 
@@ -350,7 +334,7 @@ set wildignore+=*.a,*.o,*.so
 "}}}
 
 " Java {{{
-autocmd FileType ant setlocal expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType ant setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 let g:syntastic_java_checker = "javac"
 let g:syntastic_java_javac_delete_output=0  " Don't delete .class files after syntax check.
 set wildignore+=*.class
