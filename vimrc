@@ -74,7 +74,6 @@ Bundle "airblade/vim-gitgutter"
 Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
 Bundle "tpope/vim-sensible"
-"Bundle "ryan-cf/netrw"
 
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 "}}}
