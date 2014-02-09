@@ -56,7 +56,7 @@ export VISUAL=$EDITOR
 # My specific machine stuff.
 if [ `hostname -s` == "Ory" ]; then
     # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-    alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
+    alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
 
     PATH="/usr/local/bin:/usr/local/sbin:$PATH"  # Give priority to Homebrew's bin & sbin dirs on top of the system's dirs.
 
@@ -70,3 +70,4 @@ if [ `hostname -s` == "Ory" ]; then
 
     export PATH
 fi
+
