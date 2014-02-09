@@ -54,7 +54,8 @@ Bundle "majutsushi/tagbar"
 Bundle "kien/ctrlp.vim"
 Bundle "bling/vim-airline"
 Bundle "scrooloose/nerdtree"
-" Bundle "justinmk/vim-sneak"
+Bundle "mileszs/ack.vim"
+Bundle "justinmk/vim-sneak"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-unimpaired"
 Bundle "tpope/vim-repeat"
@@ -219,6 +220,14 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 "}}}
 
+" Sneak {{{
+nmap f <Plug>Sneak_s
+nmap F <Plug>Sneak_S
+xmap f <Plug>Sneak_s
+xmap F <Plug>Sneak_S
+omap f <Plug>Sneak_s
+omap F <Plug>Sneak_S
+"}}}
 
 " Tagbar {{{
 let g:tagbar_sort = 0
