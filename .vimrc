@@ -61,11 +61,10 @@ Bundle "tpope/vim-unimpaired"
 Bundle "tpope/vim-repeat"
 Bundle "IndexedSearch"
 Bundle "camelcasemotion"
-Bundle "wikitopian/hardmode"
 "}}}
 
 " Misc {{{
-" Bundle "Valloric/YouCompleteMe"
+Bundle "Valloric/YouCompleteMe"
 Bundle "tpope/vim-surround"
 " vim-misc is necessary for vim-easytags.
 Bundle "xolox/vim-misc"
@@ -282,13 +281,6 @@ sunmap e
 
 " ListToggle {{{
 let g:lt_height = 10
-"}}}
-
-" Hard-mode {{{
-" Toggle key.
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()  " Auto-activate hard-mode.
-"}}}
 "}}}
 
 " Language-specific {{{
