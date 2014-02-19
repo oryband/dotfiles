@@ -29,12 +29,9 @@ Bundle "othree/html5.vim"
 Bundle "pangloss/vim-javascript"
 Bundle "lepture/vim-jinja"
 Bundle "tpope/vim-liquid"
-"Bundle "lepture/vim-css"
-Bundle "cakebaker/scss-syntax.vim"
-Bundle "groenewege/vim-less"
 Bundle "wavded/vim-stylus"
 Bundle "matchit.zip"
-Bundle "ap/vim-css-color"
+" Bundle "ap/vim-css-color"
 "}}}
 
 " Python
@@ -47,13 +44,14 @@ Bundle "tpope/vim-markdown"
 
 " Syntax
 Bundle "scrooloose/syntastic"
-Bundle "tomtom/tcomment_vim"
+Bundle "tpope/vim-commentary"
 
 " Navigation {{{
 Bundle "majutsushi/tagbar"
 Bundle "kien/ctrlp.vim"
 Bundle "bling/vim-airline"
-Bundle "scrooloose/nerdtree"
+Bundle "netrw.vim"
+Bundle "tpope/vim-vinegar"
 Bundle "mileszs/ack.vim"
 Bundle "justinmk/vim-sneak"
 Bundle "godlygeek/tabular"
@@ -67,11 +65,10 @@ Bundle "camelcasemotion"
 Bundle "Valloric/YouCompleteMe"
 Bundle "tpope/vim-surround"
 " vim-misc is necessary for vim-easytags.
-Bundle "xolox/vim-misc"
-Bundle "xolox/vim-easytags"
+" Bundle "xolox/vim-misc"
+" Bundle "xolox/vim-easytags"
 Bundle "tpope/vim-fugitive"
 Bundle "airblade/vim-gitgutter"
-Bundle "embear/vim-localvimrc"
 Bundle "Valloric/ListToggle"
 Bundle "tpope/vim-sensible"
 
@@ -114,10 +111,7 @@ set noshowmode  " Hide the default mode text (e.g. -- INSERT -- below the status
 "}}}
 
 " Ignored files {{{
-set wildignore+=*.swp  " Vim
-            \ *.jpg,*.jpeg,*.png,*.gif,*.psd  " Ignore images
-            \ *.pdf  " Ignore PDF files
-            \ *.DS_STORE
+set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,*.DS_Store
 "}}}
 
 " Key mappings {{{
@@ -125,10 +119,10 @@ let mapleader=","  " Set <leader> key to comma.
 silent! call repeat#set("\<Plug>.", v:count)  " activate vim-repeat plugin.
 cabbrev vhelp vert help
 inoremap jk <Esc>
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <silent> <C-j> <C-W>j
+map <silent> <C-k> <C-W>k
+map <silent> <C-h> <C-W>h
+map <silent> <C-l> <C-W>l
 " move line-wise, not screen-size.
 nnoremap j gj
 nnoremap k gk
@@ -145,7 +139,7 @@ set wildmode=list:longest  " List options when hitting tab, and match longest co
 " Formatting & Text {{{
 set nowrap  " No line wrapping.
 set linebreak  " Wrap at word.
-set textwidth=80  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
+set textwidth=79  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
 set colorcolumn=+1  " Highlight one column AFTER 'textwidth'.
 " Enable auto-wrapping comments, comment leader auto-insertion
 " in <Insert> mode, auto-format paragraphs, keep last line indentation.
@@ -209,6 +203,8 @@ let g:ycm_autoclose_preview_window_after_insertion = 1  " Close function signatu
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '♫'
+let g:syntastic_style_error_symbol = '♪'
 let g:syntastic_auto_loc_list = 2  " Close error window automatically when there are no errors.
 let g:syntastic_enable_signs = 1  " Show sidebar signs.
 let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
@@ -220,36 +216,61 @@ let g:airline_right_sep=''
 "}}}
 
 " Sneak {{{
-nmap f <Plug>Sneak_s
-nmap F <Plug>Sneak_S
-xmap f <Plug>Sneak_s
-xmap F <Plug>Sneak_S
-omap f <Plug>Sneak_s
-omap F <Plug>Sneak_S
+" nmap f <Plug>Sneak_f
+" nmap F <Plug>Sneak_F
+" xmap f <Plug>Sneak_f
+" xmap F <Plug>Sneak_F
+" omap f <Plug>Sneak_f
+" omap F <Plug>Sneak_F
+
+" nmap t <Plug>Sneak_t
+" nmap T <Plug>Sneak_T
+" xmap t <Plug>Sneak_t
+" xmap T <Plug>Sneak_T
+" omap t <Plug>Sneak_t
+" omap T <Plug>Sneak_T
 "}}}
 
 " Tagbar {{{
 let g:tagbar_sort = 0
-nnoremap <silent> \ :TagbarToggle<CR>
-" Search tag list from current dir up till root.
+nnoremap <silent> <Leader>a :TagbarToggle<CR>
 "}}}
 
 " CtrlP {{{
 let g:ctrlp_map = '<Leader>p'
-map <Leader>b :CtrlPBuffer<CR>
-map <Leader>t :CtrlPTag<CR>
+noremap <silent> <Leader>b :CtrlPBuffer<CR>
+noremap <silent> <Leader>t :CtrlPTag<CR>
 "}}}
 
-" {{{ NERDTree
-let NERDTreeQuitOnOpen = 1  " Close tree when opening a file.
-let NERDTreeShowHidden = 1  " Show hidden files.
-let NERDTreeChDirMode = 1  " Set tree root to :pwd.
-let NERDTreeShowFiles = 1  " Show files (+ dirs) on startup.
-let NERDTreeIgnore = [ '.DS_Store', '.*.swp$', '\~$' ]  " Ignore these file patterns.
-let NERDTreeWinPos = 'right'  " Open window on right side.
-noremap <Leader>n :NERDTreeToggle<CR>
+" {{{ netrw
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_liststyle = 3
+let g:netrw_special_syntax = 1
+let g:netrw_bufsettings = 'noma nomod nonu nornu nowrap ro nobl'
+function! ToggleVExplorer()
+    if exists("t:expl_buf_num")
+        let expl_win_num = bufwinnr(t:expl_buf_num)
+        if expl_win_num != -1
+            let cur_win_nr = winnr()
+            exec expl_win_num . 'wincmd w'
+            close
+            exec cur_win_nr . 'wincmd w'
+            unlet t:expl_buf_num
+        else
+            unlet t:expl_buf_num
+        endif
+    else
+        exec '1wincmd w'
+        Vexplore!
+        let t:expl_buf_num = bufnr("%")
+    endif
+endfunction
+noremap <silent> <Leader>n :call ToggleVExplorer()<CR>
 "}}}
 
+" Change directory to the current buffer when opening files.
+set autochdir
 " EasyTags {{{
 set tags=./.tags;~/
 let g:easytags_file = '~/.tags'  " Default tags file.
@@ -257,17 +278,6 @@ let g:easytags_cmd = 'ctags'
 let g:easytags_dynamic_files = 1  " Search tag files.
 let g:easytags_updatetime_warn = 0  " Don't show updatetime annoying warning.
 " let g:easytags_events = [ 'BufWritePost' ]  " Update on save only.
-"}}}
-
-" TComment {{{
-let g:tcommentMapLeader1 = '<Leader>c'
-" NERDCommenter-like behavior:
-noremap <Leader>cc :TCommentMaybeInline<CR>
-"}}}
-
-" Local .vimrc {{{
-let localvimrc_ask = 0  " Load .lvimrc without asking.
-let g:localvimrc_sandbox = 0  " No sandbox (less secure).
 "}}}
 
 " Camelcase motion {{{
@@ -289,17 +299,16 @@ autocmd FileType vim setlocal foldmethod=marker
 "}}}
 
 " Web {{{
-autocmd BufWinEnter *.html,*.htm setfiletype html
+autocmd BufWinEnter *.html,*.htm setfiletype jinja
 autocmd BufWinEnter *.sass,*.scss setfiletype scss
 autocmd BufWinEnter *.less setfiletype less
 autocmd BufWinEnter *.json,*jshintrc setfiletype javascript
-" autocmd FileType html setlocal filetype=jinja
 autocmd FileType css,scss,less,stylus set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType html,jinja,liquid set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType html,jinja,liquid,css,scss,less,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType html,jinja,liquid runtime! macros/matchit.vim
-"autocmd BufWritePost *.scss,*.sass !compass compile ../ <afile> --force
+autocmd FileType jinja set commentstring={#\ %s\ #}
 "}}}
 
 " Python {{{
@@ -310,7 +319,6 @@ autocmd FileType python setlocal linebreak nosmartindent  " nosmartindent for co
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 set wildignore+=*.pyc,*.pyo
 set wildignore+=*.egg,*.egg-info
-let NERDTreeIgnore += ['.*.pyc$', '*.pyc$']  " Don't display this in NERDTree.
 "}}}
 
 " Ruby {{{
