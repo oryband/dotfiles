@@ -233,6 +233,7 @@ let g:airline_right_sep=''
 
 " Tagbar {{{
 let g:tagbar_sort = 0
+let g:tagbar_autofocus = 1
 nnoremap <silent> <Leader>a :TagbarToggle<CR>
 "}}}
 
