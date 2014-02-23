@@ -50,8 +50,7 @@ Bundle "tpope/vim-commentary"
 Bundle "majutsushi/tagbar"
 Bundle "kien/ctrlp.vim"
 Bundle "bling/vim-airline"
-Bundle "netrw.vim"
-Bundle "tpope/vim-vinegar"
+Bundle "scrooloose/nerdtree"
 Bundle "mileszs/ack.vim"
 Bundle "justinmk/vim-sneak"
 Bundle "godlygeek/tabular"
@@ -216,6 +215,13 @@ let g:airline_right_sep=''
 "}}}
 
 " Sneak {{{
+nmap <leader>s <Plug>Sneak_s
+nmap <leader>S <Plug>Sneak_S
+xmap <leader>s <Plug>Sneak_s
+xmap <leader>S <Plug>Sneak_S
+omap <leader>s <Plug>Sneak_s
+omap <leader>S <Plug>Sneak_S
+
 " nmap f <Plug>Sneak_f
 " nmap F <Plug>Sneak_F
 " xmap f <Plug>Sneak_f
@@ -243,35 +249,16 @@ noremap <silent> <Leader>b :CtrlPBuffer<CR>
 noremap <silent> <Leader>t :CtrlPTag<CR>
 "}}}
 
-" {{{ netrw
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_liststyle = 3
-let g:netrw_special_syntax = 1
-let g:netrw_bufsettings = 'noma nomod nonu nornu nowrap ro nobl'
-function! ToggleVExplorer()
-    if exists("t:expl_buf_num")
-        let expl_win_num = bufwinnr(t:expl_buf_num)
-        if expl_win_num != -1
-            let cur_win_nr = winnr()
-            exec expl_win_num . 'wincmd w'
-            close
-            exec cur_win_nr . 'wincmd w'
-            unlet t:expl_buf_num
-        else
-            unlet t:expl_buf_num
-        endif
-    else
-        exec '1wincmd w'
-        Vexplore!
-        let t:expl_buf_num = bufnr("%")
-    endif
-endfunction
-noremap <silent> <Leader>n :call ToggleVExplorer()<CR>
+" {{{ NERDTree
+let NERDTreeQuitOnOpen = 1  " Close tree when opening a file.
+let NERDTreeShowHidden = 1  " Show hidden files.
+let NERDTreeChDirMode = 1  " Set tree root to :pwd.
+let NERDTreeShowFiles = 1  " Show files (+ dirs) on startup.
+let NERDTreeIgnore = [ '.DS_Store', '.*.swp$', '\~$' ]  " Ignore these file patterns.
+let NERDTreeWinPos = 'right'  " Open window on right side.
+noremap <Leader>n :NERDTreeToggle<CR>
 "}}}
 
-" Change directory to the current buffer when opening files.
-set autochdir
 " EasyTags {{{
 set tags=./.tags;~/
 let g:easytags_file = '~/.tags'  " Default tags file.
@@ -320,6 +307,7 @@ autocmd FileType python setlocal linebreak nosmartindent  " nosmartindent for co
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 set wildignore+=*.pyc,*.pyo
 set wildignore+=*.egg,*.egg-info
+let NERDTreeIgnore += ['.*.pyc$', '*.pyc$']  " Don't display this in NERDTree.
 "}}}
 
 " Ruby {{{
