@@ -17,7 +17,8 @@ web-search
 source $ZSH/oh-my-zsh.sh
 
 alias la="ls -A"
-alias brews='brew list'
+alias brews="brew list"
+alias js="node"
 
 export EDITOR='vim'
 export VISUAL=$EDITOR
