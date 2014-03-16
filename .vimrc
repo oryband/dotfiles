@@ -27,6 +27,8 @@ Bundle "nanotech/jellybeans.vim"
 " Web {{{
 Bundle "othree/html5.vim"
 Bundle "pangloss/vim-javascript"
+Bundle "jelera/vim-javascript-syntax"
+Bundle "marijnh/tern_for_vim"
 Bundle "lepture/vim-jinja"
 Bundle "tpope/vim-liquid"
 Bundle "wavded/vim-stylus"
@@ -61,11 +63,11 @@ Bundle "camelcasemotion"
 "}}}
 
 " Misc {{{
-Bundle "Valloric/YouCompleteMe"
+" Bundle "Valloric/YouCompleteMe"
 Bundle "tpope/vim-surround"
 " vim-misc is necessary for vim-easytags.
-" Bundle "xolox/vim-misc"
-" Bundle "xolox/vim-easytags"
+Bundle "xolox/vim-misc"
+Bundle "xolox/vim-easytags"
 Bundle "tpope/vim-fugitive"
 Bundle "airblade/vim-gitgutter"
 Bundle "Valloric/ListToggle"
@@ -88,6 +90,11 @@ let g:jellybeans_overrides = {
         \ 'ctermfg': '196',
         \ 'ctermbg': '226',
         \ 'attr': 'standout'
+    \ },
+    \ 'Folded': {
+        \ 'ctermfg': '244',
+        \ 'gui': 'italic',
+        \ 'guifg': '888888',
     \ }
 \ }
 
@@ -97,11 +104,12 @@ colorscheme jellybeans
 
 " Misc. {{{
 set nostartofline
-set splitbelow splitright  " New windows are created to the bottom-right.
-set clipboard+=unnamed  " Enable OS clipboard integration.
-set hidden  " The current buffer can be put to the background without writing to disk.
-set title  " Show title in app title bar.
-set ttyfast  " Fast drawing.
+set splitbelow splitright
+set clipboard+=unnamed 
+set hidden
+set title
+set lazyredraw
+set ttyfast
 "}}}
 
 " Status Line {{{
@@ -165,11 +173,11 @@ set smartindent
 "}}}
 
 " Folding {{{
-set foldenable  " Turn on folding.
-set foldmethod=syntax  " Fold on the marker.
-set foldlevel=0  " Fold everything when opening a file.
-set foldopen=block,hor,tag,percent,mark,quickfix  " Which movements open folds.
-""}}}
+set foldenable
+set foldmethod=syntax
+set foldlevel=0
+set foldopen=block,hor,tag,percent,mark,quickfix
+"}}}
 
 " Backup {{{
 set nobackup  " Disable file backup before file overwrite attempt.
@@ -198,6 +206,12 @@ let g:ycm_autoclose_preview_window_after_insertion = 1  " Close function signatu
 " let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
 "}}}
 
+" Tern {{{
+let g:tern#command = ['tern', '--no-port-file']
+let g:tern_show_signature_in_pum = 1
+" let g:tern_show_argument_hints = 'on_move'
+"}}}
+
 " Syntastic {{{
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol = '✗'
@@ -215,6 +229,8 @@ let g:airline_right_sep=''
 "}}}
 
 " Sneak {{{
+highlight link SneakPluginTarget Visual
+
 nmap <leader>s <Plug>Sneak_s
 nmap <leader>S <Plug>Sneak_S
 xmap <leader>s <Plug>Sneak_s
@@ -222,24 +238,25 @@ xmap <leader>S <Plug>Sneak_S
 omap <leader>s <Plug>Sneak_s
 omap <leader>S <Plug>Sneak_S
 
-" nmap f <Plug>Sneak_f
-" nmap F <Plug>Sneak_F
-" xmap f <Plug>Sneak_f
-" xmap F <Plug>Sneak_F
-" omap f <Plug>Sneak_f
-" omap F <Plug>Sneak_F
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
 
-" nmap t <Plug>Sneak_t
-" nmap T <Plug>Sneak_T
-" xmap t <Plug>Sneak_t
-" xmap T <Plug>Sneak_T
-" omap t <Plug>Sneak_t
-" omap T <Plug>Sneak_T
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 "}}}
 
 " Tagbar {{{
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
+let g:tagbar_compact = 1
 nnoremap <silent> <Leader>a :TagbarToggle<CR>
 "}}}
 
@@ -250,13 +267,15 @@ noremap <silent> <Leader>t :CtrlPTag<CR>
 "}}}
 
 " {{{ NERDTree
-let NERDTreeQuitOnOpen = 1  " Close tree when opening a file.
-let NERDTreeShowHidden = 1  " Show hidden files.
-let NERDTreeChDirMode = 1  " Set tree root to :pwd.
-let NERDTreeShowFiles = 1  " Show files (+ dirs) on startup.
-let NERDTreeIgnore = [ '.DS_Store', '.*.swp$', '\~$' ]  " Ignore these file patterns.
-let NERDTreeWinPos = 'right'  " Open window on right side.
-noremap <Leader>n :NERDTreeToggle<CR>
+let NERDChristmasTree = 1
+let NERDTreeShowHidden = 1
+let NERDTreeChDirMode = 1
+let NERDTreeShowFiles = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeWinPos = 'right'
+let NERDTreeIgnore = [ '.DS_Store', '.*.swp$', '\~$' ]
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+noremap <silent> <Leader>n :NERDTreeToggle<CR>
 "}}}
 
 " EasyTags {{{
@@ -286,17 +305,25 @@ let g:lt_height = 10
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
 
-" Web {{{
-autocmd BufWinEnter *.html,*.htm setfiletype jinja
-autocmd BufWinEnter *.sass,*.scss setfiletype scss
-autocmd BufWinEnter *.less setfiletype less
-autocmd BufWinEnter *.json,*jshintrc setfiletype javascript
-autocmd FileType css,scss,less,stylus set omnifunc=csscomplete#CompleteCSS
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html,jinja,liquid set omnifunc=htmlcomplete#CompleteTags
+" HTML & Templates {{{
+" autocmd BufWinEnter *.html,*.htm setfiletype jinja
+" autocmd FileType html,jinja,liquid set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType html,jinja,liquid,css,scss,less,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType html,jinja,liquid runtime! macros/matchit.vim
 autocmd FileType jinja set commentstring={#\ %s\ #}
+"}}}
+
+" CSS {{{
+autocmd BufWinEnter *.sass,*.scss setfiletype scss
+autocmd BufWinEnter *.less setfiletype less
+autocmd FileType css,scss,less,stylus set omnifunc=csscomplete#CompleteCSS
+"}}}
+
+" Javascript {{{
+autocmd BufWinEnter *.json,.jshintrc,.tern-config,.tern-project setfiletype javascript
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType javascript call JavaScriptFold()
+let g:tagbar_type_javascript = { 'ctagsbin' : 'jsctags' }
 "}}}
 
 " Python {{{
@@ -341,19 +368,7 @@ set wildignore+=*.class
 autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 "}}}
 
-" Assembly {{{
-autocmd BufWinEnter *.s,*.bin setfiletype nasm
-"}}}
-
-" Bash/Shell {{{
-autocmd BufWinEnter *bashrc,*bash_prompt,*bash_profile,*aliases setfiletype sh
-"}}}
-
-" Git {{{
-autocmd BufWinEnter *gitconfig setfiletype gitconfig
-"}}}
-
-" SSH {{{
-autocmd BufWinEnter *sshconfig setfiletype sshconfig
+" LaTeX {{{
+autocmd FileType tex setlocal number norelativenumber
 "}}}
 "}}}
