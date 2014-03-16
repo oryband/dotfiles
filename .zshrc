@@ -34,4 +34,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Node
 PATH="/usr/local/share/npm/bin:$PATH"
 
+# Latex / BasicTex
+PATH="/usr/texbin:$PATH"
+
 export PATH
