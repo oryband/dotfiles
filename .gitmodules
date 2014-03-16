@@ -1,4 +1,4 @@
 [submodule "vim"]
     path = .vim
     url = git@github.com:oryband/dotvim.git
-    ignore = dirty
+    ignore = all
