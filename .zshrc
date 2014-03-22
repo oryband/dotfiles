@@ -18,6 +18,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias la="ls -A"
 alias brews="brew list"
+alias casks="brew cask list"
 alias js="node"
 
 export EDITOR='vim'
