@@ -24,6 +24,11 @@ alias js="node"
 export EDITOR='vim'
 export VISUAL=$EDITOR
 
+# Hide annoying '%' sign.
+setopt PROMPT_CR
+setopt PROMPT_SP
+export PROMPT_EOL_MARK=""
+
 # Homebrew
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
