@@ -1,6 +1,3 @@
-" Set font.
-if has("win32") | set guifont=Consolas:h14
-else | set guifont=Droid\ Sans\ Mono\:h16 | endif
-
-set guioptions=a  " Disables all GUI options (menu, scrollbar, etc.)
-set guicursor=a:blinkon0  " disable gVim cursor blinking.
+set guifont=Source\ Code\ Pro\ Light:h16
+set guioptions=a
+set guicursor=a:blinkon0
