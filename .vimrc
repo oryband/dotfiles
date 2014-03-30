@@ -24,17 +24,20 @@ Bundle "gmarik/vundle"
 " Colors
 Bundle "nanotech/jellybeans.vim"
 
-" Web {{{
+" HTML & Templates
+Bundle "matchit.zip"
 Bundle "othree/html5.vim"
-Bundle "pangloss/vim-javascript"
-Bundle "jelera/vim-javascript-syntax"
-Bundle "marijnh/tern_for_vim"
 Bundle "lepture/vim-jinja"
 Bundle "tpope/vim-liquid"
+
+" CSS
 Bundle "wavded/vim-stylus"
-Bundle "matchit.zip"
 " Bundle "ap/vim-css-color"
-"}}}
+
+" Javascript
+Bundle "pangloss/vim-javascript"
+" Bundle "jelera/vim-javascript-syntax"
+Bundle "marijnh/tern_for_vim"
 
 " Python
 Bundle "hynek/vim-python-pep8-indent"
@@ -213,14 +216,14 @@ let g:tern_show_signature_in_pum = 1
 "}}}
 
 " Syntastic {{{
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '♫'
 let g:syntastic_style_error_symbol = '♪'
-let g:syntastic_auto_loc_list = 2  " Close error window automatically when there are no errors.
-let g:syntastic_enable_signs = 1  " Show sidebar signs.
-let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
 "}}}
 
 " Airline {{{
@@ -311,6 +314,7 @@ autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType html,jinja,liquid,css,scss,less,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType html,jinja,liquid runtime! macros/matchit.vim
 autocmd FileType jinja set commentstring={#\ %s\ #}
+let g:syntastic_html_checkers = ['tidy', 'jshint']
 "}}}
 
 " CSS {{{
