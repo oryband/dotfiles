@@ -8,7 +8,6 @@
 " mathiasbynens - github.com/mathiasbynens/dotfiles/blob/master/.vimrc
 " Graphical cheat sheet - viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 "}}}
-
 " Initialization / Vundle Plugin Manager {{{
 set nocompatible  " Disable vi compatibility (more efficient, and besides - we're using non-vi tricks here).
 filetype off
@@ -19,10 +18,9 @@ else | set runtimepath+=$HOME/.vim/bundle/vundle/ | endif
 call vundle#rc()
 Bundle "gmarik/vundle"
 "}}}
-
 " Plugins {{{
 " Colors
-Bundle "nanotech/jellybeans.vim"
+Bundle "altercation/vim-colors-solarized"
 
 " HTML & Templates
 Bundle "matchit.zip"
@@ -43,6 +41,10 @@ Bundle "marijnh/tern_for_vim"
 Bundle "hynek/vim-python-pep8-indent"
 Bundle "python.vim--Vasiliev"
 Bundle "tmhedberg/SimpylFold"
+
+" Java
+Bundle "javacomplete"
+Bundle "tpope/vim-classpath"
 
 " Markdown
 Bundle "tpope/vim-markdown"
@@ -79,30 +81,12 @@ Bundle "tpope/vim-sensible"
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 "}}}
 "}}}
-
 " Options {{{
 " Colors {{{
-set t_Co=256  " Set terminal to display 256 colors.
 set background=dark
-" Set 'TODO' & 'FIXME' strings to be bold and standout as hell.
-" Works for jellybeans color scheme only.
-let g:jellybeans_overrides = {
-    \ 'Todo': {
-        \ 'guifg': 'ff4500',
-        \ 'guibg': 'eeee00',
-        \ 'ctermfg': '196',
-        \ 'ctermbg': '226',
-        \ 'attr': 'standout'
-    \ },
-    \ 'Folded': {
-        \ 'ctermfg': '244',
-        \ 'gui': 'italic',
-        \ 'guifg': '888888',
-    \ }
-\ }
-
-" Misc color overrides.
-colorscheme jellybeans
+colorscheme solarized
+highlight! clear Folded
+highlight! link Folded Normal
 "}}}
 
 " Misc. {{{
@@ -200,7 +184,6 @@ set selectmode=mouse  " Enable visule selection with mouse.
 set novisualbell  " No blinking
 "}}}
 "}}}
-
 " Plugin configurations {{{
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C-languages configuration file.
@@ -208,13 +191,11 @@ let g:ycm_autoclose_preview_window_after_insertion = 1  " Close function signatu
 " let g:ycm_max_diagnostics_to_display = 30  " Maximum numbers of  errors/warnings to display.
 " let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
 "}}}
-
 " Tern {{{
 let g:tern#command = ['tern', '--no-port-file']
 let g:tern_show_signature_in_pum = 1
 " let g:tern_show_argument_hints = 'on_move'
 "}}}
-
 " Syntastic {{{
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list=1
@@ -225,12 +206,10 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '♫'
 let g:syntastic_style_error_symbol = '♪'
 "}}}
-
 " Airline {{{
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 "}}}
-
 " Sneak {{{
 highlight link SneakPluginTarget Visual
 
@@ -255,20 +234,17 @@ xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 "}}}
-
 " Tagbar {{{
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 nnoremap <silent> <Leader>a :TagbarToggle<CR>
 "}}}
-
 " CtrlP {{{
 let g:ctrlp_map = '<Leader>p'
 noremap <silent> <Leader>b :CtrlPBuffer<CR>
 noremap <silent> <Leader>t :CtrlPTag<CR>
 "}}}
-
 " {{{ NERDTree
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 1
@@ -280,16 +256,14 @@ let NERDTreeIgnore = [ '.DS_Store', '.*.swp$', '\~$' ]
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 noremap <silent> <Leader>n :NERDTreeToggle<CR>
 "}}}
-
 " EasyTags {{{
 set tags=./.tags;~/
 let g:easytags_file = '~/.tags'  " Default tags file.
 let g:easytags_cmd = 'ctags'
 let g:easytags_dynamic_files = 1  " Search tag files.
 let g:easytags_updatetime_warn = 0  " Don't show updatetime annoying warning.
-" let g:easytags_events = [ 'BufWritePost' ]  " Update on save only.
+let g:easytags_events = [ 'BufWritePost' ]  " Update on save only.
 "}}}
-
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -298,53 +272,47 @@ sunmap w
 sunmap b
 sunmap e
 "}}}
-
 " ListToggle {{{
 let g:lt_height = 10
 "}}}
-
 " Language-specific {{{
 " Vim {{{
 autocmd FileType vim setlocal foldmethod=marker
 "}}}
-
 " HTML & Templates {{{
 " autocmd BufWinEnter *.html,*.htm setfiletype jinja
-" autocmd FileType html,jinja,liquid set omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType html,jinja,liquid setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType html,jinja,liquid,css,scss,less,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType html,jinja,liquid runtime! macros/matchit.vim
 autocmd FileType jinja set commentstring={#\ %s\ #}
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 "}}}
-
 " CSS {{{
 autocmd BufWinEnter *.sass,*.scss setfiletype scss
 autocmd BufWinEnter *.less setfiletype less
-autocmd FileType css,scss,less,stylus set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css,scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
 "}}}
-
 " Javascript {{{
 autocmd BufWinEnter *.json,.jshintrc,.tern-config,.tern-project setfiletype javascript
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " autocmd FileType javascript call JavaScriptFold()
 let g:tagbar_type_javascript = { 'ctagsbin' : 'jsctags' }
+let javascript_enable_domhtmlcss = 1
+let g:javascript_conceal = 1
 "}}}
-
 " Python {{{
 let python_highlight_all=1  " Enable all plugin's highlighting.
 let python_slow_sync=1  " For fast machines.
 let python_print_as_function=1  " Color 'print' function.
 autocmd FileType python setlocal linebreak nosmartindent  " nosmartindent for comment indentation problem.
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 set wildignore+=*.pyc,*.pyo
 set wildignore+=*.egg,*.egg-info
 let NERDTreeIgnore += ['.*.pyc$', '*.pyc$']  " Don't display this in NERDTree.
 "}}}
-
 " Ruby {{{
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 "}}}
-
 " C/C++ {{{
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
 let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
@@ -360,18 +328,16 @@ let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
 set wildignore+=*.a,*.o,*.so
 "}}}
-
 " Java {{{
 autocmd FileType ant setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-let g:syntastic_java_checker = "javac"
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete completefunc=javacomplete#CompleteParamsInfo
 let g:syntastic_java_javac_delete_output=0  " Don't delete .class files after syntax check.
 set wildignore+=*.class
+let NERDTreeIgnore += ['.*.class$']  " Don't display this in NERDTree.
 "}}}
-
 " Markdown {{{
 autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 "}}}
-
 " LaTeX {{{
 autocmd FileType tex setlocal number norelativenumber
 "}}}
