@@ -1,0 +1,8 @@
+Host lvs
+    User oryb
+    HostName lvs.cs.bgu.ac.il
+
+Host ec2
+    User ec2-user
+    HostName ec2-54-85-161-72.compute-1.amazonaws.com
+    IdentityFile "~/.ssh/ec2.pem"

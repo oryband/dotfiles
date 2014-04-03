@@ -21,6 +21,9 @@ alias brews="brew list"
 alias casks="brew cask list"
 alias js="node"
 
+# Stop zsh from catching ^ chars.
+setopt NO_NOMATCH
+
 export EDITOR='vim'
 export VISUAL=$EDITOR
 
