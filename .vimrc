@@ -85,8 +85,6 @@ set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 " Colors {{{
 set background=dark
 colorscheme solarized
-highlight! clear Folded
-highlight! link Folded Normal
 "}}}
 
 " Misc. {{{
