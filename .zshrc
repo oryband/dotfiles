@@ -7,9 +7,10 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
-osx brew colored-man
+osx brew brew-cask colored-man
 npm
 python pip django
+ant
 history-substring-search
 web-search
 )
