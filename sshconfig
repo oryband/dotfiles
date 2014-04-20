@@ -4,5 +4,5 @@ Host lvs
 
 Host ec2
     User ec2-user
-    HostName ec2-54-85-161-72.compute-1.amazonaws.com
+    HostName ec2-54-86-51-247.compute-1.amazonaws.com
     IdentityFile "~/.ssh/ec2.pem"
