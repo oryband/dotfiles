@@ -1,46 +1,41 @@
-" Great sources & credits: {{{
-" Example vimrc - vi-improved.org/vimrc.php
-" janus - github.com/carlhuda/janus
-" gmarik - github.com/gmarik/vimfiles/blob/master/vimrc
-" durdn - github.com/durdn/cfg/blob/master/.vimrc
-" FactoryLab - github.com/factorylabs/vimfiles
-" lukerandall - github.com/lukerandall/dotvim/blob/master/vimrc
-" mathiasbynens - github.com/mathiasbynens/dotfiles/blob/master/.vimrc
-" Graphical cheat sheet - viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
+" Sources {{{
+" vi-improved.org/vimrc.php
+" github.com/carlhuda/janus
+" github.com/gmarik/vimfiles/blob/master/vimrc
+" github.com/durdn/cfg/blob/master/.vimrc
+" github.com/factorylabs/vimfiles
+" github.com/lukerandall/dotvim/blob/master/vimrc
+" github.com/mathiasbynens/dotfiles/blob/master/.vimrc
+" viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 "}}}
 " Initialization / Vundle Plugin Manager {{{
-set nocompatible  " Disable vi compatibility (more efficient, and besides - we're using non-vi tricks here).
+set nocompatible
 filetype off
 
-if has ("win32") | set runtimepath+=$HOME/vimfiles/bundle/vundle/
-else | set runtimepath+=$HOME/.vim/bundle/vundle/ | endif
+set runtimepath+=$HOME/.vim/bundle/vundle/
 
 call vundle#rc()
 Bundle "gmarik/vundle"
 "}}}
 " Plugins {{{
 " Colors
-Bundle "altercation/vim-colors-solarized"
+Bundle "blueyed/vim-colors-solarized"
 
-" HTML & Templates
+" HTML/CSS/JS
 Bundle "matchit.zip"
 Bundle "othree/html5.vim"
 Bundle "lepture/vim-jinja"
 Bundle "tpope/vim-liquid"
-
-" CSS
 Bundle "wavded/vim-stylus"
 " Bundle "ap/vim-css-color"
-
-" Javascript
 Bundle "pangloss/vim-javascript"
-" Bundle "jelera/vim-javascript-syntax"
 Bundle "marijnh/tern_for_vim"
 
 " Python
 Bundle "hynek/vim-python-pep8-indent"
 Bundle "python.vim--Vasiliev"
 Bundle "tmhedberg/SimpylFold"
+Bundle "jmcantrell/vim-virtualenv"
 
 " Java
 Bundle "javacomplete"
@@ -49,101 +44,79 @@ Bundle "tpope/vim-classpath"
 " Markdown
 Bundle "tpope/vim-markdown"
 
-" Syntax
-Bundle "scrooloose/syntastic"
-Bundle "tpope/vim-commentary"
-
-" Navigation {{{
-Bundle "majutsushi/tagbar"
-Bundle "kien/ctrlp.vim"
-Bundle "bling/vim-airline"
-Bundle "scrooloose/nerdtree"
+" Everything else
 Bundle "mileszs/ack.vim"
-Bundle "justinmk/vim-sneak"
-Bundle "godlygeek/tabular"
-Bundle "tpope/vim-unimpaired"
-Bundle "tpope/vim-repeat"
-Bundle "IndexedSearch"
 Bundle "camelcasemotion"
-"}}}
-
-" Misc {{{
-Bundle "Valloric/YouCompleteMe"
-Bundle "tpope/vim-surround"
-" vim-misc is necessary for vim-easytags.
-Bundle "xolox/vim-misc"
+Bundle "kien/ctrlp.vim"
+Bundle "IndexedSearch"
+Bundle "Valloric/ListToggle"
+Bundle "scrooloose/nerdtree"
+Bundle "godlygeek/tabular"
+Bundle "majutsushi/tagbar"
+Bundle "scrooloose/syntastic"
+Bundle "bling/vim-airline"
+Bundle "tpope/vim-commentary"
 Bundle "xolox/vim-easytags"
 Bundle "tpope/vim-fugitive"
 Bundle "airblade/vim-gitgutter"
-Bundle "Valloric/ListToggle"
+Bundle "xolox/vim-misc"
 Bundle "tpope/vim-sensible"
-
-set expandtab tabstop=4 softtabstop=4 shiftwidth=4
-"}}}
+Bundle "justinmk/vim-sneak"
+Bundle "tpope/vim-surround"
+Bundle "tpope/vim-repeat"
+Bundle "tpope/vim-unimpaired"
+Bundle "Valloric/YouCompleteMe"
 "}}}
 " Options {{{
 " Colors {{{
 set background=dark
 colorscheme solarized
 "}}}
-
-" Misc. {{{
-set nostartofline
-set splitbelow splitright
-set clipboard+=unnamed 
-set hidden
-set title
-set lazyredraw
-set ttyfast
+" Spaces {{{
+set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 "}}}
-
 " Status Line {{{
-set shortmess=atI  " Shortens messages in status line, truncates long messages, no intro (Uganda) message.
-set noshowmode  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set shortmess=atI
+set noshowmode
 "}}}
-
-" Ignored files {{{
+" Ignored {{{
 set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,*.DS_Store
+set wildignore+=*.pyc,*.pyo,*.egg,*.egg-info
+set wildignore+=*.a,*.o,*.so
+set wildignore+=*.class
 "}}}
-
-" Key mappings {{{
-let mapleader=","  " Set <leader> key to comma.
-silent! call repeat#set("\<Plug>.", v:count)  " activate vim-repeat plugin.
+" Keys {{{
+let mapleader=","
 cabbrev vhelp vert help
 inoremap jk <Esc>
-map <silent> <C-j> <C-W>j
-map <silent> <C-k> <C-W>k
-map <silent> <C-h> <C-W>h
-map <silent> <C-l> <C-W>l
-" move line-wise, not screen-size.
 nnoremap j gj
 nnoremap k gk
+nnoremap <silent> <C-j> <C-W>j
+nnoremap <silent> <C-k> <C-W>k
+nnoremap <silent> <C-h> <C-W>h
+nnoremap <silent> <C-l> <C-W>l
 "}}}
-
 " Searching {{{
-set smartcase  " Be case sensitive when input has a capital letter.
-set ignorecase  " Ignore case when searching.
-set gdefault  " Make searched global `/g` by default.
-if exists('&wildignorecase') | set wildignorecase | endif  " In-case-sensitive dir/file completion.
-set wildmode=list:longest  " List options when hitting tab, and match longest common command.
+set smartcase
+set ignorecase
+set gdefault
+set wildmode=list:longest
+if exists('&wildignorecase') | set wildignorecase | endif
 "}}}
+" Format {{{
+set nowrap
+set linebreak
+set textwidth=79
+set colorcolumn=+1
+set relativenumber
+set matchtime=3
+set nolist
+set smartindent
+augroup Format-Options
+    autocmd!
+    autocmd BufEnter * setlocal formatoptions=crqn2l1j
+augroup END
 
-" Formatting & Text {{{
-set nowrap  " No line wrapping.
-set linebreak  " Wrap at word.
-set textwidth=79  " Desirable text width. Used for text auto-wrapping. 0 means no auto-wrapping.
-set colorcolumn=+1  " Highlight one column AFTER 'textwidth'.
-" Enable auto-wrapping comments, comment leader auto-insertion
-" in <Insert> mode, auto-format paragraphs, keep last line indentation.
-" Disable all other format options.
-" NOTE: Requires 'set autoindent'. autocmd FileType is required since
-" I set `formatoptions` differently for each file type (.c, .py, etc.)."
-autocmd FileType * set formatoptions=r,2
-set relativenumber  " Use relative line numbering.
-set matchtime=3  " How many tenths of a second to wait before showing matching braces.
-" if ! has("win32") | set listchars=tab:▸\ ,trail:¬,eol:« | endif  " Invisible characters.
-set nolist  " Don't display invisible characters.
-" Custom command to strip trailing whitespaces.
 function! StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -152,61 +125,90 @@ function! StripTrailingWhitespaces()
 endfunction
 command! StripTrailingWhitespaces call StripTrailingWhitespaces()
 "}}}
-
-" Indentation {{{
-set smartindent
-"}}}
-
 " Folding {{{
 set foldenable
 set foldmethod=syntax
 set foldlevel=0
 set foldopen=block,hor,tag,percent,mark,quickfix
 "}}}
-
 " Backup {{{
-set nobackup  " Disable file backup before file overwrite attempt.
+set nobackup
 set nowritebackup
 "}}}
-
 " Mouse {{{
-"Set mouse behaviour to be like the OS's.
-if has ("win32") | behave mswin | else | behave xterm | endif
-set mouse-=a  " Disable mouse.
-set mousehide  " Hide mouse after chars typed.
-behave xterm  " Make mouse behave like in xterm (instead of, e.g. Windows' command-prompt mouse).
-set selectmode=mouse  " Enable visule selection with mouse.
+behave xterm
+set mouse-=a
+set mousehide
 "}}}
-
 " Bells {{{
-set novisualbell  " No blinking
+set novisualbell
+"}}}
+" Misc. {{{
+set nostartofline
+set splitbelow splitright
+set clipboard+=unnamed
+set hidden
+set title
+set lazyredraw
+set ttyfast
 "}}}
 "}}}
 " Plugin configurations {{{
-" YouCompleteMe - YCM {{{
-let g:ycm_confirm_extra_conf = 0  " Don't ask for permission to load C-languages configuration file.
-let g:ycm_autoclose_preview_window_after_insertion = 1  " Close function signature preview after exiting insert mode.
-" let g:ycm_max_diagnostics_to_display = 30  " Maximum numbers of  errors/warnings to display.
-" let g:ycm_register_as_syntastic_checker = 0  " Disable YCM-Syntastic for C-family langauges.
-"}}}
-" Tern {{{
-let g:tern#command = ['tern', '--no-port-file']
-let g:tern_show_signature_in_pum = 1
-" let g:tern_show_argument_hints = 'on_move'
-"}}}
-" Syntastic {{{
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_warning_symbol = '♫'
-let g:syntastic_style_error_symbol = '♪'
-"}}}
 " Airline {{{
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+"}}}
+" Camelcase motion {{{
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+"}}}
+" CtrlP {{{
+let g:ctrlp_map = '<Leader>p'
+noremap <silent> <Leader>b :CtrlPBuffer<CR>
+noremap <silent> <Leader>t :CtrlPTag<CR>
+"}}}
+" EasyTags {{{
+set tags=./.tags;~/
+let g:easytags_file = '~/.tags'
+let g:easytags_cmd = 'ctags'
+let g:easytags_dynamic_files = 1
+let g:easytags_updatetime_warn = 0
+let g:easytags_events = ['BufWritePost']
+"}}}
+" ListToggle {{{
+let g:lt_height = 10
+"}}}
+" {{{ NERDTree
+let NERDChristmasTree = 1
+let NERDTreeShowHidden = 1
+let NERDTreeChDirMode = 1
+let NERDTreeShowFiles = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeWinPos = 'right'
+let NERDTreeIgnore = [
+            \ '.DS_Store', '.*.swp$', '\~$',
+            \ '.*.class$',
+            \ '.*.pyc$', '*.pyc$'
+            \ ]
+
+augroup NERD-Tree
+    autocmd!
+    autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
+
+noremap <silent> <Leader>n :NERDTreeToggle<CR>
+"}}}
+" Python {{{
+let python_highlight_all=1
+let python_slow_sync=1
+let python_print_as_function=1
+"}}}
+" Repeat {{{
+silent! call repeat#set("\<Plug>.", v:count)
 "}}}
 " Sneak {{{
 highlight link SneakPluginTarget Visual
@@ -232,86 +234,19 @@ xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 "}}}
-" Tagbar {{{
-let g:tagbar_sort = 0
-let g:tagbar_autofocus = 1
-let g:tagbar_compact = 1
-nnoremap <silent> <Leader>a :TagbarToggle<CR>
-"}}}
-" CtrlP {{{
-let g:ctrlp_map = '<Leader>p'
-noremap <silent> <Leader>b :CtrlPBuffer<CR>
-noremap <silent> <Leader>t :CtrlPTag<CR>
-"}}}
-" {{{ NERDTree
-let NERDChristmasTree = 1
-let NERDTreeShowHidden = 1
-let NERDTreeChDirMode = 1
-let NERDTreeShowFiles = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeWinPos = 'right'
-let NERDTreeIgnore = [ '.DS_Store', '.*.swp$', '\~$' ]
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-noremap <silent> <Leader>n :NERDTreeToggle<CR>
-"}}}
-" EasyTags {{{
-set tags=./.tags;~/
-let g:easytags_file = '~/.tags'  " Default tags file.
-let g:easytags_cmd = 'ctags'
-let g:easytags_dynamic_files = 1  " Search tag files.
-let g:easytags_updatetime_warn = 0  " Don't show updatetime annoying warning.
-let g:easytags_events = [ 'BufWritePost' ]  " Update on save only.
-"}}}
-" Camelcase motion {{{
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
-"}}}
-" ListToggle {{{
-let g:lt_height = 10
-"}}}
-" Language-specific {{{
-" Vim {{{
-autocmd FileType vim setlocal foldmethod=marker
-"}}}
-" HTML & Templates {{{
-" autocmd BufWinEnter *.html,*.htm setfiletype jinja
-" autocmd FileType html,jinja,liquid setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType html,jinja,liquid,css,scss,less,stylus setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType html,jinja,liquid runtime! macros/matchit.vim
-autocmd FileType jinja set commentstring={#\ %s\ #}
+" Syntastic {{{
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_id_checkers = 0
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '♫'
+let g:syntastic_style_error_symbol = '♪'
+
 let g:syntastic_html_checkers = ['tidy', 'jshint']
-"}}}
-" CSS {{{
-autocmd BufWinEnter *.sass,*.scss setfiletype scss
-autocmd BufWinEnter *.less setfiletype less
-autocmd FileType css,scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
-"}}}
-" Javascript {{{
-autocmd BufWinEnter *.json,.jshintrc,.tern-config,.tern-project setfiletype javascript
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType javascript call JavaScriptFold()
-let g:tagbar_type_javascript = { 'ctagsbin' : 'jsctags' }
-let javascript_enable_domhtmlcss = 1
-let g:javascript_conceal = 1
-"}}}
-" Python {{{
-let python_highlight_all=1  " Enable all plugin's highlighting.
-let python_slow_sync=1  " For fast machines.
-let python_print_as_function=1  " Color 'print' function.
-autocmd FileType python setlocal linebreak nosmartindent  " nosmartindent for comment indentation problem.
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-set wildignore+=*.pyc,*.pyo
-set wildignore+=*.egg,*.egg-info
-let NERDTreeIgnore += ['.*.pyc$', '*.pyc$']  " Don't display this in NERDTree.
-"}}}
-" Ruby {{{
-autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-"}}}
-" C/C++ {{{
+
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
 let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
 let g:syntastic_c_include_dirs = [ 'includes', 'include', 'inc',  'headers' ]
@@ -324,19 +259,49 @@ let g:syntastic_cpp_check_header = g:syntastic_c_check_header
 let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
-set wildignore+=*.a,*.o,*.so
 "}}}
-" Java {{{
-autocmd FileType ant setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete completefunc=javacomplete#CompleteParamsInfo
-let g:syntastic_java_javac_delete_output=0  " Don't delete .class files after syntax check.
-set wildignore+=*.class
-let NERDTreeIgnore += ['.*.class$']  " Don't display this in NERDTree.
+" Tagbar {{{
+let g:tagbar_sort = 0
+let g:tagbar_autofocus = 1
+let g:tagbar_compact = 1
+
+let g:tagbar_type_javascript = { 'ctagsbin' : 'jsctags' }
+
+nnoremap <silent> <Leader>a :TagbarToggle<CR>
 "}}}
-" Markdown {{{
-autocmd BufWinEnter *.md,*.markdown setfiletype markdown
+" Tern {{{
+let g:tern#command = ['tern', '--no-port-file']
+let g:tern_show_signature_in_pum = 1
+" let g:tern_show_argument_hints = 'on_move'
 "}}}
-" LaTeX {{{
-autocmd FileType tex setlocal number norelativenumber
+" YouCompleteMe - YCM {{{
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_min_num_of_chars_for_completion = 4
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_add_preview_to_completeopt = 1
+"}}}
+" Autocmds {{{
+" BufWinEnter {{{
+augroup Buf-Win-Enter
+    autocmd!
+    autocmd BufWinEnter *.less setfiletype less
+    autocmd BufWinEnter *.json,.jshintrc,.tern-config,.tern-project setfiletype javascript
+    autocmd BufWinEnter *.md,*.markdown setfiletype markdown
+augroup END
+"}}}
+" FileType {{{
+augroup File-Type
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType html,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
+    autocmd FileType jinja setlocal commentstring={#\ %s\ #}
+    autocmd FileType css,scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd Filetype java setlocal omnifunc=javacomplete#Complete completefunc=javacomplete#CompleteParamsInfo makeprg=mvn\ compile\ -q
+    autocmd FileType tex setlocal number norelativenumber
+augroup END
 "}}}
 "}}}
