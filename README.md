@@ -12,6 +12,6 @@ Have fun and fork at will! :)
 
 1. Clone repo.
 2. [Initialize Vundle](https://github.com/gmarik/vundle/blob/master/README.md).
-3. My `vimrc` is written to be easy to grasp.
+3. If you don't understand some option, just `:help <option-name>`, Vim's documentation is wonderful!
 
 **Enjoy!** :)
