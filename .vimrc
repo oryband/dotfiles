@@ -18,8 +18,11 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 "}}}
 " Plugins {{{
+" Sane defaults
+Bundle "tpope/vim-sensible"
+
 " Colors
-Bundle "blueyed/vim-colors-solarized"
+Bundle "oryband/vim-colors-solarized"
 
 " HTML/CSS/JS
 Bundle "matchit.zip"
@@ -60,7 +63,6 @@ Bundle "xolox/vim-easytags"
 Bundle "tpope/vim-fugitive"
 Bundle "airblade/vim-gitgutter"
 Bundle "xolox/vim-misc"
-Bundle "tpope/vim-sensible"
 Bundle "justinmk/vim-sneak"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-repeat"
@@ -130,6 +132,24 @@ set foldenable
 set foldmethod=syntax
 set foldlevel=0
 set foldopen=block,hor,tag,percent,mark,quickfix
+
+function! FoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=FoldText()
 "}}}
 " Backup {{{
 set nobackup
