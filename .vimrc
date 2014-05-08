@@ -32,11 +32,12 @@ Bundle "tpope/vim-liquid"
 Bundle "wavded/vim-stylus"
 " Bundle "ap/vim-css-color"
 Bundle "pangloss/vim-javascript"
+Bundle "jelera/vim-javascript-syntax"
 Bundle "marijnh/tern_for_vim"
 
 " Python
 Bundle "hynek/vim-python-pep8-indent"
-Bundle "python.vim--Vasiliev"
+Bundle "hdima/python-syntax"
 Bundle "tmhedberg/SimpylFold"
 Bundle "jmcantrell/vim-virtualenv"
 
@@ -113,7 +114,8 @@ set colorcolumn=+1
 set relativenumber
 set matchtime=3
 set nolist
-set smartindent
+set nosmartindent
+set cindent
 augroup Format-Options
     autocmd!
     autocmd BufEnter * setlocal formatoptions=crqn2l1j
@@ -202,7 +204,7 @@ let g:easytags_events = ['BufWritePost']
 " ListToggle {{{
 let g:lt_height = 10
 "}}}
-" {{{ NERDTree
+" NERDTree {{{
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 1
@@ -223,9 +225,19 @@ augroup END
 noremap <silent> <Leader>n :NERDTreeToggle<CR>
 "}}}
 " Python {{{
-let python_highlight_all=1
-let python_slow_sync=1
-let python_print_as_function=1
+let python_slow_sync = 1
+let python_highlight_builtins = 1
+let python_highlight_builtin_objs = 1
+let python_highlight_builtin_funcs = 1
+let python_highlight_exceptions = 1
+let python_highlight_string_formatting = 1
+let python_highlight_string_format = 1
+let python_highlight_string_templates = 1
+let python_highlight_indent_errors = 0
+let python_highlight_space_errors = 0
+let python_highlight_doctests = 1
+let python_print_as_function = 1
+let python_highlight_file_headers_as_comments = 1
 "}}}
 " Repeat {{{
 silent! call repeat#set("\<Plug>.", v:count)
@@ -269,6 +281,7 @@ let g:syntastic_html_checkers = ['tidy', 'jshint']
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
 let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
+
 let g:syntastic_c_include_dirs = [ 'includes', 'include', 'inc',  'headers' ]
 
 let g:syntastic_c_check_header = 1
@@ -293,6 +306,9 @@ nnoremap <silent> <Leader>a :TagbarToggle<CR>
 let g:tern#command = ['tern', '--no-port-file']
 let g:tern_show_signature_in_pum = 1
 " let g:tern_show_argument_hints = 'on_move'
+"}}}
+" Virtualenv {{{
+" let g:virtualenv_auto_activate = 1
 "}}}
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0
@@ -319,6 +335,7 @@ augroup File-Type
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
     autocmd FileType css,scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
+    " autocmd FileType javascript call JavaScriptFold()
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd Filetype java setlocal omnifunc=javacomplete#Complete completefunc=javacomplete#CompleteParamsInfo makeprg=mvn\ compile\ -q
     autocmd FileType tex setlocal number norelativenumber
