@@ -307,9 +307,6 @@ let g:tern#command = ['tern', '--no-port-file']
 let g:tern_show_signature_in_pum = 1
 " let g:tern_show_argument_hints = 'on_move'
 "}}}
-" Virtualenv {{{
-" let g:virtualenv_auto_activate = 1
-"}}}
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
