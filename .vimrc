@@ -204,7 +204,7 @@ let g:easytags_events = ['BufWritePost']
 " ListToggle {{{
 let g:lt_height = 10
 "}}}
-" NERDTree {{{
+" NERDTree {{
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 1
@@ -213,8 +213,10 @@ let NERDTreeMinimalUI = 1
 let NERDTreeWinPos = 'right'
 let NERDTreeIgnore = [
             \ '.DS_Store', '.*.swp$', '\~$',
+            \ '.*.jpg$', '.*.jpeg$', '.*.png$', '.*.gif$', '.*.pdf$',
             \ '.*.class$',
-            \ '.*.pyc$', '*.pyc$'
+            \ '.*.a$', '.*.o$', '.*.so$',
+            \ '.*.pyc$', '*.pyo$'
             \ ]
 
 augroup NERD-Tree
@@ -226,18 +228,9 @@ noremap <silent> <Leader>n :NERDTreeToggle<CR>
 "}}}
 " Python {{{
 let python_slow_sync = 1
-let python_highlight_builtins = 1
-let python_highlight_builtin_objs = 1
-let python_highlight_builtin_funcs = 1
-let python_highlight_exceptions = 1
-let python_highlight_string_formatting = 1
-let python_highlight_string_format = 1
-let python_highlight_string_templates = 1
 let python_highlight_indent_errors = 0
 let python_highlight_space_errors = 0
-let python_highlight_doctests = 1
-let python_print_as_function = 1
-let python_highlight_file_headers_as_comments = 1
+let python_highlight_all = 1
 "}}}
 " Repeat {{{
 silent! call repeat#set("\<Plug>.", v:count)
@@ -267,27 +260,28 @@ omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 "}}}
 " Syntastic {{{
-let g:syntastic_aggregate_errors = 1
 let g:syntastic_id_checkers = 0
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list=1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_loc_list = 2
+
 let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '♫'
 let g:syntastic_style_error_symbol = '♪'
+highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_html_checkers = ['tidy', 'jshint']
+let g:syntastic_python_checkers = ['flake8', 'pep257']
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
 let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
-
 let g:syntastic_c_include_dirs = [ 'includes', 'include', 'inc',  'headers' ]
-
 let g:syntastic_c_check_header = 1
 let g:syntastic_c_auto_refresh_includes = 1
 let g:syntastic_c_remove_include_errors = 1
-
 let g:syntastic_cpp_check_header = g:syntastic_c_check_header
 let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
@@ -306,6 +300,9 @@ nnoremap <silent> <Leader>a :TagbarToggle<CR>
 let g:tern#command = ['tern', '--no-port-file']
 let g:tern_show_signature_in_pum = 1
 " let g:tern_show_argument_hints = 'on_move'
+"}}}
+" Virtualenv {{{
+" let g:virtualenv_directory = 'venv'
 "}}}
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0
