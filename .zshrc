@@ -47,4 +47,8 @@ PATH="/usr/local/share/npm/bin:$PATH"
 # Latex / BasicTex
 PATH="/usr/texbin:$PATH"
 
+# Eclipse
+export ECLIPSE_HOME="/opt/homebrew-cask/Caskroom/eclipse-ide/4.3.2/eclipse"
+PATH="$ECLIPSE_HOME:$PATH"
+
 export PATH
