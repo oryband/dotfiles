@@ -80,7 +80,7 @@ set shortmess=atI
 set noshowmode
 "}}}
 " Ignored {{{
-set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,*.DS_Store
+set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,\.DS_Store
 set wildignore+=*.pyc,*.pyo,*.egg,*.egg-info
 set wildignore+=*.a,*.o,*.so
 set wildignore+=*.class
@@ -211,9 +211,17 @@ sunmap b
 sunmap e
 "}}}
 " CtrlP {{{
+let g:ctrlp_working_path_mode = 'raw'
+let g:ctrlp_lazy_update = 0
 let g:ctrlp_map = '<Leader>p'
 noremap <silent> <Leader>b :CtrlPBuffer<CR>
 noremap <silent> <Leader>t :CtrlPTag<CR>
+let g:ctrlp_prompt_mappings = {
+            \ 'PrtSelectMove("j")': ['<c-n>'],
+            \ 'PrtSelectMove("k")': ['<c-p>'],
+            \ 'PrtHistory(-1)':  ['<c-j>'],
+            \ 'PrtHistory(1)': ['<c-k>'],
+            \ }
 "}}}
 " EasyTags {{{
 set tags=./.tags;~/
@@ -234,11 +242,11 @@ let NERDTreeShowFiles = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeWinPos = 'right'
 let NERDTreeIgnore = [
-            \ '.DS_Store', '.*.swp$', '\~$',
-            \ '.*.jpg$', '.*.jpeg$', '.*.png$', '.*.gif$', '.*.pdf$',
-            \ '.*.class$',
-            \ '.*.a$', '.*.o$', '.*.so$',
-            \ '.*.pyc$', '*.pyo$'
+            \ '.DS_Store', '\.swp$', '\~$',
+            \ '\.jpg$', '\.jpeg$', '\.png$', '\.gif$', '\.pdf$',
+            \ '\.class$',
+            \ '\.a$', '\.o$', '\.so$',
+            \ '\.pyc$', '\.pyo$'
             \ ]
 
 augroup NERD-Tree
