@@ -223,9 +223,6 @@ let g:easytags_dynamic_files = 1
 let g:easytags_updatetime_warn = 0
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 "}}}
-" Eclim {{{
-let g:EclimCompletionMethod = 'omnifunc'
-"}}}
 " ListToggle {{{
 let g:lt_height = 10
 "}}}
@@ -312,6 +309,12 @@ let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
 "}}}
+" Eclim {{{
+set runtimepath+=$HOME/.vim/bundle/eclim/
+let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimWarningHighlight = 'Todo'
+let g:EclimLoclistSignText = g:syntastic_error_symbol
+"}}}
 " Tagbar {{{
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
@@ -355,7 +358,6 @@ augroup File-Type
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd Filetype java setlocal makeprg=mvn\ compile\ -q
     autocmd FileType tex setlocal number norelativenumber
 augroup END
 "}}}
