@@ -40,10 +40,6 @@ Bundle "hdima/python-syntax"
 Bundle "tmhedberg/SimpylFold"
 Bundle "jmcantrell/vim-virtualenv"
 
-" Java
-Bundle "javacomplete"
-Bundle "tpope/vim-classpath"
-
 " Markdown
 Bundle "tpope/vim-markdown"
 
@@ -101,6 +97,29 @@ nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
 nnoremap <c-]> g<c-]>
 vnoremap <c-]> g<c-]>
+" inoremap 1 !
+" inoremap 2 @
+" inoremap 3 #
+" inoremap 4 $
+" inoremap 5 %
+" inoremap 6 ^
+" inoremap 7 &
+" inoremap 8 *
+" inoremap 9 (
+" inoremap 0 )
+" inoremap - _
+
+" inoremap ! 1
+" inoremap @ 2
+" inoremap # 3
+" inoremap $ 4
+" inoremap % 5
+" inoremap ^ 6
+" inoremap & 7
+" inoremap * 8
+" inoremap ( 9
+" inoremap ) 0
+" inoremap _ -
 "}}}
 " Searching {{{
 set smartcase
@@ -203,6 +222,9 @@ let g:easytags_cmd = 'ctags'
 let g:easytags_dynamic_files = 1
 let g:easytags_updatetime_warn = 0
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
+"}}}
+" Eclim {{{
+let g:EclimCompletionMethod = 'omnifunc'
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
@@ -310,7 +332,7 @@ let g:tern_show_signature_in_pum = 1
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_min_num_of_chars_for_completion = 4
+" let g:ycm_min_num_of_chars_for_completion = 4
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
@@ -332,9 +354,8 @@ augroup File-Type
     autocmd FileType html,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
-    autocmd FileType css,scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd Filetype java setlocal omnifunc=javacomplete#Complete completefunc=javacomplete#CompleteParamsInfo makeprg=mvn\ compile\ -q
+    autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd Filetype java setlocal makeprg=mvn\ compile\ -q
     autocmd FileType tex setlocal number norelativenumber
 augroup END
 "}}}
