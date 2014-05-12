@@ -30,9 +30,9 @@ Bundle "othree/html5.vim"
 Bundle "lepture/vim-jinja"
 Bundle "tpope/vim-liquid"
 Bundle "wavded/vim-stylus"
-" Bundle "ap/vim-css-color"
 Bundle "pangloss/vim-javascript"
 Bundle "marijnh/tern_for_vim"
+Bundle "elzr/vim-json"
 
 " Python
 Bundle "hynek/vim-python-pep8-indent"
@@ -67,7 +67,9 @@ Bundle "justinmk/vim-sneak"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-unimpaired"
+Bundle "papanikge/vim-voogle"
 Bundle "Valloric/YouCompleteMe"
+Bundle "regedarek/ZoomWin"
 "}}}
 " Options {{{
 " Colors {{{
@@ -318,7 +320,8 @@ let g:ycm_add_preview_to_completeopt = 1
 augroup Buf-Win-Enter
     autocmd!
     autocmd BufWinEnter *.less setfiletype less
-    autocmd BufWinEnter *.json,.jshintrc,.tern-config,.tern-project setfiletype javascript
+    autocmd BufWinEnter .jshintrc setfiletype javascript
+    autocmd BufWinEnter .tern-config,.tern-project setfiletype json
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
 augroup END
 "}}}
