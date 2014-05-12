@@ -6,11 +6,9 @@
 [credential]
     helper = cache --timeout=3600
 [apply]
-    # Detect whitespace errors when applying a patch
     whitespace = fix
 [core]
     editor = vim
-    # Watch bad spacing.
     whitespace = tab-in-indent,space-before-tab,trailing-space,blank-at-eol,cr-at-eol,blank-at-eof
 [color]
     ui = true
@@ -28,14 +26,12 @@
     changed = green
     untracked = cyan
 [merge]
-    # Include summaries of merged commits in newly created merge commit messages
     log = true
 [alias]
-    # View the SHA, description, and history graph of the latest 20 commits
     l = log --oneline --graph
-    # View the current working tree status using the short format
+    l2 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    l3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     s = status -s
-    # Show the diff between the latest commit and the current state
     d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
     # `git di $number` shows the diff between the state `$number` revisions ago and the current state
     ;di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
