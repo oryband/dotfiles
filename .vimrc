@@ -97,6 +97,8 @@ nnoremap <silent> <C-j> <C-W>j
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
+nnoremap <c-]> g<c-]>
+vnoremap <c-]> g<c-]>
 "}}}
 " Searching {{{
 set smartcase
