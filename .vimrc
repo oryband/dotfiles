@@ -32,7 +32,6 @@ Bundle "tpope/vim-liquid"
 Bundle "wavded/vim-stylus"
 " Bundle "ap/vim-css-color"
 Bundle "pangloss/vim-javascript"
-Bundle "jelera/vim-javascript-syntax"
 Bundle "marijnh/tern_for_vim"
 
 " Python
@@ -199,12 +198,12 @@ let g:easytags_file = '~/.tags'
 let g:easytags_cmd = 'ctags'
 let g:easytags_dynamic_files = 1
 let g:easytags_updatetime_warn = 0
-let g:easytags_events = ['BufWritePost']
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
 "}}}
-" NERDTree {{
+" NERDTree {{{
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 1
@@ -329,7 +328,6 @@ augroup File-Type
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
     autocmd FileType css,scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
-    " autocmd FileType javascript call JavaScriptFold()
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd Filetype java setlocal omnifunc=javacomplete#Complete completefunc=javacomplete#CompleteParamsInfo makeprg=mvn\ compile\ -q
     autocmd FileType tex setlocal number norelativenumber
