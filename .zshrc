@@ -21,12 +21,13 @@ alias la="ls -A"
 alias brews="brew list"
 alias casks="brew cask list"
 alias js="node"
-
-# Stop zsh from catching ^ chars.
-setopt NO_NOMATCH
+alias ag="ag --smart-case --follow --group"
 
 export EDITOR='vim'
 export VISUAL=$EDITOR
+
+# Stop zsh from catching ^ chars.
+setopt NO_NOMATCH
 
 # Hide annoying '%' sign.
 setopt PROMPT_CR
