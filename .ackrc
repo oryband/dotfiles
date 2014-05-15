@@ -1,9 +1,0 @@
---type-add=css=.sass,.less,.scss,.styl,.stylus
---type-add=js=.js
---type-set=c=.c,.cpp,.h
-
---smart-case
---sort-files
---color
---follow
---group
