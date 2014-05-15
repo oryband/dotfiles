@@ -10,6 +10,7 @@
 [core]
     editor = vim
     whitespace = tab-in-indent,space-before-tab,trailing-space,blank-at-eol,cr-at-eol,blank-at-eof
+	excludesfile = /Users/ory/.gitignore_global
 [color]
     ui = true
 [color "branch"]
