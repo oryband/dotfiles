@@ -8,64 +8,70 @@
 " github.com/mathiasbynens/dotfiles/blob/master/.vimrc
 " viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 "}}}
-" Initialization / Vundle Plugin Manager {{{
+" Plugins {{{
+" Init Vundle {{{
 set nocompatible
 filetype off
-
-set runtimepath+=$HOME/.vim/bundle/vundle/
-
-call vundle#rc()
-Bundle "gmarik/vundle"
+set runtimepath+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 "}}}
-" Plugins {{{
-" Sane defaults
-Bundle "tpope/vim-sensible"
-
-" Colors
-Bundle "oryband/vim-colors-solarized"
-
-" HTML/CSS/JS
-Bundle "matchit.zip"
-Bundle "othree/html5.vim"
-Bundle "lepture/vim-jinja"
-Bundle "tpope/vim-liquid"
-Bundle "wavded/vim-stylus"
-Bundle "pangloss/vim-javascript"
-Bundle "marijnh/tern_for_vim"
-Bundle "elzr/vim-json"
-
-" Python
-Bundle "hynek/vim-python-pep8-indent"
-Bundle "hdima/python-syntax"
-Bundle "tmhedberg/SimpylFold"
-Bundle "jmcantrell/vim-virtualenv"
-
-" Markdown
-Bundle "tpope/vim-markdown"
-
-" Everything else
-Bundle "mileszs/ack.vim"
-Bundle "camelcasemotion"
-Bundle "kien/ctrlp.vim"
-Bundle "IndexedSearch"
-Bundle "Valloric/ListToggle"
-Bundle "scrooloose/nerdtree"
-Bundle "godlygeek/tabular"
-Bundle "majutsushi/tagbar"
-Bundle "scrooloose/syntastic"
-Bundle "bling/vim-airline"
-Bundle "tpope/vim-commentary"
-Bundle "xolox/vim-easytags"
-Bundle "tpope/vim-fugitive"
-Bundle "airblade/vim-gitgutter"
-Bundle "xolox/vim-misc"
-Bundle "justinmk/vim-sneak"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-repeat"
-Bundle "tpope/vim-unimpaired"
-Bundle "papanikge/vim-voogle"
-Bundle "Valloric/YouCompleteMe"
-Bundle "regedarek/ZoomWin"
+" Sane defaults {{{
+Plugin 'tpope/vim-sensible'
+"}}}
+" Colors {{{
+Plugin 'oryband/vim-colors-solarized'
+"}}}
+" HTML/CSS/JS {{{
+Plugin 'matchit.zip'
+Plugin 'othree/html5.vim'
+Plugin 'lepture/vim-jinja'
+Plugin 'tpope/vim-liquid'
+Plugin 'wavded/vim-stylus'
+Plugin 'pangloss/vim-javascript'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'elzr/vim-json'
+"}}}
+" Python {{{
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'hdima/python-syntax'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'jmcantrell/vim-virtualenv'
+"}}}
+" Java {{{
+Plugin 'eclim', { 'pinned': 1 }
+"}}}
+" Markdown {{{
+Plugin 'tpope/vim-markdown'
+"}}}
+" Everything else {{{
+Plugin 'rking/ag.vim'
+Plugin 'camelcasemotion'
+Plugin 'kien/ctrlp.vim'
+Plugin 'IndexedSearch'
+Plugin 'Valloric/ListToggle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'godlygeek/tabular'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-commentary'
+Plugin 'xolox/vim-easytags'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'xolox/vim-misc'
+Plugin 'justinmk/vim-sneak'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'papanikge/vim-voogle'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'regedarek/ZoomWin'
+"}}}
+" Finish Init Vundle {{{
+call vundle#end()
+filetype plugin indent on
+"}}}
 "}}}
 " Options {{{
 " Colors {{{
@@ -171,7 +177,7 @@ function! FoldText() " {{{
     let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
     let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
 
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+    return line . '…' . repeat(" ", fillcharcount) . foldedlinecount . '…' . ' '
 endfunction " }}}
 set foldtext=FoldText()
 "}}}
@@ -198,6 +204,12 @@ set ttyfast
 "}}}
 "}}}
 " Plugin configurations {{{
+" Ag {{{
+let g:agprg = "ag --column --smart-case --follow"
+let g:aghighlight = 1
+let g:ag_mapping_message = 0
+cabbrev Ag Ag!
+"}}}
 " Airline {{{
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -231,6 +243,12 @@ let g:easytags_dynamic_files = 1
 let g:easytags_updatetime_warn = 0
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 "}}}
+" Eclim {{{
+set runtimepath+=$HOME/.vim/bundle/eclim/
+let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimWarningHighlight = 'Todo'
+let g:EclimLoclistSignText  = '✗'
+"}}}
 " ListToggle {{{
 let g:lt_height = 10
 "}}}
@@ -249,10 +267,10 @@ let NERDTreeIgnore = [
             \ '\.pyc$', '\.pyo$'
             \ ]
 
-augroup NERD-Tree
-    autocmd!
-    autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-augroup END
+" augroup NERD-Tree
+"     autocmd!
+"     autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" augroup END
 
 noremap <silent> <Leader>n :NERDTreeToggle<CR>
 "}}}
@@ -292,12 +310,12 @@ omap T <Plug>Sneak_T
 " Syntastic {{{
 let g:syntastic_id_checkers = 0
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list=1
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_loc_list = 2
 
 let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = '✗'
+let g:syntastic_error_symbol = g:EclimLoclistSignText
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '♫'
 let g:syntastic_style_error_symbol = '♪'
@@ -317,12 +335,6 @@ let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
 "}}}
-" Eclim {{{
-set runtimepath+=$HOME/.vim/bundle/eclim/
-let g:EclimCompletionMethod = 'omnifunc'
-let g:EclimWarningHighlight = 'Todo'
-let g:EclimLoclistSignText = g:syntastic_error_symbol
-"}}}
 " Tagbar {{{
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
@@ -339,6 +351,16 @@ let g:tern_show_signature_in_pum = 1
 "}}}
 " Virtualenv {{{
 " let g:virtualenv_directory = 'venv'
+"}}}
+" Vundle {{{
+cabbrev BundleInstall PluginInstall
+cabbrev BundleInstall! PluginInstall!
+cabbrev BundleClean PluginClean
+cabbrev BundleClean! PluginClean!
+cabbrev BundleList PluginList
+cabbrev BundleList! PluginList!
+cabbrev BundleSearch PluginSearch
+cabbrev BundleSearch! PluginSearch!
 "}}}
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0
@@ -362,6 +384,7 @@ augroup END
 augroup File-Type
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType qf setlocal wrap
     autocmd FileType html,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
