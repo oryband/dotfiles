@@ -144,8 +144,8 @@ if exists('&wildignorecase') | set wildignorecase | endif
 " Format {{{
 set nowrap
 set linebreak
-set textwidth=79
-set colorcolumn=+1
+set textwidth=80
+call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), 100)
 set relativenumber
 set matchtime=3
 set nolist
