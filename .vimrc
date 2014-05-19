@@ -145,7 +145,7 @@ if exists('&wildignorecase') | set wildignorecase | endif
 set nowrap
 set linebreak
 set textwidth=80
-call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), 100)
+call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1)
 set relativenumber
 set matchtime=3
 set nolist
@@ -395,6 +395,7 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter .jshintrc setfiletype javascript
     autocmd BufWinEnter .tern-config,.tern-project setfiletype json
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
+    " autocmd BufWinEnter * if &textwidth > 8 | if exists("w:highlight_text_width") | call matchdelete(w:highlight_text_width) | endif | let w:highlight_text_width=matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
 augroup END
 "}}}
 " FileType {{{
@@ -402,6 +403,7 @@ augroup File-Type
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType qf setlocal wrap
+    autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType html,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
