@@ -22,13 +22,20 @@ Plugin 'tpope/vim-sensible'
 " Colors {{{
 Plugin 'vim-colors-solarized', { 'pinned': 1 }
 "}}}
-" HTML/CSS/JS {{{
+" HTML {{{
 Plugin 'matchit.zip'
 Plugin 'othree/html5.vim'
+"}}}
+" Templates {{{
 Plugin 'lepture/vim-jinja'
 Plugin 'tpope/vim-liquid'
+"}}}
+" CSS {{{
 Plugin 'wavded/vim-stylus'
+"}}}
+" Javascript {{{
 Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'elzr/vim-json'
 "}}}
