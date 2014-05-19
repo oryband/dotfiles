@@ -20,7 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 "}}}
 " Colors {{{
-Plugin 'oryband/vim-colors-solarized'
+Plugin 'vim-colors-solarized', { 'pinned': 1 }
 "}}}
 " HTML/CSS/JS {{{
 Plugin 'matchit.zip'
@@ -236,12 +236,22 @@ let g:ctrlp_prompt_mappings = {
             \ }
 "}}}
 " EasyTags {{{
-set tags=./.tags;~/
+set tags=./tags,tags
 let g:easytags_file = '~/.tags'
 let g:easytags_cmd = 'ctags'
 let g:easytags_dynamic_files = 1
 let g:easytags_updatetime_warn = 0
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
+
+let g:easytags_languages = {
+            \   'javascript': {
+            \       'cmd': 'jsctags',
+            \       'args': [],
+            \       'fileoutput_opt': '-f',
+            \       'stdout_opt': '-f-',
+            \       'recurse_flag': '-R'
+            \   }
+            \}
 "}}}
 " Eclim {{{
 set runtimepath+=$HOME/.vim/bundle/eclim/
