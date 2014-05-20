@@ -56,6 +56,7 @@ Plugin 'rking/ag.vim'
 Plugin 'camelcasemotion'
 Plugin 'kien/ctrlp.vim'
 Plugin 'IndexedSearch'
+Plugin 'jaxbot/github-issues.vim'
 Plugin 'Valloric/ListToggle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
@@ -104,6 +105,8 @@ cabbrev vhelp vert help
 inoremap jk <Esc>
 nnoremap j gj
 nnoremap k gk
+nnoremap : ;
+nnoremap ; :
 nnoremap <silent> <C-j> <C-W>j
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-h> <C-W>h
@@ -151,6 +154,7 @@ set matchtime=3
 set nolist
 set nosmartindent
 set cindent
+
 augroup Format-Options
     autocmd!
     autocmd BufEnter * setlocal formatoptions=crqn2l1j
@@ -303,12 +307,14 @@ silent! call repeat#set("\<Plug>.", v:count)
 " Sneak {{{
 highlight link SneakPluginTarget Visual
 
-nmap <leader>s <Plug>Sneak_s
-nmap <leader>S <Plug>Sneak_S
-xmap <leader>s <Plug>Sneak_s
-xmap <leader>S <Plug>Sneak_S
-omap <leader>s <Plug>Sneak_s
-omap <leader>S <Plug>Sneak_S
+nmap : <Plug>SneakNext
+
+" nmap <leader>s <Plug>Sneak_s
+" nmap <leader>S <Plug>Sneak_S
+" xmap <leader>s <Plug>Sneak_s
+" xmap <leader>S <Plug>Sneak_S
+" omap <leader>s <Plug>Sneak_s
+" omap <leader>S <Plug>Sneak_S
 
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
