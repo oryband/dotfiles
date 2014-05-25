@@ -102,17 +102,25 @@ set wildignore+=*.class
 " Keys {{{
 let mapleader=","
 cabbrev vhelp vert help
+
 inoremap jk <Esc>
+
 nnoremap j gj
 nnoremap k gk
+
 nnoremap : ;
+vnoremap : ;
 nnoremap ; :
+vnoremap ; :
+
 nnoremap <silent> <C-j> <C-W>j
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-l> <C-W>l
+
 nnoremap <c-]> g<c-]>
 vnoremap <c-]> g<c-]>
+
 " inoremap 1 !
 " inoremap 2 @
 " inoremap 3 #
@@ -179,16 +187,15 @@ function! FoldText() " {{{
 
     let nucolwidth = &fdc + &number * &numberwidth
     let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
 
     " expand tabs into spaces
     let onetab = strpart('          ', 0, &tabstop)
     let line = substitute(line, '\t', onetab, 'g')
 
-    let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    let line = strpart(line, 0, windowwidth - 2)
+    let fillcharcount = windowwidth - len(line)
 
-    return line . '…' . repeat(" ", fillcharcount) . foldedlinecount . '…' . ' '
+    return line . repeat(" ", fillcharcount)
 endfunction " }}}
 set foldtext=FoldText()
 "}}}
@@ -307,14 +314,14 @@ silent! call repeat#set("\<Plug>.", v:count)
 " Sneak {{{
 highlight link SneakPluginTarget Visual
 
-nmap : <Plug>SneakNext
+map : <Plug>SneakNext
 
-" nmap <leader>s <Plug>Sneak_s
-" nmap <leader>S <Plug>Sneak_S
-" xmap <leader>s <Plug>Sneak_s
-" xmap <leader>S <Plug>Sneak_S
-" omap <leader>s <Plug>Sneak_s
-" omap <leader>S <Plug>Sneak_S
+nmap <leader>s <Plug>Sneak_s
+nmap <leader>S <Plug>Sneak_S
+xmap <leader>s <Plug>Sneak_s
+xmap <leader>S <Plug>Sneak_S
+omap <leader>s <Plug>Sneak_s
+omap <leader>S <Plug>Sneak_S
 
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
