@@ -22,6 +22,7 @@ Plugin 'tpope/vim-sensible'
 " Colors {{{
 Plugin 'vim-colors-solarized', { 'pinned': 1 }
 "}}}
+" Languages {{{
 " HTML {{{
 Plugin 'matchit.zip'
 Plugin 'othree/html5.vim'
@@ -51,6 +52,7 @@ Plugin 'eclim', { 'pinned': 1 }
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
 "}}}
+"}}}
 " Everything else {{{
 Plugin 'rking/ag.vim'
 Plugin 'camelcasemotion'
@@ -59,15 +61,16 @@ Plugin 'IndexedSearch'
 Plugin 'jaxbot/github-issues.vim'
 Plugin 'Valloric/ListToggle'
 Plugin 'scrooloose/nerdtree'
-Plugin 'godlygeek/tabular'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-commentary'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'xolox/vim-easytags'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'xolox/vim-misc'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -155,7 +158,7 @@ if exists('&wildignorecase') | set wildignorecase | endif
 " Format {{{
 set nowrap
 set linebreak
-set textwidth=80
+set textwidth=79
 call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1)
 set relativenumber
 set matchtime=3
@@ -219,6 +222,7 @@ set hidden
 set title
 set lazyredraw
 set ttyfast
+let g:is_bash=1
 "}}}
 "}}}
 " Plugin configurations {{{
@@ -252,6 +256,10 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtHistory(-1)':  ['<c-j>'],
             \ 'PrtHistory(1)': ['<c-k>'],
             \ }
+"}}}
+" EasyAlign {{{
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
 "}}}
 " EasyTags {{{
 set tags=./tags,tags
@@ -338,6 +346,9 @@ omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 "}}}
 " Syntastic {{{
+" noremap <silent> <Leader>c :echo "Checking..."<CR> :SyntasticCheck<CR>
+" let g:syntastic_mode_map = { "mode": "passive" }
+
 let g:syntastic_id_checkers = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
@@ -366,13 +377,13 @@ let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
 "}}}
 " Tagbar {{{
+nnoremap <silent> <Leader>g :TagbarToggle<CR>
+
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 
 let g:tagbar_type_javascript = { 'ctagsbin' : 'jsctags' }
-
-nnoremap <silent> <Leader>a :TagbarToggle<CR>
 "}}}
 " Tern {{{
 let g:tern#command = ['tern', '--no-port-file']
