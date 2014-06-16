@@ -1,1 +1,0 @@
-# Marked.app CSS files.
