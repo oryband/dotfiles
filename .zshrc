@@ -9,8 +9,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
 osx brew brew-cask colored-man
 npm
-python pip django
-ant
+python pip
+mvn
 history-substring-search
 web-search
 )
@@ -22,6 +22,7 @@ alias brews="brew list"
 alias casks="brew cask list"
 alias js="node"
 alias ag="ag --smart-case --follow --group"
+alias ack="ag"
 
 export EDITOR='vim'
 export VISUAL=$EDITOR
@@ -42,13 +43,11 @@ PATH="/usr/local/opt/ruby/bin:$PATH"
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# Node
-PATH="/usr/local/share/npm/bin:$PATH"
-
 # Latex / BasicTex
 PATH="/usr/texbin:$PATH"
 
-# Eclipse
+# Java
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
 export ECLIPSE_HOME="/opt/homebrew-cask/Caskroom/eclipse-ide/4.3.2/eclipse"
 PATH="$ECLIPSE_HOME:$PATH"
 
