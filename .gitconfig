@@ -34,6 +34,7 @@
     l3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     s = status -s
     d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+    ds = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat --staged"
     # `git di $number` shows the diff between the state `$number` revisions ago and the current state
     ;di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
     # Pull in remote changes for the current repository and all its submodules
