@@ -86,6 +86,7 @@ filetype plugin indent on
 "}}}
 " Options {{{
 " Colors {{{
+set term=$TERM
 set background=dark
 colorscheme solarized
 "}}}
