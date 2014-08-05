@@ -9,7 +9,7 @@
     whitespace = fix
 [core]
     editor = vim
-    whitespace = tab-in-indent,space-before-tab,trailing-space,blank-at-eol,cr-at-eol,blank-at-eof
+    whitespace = space-before-tab,trailing-space,blank-at-eol,cr-at-eol,blank-at-eof
 	excludesfile = /Users/ory/.gitignore
 [color]
     ui = true
