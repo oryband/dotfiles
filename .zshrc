@@ -1,5 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 
+TERM=xterm-256color
+
 ZSH_THEME="simple"
 # DISABLE_AUTO_UPDATE="true"
 # export UPDATE_ZSH_DAYS=13
@@ -47,8 +49,12 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 PATH="/usr/texbin:$PATH"
 
 # Java
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
+[[ -f /usr/libexec/java_home ]] && export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
 export ECLIPSE_HOME="/opt/homebrew-cask/Caskroom/eclipse-ide/4.3.2/eclipse"
 PATH="$ECLIPSE_HOME:$PATH"
+
+# Go
+export GOPATH="$HOME/.go"
+PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
 
 export PATH
