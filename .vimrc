@@ -46,6 +46,9 @@ Plugin 'hdima/python-syntax'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'jmcantrell/vim-virtualenv'
 "}}}
+" Go {{{
+Plugin 'fatih/vim-go'
+"}}}
 " Java {{{
 Plugin 'eclim', { 'pinned': 1 }
 "}}}
@@ -87,6 +90,7 @@ filetype plugin indent on
 " Options {{{
 " Colors {{{
 set term=$TERM
+set t_Co=16
 set background=dark
 colorscheme solarized
 "}}}
@@ -221,7 +225,7 @@ set splitbelow splitright
 set clipboard+=unnamed
 set hidden
 set title
-set lazyredraw
+" set lazyredraw
 set ttyfast
 let g:is_bash=1
 "}}}
@@ -285,6 +289,9 @@ set runtimepath+=$HOME/.vim/bundle/eclim/
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimWarningHighlight = 'Todo'
 let g:EclimLoclistSignText  = '✗'
+"}}}
+" Go {{{
+let g:go_highlight_trailing_whitespace_error = 0
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
@@ -432,6 +439,7 @@ augroup File-Type
     autocmd FileType html,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
+    autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType tex setlocal number norelativenumber
 augroup END
