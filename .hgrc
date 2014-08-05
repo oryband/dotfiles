@@ -3,9 +3,6 @@ username = Ory Band <oryband@gmail.com>
 verbose = True
 merge = vimdiff
 
-[web]
-cacerts = /etc/hg-dummy-cert.pem
-
 [merge-tools]
 vimdiff.executable = vim
 vimdiff.args = -d $base $local $output $other +close +close
@@ -38,4 +35,3 @@ attend = diff,status,log,qdiff,blame,annotate,pdiff,glog
 
 [extdiff]
 cmd.vimdiff =
-
