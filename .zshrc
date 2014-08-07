@@ -15,6 +15,9 @@ python pip
 mvn
 history-substring-search
 web-search
+github
+tmux
+docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -56,5 +59,8 @@ PATH="$ECLIPSE_HOME:$PATH"
 # Go
 export GOPATH="$HOME/.go"
 PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
+
+# tmux
+export ZSH_TMUX_AUTOSTART=true
 
 export PATH
