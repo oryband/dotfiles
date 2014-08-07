@@ -292,6 +292,7 @@ let g:EclimLoclistSignText  = '✗'
 "}}}
 " Go {{{
 let g:go_highlight_trailing_whitespace_error = 0
+let g:go_fmt_fail_silently = 1
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
