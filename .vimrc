@@ -60,6 +60,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'camelcasemotion'
 Plugin 'kien/ctrlp.vim'
+Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'IndexedSearch'
 Plugin 'jaxbot/github-issues.vim'
 Plugin 'Valloric/ListToggle'
@@ -261,6 +262,7 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtHistory(-1)':  ['<c-j>'],
             \ 'PrtHistory(1)': ['<c-k>'],
             \ }
+call ctrlp_bdelete#init()
 "}}}
 " EasyAlign {{{
 vmap <Leader>a <Plug>(EasyAlign)
@@ -289,6 +291,9 @@ set runtimepath+=$HOME/.vim/bundle/eclim/
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimWarningHighlight = 'Todo'
 let g:EclimLoclistSignText  = '✗'
+"}}}
+" Github-Issues {
+source $HOME/.vim/github_access_token.vim
 "}}}
 " Go {{{
 let g:go_highlight_trailing_whitespace_error = 0
