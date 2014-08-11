@@ -9,13 +9,13 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
-osx brew brew-cask colored-man
+osx brew brew-cask
 npm
-python pip
+python pip django
 mvn
 history-substring-search
+colored-man colorize
 web-search
-github
 tmux
 docker
 )
