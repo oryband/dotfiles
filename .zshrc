@@ -27,6 +27,7 @@ alias brews="brew list"
 alias casks="brew cask list"
 alias js="node"
 alias ag="ag --smart-case --follow --group"
+alias agl="ag --pager less"
 alias ack="ag"
 
 export EDITOR='vim'
