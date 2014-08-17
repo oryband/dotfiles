@@ -55,6 +55,9 @@ Plugin 'eclim', { 'pinned': 1 }
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
 "}}}
+" YAML {{{
+Plugin 'chase/vim-ansible-yaml'
+"}}}
 "}}}
 " Everything else {{{
 Plugin 'rking/ag.vim'
@@ -62,7 +65,6 @@ Plugin 'camelcasemotion'
 Plugin 'kien/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'IndexedSearch'
-Plugin 'jaxbot/github-issues.vim'
 Plugin 'Valloric/ListToggle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
@@ -90,8 +92,8 @@ filetype plugin indent on
 "}}}
 " Options {{{
 " Colors {{{
-set term=$TERM
-set t_Co=16
+if $TMUX != "" | set term=screen-256color | endif
+set t_Co=256
 set background=dark
 colorscheme solarized
 "}}}
@@ -211,6 +213,7 @@ set foldtext=FoldText()
 " Backup {{{
 set nobackup
 set nowritebackup
+set directory=~/.vim/swap//
 "}}}
 " Mouse {{{
 behave xterm
@@ -223,7 +226,7 @@ set novisualbell
 " Misc. {{{
 set nostartofline
 set splitbelow splitright
-set clipboard+=unnamed
+if $TMUX == '' | set clipboard+=unnamed | endif
 set hidden
 set title
 " set lazyredraw
@@ -269,10 +272,11 @@ vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 "}}}
 " EasyTags {{{
-set tags=./tags,tags
-let g:easytags_file = '~/.tags'
-let g:easytags_cmd = 'ctags'
+set tags=.vimtags;,~/.vim/tags
+let g:easytags_file = '~/.vim/tags'
 let g:easytags_dynamic_files = 1
+" let g:easytags_dynamic_files = 2
+" let g:easytags_by_filetype = 1
 let g:easytags_updatetime_warn = 0
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 
@@ -291,9 +295,6 @@ set runtimepath+=$HOME/.vim/bundle/eclim/
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimWarningHighlight = 'Todo'
 let g:EclimLoclistSignText  = '✗'
-"}}}
-" Github-Issues {
-source $HOME/.vim/github_access_token.vim
 "}}}
 " Go {{{
 let g:go_highlight_trailing_whitespace_error = 0
@@ -449,5 +450,6 @@ augroup File-Type
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType tex setlocal number norelativenumber
 augroup END
+"}}}
 "}}}
 "}}}
