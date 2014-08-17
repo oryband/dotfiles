@@ -17,6 +17,10 @@ URxvt*boldItalicFont:                 xft:Source Code Pro Light:pixelsize=18:Bol
 
 URxvt*intensityStyles:                false
 
+! To disable annoying ISO MODE key bindings, put this in ~/.Xdefaults:
+! URxvt.iso14755:                       false
+! URxvt.iso14755_52:                    false
+
 
 ! Solarized color scheme for the X Window System
 
