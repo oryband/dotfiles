@@ -1,5 +1,10 @@
 ZSH=$HOME/.oh-my-zsh
 
+# Tmux support
+if [ "$TMUX" = "" ]
+then TERM=xterm-256color
+else TERM=screen-256color fi
+
 ZSH_THEME="simple"
 # DISABLE_AUTO_UPDATE="true"
 # export UPDATE_ZSH_DAYS=13
@@ -7,14 +12,11 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
-osx brew brew-cask
-npm
-python pip django
-mvn
-history-substring-search
-colored-man colorize
-web-search
-docker
+    osx brew brew-cask
+    npm mvn
+    python pip django
+    history-substring-search colored-man colorize web-search
+    docker aws
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -27,19 +29,19 @@ alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 alias ack="ag"
 
-# Tmux support
-if [ "$TMUX" = "" ]; then
-    TERM=xterm-256color
-else
-    TERM=screen-256color
-fi
-
 export EDITOR='vim'
 export VISUAL=$EDITOR
 
 # Disable C-s stopping receiving keyboard signals.
 stty start undef
 stty stop undef
+
+# Detach instead of exit in tmux.
+exit() {
+    if [[ -z $TMUX ]]
+    then builtin exit
+    else tmux detach fi
+}
 
 # Stop zsh from catching ^ chars.
 setopt NO_NOMATCH
