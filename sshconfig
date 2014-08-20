@@ -1,3 +1,5 @@
+ServerAliveInterval 60
+
 Host lvs
     HostName lvs.cs.bgu.ac.il
     User oryb
