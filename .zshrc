@@ -3,7 +3,8 @@ ZSH=$HOME/.oh-my-zsh
 # Tmux support
 if [ "$TMUX" = "" ]
 then TERM=xterm-256color
-else TERM=screen-256color fi
+else TERM=screen-256color
+fi
 
 ZSH_THEME="simple"
 # DISABLE_AUTO_UPDATE="true"
@@ -40,7 +41,8 @@ stty stop undef
 exit() {
     if [[ -z $TMUX ]]
     then builtin exit
-    else tmux detach fi
+    else tmux detach
+    fi
 }
 
 # Stop zsh from catching ^ chars.
