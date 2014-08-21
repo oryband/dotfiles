@@ -29,6 +29,7 @@ alias js="node"
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 alias ack="ag"
+alias tmux="tmux attach"
 
 export EDITOR='vim'
 export VISUAL=$EDITOR
