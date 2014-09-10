@@ -2,7 +2,10 @@
 .DS_Store
 
 # Vim swap files.
-.swp
+*.swp
+
+# ctags.
+tags
 
 # Vim backup, undo folders.
 /bundle/
