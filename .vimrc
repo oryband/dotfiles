@@ -216,7 +216,7 @@ set foldtext=FoldText()
 " Backup {{{
 set nobackup
 set nowritebackup
-set directory=~/.vim/swap//
+set directory=~/.vim/swp//
 "}}}
 " Mouse {{{
 behave xterm

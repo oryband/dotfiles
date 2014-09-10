@@ -1,18 +1,11 @@
-# Mac OS X Finder control file.
-.DS_Store
-
-# Vim swap files.
-*.swp
-
 # ctags.
 tags
 
-# Vim backup, undo folders.
+# Vim backup, undo, swp folders.
 /bundle/
 /undo/
+/swp/
 
-# Stub file for undo/ , so only the dir will be committed (but not the files inside).
+# Stub files, so only the dir will be committed (but not the files inside).
 !/undo/.empty
-
-# Apple TimeMachine
-.com.apple.timemachine.supported
+!/swp/.empty
