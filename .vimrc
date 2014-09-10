@@ -55,6 +55,9 @@ Plugin 'eclim', { 'pinned': 1 }
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
 "}}}
+" MySQL {{{
+Bundle "dbext.vim"
+"}}}
 " YAML {{{
 Plugin 'chase/vim-ansible-yaml'
 "}}}
@@ -237,13 +240,14 @@ let g:is_bash=1
 " Plugin configurations {{{
 " Ag {{{
 let g:agprg = "ag --column --smart-case --follow"
-let g:aghighlight = 1
 let g:ag_mapping_message = 0
+cabbrev ag Ag!
 cabbrev Ag Ag!
 "}}}
 " Airline {{{
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#branch#displayed_head_limit = 15
 "}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
@@ -280,15 +284,15 @@ let g:easytags_dynamic_files = 1
 let g:easytags_updatetime_warn = 0
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 
-let g:easytags_languages = {
-            \   'javascript': {
-            \       'cmd': 'jsctags',
-            \       'args': [],
-            \       'fileoutput_opt': '-f',
-            \       'stdout_opt': '-f-',
-            \       'recurse_flag': '-R'
-            \   }
-            \}
+" let g:easytags_languages = {
+"             \   'javascript': {
+"             \       'cmd': 'jsctags',
+"             \       'args': [],
+"             \       'fileoutput_opt': '-f',
+"             \       'stdout_opt': '-f-',
+"             \       'recurse_flag': '-R'
+"             \   }
+"             \}
 "}}}
 " Eclim {{{
 set runtimepath+=$HOME/.vim/bundle/eclim/
@@ -338,13 +342,6 @@ silent! call repeat#set("\<Plug>.", v:count)
 highlight link SneakPluginTarget Visual
 
 map : <Plug>SneakNext
-
-nmap <leader>s <Plug>Sneak_s
-nmap <leader>S <Plug>Sneak_S
-xmap <leader>s <Plug>Sneak_s
-xmap <leader>S <Plug>Sneak_S
-omap <leader>s <Plug>Sneak_s
-omap <leader>S <Plug>Sneak_S
 
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
@@ -425,6 +422,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
+nnoremap <leader>] :YcmCompleter GoTo<CR>
 "}}}
 " Autocmds {{{
 " BufWinEnter {{{
@@ -443,7 +441,7 @@ augroup File-Type
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType qf setlocal wrap
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd FileType html,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
     autocmd FileType xdefaults setlocal commentstring=!\ %s
