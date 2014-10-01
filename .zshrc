@@ -1,9 +1,10 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Tmux support
-if [ "$TMUX" = "" ]
-then TERM=xterm-256color
-else TERM=screen-256color
+if [ "$TMUX" = "" ]; then
+    TERM=xterm-256color
+else
+    TERM=screen-256color
 fi
 
 ZSH_THEME="simple"
@@ -13,23 +14,22 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
+    python pip virtualenvwrapper django
+    history-substring-search colored-man colorize web-search
+    docker aws tugboat
     osx brew brew-cask
     npm mvn
-    python pip django
-    history-substring-search colored-man colorize web-search
-    docker aws
 )
 
 source $ZSH/oh-my-zsh.sh
 
 alias la="ls -A"
-alias brews="brew list"
 alias casks="brew cask list"
 alias js="node"
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
-alias ack="ag"
 alias tmux="tmux attach"
+alias xclip="xclip -selection clipboard"
 
 export EDITOR='vim'
 export VISUAL=$EDITOR
@@ -40,9 +40,10 @@ stty stop undef
 
 # Detach instead of exit in tmux.
 exit() {
-    if [[ -z $TMUX ]]
-    then builtin exit
-    else tmux detach
+    if [[ -z $TMUX ]]; then
+        builtin exit
+    else
+        tmux detach
     fi
 }
 
