@@ -18,6 +18,7 @@ Plugin 'gmarik/Vundle.vim'
 "}}}
 " Sane defaults {{{
 Plugin 'tpope/vim-sensible'
+Plugin 'kana/vim-fakeclip'
 "}}}
 " Colors {{{
 Plugin 'vim-colors-solarized', { 'pinned': 1 }
@@ -54,9 +55,6 @@ Plugin 'eclim', { 'pinned': 1 }
 "}}}
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
-"}}}
-" MySQL {{{
-Bundle "dbext.vim"
 "}}}
 " YAML {{{
 Plugin 'chase/vim-ansible-yaml'
@@ -229,7 +227,6 @@ set novisualbell
 " Misc. {{{
 set nostartofline
 set splitbelow splitright
-if $TMUX == '' | set clipboard+=unnamed | endif
 set hidden
 set title
 " set lazyredraw
@@ -300,6 +297,9 @@ let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimWarningHighlight = 'Todo'
 let g:EclimLoclistSignText  = '✗'
 "}}}
+" FakeClip {{{Fake
+let g:fakeclip_terminal_multiplexer_type = 'tmux'
+"}}}
 " Go {{{
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_fmt_fail_silently = 1
@@ -343,6 +343,13 @@ highlight link SneakPluginTarget Visual
 
 map : <Plug>SneakNext
 
+nmap <leader>s <Plug>Sneak_s
+nmap <leader>S <Plug>Sneak_S
+xmap <leader>s <Plug>Sneak_s
+xmap <leader>S <Plug>Sneak_S
+omap <leader>s <Plug>Sneak_s
+omap <leader>S <Plug>Sneak_S
+
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
 xmap f <Plug>Sneak_f
@@ -376,6 +383,14 @@ highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep257']
+let g:syntastic_filetype_map = {
+            \ 'ansible': 'yaml',
+            \ 'jinja': 'html',
+            \ 'liquid': 'html',
+            \ 'stylus': 'css',
+            \ 'scss': 'css',
+            \ 'less': 'css'
+            \ }
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
 let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
@@ -432,6 +447,8 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter .jshintrc setfiletype javascript
     autocmd BufWinEnter .tern-config,.tern-project setfiletype json
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
+    autocmd BufWinEnter *.sql setfiletype mysql
+    autocmd BufWinEnter *.yaml,*.yml setfiletype yaml
     " autocmd BufWinEnter * if &textwidth > 8 | if exists("w:highlight_text_width") | call matchdelete(w:highlight_text_width) | endif | let w:highlight_text_width=matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
 augroup END
 "}}}
