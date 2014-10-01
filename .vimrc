@@ -56,9 +56,6 @@ Plugin 'eclim', { 'pinned': 1 }
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
 "}}}
-" YAML {{{
-Plugin 'chase/vim-ansible-yaml'
-"}}}
 "}}}
 " Everything else {{{
 Plugin 'rking/ag.vim'
@@ -448,7 +445,6 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter .tern-config,.tern-project setfiletype json
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
-    autocmd BufWinEnter *.yaml,*.yml setfiletype yaml
     " autocmd BufWinEnter * if &textwidth > 8 | if exists("w:highlight_text_width") | call matchdelete(w:highlight_text_width) | endif | let w:highlight_text_width=matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
 augroup END
 "}}}
