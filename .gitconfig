@@ -32,26 +32,32 @@
     l = log --oneline --graph
     l2 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     l3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-    s = status -s
+
+    s = status --short
+
     d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+    di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+
     ds = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat --staged"
-    # `git di $number` shows the diff between the state `$number` revisions ago and the current state
-    ;di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+    dsi = !"d() { git diff --patch-with-stat --staged HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+
     # Pull in remote changes for the current repository and all its submodules
     ;p = !"git pull; git submodule foreach git pull origin master"
-    # Clone a repository including all submodules
-    ;c = clone --recursive
-    # Commit all changes
-    ;ca = !git add -A && git commit -av
-    # Switch to a branch, creating it if necessary
-    ;go = checkout -B
-    # Show verbose output about tags, branches or remotes
-    ;tags = tag -l
-    ;branches = branch -a
-    ;remotes = remote -v
+
+    cl = clone --recursive
+
+    c = commit --verbose
+
+    cb = checkout -b
+
+    tags = tag --list
+    branches = branch --all
+    remotes = remote --verbose
+
     # Credit an author on the latest commit
     ;credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
     # Interactive rebase with the given number of latest commits
     ;reb = "!r() { git rebase -i HEAD~$1; }; r"
-    # Undo a `git push`
-    ;undopush = push -f origin HEAD^:master
+
+    pf = push --force
+    undopush = push --force origin HEAD^:master
