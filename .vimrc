@@ -47,6 +47,9 @@ Plugin 'hdima/python-syntax'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'jmcantrell/vim-virtualenv'
 "}}}
+" Ruby {{{
+Plugin 'vim-ruby/vim-ruby'
+"}}}
 " Go {{{
 Plugin 'fatih/vim-go'
 "}}}
