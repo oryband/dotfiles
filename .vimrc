@@ -443,7 +443,7 @@ let g:ycm_add_preview_to_completeopt = 1
 " BufWinEnter {{{
 augroup Buf-Win-Enter
     autocmd!
-    autocmd BufWinEnter * if &ft == 'go' | nnoremap <Leader>] <Plug>(go-def) | else | nnoremap <leader>] :YcmCompleter GoTo<CR> | endif
+    autocmd BufWinEnter * if &ft == 'go' | nmap <Leader>] <Plug>(go-def)| else | nnoremap <leader>] :YcmCompleter GoTo<CR> | endif
     autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
@@ -456,7 +456,7 @@ augroup END
 augroup File-Type
     autocmd!
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd FileType go nnoremap <Leader>gd <Plug>(go-doc-vertical)
+    autocmd FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
