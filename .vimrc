@@ -456,7 +456,7 @@ augroup END
 augroup File-Type
     autocmd!
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
+    autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
