@@ -297,7 +297,7 @@ let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimWarningHighlight = 'Todo'
 let g:EclimLoclistSignText  = '✗'
 "}}}
-" FakeClip {{{Fake
+" FakeClip {{{
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
 " Go {{{
@@ -383,6 +383,8 @@ highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep257']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
 let g:syntastic_filetype_map = {
             \ 'ansible': 'yaml',
             \ 'jinja': 'html',
@@ -433,36 +435,37 @@ cabbrev BundleSearch! PluginSearch!
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_min_num_of_chars_for_completion = 4
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
-nnoremap <leader>] :YcmCompleter GoTo<CR>
 "}}}
 " Autocmds {{{
 " BufWinEnter {{{
 augroup Buf-Win-Enter
     autocmd!
+    autocmd BufWinEnter * if &ft == 'go' | nnoremap <Leader>] <Plug>(go-def) | else | nnoremap <leader>] :YcmCompleter GoTo<CR> | endif
     autocmd BufWinEnter *.less setfiletype less
-    autocmd BufWinEnter .jshintrc setfiletype javascript
-    autocmd BufWinEnter .tern-config,.tern-project setfiletype json
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
+    autocmd BufWinEnter .jshintrc setfiletype javascript
+    autocmd BufWinEnter .tern-config,.tern-project setfiletype json
     " autocmd BufWinEnter * if &textwidth > 8 | if exists("w:highlight_text_width") | call matchdelete(w:highlight_text_width) | endif | let w:highlight_text_width=matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
 augroup END
 "}}}
 " FileType {{{
 augroup File-Type
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType qf setlocal wrap
     autocmd FileType gitcommit setlocal textwidth=72
+    autocmd FileType go nnoremap <Leader>gd <Plug>(go-doc-vertical)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
-    autocmd FileType xdefaults setlocal commentstring=!\ %s
+    autocmd FileType qf setlocal wrap
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType tex setlocal number norelativenumber
+    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType xdefaults setlocal commentstring=!\ %s
+
 augroup END
 "}}}
 "}}}
