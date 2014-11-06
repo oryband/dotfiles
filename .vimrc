@@ -175,6 +175,8 @@ set nolist
 set nosmartindent
 set cindent
 
+nnoremap <silent> <Leader>r :redraw!<CR>
+
 augroup Format-Options
     autocmd!
     autocmd BufEnter * setlocal formatoptions=crqn2l1j
@@ -457,7 +459,7 @@ augroup File-Type
     autocmd!
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical)
-    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
     autocmd FileType qf setlocal wrap
