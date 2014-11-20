@@ -53,9 +53,6 @@ Plugin 'vim-ruby/vim-ruby'
 " Go {{{
 Plugin 'fatih/vim-go'
 "}}}
-" Java {{{
-Plugin 'eclim', { 'pinned': 1 }
-"}}}
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
 "}}}
@@ -294,12 +291,6 @@ let g:easytags_events = ['BufReadPost', 'BufWritePost']
 "             \   }
 "             \}
 "}}}
-" Eclim {{{
-set runtimepath+=$HOME/.vim/bundle/eclim/
-let g:EclimCompletionMethod = 'omnifunc'
-let g:EclimWarningHighlight = 'Todo'
-let g:EclimLoclistSignText  = '✗'
-"}}}
 " FakeClip {{{
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
@@ -378,7 +369,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_loc_list = 2
 
 let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = g:EclimLoclistSignText
+let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '♫'
 let g:syntastic_style_error_symbol = '♪'
