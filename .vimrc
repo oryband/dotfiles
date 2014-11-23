@@ -190,7 +190,7 @@ command! StripTrailingWhitespaces call StripTrailingWhitespaces()
 "}}}
 " Folding {{{
 set foldenable
-set foldmethod=syntax
+if &diff | set foldmethod=diff | else | set foldmethod=syntax | endif
 set foldlevel=0
 set foldopen=block,hor,tag,percent,mark,quickfix
 
