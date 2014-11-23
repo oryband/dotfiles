@@ -59,6 +59,9 @@
     pf = push --force
     undopush = push --force origin HEAD^:master
 
+    sl = stash list
+    sp = stash pop
+
     # Credit an author on the latest commit
     ;credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
     # Interactive rebase with the given number of latest commits
