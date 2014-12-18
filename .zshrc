@@ -76,3 +76,7 @@ export GOPATH="$HOME/.go"
 PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
 
 export PATH
+
+# Google Cloud SDK
+source '/home/ory/Documents/google-cloud-sdk/path.zsh.inc'
+source '/home/ory/Documents/google-cloud-sdk/completion.zsh.inc'
