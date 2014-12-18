@@ -104,7 +104,7 @@ set shortmess=atI
 set noshowmode
 "}}}
 " Ignored {{{
-set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,\.DS_Store
+set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,\.DS_Store,\.empty
 set wildignore+=*.pyc,*.pyo,*.egg,*.egg-info
 set wildignore+=*.a,*.o,*.so
 set wildignore+=*.class
@@ -309,7 +309,7 @@ let NERDTreeShowFiles = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeWinPos = 'right'
 let NERDTreeIgnore = [
-            \ '.DS_Store', '\.swp$', '\~$',
+            \ '.DS_Store', '\.swp$', '\~$', '.empty',
             \ '\.jpg$', '\.jpeg$', '\.png$', '\.gif$', '\.pdf$',
             \ '\.class$',
             \ '\.a$', '\.o$', '\.so$',
