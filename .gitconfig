@@ -52,8 +52,11 @@
     cb = checkout -b
 
     tags = tag --list
-    branches = branch --all
+
     b = branch
+    bd = branch --delete
+    branches = branch --all
+
     remotes = remote --verbose
 
     pf = push --force
