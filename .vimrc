@@ -432,12 +432,21 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
+
+" Call YCM GoTo or vim-go GoTo depending on file type.
+function! GoToDef()
+    if &ft == 'go'
+        call go#def#Jump()
+    else
+        execute 'YcmCompleter GoTo'
+    endif
+endfunction
+nnoremap <leader>] :call GoToDef()<CR>
 "}}}
 " Autocmds {{{
 " BufWinEnter {{{
 augroup Buf-Win-Enter
     autocmd!
-    autocmd BufWinEnter * if &ft == 'go' | nmap <Leader>] <Plug>(go-def)| else | nnoremap <leader>] :YcmCompleter GoTo<CR> | endif
     autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
@@ -459,7 +468,6 @@ augroup File-Type
     autocmd FileType tex setlocal number norelativenumber
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType xdefaults setlocal commentstring=!\ %s
-
 augroup END
 "}}}
 "}}}
