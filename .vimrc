@@ -375,8 +375,9 @@ let g:syntastic_style_warning_symbol = '♫'
 let g:syntastic_style_error_symbol = '♪'
 highlight link SyntasticStyleErrorSign Todo
 
-let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep257']
+let g:syntastic_go_checkers = ['go', 'golint', 'govet']
+let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_filetype_map = {
