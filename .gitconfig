@@ -11,6 +11,7 @@
     editor = vim
     whitespace = space-before-tab,trailing-space,blank-at-eol,cr-at-eol,blank-at-eof
 	excludesfile = /Users/ory/.gitignore
+	pager = less -x1,5
 [color]
     ui = true
 [color "branch"]
@@ -40,6 +41,8 @@
 
     ds = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat --staged"
     dsi = !"d() { git diff --patch-with-stat --staged HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+
+    sh = show --patch-with-stat
 
     # Pull in remote changes for the current repository and all its submodules
     ;p = !"git pull; git submodule foreach git pull origin master"
