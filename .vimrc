@@ -62,7 +62,6 @@ Plugin 'rking/ag.vim'
 Plugin 'camelcasemotion'
 Plugin 'kien/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
-Plugin 'Konfekt/FastFold'
 Plugin 'IndexedSearch'
 Plugin 'Valloric/ListToggle'
 Plugin 'scrooloose/nerdtree'
@@ -166,7 +165,6 @@ if exists('&wildignorecase') | set wildignorecase | endif
 set nowrap
 set linebreak
 set textwidth=79
-call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1)
 set relativenumber
 set matchtime=3
 set nolist
@@ -180,6 +178,11 @@ augroup Format-Options
     autocmd BufEnter * setlocal formatoptions=crqn2l1j
 augroup END
 
+function! ColorColumnPerFileType()
+    call clearmatches()
+    if &ft != 'go' | call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
+endfunc
+
 function! StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -192,6 +195,7 @@ command! StripTrailingWhitespaces call StripTrailingWhitespaces()
 set foldenable
 if &diff | set foldmethod=diff | else | set foldmethod=syntax | endif
 set foldlevel=0
+set foldlevelstart=0
 set foldopen=block,hor,tag,percent,mark,quickfix
 
 function! FoldText() " {{{
@@ -399,6 +403,9 @@ let g:syntastic_cpp_check_header = g:syntastic_c_check_header
 let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
+" let g:syntastic_go_go_build_args = '-tags="integration integrationmulti"'
+let g:syntastic_go_go_build_args = '-tags="integrationmulti"'
+let g:syntastic_go_go_test_args = g:syntastic_go_go_build_args
 "}}}
 " Tagbar {{{
 nnoremap <silent> <Leader>g :TagbarToggle<CR>
@@ -448,6 +455,7 @@ nnoremap <leader>] :call GoToDef()<CR>
 " BufWinEnter {{{
 augroup Buf-Win-Enter
     autocmd!
+    autocmd BufWinEnter * call ColorColumnPerFileType()
     autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
