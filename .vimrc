@@ -56,6 +56,9 @@ Plugin 'fatih/vim-go'
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
 "}}}
+" i3 {{{
+Plugin 'PotatoesMaster/i3-vim-syntax'
+"}}}
 "}}}
 " Everything else {{{
 Plugin 'rking/ag.vim'
@@ -477,6 +480,7 @@ augroup File-Type
     autocmd FileType tex setlocal number norelativenumber
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType xdefaults setlocal commentstring=!\ %s
+    autocmd FileType i3 setlocal commentstring=#\ %s
 augroup END
 "}}}
 "}}}
