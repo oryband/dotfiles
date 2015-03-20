@@ -1,4 +1,4 @@
-ZSH=$HOME/.oh-my-zsh
+ZSH=/usr/share/oh-my-zsh
 
 # Tmux support
 if [ "$TMUX" = "" ]; then
@@ -14,7 +14,7 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
-    python pip virtualenvwrapper django
+    python pip django
     history-substring-search colored-man colorize web-search
     docker aws tugboat
     osx brew brew-cask
@@ -23,7 +23,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+alias vi="vim"
 alias la="ls -A"
+alias lla="la -l"
 alias casks="brew cask list"
 alias js="node"
 alias ag="ag --smart-case --follow --group"
@@ -78,5 +80,5 @@ PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
 export PATH
 
 # Google Cloud SDK
-source '/home/ory/Documents/google-cloud-sdk/path.zsh.inc'
-source '/home/ory/Documents/google-cloud-sdk/completion.zsh.inc'
+# source '/home/ory/Documents/google-cloud-sdk/path.zsh.inc'
+# source '/home/ory/Documents/google-cloud-sdk/completion.zsh.inc'
