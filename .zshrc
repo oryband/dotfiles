@@ -57,11 +57,15 @@ setopt PROMPT_CR
 setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
+# Base16 colors
+BASE16_SHELL="$HOME/.config/base16-shell/base16-solarized.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 # Homebrew
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Ruby
-PATH="/usr/local/opt/ruby/bin:$PATH"
+PATH="/usr/local/opt/ruby/bin:$HOME/.gem/ruby/2.2.0/bin:$PATH"
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
