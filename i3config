@@ -1,4 +1,5 @@
 set $mod Mod4
+set $alt Mod1
 
 font pango:Source Code Pro Light 14
 
@@ -84,7 +85,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 # bindsym $mod+Ctrl+h move container to workspace prev
 # bindsym $mod+Ctrl+l move container to workspace next
 
-bindsym $mod+z workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
+bindsym $alt+Tab workspace back_and_forth
 
 workspace_auto_back_and_forth yes
 
