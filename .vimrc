@@ -21,7 +21,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'kana/vim-fakeclip'
 "}}}
 " Colors {{{
-Plugin 'vim-colors-solarized', { 'pinned': 1 }
+Plugin 'chriskempson/base16-vim'
 "}}}
 " Languages {{{
 " HTML {{{
@@ -96,7 +96,8 @@ filetype plugin indent on
 if $TMUX != "" | set term=screen-256color | endif
 set t_Co=256
 set background=dark
-colorscheme solarized
+let base16colorspace=256
+colorscheme base16-solarized
 "}}}
 " Spaces {{{
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
