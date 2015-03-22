@@ -77,11 +77,10 @@ PATH="/usr/texbin:$PATH"
 export ECLIPSE_HOME="/opt/homebrew-cask/Caskroom/eclipse-ide/4.3.2/eclipse"
 PATH="$ECLIPSE_HOME:$PATH"
 
-# Go
-export GOPATH="$HOME/.go"
-PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
-
 export PATH
+
+# Go
+[[ -s "/home/ory/.gvm/scripts/gvm" ]] && source "/home/ory/.gvm/scripts/gvm"
 
 # Google Cloud SDK
 # source '/home/ory/Documents/google-cloud-sdk/path.zsh.inc'

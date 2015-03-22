@@ -58,6 +58,7 @@
 
     b = branch
     bd = branch --delete
+    bdf = branch -D
     branches = branch --all
 
     remotes = remote --verbose
