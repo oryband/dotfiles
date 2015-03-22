@@ -1,4 +1,4 @@
-URxvt*termName:                       string
+URxvt*termName:                       rxvt-unicode-256color
 
 URxvt*geometry:                       80x20
 
