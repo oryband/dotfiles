@@ -1,1 +1,4 @@
+LogLevel QUIET
 ServerAliveInterval 60
+StrictHostKeyChecking no
+UserKnownHostsFile=/dev/null
