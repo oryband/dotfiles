@@ -15,20 +15,20 @@ alias vi="vim"
 export EDITOR='vim'
 export VISUAL=$EDITOR
 
-# Disable C-s stopping receiving keyboard signals.
+# disable C-s stopping receiving keyboard signals.
 stty start undef
 stty stop undef
 
 
-# Stop zsh from catching ^ chars.
+# stop zsh from catching ^ chars.
 setopt NO_NOMATCH
 
-# Hide annoying '%' sign.
+# hide annoying '%' sign.
 setopt PROMPT_CR
 setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
-# Base16 colors
+# base16 colors
 BASE16_SHELL="$HOME/.config/base16-shell/base16-solarized.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
@@ -36,13 +36,13 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-solarized.dark.sh"
 # ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOQUIT=true
 
-# Ruby
+# ruby
 PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
 PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export PATH
 
-# Go
+# go
 [[ -s "/home/ory/.gvm/scripts/gvm" ]] && source "/home/ory/.gvm/scripts/gvm"
 
 # must come at the bottom
