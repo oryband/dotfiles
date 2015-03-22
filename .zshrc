@@ -19,7 +19,6 @@ export VISUAL=$EDITOR
 stty start undef
 stty stop undef
 
-
 # stop zsh from catching ^ chars.
 setopt NO_NOMATCH
 
@@ -33,7 +32,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-solarized.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # tmux
-# ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOQUIT=true
 
 # ruby
