@@ -197,7 +197,6 @@ command! StripTrailingWhitespaces call StripTrailingWhitespaces()
 set foldenable
 if &diff | set foldmethod=diff | else | set foldmethod=syntax | endif
 set foldlevel=0
-set foldlevelstart=0
 set foldopen=block,hor,tag,percent,mark,quickfix
 
 function! FoldText() " {{{
