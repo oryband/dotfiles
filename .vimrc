@@ -420,7 +420,7 @@ let g:tagbar_type_javascript = { 'ctagsbin' : 'jsctags' }
 " Tern {{{
 let g:tern#command = ['tern', '--no-port-file']
 let g:tern_show_signature_in_pum = 1
-" let g:tern_show_argument_hints = 'on_move'
+let g:tern_show_argument_hints = 'on_move'
 "}}}
 " Virtualenv {{{
 " let g:virtualenv_directory = 'venv'
@@ -442,10 +442,12 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
 
-" Call YCM GoTo or vim-go GoTo depending on file type.
+" Call YCM/Go/js GoTo depending on file type.
 function! GoToDef()
     if &ft == 'go'
         call go#def#Jump()
+    elseif &ft == 'javascript'
+        execute 'TernDef'
     else
         execute 'YcmCompleter GoTo'
     endif
