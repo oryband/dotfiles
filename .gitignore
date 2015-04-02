@@ -8,6 +8,7 @@
 
 # Vim
 *.sw[op]
+.tags
 
 # Python
 *.py[co]
