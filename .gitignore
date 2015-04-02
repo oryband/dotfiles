@@ -1,5 +1,7 @@
 # ctags.
 tags
+.tags
+.vimtags
 
 # Vim backup, undo, swp folders.
 /bundle/
