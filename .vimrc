@@ -109,6 +109,7 @@ set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,\.DS_Store,\.em
 set wildignore+=*.pyc,*.pyo,*.egg,*.egg-info
 set wildignore+=*.a,*.o,*.so
 set wildignore+=*.class
+set wildignore+=\.tags
 "}}}
 " Keys {{{
 let mapleader=","
@@ -279,13 +280,13 @@ vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 "}}}
 " EasyTags {{{
-set tags=.vimtags;,~/.vim/tags
-let g:easytags_file = '~/.vim/tags'
-let g:easytags_dynamic_files = 1
-" let g:easytags_dynamic_files = 2
-" let g:easytags_by_filetype = 1
-let g:easytags_updatetime_warn = 0
+set cpoptions+=d
+let g:easytags_file = '~/.vim/.vimtags'
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_dynamic_files = 2
+let g:easytags_async = 1
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_report = 1
 
 " let g:easytags_languages = {
 "             \   'javascript': {
@@ -319,7 +320,8 @@ let NERDTreeIgnore = [
             \ '\.jpg$', '\.jpeg$', '\.png$', '\.gif$', '\.pdf$',
             \ '\.class$',
             \ '\.a$', '\.o$', '\.so$',
-            \ '\.pyc$', '\.pyo$'
+            \ '\.pyc$', '\.pyo$',
+            \ '\.tags$'
             \ ]
 
 " augroup NERD-Tree
@@ -471,6 +473,7 @@ augroup END
 " FileType {{{
 augroup File-Type
     autocmd!
+    autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
