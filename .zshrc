@@ -28,7 +28,7 @@ setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
 # base16 colors
-BASE16_SHELL="$HOME/.config/base16-shell/base16-solarized.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # tmux
