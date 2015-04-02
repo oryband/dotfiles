@@ -95,7 +95,7 @@ filetype plugin indent on
 " Colors {{{
 set background=dark
 let base16colorspace=256
-colorscheme base16-solarized
+colorscheme base16-default
 "}}}
 " Spaces {{{
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
@@ -182,7 +182,8 @@ augroup END
 
 function! ColorColumnPerFileType()
     call clearmatches()
-    if &ft != 'go' | call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
+    let nocolor = ['go', 'help']
+    if index(nocolor, &filetype) == -1 | call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
 endfunc
 
 function! StripTrailingWhitespaces()
