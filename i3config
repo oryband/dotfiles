@@ -140,13 +140,13 @@ bar {
     strip_workspace_numbers yes
 
     colors {
-        separator #dc322f
-        background #002b36
-        statusline #268bd2
-        focused_workspace #fdf6e3 #859900 #fdf6e3
-        active_workspace #fdf6e3 #6c71c4 #fdf6e3
-        inactive_workspace #586e75 #93a1a1 #002b36
-        urgent_workspace #d33682 #d33682 #fdf6e3
+        background #151515
+        statusline #505050
+        separator #303030
+        focused_workspace  #c7a3c0 #aa759f #ffffff
+        active_workspace   #aa759f #303030 #ffffff
+        inactive_workspace #505050 #303030 #707070
+        urgent_workspace   #c86f70 #ac4142 #ffffff
     }
 }
 
@@ -161,9 +161,10 @@ exec --no-startup-id xset dpms 600
 hide_edge_borders both
 
 # colors
-client.focused #859900 #859900 #fdf6e3 #859900
-client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
-client.unfocused #073642 #073642 #93a1a1 #586e75
-client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+client.focused          #b2c48d #90a959 #ffffff #90a959
+client.focused_inactive #90a959 #303030 #b0b0b0 #303030
+client.unfocused        #505050 #303030 #b0b0b0 #303030
+client.urgent           #c86f70 #ac4142 #ffffff
+client.background       #151515
 
 # vim:filetype=i3
