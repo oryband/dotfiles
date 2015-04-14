@@ -183,8 +183,8 @@ augroup END
 
 function! ColorColumnPerFileType()
     call clearmatches()
-    let nocolor = ['go', 'help']
-    if index(nocolor, &filetype) == -1 | call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
+    let langs = ['python','ruby']
+    if index(langs, &filetype) >= 0 | call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
 endfunc
 
 function! StripTrailingWhitespaces()
@@ -302,8 +302,19 @@ let g:easytags_suppress_report = 1
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
 " Go {{{
-let g:go_highlight_trailing_whitespace_error = 0
+let g:go_def_mapping_enabled = 0
 let g:go_fmt_fail_silently = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_trailing_whitespace_error = 0
+let g:go_textobj_enabled = 1
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
@@ -384,7 +395,7 @@ let g:syntastic_style_error_symbol = '♪'
 highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['flake8', 'pep257']
-let g:syntastic_go_checkers = ['go', 'golint', 'govet']
+let g:syntastic_go_checkers = ['go', 'govet', 'golint']
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
@@ -407,8 +418,7 @@ let g:syntastic_cpp_check_header = g:syntastic_c_check_header
 let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
-" let g:syntastic_go_go_build_args = '-tags="integration integrationmulti"'
-let g:syntastic_go_go_build_args = '-tags="integrationmulti"'
+let g:syntastic_go_go_build_args = '-tags="integration integrationmulti"'
 let g:syntastic_go_go_test_args = g:syntastic_go_go_build_args
 "}}}
 " Tagbar {{{
@@ -467,7 +477,6 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter .jshintrc setfiletype javascript
     autocmd BufWinEnter .tern-config,.tern-project setfiletype json
-    " autocmd BufWinEnter * if &textwidth > 8 | if exists("w:highlight_text_width") | call matchdelete(w:highlight_text_width) | endif | let w:highlight_text_width=matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
 augroup END
 "}}}
 " FileType {{{
@@ -475,7 +484,7 @@ augroup File-Type
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical)
+    autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical) | nmap <Leader>i <Plug>(go-info)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
