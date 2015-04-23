@@ -24,6 +24,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 # tmux
 ZSH_TMUX_AUTOQUIT=true
 
+# syntax highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+
 # python
 if [[ -f /etc/arch-release ]]; then
     PATH="$HOME/.local/bin:$PATH"
@@ -62,7 +65,7 @@ plugins=(
     npm
     aws tugboat
     tmux docker
-    history-substring-search colored-man colorize web-search
+    zsh-syntax-highlighting history-substring-search colored-man colorize web-search
 )
 
 # sourcing oh-my-zsh should be executed at the end
