@@ -1,19 +1,9 @@
-ZSH=$HOME/.oh-my-zsh
-
-ZSH_THEME="simple"
-COMPLETION_WAITING_DOTS="true"
-
-alias la="ls -A"
-alias lla="la -l"
-alias js="node"
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
-alias xclip="xclip -selection clipboard"
-
-# vim
+alias js="node"
+alias lla="la -l"
 alias vi="vim"
-export EDITOR='vim'
-export VISUAL=$EDITOR
+alias xclip="xclip -selection clipboard"
 
 # disable C-s stopping receiving keyboard signals.
 stty start undef
@@ -34,6 +24,14 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 # tmux
 ZSH_TMUX_AUTOQUIT=true
 
+# python
+if [[ -f /etc/arch-release ]]; then
+    PATH="$HOME/.local/bin:$PATH"
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+    export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper_lazy.sh
+    export WORKON_HOME=~/.virtualenvs
+fi
+
 # ruby
 PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
 PATH="/usr/local/opt/ruby/bin:$PATH"
@@ -41,9 +39,24 @@ PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH
 
 # go
-[[ -s "/home/ory/.gvm/scripts/gvm" ]] && source "/home/ory/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-# must come at the bottom
+# export GIMME_GO_VERSION=1.4.1
+# export GIMME_SILENT_ENV=
+# export GIMME_NO_ENV_ALIAS=
+# GIMME_ENV=$HOME/.gimme/envs/go$GIMME_GO_VERSION.env
+# source $GIMME_ENV
+# if [[ -d $GIMME_ENV ]]; then echo "hi"; ; fi
+
+# oh-my-zsh configuration
+ZSH=$HOME/.oh-my-zsh
+ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
+
+DISABLE_AUTO_UPDATE="true"
+ZSH_THEME="simple"
+COMPLETION_WAITING_DOTS="true"
+
 plugins=(
     python pip django virtualenvwrapper
     npm
@@ -52,4 +65,5 @@ plugins=(
     history-substring-search colored-man colorize web-search
 )
 
+# sourcing oh-my-zsh should be executed at the end
 source $ZSH/oh-my-zsh.sh
