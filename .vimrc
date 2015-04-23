@@ -83,8 +83,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'papanikge/vim-voogle'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'regedarek/ZoomWin'
+" Install YCM normally if not on arch.
+if empty(glob("/etc/arch-release")) | Plugin 'Valloric/YouCompleteMe' | endif
 "}}}
 " Finish Init Vundle {{{
 call vundle#end()
