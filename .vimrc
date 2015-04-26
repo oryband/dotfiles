@@ -174,6 +174,10 @@ set matchtime=3
 set nolist
 set nosmartindent
 set cindent
+syntax sync minlines=256
+set synmaxcol=128
+set lazyredraw
+set ttyfast
 
 nnoremap <silent> <Leader>r :redraw!<CR>
 
@@ -182,10 +186,18 @@ augroup Format-Options
     autocmd BufEnter * setlocal formatoptions=crqn2l1j
 augroup END
 
+" Set color column per file type.
 function! ColorColumnPerFileType()
     call clearmatches()
-    let langs = ['python','ruby']
+    let langs = ["python","ruby"]
     if index(langs, &filetype) >= 0 | call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
+endfunc
+
+" Set new/old regexp engine per file type.
+function! RegExpEnginePerFileType()
+    call clearmatches()
+    let langs = ["go"]
+    if index(langs, &filetype) >= 0 | set regexpengine=1 | else | set regexpengine=0 | endif
 endfunc
 
 function! StripTrailingWhitespaces()
@@ -237,8 +249,6 @@ set nostartofline
 set splitbelow splitright
 set hidden
 set title
-" set lazyredraw
-set ttyfast
 let g:is_bash=1
 "}}}
 "}}}
@@ -302,20 +312,20 @@ let g:easytags_suppress_report = 1
 " FakeClip {{{
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
-" Go {{{
-let g:go_def_mapping_enabled = 0
+" Vim-Go {{{
+" let g:go_def_mapping_enabled = 0
 let g:go_fmt_fail_silently = 1
-let g:go_highlight_array_whitespace_error = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_chan_whitespace_error = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_space_tab_error = 1
-let g:go_highlight_structs = 1
+" let g:go_highlight_array_whitespace_error = 1
+" let g:go_highlight_build_constraints = 1
+" let g:go_highlight_chan_whitespace_error = 1
+" let g:go_highlight_extra_types = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_space_tab_error = 1
+" let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 0
-let g:go_textobj_enabled = 1
+" let g:go_textobj_enabled = 1
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
@@ -472,7 +482,7 @@ nnoremap <leader>] :call GoToDef()<CR>
 " BufWinEnter {{{
 augroup Buf-Win-Enter
     autocmd!
-    autocmd BufWinEnter * call ColorColumnPerFileType()
+    autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType()
     autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
