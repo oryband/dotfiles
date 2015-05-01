@@ -61,12 +61,19 @@ ZSH_THEME="simple"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
-    python pip django virtualenvwrapper
+    python pip django celery virtualenv virtualenvwrapper
     npm
+    go
     aws tugboat
     tmux docker
     zsh-syntax-highlighting history-substring-search colored-man colorize web-search
 )
+
+if [[ -f /etc/arch-release ]]; then
+    plugins+=(archlinux systemd)
+else  # ubuntu
+    plugins+=(debian)
+fi
 
 # sourcing oh-my-zsh should be executed at the end
 source $ZSH/oh-my-zsh.sh
