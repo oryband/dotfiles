@@ -2,6 +2,7 @@ alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 alias js="node"
 alias lla="la -l"
+alias tree="tree -C"
 alias vi="vim"
 alias xclip="xclip -selection clipboard"
 
