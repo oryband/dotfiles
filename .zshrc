@@ -70,15 +70,13 @@ plugins=(
     npm
     go
     aws tugboat
-    tmux docker
+    # tmux
+    docker
     zsh-syntax-highlighting history-substring-search colored-man colorize web-search
+    history-substring-search colored-man colorize web-search
 )
 
-if [[ -f /etc/arch-release ]]; then
-    plugins+=(archlinux systemd)
-else  # ubuntu
-    plugins+=(debian)
-fi
+[[ -f /etc/arch-release ]] && plugins+=(archlinux systemd)
 
 # sourcing oh-my-zsh should be executed at the end
 source $ZSH/oh-my-zsh.sh
