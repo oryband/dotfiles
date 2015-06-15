@@ -52,6 +52,10 @@ export PATH
 # source $GIMME_ENV
 # if [[ -d $GIMME_ENV ]]; then echo "hi"; ; fi
 
+# GCE
+source '/home/ory/google-cloud-sdk/path.zsh.inc'
+source '/home/ory/google-cloud-sdk/completion.zsh.inc'
+
 # oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
