@@ -73,7 +73,6 @@ plugins=(
     # tmux
     docker
     zsh-syntax-highlighting history-substring-search colored-man colorize web-search
-    history-substring-search colored-man colorize web-search
 )
 
 [[ -f /etc/arch-release ]] && plugins+=(archlinux systemd)
