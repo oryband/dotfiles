@@ -84,8 +84,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'papanikge/vim-voogle'
 Plugin 'regedarek/ZoomWin'
-" Install YCM normally if not on arch.
-if empty(glob("/etc/arch-release")) | Plugin 'Valloric/YouCompleteMe' | endif
+" YCM is installed via the pacman
+"Plugin 'Valloric/YouCompleteMe'
 "}}}
 " Finish Init Vundle {{{
 call vundle#end()
@@ -110,7 +110,6 @@ set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,\.DS_Store,\.em
 set wildignore+=*.pyc,*.pyo,*.egg,*.egg-info
 set wildignore+=*.a,*.o,*.so
 set wildignore+=*.class
-set wildignore+=\.tags
 "}}}
 " Keys {{{
 let mapleader=","
