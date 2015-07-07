@@ -19,7 +19,7 @@ setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
 # base16 colors
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="/usr/share/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # tmux
@@ -30,9 +30,8 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 
 # python
 if [[ -f /etc/arch-release ]]; then
-    PATH="$HOME/.local/bin:$PATH"
     export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-    export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper_lazy.sh
+    export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper_lazy.sh
     export WORKON_HOME=~/.virtualenvs
 fi
 
@@ -45,37 +44,25 @@ export PATH
 # go
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-# export GIMME_GO_VERSION=1.4.1
-# export GIMME_SILENT_ENV=
-# export GIMME_NO_ENV_ALIAS=
-# GIMME_ENV=$HOME/.gimme/envs/go$GIMME_GO_VERSION.env
-# source $GIMME_ENV
-# if [[ -d $GIMME_ENV ]]; then echo "hi"; ; fi
-
-# GCE
-source '/home/ory/google-cloud-sdk/path.zsh.inc'
-source '/home/ory/google-cloud-sdk/completion.zsh.inc'
-
-# oh-my-zsh configuration
-ZSH=$HOME/.oh-my-zsh
-ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
-
-DISABLE_AUTO_UPDATE="true"
 ZSH_THEME="simple"
+DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
+ENABLE_CORRECTION="true"
 
 plugins=(
+    archlinux systemd
     python pip django celery virtualenv virtualenvwrapper
     npm
     go
     aws tugboat
-    # tmux
+    tmux
     docker
-    zsh-syntax-highlighting history-substring-search colored-man colorize web-search
+    zsh-syntax-highlighting colored-man colorize web-search
+    history-substring-search
 )
 
-[[ -f /etc/arch-release ]] && plugins+=(archlinux systemd)
-
 # sourcing oh-my-zsh should be executed at the end
+ZSH=$HOME/.oh-my-zsh
+ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 source $ZSH/oh-my-zsh.sh
