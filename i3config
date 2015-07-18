@@ -57,40 +57,53 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# workspace names
+set $WS1 1:>
+set $WS2 2:@
+set $WS3 3
+set $WS4 4
+set $WS5 5
+set $WS6 6
+set $WS7 7
+set $WS8 8
+set $WS9 9
+set $WS10 10
+
 # switch to workspace
-bindsym $alt+1 workspace 1:>
-bindsym $alt+2 workspace 2:@
-bindsym $alt+3 workspace 3
-bindsym $alt+4 workspace 4
-bindsym $alt+5 workspace 5
-bindsym $alt+6 workspace 6
-bindsym $alt+7 workspace 7
-bindsym $alt+8 workspace 8
-bindsym $alt+9 workspace 9
-bindsym $alt+0 workspace 10
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:>
-bindsym $mod+Shift+2 move container to workspace 2:@
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS10
 
 # FIXME
 # bindsym $mod+Ctrl+h move container to workspace prev
 # bindsym $mod+Ctrl+l move container to workspace next
 
+bindsym $mod+Tab workspace back_and_forth
 bindsym $alt+Tab workspace back_and_forth
 
 workspace_auto_back_and_forth yes
 
-assign [class="URxvt"] 1:>
-assign [class="Google-chrome-stable"] 2:@
+assign [class="URxvt"] $WS1
+assign [class="Google-chrome-stable"] $WS2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -165,5 +178,20 @@ client.focused_inactive #90a959 #303030 #b0b0b0 #303030
 client.unfocused        #505050 #303030 #b0b0b0 #303030
 client.urgent           #c86f70 #ac4142 #ffffff
 client.background       #151515
+
+# audio keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set -c 0 Master 2%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set -c 0 Master 2%-
+bindsym XF86AudioMute exec --no-startup-id amixer -c 0 -q set Master toggle
+
+# brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+
+# media
+# bindsym XF86AudioPlay exec playerctl play
+# bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 # vim:filetype=i3
