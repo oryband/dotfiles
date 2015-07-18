@@ -18,7 +18,7 @@ setopt PROMPT_CR
 setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
-# base16 colors
+# base16
 BASE16_SHELL="/usr/share/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
@@ -29,22 +29,20 @@ ZSH_TMUX_AUTOQUIT=true
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 
 # python
-if [[ -f /etc/arch-release ]]; then
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-    export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper_lazy.sh
-    export WORKON_HOME=~/.virtualenvs
-fi
+export VIRTUALENVWRAPPER_PYTHON=$(which python2)
+export VIRTUALENVWRAPPER_SCRIPT=$(which virtualenvwrapper_lazy.sh)
+export WORKON_HOME=~/.virtualenvs
 
 # ruby
-PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
-PATH="/usr/local/opt/ruby/bin:$PATH"
-
-export PATH
+export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 
 # go
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-ZSH_THEME="simple"
+# command not found package suggestion
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+ZSH_THEME="kolo"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 ENABLE_CORRECTION="true"
