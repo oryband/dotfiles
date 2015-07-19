@@ -45,7 +45,6 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 ZSH_THEME="kolo"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
-ENABLE_CORRECTION="true"
 
 plugins=(
     archlinux systemd
