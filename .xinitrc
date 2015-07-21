@@ -27,8 +27,11 @@ if [ -f /usr/bin/VBoxClient-all ]; then /usr/bin/VBoxClient-all; fi
 # register locker
 xautolock -time 10 -locker "i3lock" &
 
+# inital wallpaper, next ones are managed by cron
+feh --bg-scale "$(find ~/Documents/interfacelift-downloader/wallpapers/*.jpg | shuf -n1)"
+
 # i3
 exec i3
-#exec i3 >> ~/i3.log 2>&1
+# exec i3 >> ~/i3.log 2>&1
 
 # vim:filetype=sh

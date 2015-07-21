@@ -1,0 +1,1 @@
+0 */1 * * * DISPLAY=:0.0 feh --bg-scale "$(find ~/Documents/interfacelift-downloader/wallpapers/*.jpg | shuf -n1)"
