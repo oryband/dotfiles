@@ -24,14 +24,12 @@ fi
 # virtualbox
 if [ -f /usr/bin/VBoxClient-all ]; then /usr/bin/VBoxClient-all; fi
 
-# register locker
-xautolock -time 10 -locker "i3lock" &
+# lock desktop timer
+xautolock -time 10 -locker "i3lock-wrapper" &
 
-# inital wallpaper, next ones are managed by cron
+# inital wallpaper, next wallpapers are switched by cron
 feh --bg-scale "$(find ~/Documents/interfacelift-downloader/wallpapers/*.jpg | shuf -n1)"
 
-# i3
-exec i3
-# exec i3 >> ~/i3.log 2>&1
+exec i3 # >> ~/i3.log 2>&1
 
 # vim:filetype=sh
