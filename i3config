@@ -170,7 +170,13 @@ bar {
 exec --no-startup-id xset dpms 600
 
 # borders
-hide_edge_borders both
+smart_gaps on
+smart_borders on
+gaps inner 12
+# no border pixel is mandatory for smart_gaps to work
+for_window [class="^.*"] border pixel 0
+new_window pixel 3
+new_float pixel 3
 
 # colors
 client.focused          #b2c48d #90a959 #ffffff #90a959
