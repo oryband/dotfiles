@@ -65,3 +65,13 @@ URxvt*pointerBlank:                   true
 *.color19:      base02
 *.color20:      base04
 *.color21:      base06
+
+rofi.width: 50
+rofi.lines: 5
+rofi.font: Source Code Pro Light 18
+rofi.hlbg: base02
+rofi.bc: base09
+rofi.bw: 3
+rofi.loc: 0
+rofi.fixed-num-lines: true
+rofi.terminal: x-terminal-emulator
