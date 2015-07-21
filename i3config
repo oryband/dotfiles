@@ -1,7 +1,7 @@
 set $mod Mod4
 set $alt Mod1
 
-font pango:Source Code Pro Light 14
+font pango:Source Code Pro Light 14, Icons 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -54,9 +54,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspace names
-set $WS1 1:>
-set $WS2 2:@
-set $WS3 3
+set $WS1 1:
+set $WS2 2:
+set $WS3 3:
 set $WS4 4
 set $WS5 5
 set $WS6 6
@@ -168,7 +168,7 @@ exec --no-startup-id xset dpms 600
 # borders
 new_window pixel 5
 new_float pixel 5
-gaps inner 12
+gaps inner 20
 smart_gaps on
 smart_borders on
 
