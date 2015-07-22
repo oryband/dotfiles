@@ -1,7 +1,7 @@
 set $mod Mod4
 set $alt Mod1
 
-font pango:Source Code Pro Light 14, Icons 14
+font pango:Source Code Pro Light, Icons Light 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
