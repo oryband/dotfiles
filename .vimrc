@@ -53,6 +53,10 @@ Plugin 'vim-ruby/vim-ruby'
 " Go {{{
 Plugin 'fatih/vim-go'
 "}}}
+" Docker {{{
+" Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
+"}}}
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
 "}}}
@@ -65,6 +69,7 @@ Plugin 'rking/ag.vim'
 Plugin 'camelcasemotion'
 Plugin 'kien/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
+Plugin 'tpope/vim-dispatch'
 Plugin 'IndexedSearch'
 Plugin 'Valloric/ListToggle'
 Plugin 'scrooloose/nerdtree'
@@ -312,8 +317,10 @@ let g:easytags_suppress_report = 1
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
 " Vim-Go {{{
-" let g:go_def_mapping_enabled = 0
+let g:go_dispatch_enabled = 1
 let g:go_fmt_fail_silently = 1
+" let g:go_textobj_enabled = 1
+
 " let g:go_highlight_array_whitespace_error = 1
 " let g:go_highlight_build_constraints = 1
 " let g:go_highlight_chan_whitespace_error = 1
@@ -324,7 +331,6 @@ let g:go_fmt_fail_silently = 1
 " let g:go_highlight_space_tab_error = 1
 " let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 0
-" let g:go_textobj_enabled = 1
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
@@ -405,7 +411,7 @@ let g:syntastic_style_error_symbol = '♪'
 highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['flake8', 'pep257']
-let g:syntastic_go_checkers = ['go', 'govet', 'golint']
+let g:syntastic_go_checkers = [ 'gometalinter' ]
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
