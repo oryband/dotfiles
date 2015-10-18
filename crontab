@@ -1,2 +1,3 @@
 0 */1 * * * DISPLAY=:0.0 feh --bg-scale "$(find ~/Documents/interfacelift-downloader/wallpapers/*.jpg | shuf -n1)"
 */5 * * * * ~/Documents/dotfiles/warn-battery.sh
+11 0 * * 1 sudo reflector --latest 200 --protocol http --sort rate --save /etc/pacman.d/mirrorlist
