@@ -29,6 +29,10 @@
     untracked = cyan
 [merge]
     log = true
+[rebase]
+    autosquash = true
+    autostash = true
+    missingCommitsCheck = warn
 [alias]
     l = log --oneline --graph
     ll = log --graph
