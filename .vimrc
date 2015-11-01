@@ -258,7 +258,7 @@ let g:is_bash=1
 "}}}
 " Plugin configurations {{{
 " Ag {{{
-let g:agprg = "ag --column --smart-case --follow"
+let g:ag_prg = "ag --column --smart-case --follow"
 let g:ag_mapping_message = 0
 cabbrev ag Ag!
 cabbrev Ag Ag!
