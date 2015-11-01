@@ -513,6 +513,7 @@ augroup CommentStrings
     autocmd FileType i3 setlocal commentstring=#\ %s
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
     autocmd FileType xdefaults setlocal commentstring=!\ %s
+    autocmd FileType gohtmltmpl setlocal commentstring={{/*\ %s\ */}}
 augroup END
 "}}}
 "}}}
