@@ -26,7 +26,10 @@ BASE16_SHELL="/usr/share/base16-shell/base16-default.dark.sh"
 ZSH_TMUX_AUTOQUIT=true
 
 # syntax highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]='none'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
 
 # python
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
@@ -54,8 +57,9 @@ plugins=(
     aws tugboat
     tmux
     docker
-    zsh-syntax-highlighting colored-man colorize web-search
+    colored-man colorize web-search
     history-substring-search
+    zsh-syntax-highlighting # syntax-highlighting plugin must be sourced last
 )
 
 # sourcing oh-my-zsh should be executed at the end
