@@ -3,6 +3,8 @@
     email = oryband@gmail.com
 [push]
     default = simple
+[init]
+	templatedir = ~/Documents/dotfiles/git-templates
 [credential]
     helper = cache --timeout=3600
 [apply]

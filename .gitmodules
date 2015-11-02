@@ -2,3 +2,6 @@
     path = .vim
     url = git@github.com:oryband/dotvim.git
     ignore = all
+[submodule "git-templates/hooks"]
+	path = git-templates/hooks
+	url = git@gist.github.com:da880c74b6b8e7433adf.git
