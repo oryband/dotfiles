@@ -35,6 +35,7 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 export VIRTUALENVWRAPPER_SCRIPT=$(which virtualenvwrapper_lazy.sh)
 export WORKON_HOME=~/.virtualenvs
+export VIRTUAL_ENV_DISABLE_PROMPT=0 # zsh plugin
 
 # ruby
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
