@@ -46,7 +46,12 @@ export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 # command not found package suggestion
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
-ZSH_THEME="kolo"
+
+# git-radar
+export PATH=$PATH:$HOME/.git-radar
+export GIT_RADAR_FORMAT="[%{$reset_color%}%{remote: }%{branch}%{ :local}%{$reset_color%}%{ :changes}%{ :stash}] "
+
+ZSH_THEME="ory"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 
