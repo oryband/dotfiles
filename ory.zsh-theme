@@ -17,10 +17,10 @@ get_pwd() {
 
 # show virtualenv if activated
 prompt_virtualenv() {
-    [[ -n $VIRTUAL_ENV && -n $VIRTUAL_ENV_DISABLE_PROMPT ]] && echo "($(basename $VIRTUAL_ENV)) "
+    [[ -n $VIRTUAL_ENV && -n $VIRTUAL_ENV_DISABLE_PROMPT ]] && echo "%{$fg_bold[white]%}($(basename $VIRTUAL_ENV)) "
 }
 
 # color prompt green if last exit code was zero, red otherwise
-local LAMBDA="%(?,%{$fg_bold[green]%}λ,%{$fg_bold[red]%}λ)"
+local STATUS_CODE="%(?,%{$fg_bold[green]%}●,%{$fg_bold[red]%}●)"
 
-PROMPT="\$(get_pwd) \$(git-radar --zsh --fetch)\$(prompt_virtualenv)${LAMBDA}%{$reset_color%} "
+PROMPT="%{$fg_bold[magenta]%}\$(get_pwd)%{$reset_color%} \$(git-radar --zsh --fetch)\$(prompt_virtualenv)${STATUS_CODE} %{$fg_bold[magenta]%}λ%{$reset_color%} "
