@@ -21,6 +21,6 @@ prompt_virtualenv() {
 }
 
 # color prompt green if last exit code was zero, red otherwise
-local STATUS_CODE="%(?,%{$fg_bold[green]%}●,%{$fg_bold[red]%}●)"
+# local STATUS_CODE="%(?,%{$fg_bold[green]%}●,%{$fg_bold[red]%}●)"
 
-PROMPT="%{$fg_bold[magenta]%}\$(get_pwd)%{$reset_color%} \$(git-radar --zsh --fetch)\$(prompt_virtualenv)${STATUS_CODE} %{$fg_bold[magenta]%}λ%{$reset_color%} "
+PROMPT="%{$fg_bold[magenta]%}\$(get_pwd)%{$reset_color%} \$(git-radar --zsh --fetch)\$(prompt_virtualenv)%{$fg_bold[magenta]%}λ%{$reset_color%} "
