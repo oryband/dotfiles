@@ -1,3 +1,4 @@
+# aliases
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 alias js="node"
@@ -5,6 +6,14 @@ alias lla="la -l"
 alias tree="tree -C"
 alias vi="vim"
 alias xclip="xclip -selection clipboard"
+# docker
+alias dr="docker run --rm --it"
+alias di="docker images"
+alias dps="docker ps -a"
+alias drm="docker rm"
+alias drmi="docker rmi"
+alias drmd="di -qf dangling=true | xargs -I {} drmi -f {} && \
+    di | grep \"^<none>\" | awk \"{print $3}\" | xargs -I {} docker rmi -f {}"
 
 # disable C-s stopping receiving keyboard signals.
 stty start undef
