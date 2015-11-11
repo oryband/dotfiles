@@ -493,6 +493,7 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter .jshintrc setfiletype javascript
     autocmd BufWinEnter .tern-config,.tern-project setfiletype json
+    autocmd BufWinEnter *.zsh-theme setfiletype zsh
 augroup END
 "}}}
 " FileType {{{
