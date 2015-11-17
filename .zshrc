@@ -6,6 +6,8 @@ alias lla="la -l"
 alias tree="tree -C"
 alias vi="vim"
 alias xclip="xclip -selection clipboard"
+# allow for multiple ssh config files
+alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config && ssh"
 # docker
 alias dr="docker run --rm -it"
 alias di="docker images"

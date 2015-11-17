@@ -1,5 +1,6 @@
 # custom
 .zsh-secrets
+.ssh/config.d/*-private
 
 # compiled source
 *.com
