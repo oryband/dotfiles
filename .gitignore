@@ -1,7 +1,7 @@
 # custom
 .zsh-secrets
 
-# Compiled source
+# compiled source
 *.com
 *.class
 *.dll
@@ -9,27 +9,27 @@
 *.o
 *.so
 
-# Vim
+# vim
 *.sw[op]
 .tags
 
-# Python
+# python
 *.py[co]
 .venv/
 .ve/
 
-# Latex
+# latex
 *.aux
 *.out
 *.dvi
 
-# Images
+# images
 *.png
 *.jpg
 *.jpeg
 *.pdf
 
-# Packages
+# packages
 *.7z
 *.dmg
 *.gz
@@ -39,12 +39,12 @@
 *.tar
 *.zip
 
-# Logs and databases
+# logs and databases
 *.log
 *.sql
 *.sqlite
 
-# OS generated files
+# os generated files
 .DS_Store
 .DS_Store?
 ._*
