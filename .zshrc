@@ -86,3 +86,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 source $ZSH/oh-my-zsh.sh
+
+# scm_breeze
+# has to come at the bottom for some unknown reason
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source $HOME/.scm_breeze/scm_breeze.sh
