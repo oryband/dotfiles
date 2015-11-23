@@ -1,6 +1,7 @@
 # aliases
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
+alias csysdig="sudo csysdig"
 alias js="node"
 alias lla="la -l"
 alias tree="tree -C"
