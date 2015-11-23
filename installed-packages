@@ -1,0 +1,170 @@
+community/acpi 1.7-1
+community/acpid 2.0.25-1
+community/archey3 0.5-4
+community/cloc 1.64-1
+community/docker 1:1.9.0-1
+community/dunst 1.1.0-1
+community/exfat-utils 1.2.0-1
+community/fuse-exfat 1.2.0-1
+community/i3lock 2.7-1 (i3)
+community/i3status 2.9-1 (i3)
+community/jq 1.5-2
+community/keepassx 0.4.3-6
+community/lsb-release 1.4-14
+community/npm 3.4.1-1
+community/openbsd-netcat 1.105_7-7
+community/os-prober 1.70-1
+community/parallel 20151022-1
+community/reflector 2014.11-2
+community/rofi 0.15.11-1
+community/rxvt-unicode 9.21-3
+community/sysdig 0.5.1-1
+community/the_silver_searcher 0.31.0-1
+community/tmux 2.1-1
+community/wireshark-gtk 2.0.0-1
+community/xautolock 2.2-4
+core/autoconf 2.69-2 (base-devel)
+core/automake 1.15-1 (base-devel)
+core/bash 4.3.042-3 (base)
+core/binutils 2.25.1-3 (base-devel)
+core/bison 3.0.4-1 (base-devel)
+core/bzip2 1.0.6-5 (base)
+core/coreutils 8.24-1 (base)
+core/cronie 1.5.0-1
+core/cryptsetup 1.7.0-1 (base)
+core/device-mapper 2.02.133-1 (base)
+core/dhcpcd 6.9.3-1 (base)
+core/dialog 1:1.2_20150920-1
+core/diffutils 3.3-2 (base)
+core/e2fsprogs 1.42.13-1 (base)
+core/fakeroot 1.20.2-1 (base-devel)
+core/file 5.25-1 (base base-devel)
+core/filesystem 2015.09-1 (base)
+core/findutils 4.4.2-6 (base base-devel)
+core/flex 2.5.39-1 (base-devel)
+core/gawk 4.1.3-1 (base base-devel)
+core/gcc 5.2.0-2 (base-devel)
+core/gcc-libs 5.2.0-2 (base)
+core/gettext 0.19.6-1 (base base-devel)
+core/glibc 2.22-3 (base)
+core/grep 2.22-1 (base base-devel)
+core/groff 1.22.3-4 (base-devel)
+core/grub 1:2.02.beta2-5
+core/gzip 1.6-1 (base base-devel)
+core/inetutils 1.9.4-2 (base)
+core/iproute2 4.1.1-1 (base)
+core/iputils 20140519.fad11dc-1 (base)
+core/iw 4.1-1
+core/jfsutils 1.1.15-4 (base)
+core/less 481-2 (base)
+core/libtool 2.4.6-3 (base-devel)
+core/licenses 20140629-1 (base)
+core/linux 4.2.5-1 (base)
+core/linux-headers 4.2.5-1
+core/logrotate 3.9.1-1 (base)
+core/lvm2 2.02.133-1 (base)
+core/m4 1.4.17-1 (base-devel)
+core/make 4.1-1 (base-devel)
+core/man-db 2.7.5-1 (base)
+core/man-pages 4.02-1 (base)
+core/mdadm 3.3.4-1 (base)
+core/nano 2.4.2-2 (base)
+core/netctl 1.11-1 (base)
+core/openssh 7.1p1-1
+core/pacman 4.2.1-4 (base base-devel)
+core/patch 2.7.5-1 (base-devel)
+core/pciutils 3.3.1-1 (base)
+core/pcmciautils 018-7 (base)
+core/perl 5.22.0-1 (base)
+core/pkg-config 0.29-1 (base-devel)
+core/procps-ng 3.3.11-2 (base)
+core/psmisc 22.21-3 (base)
+core/reiserfsprogs 3.6.24-1 (base)
+core/rfkill 0.5-1
+core/sed 4.2.2-3 (base base-devel)
+core/shadow 4.2.1-3 (base)
+core/s-nail 14.8.5-1 (base)
+core/sudo 1.8.15-1 (base-devel)
+core/sysfsutils 2.1.0-9 (base)
+core/systemd-sysvcompat 227-1 (base)
+core/tar 1.28-1 (base)
+core/texinfo 6.0-1 (base base-devel)
+core/usbutils 008-1 (base)
+core/util-linux 2.27-6 (base base-devel)
+core/vi 1:070224-2 (base)
+core/which 2.21-1 (base base-devel)
+core/wpa_actiond 1.4-2
+core/wpa_supplicant 1:2.3-1
+core/xfsprogs 4.2.0-1 (base)
+extra/adobe-source-code-pro-fonts 2.010ro+1.030it-1
+extra/alsa-utils 1.1.0-1
+extra/bind-tools 9.10.3-2
+extra/ctags 5.8-5
+extra/feh 2.14-1
+extra/geoip 1.6.6-1
+extra/git 2.6.2-1
+extra/gvim 7.4.884-1
+extra/htop 1.0.3-3
+extra/irssi 0.8.17-3
+extra/libva-intel-driver 1.6.1-1
+extra/libxslt 1.1.28-3
+extra/mesa-demos 8.2.0-5
+extra/mesa-libgl 11.0.6-1
+extra/p7zip 9.38.1-3
+extra/pkgfile 15-1
+extra/python2-pip 7.1.2-2
+extra/python-pip 7.1.2-2
+extra/tcpdump 4.7.4-1
+extra/tree 1.7.0-1
+extra/ttf-dejavu 2.34-2
+extra/unzip 6.0-11
+extra/wget 1.16.3-1
+extra/whois 5.2.7-1
+extra/xclip 0.12-4
+extra/xf86-input-synaptics 1.8.3-2 (xorg-drivers xorg)
+extra/xf86-video-intel 1:2.99.917+478+gdf72bc5-3 (xorg-drivers xorg)
+extra/xorg-luit 1.1.1-2 (xorg xorg-apps)
+extra/xorg-server 1.18.0-3 (xorg)
+extra/xorg-server-utils 7.6-4
+extra/xorg-smproxy 1.0.6-1 (xorg-apps xorg)
+extra/xorg-x11perf 1.6.0-1 (xorg-apps xorg)
+extra/xorg-xauth 1.0.9-1 (xorg-apps xorg)
+extra/xorg-xcursorgen 1.0.6-1 (xorg-apps xorg)
+extra/xorg-xdpyinfo 1.3.2-1 (xorg-apps xorg)
+extra/xorg-xdriinfo 1.0.5-1 (xorg-apps xorg)
+extra/xorg-xev 1.2.2-1 (xorg-apps xorg)
+extra/xorg-xinit 1.3.4-3
+extra/xorg-xkbevd 1.1.4-1 (xorg-apps xorg)
+extra/xorg-xkbutils 1.0.4-2 (xorg-apps xorg)
+extra/xorg-xkill 1.0.4-1 (xorg-apps xorg)
+extra/xorg-xlsatoms 1.1.2-1 (xorg-apps xorg)
+extra/xorg-xlsclients 1.1.3-1 (xorg-apps xorg)
+extra/xorg-xpr 1.0.4-2 (xorg-apps xorg)
+extra/xorg-xprop 1.2.2-1 (xorg-apps xorg)
+extra/xorg-xvinfo 1.1.3-1 (xorg-apps xorg)
+extra/xorg-xwd 1.0.6-1 (xorg-apps xorg)
+extra/xorg-xwininfo 1.1.3-1 (xorg-apps xorg)
+extra/xorg-xwud 1.0.4-2 (xorg-apps xorg)
+extra/zsh 5.1.1-2
+infinality-bundle/cairo-infinality-ultimate 1.14.4-1 (infinality-bundle)
+infinality-bundle/fontconfig-infinality-ultimate 2.11.1-30 (infinality-bundle)
+infinality-bundle/freetype2-infinality-ultimate 2.6.1-3 (infinality-bundle)
+local/base16-shell-git 64-1
+local/dtrx 7.1-3
+local/geolite2-city 20151012-1
+local/geolite2-country 20151012-1
+local/git-extras-git 3.0.0.r208.g35e1f78-1
+local/google-chrome 46.0.2490.86-1
+local/google-cloud-sdk 0.9.85-4
+local/i3-gaps-next-git 4.11.541.gc9e7288-1 (i3-vcs)
+local/i3lock-wrapper 2015.06.01.gabb2a8b-1 (i3)
+local/lnav 0.7.3-1
+local/oh-my-zsh-git 3699.22632aa-1
+local/speedometer 2.8-3
+local/tmux-cssh-git 1.0.6-1 (system)
+local/ttf-font-awesome 4.4.0-1
+local/ttf-font-icons 1.1-1
+local/ttf-ms-win8 6.3.9600.17238-1
+local/ttf-ms-win8-hebrew 6.3.9600.17238-1
+local/vim-youcompleteme-git 1553.d98298a-1 (vim-plugins)
+local/yaourt-git 1.7.20.g3c3cb6e-1
