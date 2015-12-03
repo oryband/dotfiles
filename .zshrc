@@ -2,6 +2,8 @@
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 alias csysdig="sudo csysdig"
+# tcpdump all requests made by given process
+httpdump() { sudo sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 alias js="node"
 alias lla="la -l"
 alias tree="tree -C"
