@@ -1,4 +1,4 @@
-0 */1 * * * DISPLAY=:0.0 feh --bg-scale "$(find ~/Documents/interfacelift-downloader/wallpapers/*.jpg | shuf -n1)"
+0 * * * * DISPLAY=:0.0 feh --bg-scale "$(find ~/Documents/interfacelift-downloader/wallpapers/*.jpg | shuf -n1)"
 */5 * * * * ~/Documents/dotfiles/warn-battery.sh
-11 0 * * * sudo reflector --latest 200 --protocol http --sort rate --save /etc/pacman.d/mirrorlist
-0 * * * * yaourt -Qe --nocolor | sort > $HOME/installed-packages
+0 * * * * sudo reflector --latest 200 --protocol http --sort rate --save /etc/pacman.d/mirrorlist
+0 * * * * yaourt -Qe --nocolor | sort > $HOME/Documents/dotfiles/installed-packages
