@@ -63,6 +63,9 @@ Plugin 'tpope/vim-markdown'
 " i3 {{{
 Plugin 'PotatoesMaster/i3-vim-syntax'
 "}}}
+" Nginx {{{
+Plugin 'fatih/vim-nginx'
+"}}}
 "}}}
 " Everything else {{{
 Plugin 'rking/ag.vim'
@@ -502,7 +505,7 @@ augroup MiscSettings
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical) | nmap <Leader>i <Plug>(go-info)
-    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
@@ -515,6 +518,7 @@ augroup CommentStrings
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType gohtmltmpl setlocal commentstring={{/*\ %s\ */}}
+    autocmd FileType nginx setlocal commentstring=#\ %s
 augroup END
 "}}}
 "}}}
