@@ -415,6 +415,7 @@ highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_go_checkers = [ 'gometalinter' ]
+let syntastic_go_gometalinter_args = '-t --severity gotype:warning'
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
