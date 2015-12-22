@@ -27,6 +27,9 @@ if [ -f /usr/bin/VBoxClient-all ]; then /usr/bin/VBoxClient-all; fi
 # lock desktop timer
 xautolock -time 10 -locker "i3lock-wrapper" &
 
+# toggle external screen if connected
+/usr/local/bin/external-monitor &
+
 # inital wallpaper, next wallpapers are switched by cron
 feh --bg-scale "$(find ~/Documents/interfacelift-downloader/wallpapers/*.jpg | shuf -n1)"
 
