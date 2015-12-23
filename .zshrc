@@ -89,7 +89,7 @@ plugins=(
 )
 
 # sourcing oh-my-zsh should be executed at the end
-ZSH=$HOME/.oh-my-zsh
+ZSH=/usr/share/oh-my-zsh
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 source $ZSH/oh-my-zsh.sh
