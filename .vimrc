@@ -319,6 +319,9 @@ let g:easytags_suppress_report = 1
 " FakeClip {{{
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
+" GitGutter {{{
+let g:gitgutter_max_signs = 5000
+"}}}
 " Vim-Go {{{
 let g:go_dispatch_enabled = 1
 let g:go_fmt_fail_silently = 1
@@ -415,7 +418,7 @@ highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_go_checkers = [ 'go', 'gometalinter' ]
-let syntastic_go_gometalinter_args = '-t -D testify -D test -D gofmt -D goimports -D gotype -D structcheck'
+let syntastic_go_gometalinter_args = '-t -D testify -D test -D gofmt -D goimports -D gotype -D structcheck -D dupl -D gocyclo'
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
@@ -438,7 +441,7 @@ let g:syntastic_cpp_check_header = g:syntastic_c_check_header
 let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
-let g:syntastic_go_go_build_args = '-tags="integration integrationmulti"'
+let g:syntastic_go_go_build_args = '-tags="integration"'
 let g:syntastic_go_go_test_args = g:syntastic_go_go_build_args
 "}}}
 " Tagbar {{{
