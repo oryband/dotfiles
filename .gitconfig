@@ -40,10 +40,10 @@
 
     s = status --short
 
-    d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+    d = !"git diff-index --quiet HEAD -- || clear; git diff --find-renames --patch-with-stat"
     di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
-    ds = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat --staged"
+    ds = !"git diff-index --quiet HEAD -- || clear; git diff --find-renames --patch-with-stat --staged"
     dsi = !"d() { git diff --patch-with-stat --staged HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
     sh = show --patch-with-stat
