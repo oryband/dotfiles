@@ -182,7 +182,6 @@ set nolist
 set nosmartindent
 set cindent
 syntax sync minlines=256
-set synmaxcol=128
 set lazyredraw
 set ttyfast
 
@@ -205,6 +204,12 @@ function! RegExpEnginePerFileType()
     call clearmatches()
     let langs = ["go"]
     if index(langs, &filetype) >= 0 | set regexpengine=1 | else | set regexpengine=0 | endif
+endfunc
+
+" Set maximum syntax color column.
+function! SynMaxColPerFileType()
+    let langs = ["go"]
+    if index(langs, &filetype) >= 0 | set synmaxcol=150 | else | set synmaxcol=3000 | endif
 endfunc
 
 function! StripTrailingWhitespaces()
@@ -494,7 +499,7 @@ nnoremap <leader>] :call GoToDef()<CR>
 " BufWinEnter {{{
 augroup Buf-Win-Enter
     autocmd!
-    autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType()
+    autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType() | call SynMaxColPerFileType()
     autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
