@@ -37,7 +37,7 @@ setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
 # base16
-BASE16_SHELL="/usr/share/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="/usr/share/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # tmux
