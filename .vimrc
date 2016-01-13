@@ -104,7 +104,7 @@ filetype plugin indent on
 " Colors {{{
 set background=dark
 let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-eighties
 "}}}
 " Spaces {{{
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
