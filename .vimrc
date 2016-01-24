@@ -209,7 +209,7 @@ endfunc
 " Set maximum syntax color column.
 function! SynMaxColPerFileType()
     let langs = ["go"]
-    if index(langs, &filetype) >= 0 | set synmaxcol=150 | else | set synmaxcol=3000 | endif
+    if index(langs, &filetype) >= 0 | set synmaxcol=500 | else | set synmaxcol=3000 | endif
 endfunc
 
 function! StripTrailingWhitespaces()
