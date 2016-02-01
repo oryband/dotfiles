@@ -194,9 +194,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# camera button toggles touchpad
-bindsym XF86WebCam exec $HOME/Documents/dotfiles/toggle-touchpad.sh
-
 # media
 # bindsym XF86AudioPlay exec playerctl play
 # bindsym XF86AudioPause exec playerctl pause
