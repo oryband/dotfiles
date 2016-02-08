@@ -20,6 +20,7 @@ alias drm="docker rm"
 alias drmi="docker rmi"
 alias drmd="docker images -qf dangling=true | xargs -I {} docker rmi -f {} && \
     docker images | grep \"^<none>\" | awk \"{print $3}\" | xargs -I {} docker rmi -f {}"
+alias dc="docker-compose"
 
 # expand aliases for auto-completion
 setopt no_complete_aliases
