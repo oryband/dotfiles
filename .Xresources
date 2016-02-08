@@ -1,26 +1,26 @@
-URxvt*termName:                       rxvt-unicode-256color
+URxvt*termName:             rxvt-unicode-256color
 
-URxvt*geometry:                       80x20
+URxvt*geometry:             80x20
 
-URxvt*loginShell:                     true
+URxvt*loginShell:           true
 
-URxvt*scrollBar:                      false
-URxvt*scrollTtyOutput:                false
-URxvt*scrollTtyKeypress:              true
-URxvt*scrollWithBuffer:               true
+URxvt*scrollBar:            false
+URxvt*scrollTtyOutput:      false
+URxvt*scrollTtyKeypress:    true
+URxvt*scrollWithBuffer:     true
 
-Xft*antialias:                        true
-Xft*hinting:                          true
-Xft*hintstyle:                        hintfull
+Xft*antialias:              true
+Xft*hinting:                true
+Xft*hintstyle:              hintfull
 
-URxvt*font:                           xft:Source Code Pro Light:pixelsize=18:Regular
-URxvt*boldFont:                       xft:Source Code Pro Light:pixelsize=18:Bold
-URxvt*italicFont:                     xft:Source Code Pro Light:pixelsize=18:Italic
-URxvt*boldItalicFont:                 xft:Source Code Pro Light:pixelsize=18:Bold:Italic
+URxvt*font:                 xft:Source Code Pro Light:pixelsize=18:Regular
+URxvt*boldFont:             xft:Source Code Pro Light:pixelsize=18:Bold
+URxvt*italicFont:           xft:Source Code Pro Light:pixelsize=18:Italic
+URxvt*boldItalicFont:       xft:Source Code Pro Light:pixelsize=18:Bold:Italic
 
-URxvt*intensityStyles:                false
+URxvt*intensityStyles:      false
 
-URxvt*pointerBlank:                   true
+URxvt*pointerBlank:         true
 
 ! Base16 Default
 #define base00 #181818
