@@ -18,7 +18,8 @@ alias di="docker images"
 alias dps="docker ps -a"
 alias drm="docker rm"
 alias drmi="docker rmi"
-alias drmd="docker images -qf dangling=true | xargs -I {} docker rmi -f {} && \
+alias drmd="dps | ag Exited | cut -d ' ' -f 1 | xargs -I{} docker rm {}"
+alias drmid="docker images -qf dangling=true | xargs -I {} docker rmi -f {} && \
     docker images | grep \"^<none>\" | awk \"{print $3}\" | xargs -I {} docker rmi -f {}"
 alias dc="docker-compose"
 
