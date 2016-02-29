@@ -71,6 +71,9 @@ export PATH=$PATH:$HOME/.git-radar
 export GIT_RADAR_FORMAT="[%{$reset_color%}%{remote: }%{branch}%{ :local}%{$reset_color%}%{ :changes}%{ :stash}] "
 export GIT_RADAR_MASTER_SYMBOL="m"
 
+# ssh-agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # source secret env keys, etc.
 source $HOME/.zsh-secrets
 
