@@ -7,6 +7,7 @@ tags
 /bundle/
 /undo/
 /swp/
+/view/
 
 # Stub files, so only the dir will be committed (but not the files inside).
 !/undo/.empty
