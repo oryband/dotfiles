@@ -42,9 +42,6 @@ export PROMPT_EOL_MARK=""
 BASE16_SHELL="/usr/share/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-# tmux
-ZSH_TMUX_AUTOQUIT=true
-
 # syntax highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -77,28 +74,41 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # source secret env keys, etc.
 source $HOME/.zsh-secrets
 
-ZSH_THEME="ory"
-DISABLE_AUTO_UPDATE="true"
-COMPLETION_WAITING_DOTS="true"
+# zgen
+export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
+source ${HOME}/zgen/zgen.zsh
+if ! zgen saved; then
+    echo "Creating a zgen save"
 
-plugins=(
-    archlinux systemd
-    python pip django celery virtualenv virtualenvwrapper
-    npm
-    go
-    aws tugboat
-    tmux
-    docker
-    colored-man colorize web-search
-    history-substring-search
-    zsh-syntax-highlighting # syntax-highlighting plugin must be sourced last
-)
+    zgen prezto
+    zgen prezto '*:*' color 'yes'
+    zgen prezto utility
+    zgen prezto tmux
 
-# sourcing oh-my-zsh should be executed at the end
-ZSH=/usr/share/oh-my-zsh
-ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
-source $ZSH/oh-my-zsh.sh
+    # NOTE syntax highlighting must be sourced last
+        # chrissicool/zsh-256color
+    zgen loadall <<EOPLUGINS
+        zsh-users/zsh-syntax-highlighting
+        zsh-users/zsh-history-substring-search
+        zsh-users/zsh-completions src
+EOPLUGINS
+# ^ can't indent
+
+    zgen save
+fi
+
+# theme
+get_pwd() {
+    git_root=$PWD
+    while [[ $git_root != / && ! -e $git_root/.git ]]; do git_root=$git_root:h; done
+    if [[ $git_root = $HOME || $git_root = / ]]; then unset git_root; prompt_short_dir=%~;
+    else parent=${git_root%\/*}; prompt_short_dir=${PWD#$parent/}; fi
+    echo $prompt_short_dir
+}
+prompt_virtualenv() { [[ -n $VIRTUAL_ENV && -n $VIRTUAL_ENV_DISABLE_PROMPT ]] && echo "%{$fg_bold[white]%}($(basename $VIRTUAL_ENV)) "; }
+autoload -Uz colors && colors
+setopt PROMPT_SUBST
+PROMPT="%{$fg_bold[magenta]%}\$(get_pwd)%{$reset_color%} \$(git-radar --zsh --fetch)\$(prompt_virtualenv)%{$fg_bold[magenta]%}λ%{$reset_color%} "
 
 # scm_breeze
 # has to come at the bottom for some unknown reason
