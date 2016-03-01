@@ -55,7 +55,7 @@ Plugin 'fatih/vim-go'
 "}}}
 " Docker {{{
 " Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
+Plugin 'tianon/vim-docker'
 "}}}
 " Markdown {{{
 Plugin 'tpope/vim-markdown'
