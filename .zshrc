@@ -49,10 +49,11 @@ ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
 
 # python
-export VIRTUALENVWRAPPER_PYTHON=$(which python2)
-export VIRTUALENVWRAPPER_SCRIPT=$(which virtualenvwrapper_lazy.sh)
 export WORKON_HOME=~/.virtualenvs
-export VIRTUAL_ENV_DISABLE_PROMPT=0 # zsh plugin
+export PROJECT_HOME=~/Documents
+export VIRTUALENVWRAPPER_PYTHON=$(which python2)
+export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper.sh
+source $VIRTUALENVWRAPPER_SCRIPT
 
 # ruby
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
@@ -105,7 +106,9 @@ get_pwd() {
     else parent=${git_root%\/*}; prompt_short_dir=${PWD#$parent/}; fi
     echo $prompt_short_dir
 }
-prompt_virtualenv() { [[ -n $VIRTUAL_ENV && -n $VIRTUAL_ENV_DISABLE_PROMPT ]] && echo "%{$fg_bold[white]%}($(basename $VIRTUAL_ENV)) "; }
+prompt_virtualenv() { [[ -n $VIRTUAL_ENV ]] && echo "%{$fg_bold[white]%}($(basename $VIRTUAL_ENV)) "; }
+autoload -Uz get_pwd
+autoload -Uz prompt_virtualenv
 autoload -Uz colors && colors
 setopt PROMPT_SUBST
 PROMPT="%{$fg_bold[magenta]%}\$(get_pwd)%{$reset_color%} \$(git-radar --zsh --fetch)\$(prompt_virtualenv)%{$fg_bold[magenta]%}λ%{$reset_color%} "
