@@ -12,6 +12,7 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
 export PATH=$HOME/.local/bin:$PATH
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Documents
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper.sh
 source $VIRTUALENVWRAPPER_SCRIPT
@@ -91,7 +92,7 @@ get_pwd() {
     else parent=${git_root%\/*}; prompt_short_dir=${PWD#$parent/}; fi
     echo $prompt_short_dir
 }
-prompt_virtualenv() { [[ -n $VIRTUAL_ENV ]] && echo "%{$fg_bold[white]%}($(basename $VIRTUAL_ENV)) "; }
+prompt_virtualenv() { [[ -n $VIRTUAL_ENV && -n $VIRTUAL_ENV_DISABLE_PROMPT ]] && echo "%{$fg_bold[white]%}($(basename $VIRTUAL_ENV)) "; }
 autoload -Uz get_pwd
 autoload -Uz prompt_virtualenv
 autoload -Uz colors && colors
