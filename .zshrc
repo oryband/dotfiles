@@ -9,8 +9,9 @@ ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
 
 # python
-export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=~/Documents
+export PATH=$HOME/.local/bin:$PATH
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Documents
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper.sh
 source $VIRTUALENVWRAPPER_SCRIPT
@@ -43,6 +44,8 @@ if ! zgen saved; then
 
     zgen prezto
     zgen prezto '*:*' color 'yes'
+    zgen prezto editor key-bindings 'vi'
+    zgen prezto editor dot-expansion 'yes'
     zgen prezto utility
     zgen prezto tmux
 
@@ -51,7 +54,6 @@ if ! zgen saved; then
     zgen loadall <<EOPLUGINS
         djui/alias-tips
         supercrabtree/k
-        zgen load chrissicool/zsh-256color
         zsh-users/zsh-syntax-highlighting
         zsh-users/zsh-history-substring-search
         zsh-users/zsh-completions src
