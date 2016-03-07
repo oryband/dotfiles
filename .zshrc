@@ -46,6 +46,7 @@ if ! zgen saved; then
     zgen prezto '*:*' color 'yes'
     zgen prezto editor key-bindings 'vi'
     zgen prezto editor dot-expansion 'yes'
+    zgen prezto environment
     zgen prezto utility
     zgen prezto tmux
 
@@ -74,6 +75,13 @@ export PROMPT_EOL_MARK=""
 unsetopt CORRECT  # no autocorrection
 setopt PROMPT_SUBST  # prompt substitution
 setopt COMPLETE_ALIASES  # don't expand aliases _before_ completion has finished, like: git comm-[tab]
+
+# history substring search
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # theme
 get_pwd() {
