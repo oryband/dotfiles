@@ -1,3 +1,5 @@
+# credits github.com/sorin-ionescu/prezto
+
 # base16
 BASE16_SHELL="/usr/share/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -37,34 +39,20 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # source secret env keys, etc.
 source $HOME/.zsh-secrets
 
-# zgen
-export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
-source ${HOME}/zgen/zgen.zsh
-if ! zgen saved; then
-    echo "Creating a zgen save"
-
-    zgen prezto
-    zgen prezto '*:*' color 'yes'
-    zgen prezto editor key-bindings 'vi'
-    zgen prezto editor dot-expansion 'yes'
-    zgen prezto environment
-    zgen prezto utility
-    zgen prezto tmux
-
-    # NOTE syntax highlighting must be sourced last
-        # chrissicool/zsh-256color
-    zgen loadall <<EOPLUGINS
-        djui/alias-tips
-        supercrabtree/k
-        zsh-users/zsh-syntax-highlighting
-        zsh-users/zsh-history-substring-search
-        zsh-users/zsh-completions src
-EOPLUGINS
-# ^ can't indent
-
-    zgen save
-fi
-
+# zplug
+source $HOME/.zplug/zplug
+zplug "b4b4r07/zplug"  # don't forget to zplug update --self && zplug update
+zplug "sorin-ionescu/prezto", of:init.zsh, do:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
+zstyle ':prezto:*:*' color 'yes'
+zstyle ':prezto:load' pmodule 'environment' 'utility' 'tmux' # 'editor' is slow
+zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:editor' dot-expansion 'yes'
+zplug "djui/alias-tips"
+zplug "supercrabtree/k"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-completions", of:src
+zplug load
 
 setopt no_complete_aliases  # expand aliases for auto-completion
 stty start undef  # disable C-s stopping receiving keyboard signals.

@@ -5,6 +5,7 @@
 [submodule "git-templates/hooks"]
 	path = usr/share/git-core/templates/hooks
 	url = git@gist.github.com:da880c74b6b8e7433adf.git
-[submodule "zgen"]
-	path = zgen
-	url = git@github.com:tarjoilija/zgen.git
+[submodule ".zplug"]
+	path = .zplug
+	url = https://github.com/b4b4r07/zplug
+    ignore = dirty
