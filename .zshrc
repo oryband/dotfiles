@@ -29,7 +29,6 @@ export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # git-radar
-export PATH=$PATH:$HOME/.git-radar
 export GIT_RADAR_FORMAT="[%{$reset_color%}%{remote: }%{branch}%{ :local}%{$reset_color%}%{ :changes}%{ :stash}] "
 export GIT_RADAR_MASTER_SYMBOL="m"
 
@@ -47,11 +46,13 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule 'environment' 'utility' 'tmux' # 'editor' is slow
 zstyle ':prezto:module:editor' key-bindings 'vi'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
+zplug "michaeldfallen/git-radar", as:command
+zplug "ndbroadbent/scm_breeze", do:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions", of:src
+zplug "zsh-users/zsh-syntax-highlighting", nice: 10
+zplug "zsh-users/zsh-history-substring-search", nice: 11
 zplug load
 
 setopt no_complete_aliases  # expand aliases for auto-completion
