@@ -87,10 +87,6 @@ autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 PROMPT="%{$fg_bold[magenta]%}\$(get_pwd)%{$reset_color%} \$(git-radar --zsh --fetch)\$(prompt_virtualenv)%{$fg_bold[magenta]%}λ%{$reset_color%} "
 
-# scm_breeze
-# has to come at the bottom for some unknown reason
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source $HOME/.scm_breeze/scm_breeze.sh
-
 # aliases
 alias ll="k"  # overriding scm_breeze
 alias ag="ag --smart-case --follow --group"
@@ -116,3 +112,6 @@ alias drmd="dps | grep -e Exited -e Created | cut -d ' ' -f 1 | xargs -I{} docke
 alias drmid="docker images -qf dangling=true | xargs -I {} docker rmi -f {} && \
     docker images | grep \"^<none>\" | awk \"{print $3}\" | xargs -I {} docker rmi -f {}"
 alias dc="docker-compose"
+
+# scm_breeze
+[ -s "/home/ory/.scm_breeze/scm_breeze.sh" ] && source "/home/ory/.scm_breeze/scm_breeze.sh"
