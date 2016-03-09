@@ -5,14 +5,14 @@ source $HOME/.zplug/zplug
 zplug "b4b4r07/zplug"  # don't forget to zplug update --self && zplug update
 zplug "sorin-ionescu/prezto", of:init.zsh, do:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
 zstyle ':prezto:*:*' color 'yes'
-zstyle ':prezto:load' pmodule 'environment' 'utility' 'tmux' # 'editor' is slow
-zstyle ':prezto:module:editor' key-bindings 'vi'
-zstyle ':prezto:module:editor' dot-expansion 'yes'
+zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux'
+zstyle ':prezto:module:terminal' auto-title 'yes'
 zplug "michaeldfallen/git-radar", as:command, of:git-radar
 zplug "ndbroadbent/scm_breeze", do:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
 zplug "zsh-users/zsh-completions", of:src
+zplug "zsh-users/zsh-autosuggestions", nice: 9
 zplug "zsh-users/zsh-syntax-highlighting", nice: 10
 zplug "zsh-users/zsh-history-substring-search", nice: 11
 zplug load
@@ -28,6 +28,21 @@ export PROMPT_EOL_MARK=""
 unsetopt CORRECT  # no autocorrection
 setopt PROMPT_SUBST  # prompt substitution
 setopt COMPLETE_ALIASES  # don't expand aliases _before_ completion has finished, like: git comm-[tab]
+
+# vi mode
+bindkey -v
+# export KEYTIMEOUT=1  # 100 ms vim mode change key timeout
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^b' backward-word
+bindkey '^f' forward-word
+bindkey '^p' up-history  # Use vim cli mode
+bindkey '^n' down-history
+bindkey '^?' backward-delete-char  # backspace and ^h working even after returning from command mode
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word  # ctrl-w removed word backwards
+bindkey '^r' history-incremental-search-backward  # ctrl-r starts searching history backward
 
 # theme
 get_pwd() {
