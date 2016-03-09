@@ -1,0 +1,4 @@
+#!/bin/sh
+BLUETOOTH=0
+WIFI=1
+[ "$(</sys/class/rfkill/rfkill$WIFI/state)" = "1" ] && rfkill block $WIFI || rfkill unblock $WIFI

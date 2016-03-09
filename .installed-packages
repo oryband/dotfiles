@@ -3,6 +3,7 @@ community/acpid
 community/android-tools
 community/android-udev
 community/cloc
+community/connman
 community/docker
 community/docker-compose
 community/dunst
@@ -18,6 +19,7 @@ community/openbsd-netcat
 community/os-prober
 community/pandoc
 community/parallel
+community/powertop
 community/reflector
 community/rofi
 community/rxvt-unicode
@@ -38,7 +40,6 @@ core/coreutils (base)
 core/cronie
 core/cryptsetup (base)
 core/device-mapper (base)
-core/dhcpcd (base)
 core/dialog
 core/diffutils (base)
 core/e2fsprogs (base)
@@ -74,7 +75,6 @@ core/man-db (base)
 core/man-pages (base)
 core/mdadm (base)
 core/nano (base)
-core/netctl (base)
 core/net-tools
 core/openssh
 core/pacman (base base-devel)
@@ -119,6 +119,7 @@ extra/libva-intel-driver
 extra/libxslt
 extra/mesa-demos
 extra/mesa-libgl
+extra/mtr
 extra/p7zip
 extra/pkgfile
 extra/python2-pip
