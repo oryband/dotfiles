@@ -12,9 +12,9 @@ zplug "ndbroadbent/scm_breeze", do:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/ins
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
 zplug "zsh-users/zsh-completions", of:src
-zplug "zsh-users/zsh-autosuggestions", nice: 9
-zplug "zsh-users/zsh-syntax-highlighting", nice: 10
-zplug "zsh-users/zsh-history-substring-search", nice: 11
+zplug "zsh-users/zsh-autosuggestions", nice: 1
+zplug "zsh-users/zsh-syntax-highlighting", nice: 2
+zplug "zsh-users/zsh-history-substring-search", nice: 3
 zplug load
 
 # options
