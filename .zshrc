@@ -8,7 +8,7 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule 'environment' 'utility' 'tmux' # 'editor' is slow
 zstyle ':prezto:module:editor' key-bindings 'vi'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
-zplug "michaeldfallen/git-radar", as:command
+zplug "michaeldfallen/git-radar", as:command, of:git-radar
 zplug "ndbroadbent/scm_breeze", do:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
