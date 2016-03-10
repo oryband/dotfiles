@@ -3,7 +3,6 @@ community/acpid
 community/android-tools
 community/android-udev
 community/cloc
-community/connman
 community/docker
 community/docker-compose
 community/dunst
@@ -28,6 +27,7 @@ community/stow
 community/sysdig
 community/the_silver_searcher
 community/tmux
+community/wavemon
 community/wireshark-gtk
 community/xautolock
 core/autoconf (base-devel)
@@ -40,6 +40,7 @@ core/coreutils (base)
 core/cronie
 core/cryptsetup (base)
 core/device-mapper (base)
+core/dhcpcd (base)
 core/dialog
 core/diffutils (base)
 core/e2fsprogs (base)
@@ -75,6 +76,7 @@ core/man-db (base)
 core/man-pages (base)
 core/mdadm (base)
 core/nano (base)
+core/netctl (base)
 core/net-tools
 core/openssh
 core/pacman (base base-devel)
@@ -111,6 +113,7 @@ extra/geoip
 extra/git
 extra/gvim
 extra/htop
+extra/ifplugd
 extra/irssi
 extra/java-runtime-common
 extra/jre8-openjdk-headless
