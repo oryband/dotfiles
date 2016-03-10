@@ -11,10 +11,10 @@ zplug "michaeldfallen/git-radar", as:command, of:git-radar
 zplug "ndbroadbent/scm_breeze", do:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
-zplug "zsh-users/zsh-completions", of:src
-zplug "zsh-users/zsh-autosuggestions", nice: 1
-zplug "zsh-users/zsh-syntax-highlighting", nice: 2
-zplug "zsh-users/zsh-history-substring-search", nice: 3
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions", of:src, nice:-20
+zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
+zplug "zsh-users/zsh-history-substring-search", nice:19
 zplug load
 
 # options
