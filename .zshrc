@@ -114,6 +114,7 @@ alias agl="ag --pager less"
 alias gl="g l"
 alias gd="g d"
 alias gds="g ds"
+alias gsh="g sh"
 # tcpdump all requests made by given process
 alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
