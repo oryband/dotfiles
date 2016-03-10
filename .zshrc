@@ -111,6 +111,9 @@ source $HOME/.zsh-secrets
 alias ll="k"  # overriding scm_breeze
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
+alias gl="g l"
+alias gd="g d"
+alias gds="g ds"
 # tcpdump all requests made by given process
 alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
