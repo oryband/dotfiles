@@ -138,25 +138,26 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
+    i3bar_command $HOME/.lemonbar.sh
+#     status_command i3status
 
-    position top
+#     position top
 
-    mode hide
-    hidden_state hide
-    modifier Mod4
+#     mode hide
+#     hidden_state hide
+#     modifier Mod4
 
-    strip_workspace_numbers yes
+#     strip_workspace_numbers yes
 
-    colors {
-        background #151515
-        statusline #505050
-        separator #303030
-        focused_workspace  #c7a3c0 #aa759f #ffffff
-        active_workspace   #aa759f #303030 #ffffff
-        inactive_workspace #505050 #303030 #707070
-        urgent_workspace   #c86f70 #ac4142 #ffffff
-    }
+#     colors {
+#         background #151515
+#         statusline #505050
+#         separator #303030
+#         focused_workspace  #c7a3c0 #aa759f #ffffff
+#         active_workspace   #aa759f #303030 #ffffff
+#         inactive_workspace #505050 #303030 #707070
+#         urgent_workspace   #c86f70 #ac4142 #ffffff
+#     }
 }
 
 # startup
