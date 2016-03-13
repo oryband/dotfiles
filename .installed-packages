@@ -12,6 +12,7 @@ community/i3lock (i3)
 community/i3status (i3)
 community/jq
 community/keepassx
+community/libvdpau-va-gl
 community/lsb-release
 community/npm
 community/openbsd-netcat
@@ -27,6 +28,7 @@ community/stow
 community/sysdig
 community/the_silver_searcher
 community/tmux
+community/vdpauinfo
 community/wavemon
 community/wireshark-gtk
 community/xautolock
@@ -175,7 +177,7 @@ local/i3lock-wrapper (i3)
 local/lnav
 local/playerctl
 local/spotify
-local/tmux-cssh-git (system)
+local/tmux-cssh-git
 local/ttf-font-awesome
 local/ttf-font-icons
 local/ttf-ms-win8
