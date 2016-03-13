@@ -2,6 +2,7 @@ community/acpi
 community/acpid
 community/android-tools
 community/android-udev
+community/ccache
 community/cloc
 community/docker
 community/docker-compose
