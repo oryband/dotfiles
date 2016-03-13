@@ -108,25 +108,30 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 source $HOME/.zsh-secrets
 
 # aliases
-alias ll="k"  # overriding scm_breeze
+alias l="k -h"
+alias ll="l"  # override scm_breeze
+alias la="l -A"  # override scm_breeze
+
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
+
 alias gl="g l"
 alias gll="g ll"
 alias gd="g d"
 alias gds="g ds"
 alias gsh="g sh"
+
+alias js="node"
+alias tree="tree -C"
+alias vi="vim"
+alias xclip="xclip -selection clipboard"
+alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config && ssh"  # allow for multiple ssh config files
+
 # tcpdump all requests made by given process
 alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
-alias js="node"
-alias lla="la -l"
-alias tree="tree -C"
-alias vi="vim"
-alias xclip="xclip -selection clipboard"
-# allow for multiple ssh config files
-alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config && ssh"
+
 # docker
 alias dr="docker run --rm -it"
 alias di="docker images"
