@@ -112,6 +112,7 @@ alias ll="k"  # overriding scm_breeze
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 alias gl="g l"
+alias gll="g ll"
 alias gd="g d"
 alias gds="g ds"
 alias gsh="g sh"
