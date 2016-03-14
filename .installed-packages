@@ -178,6 +178,8 @@ local/i3lock-wrapper (i3)
 local/js-beautify
 local/lnav
 local/playerctl
+local/redshift-git
+local/redshift-gtk-git
 local/spotify
 local/tmux-cssh-git
 local/ttf-font-awesome
