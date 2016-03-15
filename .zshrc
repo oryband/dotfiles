@@ -85,9 +85,6 @@ export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper.sh
 source $VIRTUALENVWRAPPER_SCRIPT
 
-# ruby
-export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
-
 # go
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
