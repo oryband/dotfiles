@@ -110,6 +110,8 @@ core/xfsprogs (base)
 extra/adobe-source-code-pro-fonts
 extra/alsa-utils
 extra/bind-tools
+extra/bluez
+extra/bluez-utils
 extra/ctags
 extra/feh
 extra/geoip
