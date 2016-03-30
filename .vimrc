@@ -14,7 +14,7 @@ set nocompatible
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 "}}}
 " Sane defaults {{{
 Plugin 'tpope/vim-sensible'
@@ -69,6 +69,7 @@ Plugin 'fatih/vim-nginx'
 "}}}
 " Everything else {{{
 Plugin 'rking/ag.vim'
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'camelcasemotion'
 Plugin 'kien/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
@@ -213,14 +214,6 @@ function! SynMaxColPerFileType()
     let langs = ["go"]
     if index(langs, &filetype) >= 0 | set synmaxcol=500 | else | set synmaxcol=3000 | endif
 endfunc
-
-function! StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfunction
-command! StripTrailingWhitespaces call StripTrailingWhitespaces()
 "}}}
 " Folding {{{
 set foldenable
@@ -278,6 +271,9 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#branch#displayed_head_limit = 15
 "}}}
+" Autoformat {{{
+nmap <Leader>f ;Autoformat<CR>
+"}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -332,6 +328,8 @@ let g:gitgutter_max_signs = 5000
 " Vim-Go {{{
 let g:go_dispatch_enabled = 1
 let g:go_fmt_fail_silently = 1
+let g:go_fmt_autosave = 0
+" let g:go_fmt_experimental = 1
 " let g:go_textobj_enabled = 1
 
 " let g:go_highlight_array_whitespace_error = 1
@@ -510,12 +508,17 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
 augroup END
 "}}}
+" BufWrite {{{
+augroup Buf-Write
+    au BufWrite *.go,*.py,*.js,*.json,*.html :Autoformat
+augroup END
+"}}}
 " FileType {{{
 augroup MiscSettings
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical) | nmap <Leader>i <Plug>(go-info) | nmap <Leader>f ;GoFmt<CR>
+    autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical) | nmap <Leader>i <Plug>(go-info)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
