@@ -4,6 +4,7 @@
 source $HOME/.zplug/zplug
 zplug "b4b4r07/zplug"  # don't forget to zplug update --self && zplug update
 zplug "sorin-ionescu/prezto", of:init.zsh, do:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
+zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux'
 zstyle ':prezto:module:terminal' auto-title 'yes'
@@ -18,15 +19,17 @@ zplug "zsh-users/zsh-history-substring-search", nice:19
 zplug load
 
 # options
-setopt no_complete_aliases  # expand aliases for auto-completion
-stty start undef  # disable C-s stopping receiving keyboard signals.
-stty stop undef
-setopt NO_NOMATCH  # stop zsh from catching ^ chars.
-setopt PROMPT_CR  # hide annoying '%' sign.
-setopt PROMPT_SP
-export PROMPT_EOL_MARK=""
-unsetopt CORRECT  # no autocorrection
+zstyle ':completion:*' menu select
+# stty start undef  # disable C-s stopping receiving keyboard signals.
+# stty stop undef
+# setopt NO_NOMATCH  # stop zsh from catching ^ chars.
+# setopt PROMPT_CR  # hide annoying '%' sign.
+# setopt PROMPT_SP
+# export PROMPT_EOL_MARK=""
+unsetopt CORRECT  # no autocorrection suggestions
+setopt MENU_COMPLETE  # select first menu option automatically
 setopt PROMPT_SUBST  # prompt substitution
+# setopt NO_COMPLETE_ALIASES  # expand aliases for auto-completion
 setopt COMPLETE_ALIASES  # don't expand aliases _before_ completion has finished, like: git comm-[tab]
 
 # vi mode
