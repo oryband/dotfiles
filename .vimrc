@@ -62,6 +62,9 @@ Plug 'vitalk/vim-shebang'
 " Plug 'ekalinin/Dockerfile.vim'
 Plug 'tianon/vim-docker', { 'for': 'dockerfile' }
 "}}}
+" Ansible {{{
+Plug 'MicahElliott/Rocannon', { 'for': 'ansible' }
+"}}}
 " Markdown {{{
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "}}}
