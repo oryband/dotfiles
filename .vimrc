@@ -9,98 +9,98 @@
 " viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 "}}}
 " Plugins {{{
-" Init Vundle {{{
+" Init vim-plug {{{
 set nocompatible
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
 "}}}
 " Sane defaults {{{
-Plugin 'tpope/vim-sensible'
-Plugin 'kana/vim-fakeclip'
+Plug 'tpope/vim-sensible'
+Plug 'kana/vim-fakeclip'
 "}}}
 " Colors {{{
-Plugin 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 "}}}
 " Languages {{{
 " HTML {{{
-Plugin 'matchit.zip'
-Plugin 'othree/html5.vim'
+Plug 'matchit.zip', { 'for': 'html' }
+Plug 'othree/html5.vim', { 'for': 'html' }
 "}}}
 " Templates {{{
-Plugin 'lepture/vim-jinja'
-Plugin 'tpope/vim-liquid'
+Plug 'lepture/vim-jinja', { 'for': 'jinja' }
+Plug 'tpope/vim-liquid', { 'for': 'liquid' }
 "}}}
 " CSS {{{
-Plugin 'wavded/vim-stylus'
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 "}}}
 " Javascript {{{
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'elzr/vim-json'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
+Plug 'elzr/vim-json', { 'for': 'javascript' }
 "}}}
 " Python {{{
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'hdima/python-syntax'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'jmcantrell/vim-virtualenv'
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 "}}}
 " Ruby {{{
-Plugin 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 "}}}
 " Go {{{
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 "}}}
 " Docker {{{
-" Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'tianon/vim-docker'
+" Plug 'ekalinin/Dockerfile.vim'
+Plug 'tianon/vim-docker', { 'for': 'dockerfile' }
 "}}}
 " Markdown {{{
-Plugin 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "}}}
 " i3 {{{
-Plugin 'PotatoesMaster/i3-vim-syntax'
+Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
 "}}}
 " Nginx {{{
-Plugin 'fatih/vim-nginx'
+Plug 'fatih/vim-nginx', { 'for': 'nginx' }
 "}}}
 "}}}
 " Everything else {{{
-Plugin 'rking/ag.vim'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'camelcasemotion'
-Plugin 'kien/ctrlp.vim'
-Plugin 'd11wtq/ctrlp_bdelete.vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'IndexedSearch'
-Plugin 'Konfekt/FastFold'
-Plugin 'Valloric/ListToggle'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-commentary'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'xolox/vim-easytags'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'xolox/vim-misc'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'justinmk/vim-sneak'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'papanikge/vim-voogle'
-Plugin 'regedarek/ZoomWin'
+Plug 'rking/ag.vim'
+Plug 'Chiel92/vim-autoformat'
+Plug 'camelcasemotion'
+Plug 'kien/ctrlp.vim'
+Plug 'd11wtq/ctrlp_bdelete.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'IndexedSearch'
+Plug 'Konfekt/FastFold'
+Plug 'Valloric/ListToggle'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/syntastic'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-easy-align'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'papanikge/vim-voogle'
+Plug 'regedarek/ZoomWin'
 " YCM is installed via the pacman
-"Plugin 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 "}}}
-" Finish Init Vundle {{{
-call vundle#end()
-filetype plugin indent on
+" Finish Init vim-plug {{{
+call plug#end()
 "}}}
 "}}}
 " Options {{{

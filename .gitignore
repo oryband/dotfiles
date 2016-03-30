@@ -1,13 +1,14 @@
-# ctags.
+/autoload/plug.vim
+/plugged
+
 tags
 .tags
 .vimtags
 
 # Vim backup, undo, swp folders.
-/bundle/
-/undo/
-/swp/
-/view/
+/undo
+/swp
+/view
 
 # Stub files, so only the dir will be committed (but not the files inside).
 !/undo/.empty
