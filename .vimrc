@@ -55,6 +55,9 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " Go {{{
 Plug 'fatih/vim-go', { 'for': 'go' }
 "}}}
+" sh,bash,zsh {{{
+Plug 'vitalk/vim-shebang'
+"}}}
 " Docker {{{
 " Plug 'ekalinin/Dockerfile.vim'
 Plug 'tianon/vim-docker', { 'for': 'dockerfile' }
@@ -256,7 +259,13 @@ set nostartofline
 set splitbelow splitright
 set hidden
 set title
+"}}}
+" Languages {{{
+" sh,bash,zsh {{{
+let g:sh_fold_enabled = 3
+let g:zsh_fold_enable = 1
 let g:is_bash=1
+"}}}
 "}}}
 "}}}
 " Plugin configurations {{{
