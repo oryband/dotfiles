@@ -2,6 +2,7 @@ community/acpi
 community/acpid
 community/android-tools
 community/android-udev
+community/atop
 community/ccache
 community/cloc
 community/docker
@@ -11,6 +12,7 @@ community/evtest
 community/exfat-utils
 community/i3lock (i3)
 community/i3status (i3)
+community/iotop
 community/jq
 community/keepassx
 community/libvdpau-va-gl
@@ -27,6 +29,7 @@ community/rxvt-unicode
 community/shutter
 community/stow
 community/sysdig
+community/sysstat
 community/the_silver_searcher
 community/tmux
 community/vdpauinfo
@@ -132,6 +135,7 @@ extra/p7zip
 extra/pkgfile
 extra/python2-pip
 extra/python-pip
+extra/ruby
 extra/tcpdump
 extra/transmission-gtk
 extra/tree
