@@ -6,31 +6,31 @@ zplug "b4b4r07/zplug"  # don't forget to zplug update --self && zplug update
 zplug "sorin-ionescu/prezto", of:init.zsh, do:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
-zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux'
+zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux' 'completion'
 zstyle ':prezto:module:terminal' auto-title 'yes'
 zplug "michaeldfallen/git-radar", as:command, of:git-radar
 zplug "ndbroadbent/scm_breeze", do:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions", of:src, nice:-20
+# zplug "zsh-users/zsh-completions", of:src, nice:-20
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
 zplug "zsh-users/zsh-history-substring-search", nice:19
 zplug load
 
 # options
-zstyle ':completion:*' menu select
-# stty start undef  # disable C-s stopping receiving keyboard signals.
-# stty stop undef
+setopt COMPLETE_ALIASES  # don't expand aliases _before_ completion has finished, like: git comm-[tab]
+setopt MENU_COMPLETE  # select first menu option automatically
+setopt PROMPT_SUBST  # prompt substitution
+unsetopt CORRECT  # no autocorrection suggestions
+# zstyle ':completion:*' menu select
+# export PROMPT_EOL_MARK=""
+# setopt NO_COMPLETE_ALIASES  # expand aliases for auto-completion
 # setopt NO_NOMATCH  # stop zsh from catching ^ chars.
 # setopt PROMPT_CR  # hide annoying '%' sign.
 # setopt PROMPT_SP
-# export PROMPT_EOL_MARK=""
-unsetopt CORRECT  # no autocorrection suggestions
-setopt MENU_COMPLETE  # select first menu option automatically
-setopt PROMPT_SUBST  # prompt substitution
-# setopt NO_COMPLETE_ALIASES  # expand aliases for auto-completion
-setopt COMPLETE_ALIASES  # don't expand aliases _before_ completion has finished, like: git comm-[tab]
+# stty start undef  # disable C-s stopping receiving keyboard signals.
+# stty stop undef
 
 # vi mode
 bindkey -v
