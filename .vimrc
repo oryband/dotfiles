@@ -56,7 +56,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 "}}}
 " sh,bash,zsh {{{
-Plug 'vitalk/vim-shebang'
+Plug 'vitalk/vim-shebang' ", { 'for': ['sh', 'zsh', 'csh', 'ash', 'dash', 'ksh', 'pdksh', 'mksh', 'tcsh'] }
 "}}}
 " Docker {{{
 " Plug 'ekalinin/Dockerfile.vim'
