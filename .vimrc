@@ -79,7 +79,7 @@ Plug 'fatih/vim-nginx', { 'for': 'nginx' }
 Plug 'rking/ag.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'camelcasemotion'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'd11wtq/ctrlp_bdelete.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'IndexedSearch'
