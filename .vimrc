@@ -438,6 +438,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_loc_list = 2
 
 let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = 'E'
+let g:syntastic_warning_symbol = 'W'
+let g:syntastic_style_warning_symbol = 'SW'
+let g:syntastic_style_error_symbol = 'SE'
 highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['flake8', 'pep257']
