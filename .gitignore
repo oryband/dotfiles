@@ -5,6 +5,8 @@ tags
 .tags
 .vimtags
 
+.netrwhist
+
 # Vim backup, undo, swp folders.
 /undo
 /swp
