@@ -94,7 +94,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
@@ -345,9 +345,6 @@ let g:easytags_suppress_report = 1
 " FakeClip {{{
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
-" GitGutter {{{
-let g:gitgutter_max_signs = 5000
-"}}}
 " Vim-Go {{{
 let g:go_dispatch_enabled = 1
 let g:go_fmt_fail_silently = 1
@@ -400,6 +397,9 @@ let python_highlight_all = 1
 "}}}
 " Repeat {{{
 silent! call repeat#set("\<Plug>.", v:count)
+"}}}
+" Signify {{{
+let g:signify_vcs_list = [ 'git' ]
 "}}}
 " Sneak {{{
 highlight link SneakPluginTarget Visual
