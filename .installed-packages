@@ -115,6 +115,7 @@ extra/alsa-utils
 extra/bind-tools
 extra/bluez
 extra/bluez-utils
+extra/cmake
 extra/ctags
 extra/feh
 extra/geoip
@@ -193,6 +194,5 @@ local/ttf-font-icons
 local/ttf-ms-win8
 local/ttf-ms-win8-hebrew
 local/urxvt-font-size-git
-local/vim-youcompleteme-git (vim-plugins)
 local/yaourt-git
 multilib/steam
