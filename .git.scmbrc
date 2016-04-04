@@ -24,7 +24,7 @@ export GIT_REPO_DIR="$HOME/Documents"
 export GIT_REPOS=""
 export git_status_command="git_status_shortcuts"
 # Alias
-git_index_alias="c"    # Switch to a repo in the (c)ode directory
+# git_index_alias="c"    # Switch to a repo in the (c)ode directory
 
 
 # Git Aliases
