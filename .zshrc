@@ -19,7 +19,6 @@ zplug "junegunn/fzf", as:command, of:bin/fzf-tmux
 zplug "junegunn/fzf-bin", as:command, from:gh-r, file:fzf, of:"*linux*amd64*" \
 | zplug "b4b4r07/enhancd", of:enhancd.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-autosuggestions"
-# zplug "zsh-users/zsh-completions", of:src, nice:-20
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
 zplug "zsh-users/zsh-history-substring-search", nice:19
 
