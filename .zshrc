@@ -123,6 +123,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 source $HOME/.zsh-secrets
 
 # aliases
+alias c="cd"
 alias l="k -h"
 alias ll="l"  # override scm_breeze
 alias la="l -A"  # override scm_breeze
