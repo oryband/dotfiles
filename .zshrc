@@ -3,19 +3,26 @@
 # zplug
 source $HOME/.zplug/zplug
 zplug "b4b4r07/zplug"  # don't forget to zplug update --self && zplug update
-zplug "sorin-ionescu/prezto", of:init.zsh, do:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
+
+zplug "sorin-ionescu/prezto", of:init.zsh, nice:1, do:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux' 'completion'
 zstyle ':prezto:module:terminal' auto-title 'yes'
+
 zplug "michaeldfallen/git-radar", as:command, of:git-radar
 zplug "ndbroadbent/scm_breeze", do:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
+zplug "Tarrasch/zsh-bd", of:bd.zsh
+zplug "junegunn/fzf", as:command, of:bin/fzf-tmux
+zplug "junegunn/fzf-bin", as:command, from:gh-r, file:fzf, of:"*linux*amd64*" \
+| zplug "b4b4r07/enhancd", of:enhancd.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-autosuggestions"
 # zplug "zsh-users/zsh-completions", of:src, nice:-20
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
 zplug "zsh-users/zsh-history-substring-search", nice:19
+
 zplug load
 
 # options
@@ -78,6 +85,9 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+# enhancd
+if zplug check b4b4r07/enhancd; then export ENHANCD_FILTER=fzf-tmux; fi
 
 # python
 export PATH=$HOME/.local/bin:$PATH
