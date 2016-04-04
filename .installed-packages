@@ -120,6 +120,7 @@ extra/ctags
 extra/feh
 extra/geoip
 extra/git
+extra/gvim
 extra/htop
 extra/ifplugd
 extra/irssi
@@ -141,7 +142,6 @@ extra/transmission-gtk
 extra/tree
 extra/ttf-dejavu
 extra/unzip
-extra/vim
 extra/wget
 extra/whois
 extra/xclip
