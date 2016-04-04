@@ -86,7 +86,10 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # enhancd
-if zplug check b4b4r07/enhancd; then export ENHANCD_FILTER=fzf-tmux; fi
+if zplug check b4b4r07/enhancd; then
+    export ENHANCD_FILTER=fzf-tmux
+    export ENHANCD_DISABLE_HYPHEN=1
+fi
 
 # python
 export PATH=$HOME/.local/bin:$PATH
