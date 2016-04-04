@@ -88,6 +88,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 # enhancd
 if zplug check b4b4r07/enhancd; then
     export ENHANCD_FILTER=fzf-tmux
+    export ENHANCD_DISABLE_DOT=1
     export ENHANCD_DISABLE_HYPHEN=1
 fi
 
