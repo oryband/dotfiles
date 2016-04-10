@@ -25,18 +25,13 @@ zplug "zsh-users/zsh-history-substring-search", nice:19
 zplug load
 
 # options
+stty start undef  # disable C-s stopping receiving keyboard signals.
+stty stop undef
 setopt COMPLETE_ALIASES  # don't expand aliases _before_ completion has finished, like: git comm-[tab]
-setopt MENU_COMPLETE  # select first menu option automatically
-setopt PROMPT_SUBST  # prompt substitution
 unsetopt CORRECT  # no autocorrection suggestions
-# zstyle ':completion:*' menu select
-# export PROMPT_EOL_MARK=""
-# setopt NO_COMPLETE_ALIASES  # expand aliases for auto-completion
-# setopt NO_NOMATCH  # stop zsh from catching ^ chars.
-# setopt PROMPT_CR  # hide annoying '%' sign.
-# setopt PROMPT_SP
-# stty start undef  # disable C-s stopping receiving keyboard signals.
-# stty stop undef
+setopt MENU_COMPLETE  # select first menu option automatically
+setopt NO_NOMATCH  # stop zsh from catching ^ chars.
+setopt PROMPT_SUBST  # prompt substitution
 
 # vi mode
 bindkey -v
