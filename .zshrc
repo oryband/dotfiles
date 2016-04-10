@@ -120,6 +120,7 @@ source $HOME/.zsh-secrets
 
 # aliases
 alias c="cd"
+alias c-="c -"
 alias l="k -h"
 alias ll="l"  # override scm_breeze
 alias la="l -A"  # override scm_breeze
