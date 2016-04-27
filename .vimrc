@@ -512,7 +512,7 @@ let g:ycm_server_python_interpreter = '/usr/bin/python'  " required for loading 
 " Call YCM/Go/js GoTo depending on file type.
 function! GoToDef()
     if &ft == 'go'
-        call go#def#Jump()
+        call go#def#Jump('')
     elseif &ft == 'javascript'
         execute 'TernDef'
     else
