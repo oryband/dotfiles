@@ -296,6 +296,7 @@ let g:airline#extensions#branch#displayed_head_limit = 15
 "}}}
 " Autoformat {{{
 nmap <Leader>f ;Autoformat<CR>
+let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
 "}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
@@ -429,7 +430,16 @@ omap T <Plug>Sneak_T
 "}}}
 " Syntastic {{{
 " noremap <silent> <Leader>c :echo "Checking..."<CR> :SyntasticCheck<CR>
-" let g:syntastic_mode_map = { "mode": "passive" }
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+let g:syntastic_filetype_map = {
+            \ 'ansible': 'yaml',
+            \ 'jinja': 'html',
+            \ 'liquid': 'html',
+            \ 'stylus': 'css',
+            \ 'scss': 'css',
+            \ 'less': 'css'
+            \ }
 
 let g:syntastic_id_checkers = 0
 let g:syntastic_aggregate_errors = 1
@@ -445,19 +455,13 @@ let g:syntastic_style_error_symbol = 'SE'
 highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['flake8', 'pep257']
-let g:syntastic_go_checkers = [ 'go', 'gometalinter' ]
-let syntastic_go_gometalinter_args = '-t -D testify -D test -D gofmt -D goimports -D gotype -D structcheck -D dupl -D gocyclo -D aligncheck'
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
-let g:syntastic_filetype_map = {
-            \ 'ansible': 'yaml',
-            \ 'jinja': 'html',
-            \ 'liquid': 'html',
-            \ 'stylus': 'css',
-            \ 'scss': 'css',
-            \ 'less': 'css'
-            \ }
+let g:syntastic_go_checkers = [ 'go', 'gometalinter' ]
+let syntastic_go_gometalinter_args = '-t -D testify -D test -D gofmt -D goimports -D gotype -D structcheck -D dupl -D gocyclo -D aligncheck'
+let g:syntastic_go_go_build_args = '-tags="integration"'
+let g:syntastic_go_go_test_args = g:syntastic_go_go_build_args
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
 let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
@@ -469,8 +473,6 @@ let g:syntastic_cpp_check_header = g:syntastic_c_check_header
 let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
-let g:syntastic_go_go_build_args = '-tags="integration"'
-let g:syntastic_go_go_test_args = g:syntastic_go_go_build_args
 "}}}
 " Tagbar {{{
 nnoremap <silent> <Leader>g :TagbarToggle<CR>
