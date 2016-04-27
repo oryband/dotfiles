@@ -103,6 +103,7 @@ core/sysfsutils (base)
 core/systemd-sysvcompat (base)
 core/tar (base)
 core/texinfo (base base-devel)
+core/traceroute
 core/usbutils (base)
 core/util-linux (base base-devel)
 core/vi (base)
