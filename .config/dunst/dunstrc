@@ -142,7 +142,7 @@
     browser = /usr/bin/firefox -new-tab
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = right
 
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
