@@ -2,9 +2,9 @@
 
 # zplug
 source $HOME/.zplug/zplug
-zplug "b4b4r07/zplug"  # don't forget to zplug update --self && zplug update
+zplug "b4b4r07/zplug", nice:1  # don't forget to zplug update --self && zplug update
 
-zplug "sorin-ionescu/prezto", use:init.zsh, nice:1, hook-build:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
+zplug "sorin-ionescu/prezto", use:init.zsh, nice:2, hook-build:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux' 'completion'
@@ -15,9 +15,9 @@ zplug "ndbroadbent/scm_breeze", hook-build:"$ZPLUG_HOME/repos/ndbroadbent/scm_br
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
 zplug "Tarrasch/zsh-bd", use:bd.zsh
-zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
-zplug "b4b4r07/enhancd", on:"junegunn/fzf-bin", use:enhancd.sh, nice:17  # after prezto
+zplug "junegunn/fzf", on:"junegunn/fzf-bin", as:command, use:"bin/fzf-tmux"
+zplug "b4b4r07/enhancd", on:"junegunn/fzf", use:enhancd.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
 zplug "zsh-users/zsh-history-substring-search", nice:19
