@@ -4,20 +4,20 @@
 source $HOME/.zplug/zplug
 zplug "b4b4r07/zplug"  # don't forget to zplug update --self && zplug update
 
-zplug "sorin-ionescu/prezto", of:init.zsh, nice:1, do:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
+zplug "sorin-ionescu/prezto", use:init.zsh, nice:1, hook-build:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux' 'completion'
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
-zplug "michaeldfallen/git-radar", as:command, of:git-radar
-zplug "ndbroadbent/scm_breeze", do:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
+zplug "michaeldfallen/git-radar", as:command, use:git-radar
+zplug "ndbroadbent/scm_breeze", hook-build:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
-zplug "Tarrasch/zsh-bd", of:bd.zsh
-zplug "junegunn/fzf", as:command, of:bin/fzf-tmux
-zplug "junegunn/fzf-bin", as:command, from:gh-r, file:fzf, of:"*linux*amd64*" \
-| zplug "b4b4r07/enhancd", of:enhancd.sh, nice:17  # after prezto
+zplug "Tarrasch/zsh-bd", use:bd.zsh
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
+zplug "b4b4r07/enhancd", on:"junegunn/fzf-bin", use:enhancd.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
 zplug "zsh-users/zsh-history-substring-search", nice:19
