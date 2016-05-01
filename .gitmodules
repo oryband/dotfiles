@@ -8,4 +8,4 @@
 [submodule ".zplug"]
     path = .zplug
     url = https://github.com/b4b4r07/zplug
-    ignore = dirty
+    ignore = all
