@@ -352,6 +352,7 @@ let g:go_fmt_fail_silently = 1
 let g:go_fmt_autosave = 0
 " let g:go_fmt_experimental = 1
 " let g:go_textobj_enabled = 1
+let g:go_guru_tags = 'integration'
 
 " let g:go_highlight_array_whitespace_error = 1
 " let g:go_highlight_build_constraints = 1
@@ -460,7 +461,7 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_go_checkers = [ 'go', 'gometalinter' ]
 let syntastic_go_gometalinter_args = '-t -D testify -D test -D gofmt -D goimports -D gotype -D structcheck -D dupl -D gocyclo -D aligncheck'
-let g:syntastic_go_go_build_args = '-tags="integration"'
+let g:syntastic_go_go_build_args = '-tags="'+g:go_guru_tags+'"'
 let g:syntastic_go_go_test_args = g:syntastic_go_go_build_args
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
