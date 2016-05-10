@@ -461,7 +461,7 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_go_checkers = [ 'go', 'gometalinter' ]
 let syntastic_go_gometalinter_args = '-t -D testify -D test -D gofmt -D goimports -D gotype -D structcheck -D dupl -D gocyclo -D aligncheck'
-let g:syntastic_go_go_build_args = '-tags="'+g:go_guru_tags+'"'
+let g:syntastic_go_go_build_args = '-tags="'.g:go_guru_tags.'"'
 let g:syntastic_go_go_test_args = g:syntastic_go_go_build_args
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
