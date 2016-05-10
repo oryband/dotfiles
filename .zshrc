@@ -16,8 +16,8 @@ zplug "djui/alias-tips"
 zplug "supercrabtree/k"
 zplug "Tarrasch/zsh-bd", use:bd.zsh
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
-zplug "junegunn/fzf", on:"junegunn/fzf-bin", as:command, use:"bin/fzf-tmux"
-zplug "b4b4r07/enhancd", on:"junegunn/fzf", use:enhancd.sh, nice:17  # after prezto
+zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
+zplug "b4b4r07/enhancd", use:enhancd.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
 zplug "zsh-users/zsh-history-substring-search", nice:19
