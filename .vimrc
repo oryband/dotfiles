@@ -41,7 +41,7 @@ Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
-Plug 'elzr/vim-json', { 'for': 'javascript' }
+Plug 'elzr/vim-json', { 'for': ['json', 'javascript'] }
 "}}}
 " Python {{{
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
