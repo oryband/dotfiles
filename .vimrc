@@ -294,6 +294,8 @@ let g:airline#extensions#branch#displayed_head_limit = 15
 " Autoformat {{{
 nmap <Leader>f ;Autoformat<CR>
 let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
+let g:formatters_python = ['yapf']
+let g:formatter_yapf_style = 'pep8'
 "}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
@@ -452,7 +454,7 @@ let g:syntastic_style_warning_symbol = 'SW'
 let g:syntastic_style_error_symbol = 'SE'
 highlight link SyntasticStyleErrorSign Todo
 
-let g:syntastic_python_checkers = ['flake8', 'pep257']
+let g:syntastic_python_checkers = ['pylint', 'pep8', 'pydocstyle']
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
