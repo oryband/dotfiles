@@ -104,16 +104,16 @@ Plug 'regedarek/ZoomWin'
 
 function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.force
-        !./install.py --gocode-completer --tern-completer
+        !python2 install.py --gocode-completer --tern-completer
     endif
 endfunction
 " load YCM on first insert command
-Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': function('BuildYCM') }
-augroup load_us_ycm
-    autocmd!
-    autocmd InsertEnter * call plug#load('YouCompleteMe')
-                \| call youcompleteme#Enable() | autocmd! load_us_ycm
-augroup END
+Plug 'Valloric/YouCompleteMe', {
+            \ 'for': [ 'vim', 'python', 'go', 'json', 'sh', 'zsh' ],
+            \ 'do': function('BuildYCM')
+            \ }
+
+autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 "}}}
 " Finish Init vim-plug {{{
 call plug#end()
@@ -509,7 +509,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_server_python_interpreter = '/usr/bin/python'  " required for loading plugin on demand
+" let g:ycm_server_python_interpreter = '/usr/bin/python'  " required for loading plugin on demand
 
 " Call YCM/Go/js GoTo depending on file type.
 function! GoToDef()
