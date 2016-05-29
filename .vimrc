@@ -26,6 +26,9 @@ Plug 'kana/vim-fakeclip'
 Plug 'chriskempson/base16-vim'
 "}}}
 " Languages {{{
+" Indent {{{
+Plug 'tweekmonster/braceless.vim', { 'for': [ 'python', 'ruby', 'yaml' ] }
+"}}}
 " HTML {{{
 Plug 'matchit.zip', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -44,7 +47,6 @@ Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript'] }
 "}}}
 " Python {{{
-Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
@@ -543,6 +545,7 @@ augroup END
 augroup MiscSettings
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
+    autocmd FileType python,ruby,yaml BracelessEnable +indent
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical) | nmap <Leader>i <Plug>(go-info)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
