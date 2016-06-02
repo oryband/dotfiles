@@ -6,7 +6,6 @@ community/atop
 community/ccache
 community/cloc
 community/docker
-community/docker-compose
 community/dunst
 community/evtest
 community/exfat-utils
@@ -64,6 +63,7 @@ core/grep (base base-devel)
 core/groff (base-devel)
 core/grub
 core/gzip (base base-devel)
+core/hdparm
 core/inetutils (base)
 core/iproute2 (base)
 core/iputils (base)
@@ -179,11 +179,14 @@ local/base16-shell-git
 local/geolite2-city
 local/geolite2-country
 local/git-extras-git
+local/glide-bin
 local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
 local/i3lock-wrapper (i3)
 local/js-beautify
+local/laptop-mode-tools-git
+local/libcouchbase
 local/lnav
 local/playerctl
 local/redshift-git
