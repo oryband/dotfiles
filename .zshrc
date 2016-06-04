@@ -100,10 +100,10 @@ source $VIRTUALENVWRAPPER_SCRIPT
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 
 # go
-unset GOROOT
+export GOROOT=$HOME/Documents/golang/go1.6.2
 export GOPATH=$HOME/.golang/go1.6.2
-export PATH=$HOME/Documents/golang/go1.6.2/bin:$GOPATH/bin:$PATH
-alias go1.6.2=$HOME/Documents/golang/go1.6.2/bin/go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+alias go1.6.2=$GOROOT/go
 alias go=go1.6.2
 
 # command not found package suggestion
