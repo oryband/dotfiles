@@ -1,0 +1,142 @@
+community/acpi
+community/ccache
+community/cloc
+community/docker
+community/i3lock (i3)
+community/i3status (i3)
+community/iotop
+community/jq
+community/lsb-release
+community/nodejs
+community/powertop
+community/reflector
+community/rofi
+community/rxvt-unicode
+community/stow
+community/the_silver_searcher
+community/tmux
+community/virtualbox-guest-dkms
+community/virtualbox-guest-utils
+community/wireshark-gtk
+core/autoconf (base-devel)
+core/automake (base-devel)
+core/bash (base)
+core/binutils (base-devel)
+core/bison (base-devel)
+core/bzip2 (base)
+core/coreutils (base)
+core/cronie
+core/cryptsetup (base)
+core/device-mapper (base)
+core/dhcpcd (base)
+core/diffutils (base)
+core/e2fsprogs (base)
+core/fakeroot (base-devel)
+core/file (base base-devel)
+core/filesystem (base)
+core/findutils (base base-devel)
+core/flex (base-devel)
+core/gawk (base base-devel)
+core/gcc (base-devel)
+core/gcc-libs (base)
+core/gettext (base base-devel)
+core/glibc (base)
+core/grep (base base-devel)
+core/groff (base-devel)
+core/grub
+core/gzip (base base-devel)
+core/inetutils (base)
+core/iproute2 (base)
+core/iputils (base)
+core/jfsutils (base)
+core/less (base)
+core/libtool (base-devel)
+core/licenses (base)
+core/linux (base)
+core/linux-headers
+core/logrotate (base)
+core/lvm2 (base)
+core/m4 (base-devel)
+core/make (base-devel)
+core/man-db (base)
+core/man-pages (base)
+core/mdadm (base)
+core/nano (base)
+core/netctl (base)
+core/net-tools
+core/openssh
+core/pacman (base base-devel)
+core/patch (base-devel)
+core/pciutils (base)
+core/pcmciautils (base)
+core/perl (base)
+core/pkg-config (base-devel)
+core/procps-ng (base)
+core/psmisc (base)
+core/reiserfsprogs (base)
+core/sed (base base-devel)
+core/shadow (base)
+core/s-nail (base)
+core/sudo (base-devel)
+core/sysfsutils (base)
+core/systemd-sysvcompat (base)
+core/tar (base)
+core/texinfo (base base-devel)
+core/usbutils (base)
+core/util-linux (base base-devel)
+core/vi (base)
+core/which (base base-devel)
+core/xfsprogs (base)
+extra/adobe-source-code-pro-fonts
+extra/alsa-utils
+extra/bc
+extra/bind-tools
+extra/cmake
+extra/ctags
+extra/feh
+extra/fontforge
+extra/geoip
+extra/git
+extra/gnu-netcat
+extra/htop
+extra/mercurial
+extra/mtr
+extra/pkgfile
+extra/python2-pip
+extra/python-pip
+extra/tidy
+extra/tree
+extra/unzip
+extra/vim
+extra/wget
+extra/whois
+extra/xclip
+extra/xorg-server-utils
+extra/xorg-xfontsel
+extra/xorg-xinit
+extra/zsh
+infinality-bundle/cairo-infinality-ultimate (infinality-bundle)
+infinality-bundle/fontconfig-infinality-ultimate (infinality-bundle)
+infinality-bundle/freetype2-infinality-ultimate (infinality-bundle)
+infinality-bundle-multilib/lib32-cairo-infinality-ultimate (infinality-bundle-multilib)
+infinality-bundle-multilib/lib32-fontconfig-infinality-ultimate (infinality-bundle-multilib)
+infinality-bundle-multilib/lib32-freetype2-infinality-ultimate (infinality-bundle-multilib)
+local/base16-shell-git
+local/git-extras
+local/glxinfo
+local/google-chrome
+local/google-cloud-sdk
+local/i3-gaps-next-git (i3-vcs)
+local/i3lock-wrapper (i3)
+local/js-beautify
+local/lnav
+local/package-query-git
+local/spotify
+local/tmux-cssh-git
+local/ttf-font-awesome
+local/ttf-font-icons
+local/ttf-ms-win8
+local/ttf-ms-win8-hebrew
+local/urxvt-font-size-git
+local/vtop
+local/yaourt-git
