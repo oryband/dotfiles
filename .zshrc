@@ -104,7 +104,7 @@ export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 export GOROOT=$HOME/Documents/golang/go1.6.2
 export GOPATH=$HOME/.golang/go1.6.2
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-alias go1.6.2=$GOROOT/go
+alias go1.6.2=$GOROOT/bin/go
 alias go=go1.6.2
 
 # command not found package suggestion
