@@ -116,6 +116,9 @@ export GIT_RADAR_MASTER_SYMBOL="m"
 # scm_breeze
 [ -s "/home/ory/.scm_breeze/scm_breeze.sh" ] && source "/home/ory/.scm_breeze/scm_breeze.sh"
 
+# travis
+[ -f /home/ory/.travis/travis.sh ] && source /home/ory/.travis/travis.sh
+
 # ssh-agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
