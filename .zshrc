@@ -127,20 +127,16 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 source $HOME/.zsh-secrets
 
 # aliases
+
 alias c="cd"
 alias c-="c -"
+
 alias l="k -h"
 alias ll="l"  # override scm_breeze
 alias la="l -A"  # override scm_breeze
 
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
-
-alias gl="g l"
-alias gll="g ll"
-alias gd="g d"
-alias gds="g ds"
-alias gsh="g sh"
 
 alias js="node"
 alias tree="tree -C"
@@ -152,6 +148,26 @@ alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config && ssh"  # allow for multiple s
 alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
+
+# git
+alias gl="g l"
+alias gll="g ll"
+alias glt="g lt"
+
+alias gd="g d"
+alias gdi="g di"
+alias gds="g ds"
+alias gdsi="g dsi"
+
+alias gsh="g sh"
+
+alias gbs="g bs"
+alias gbdr="g bdr"
+alias gprune="g prune"
+
+alias gst="g st"
+alias gsl="g sl"
+alias gsp="g sp"
 
 # docker
 alias dr="docker run --rm -it"
