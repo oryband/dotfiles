@@ -163,6 +163,7 @@ alias gsh="g sh"
 
 alias gbs="g bs"
 alias gbdr="g bdr"
+alias gbdm="g bdm"
 alias gprune="g prune"
 
 alias gst="g st"
