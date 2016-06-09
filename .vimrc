@@ -104,7 +104,7 @@ Plug 'regedarek/ZoomWin'
 
 function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.force
-        !python2 install.py --gocode-completer --tern-completer
+        !python install.py --gocode-completer --tern-completer
     endif
 endfunction
 " load YCM on first insert command
@@ -509,7 +509,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
-" let g:ycm_server_python_interpreter = '/usr/bin/python'  " required for loading plugin on demand
 
 " Call YCM/Go/js GoTo depending on file type.
 function! GoToDef()
