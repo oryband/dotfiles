@@ -58,7 +58,7 @@
     b = branch
     bd = branch --delete
     bdf = branch -D
-    bs = branches
+    bs = branch --remote
     bdr = !"git-delete-branch $@"
     bdm = !"git-delete-merged-branches"
     prune = remote update origin --prune
