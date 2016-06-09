@@ -299,6 +299,9 @@ let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
 let g:formatters_python = ['yapf']
 let g:formatter_yapf_style = 'pep8'
 "}}}
+" Braceless {{{
+let g:braceless_line_continuation = 0
+"}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -435,7 +438,6 @@ omap T <Plug>Sneak_T
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 let g:syntastic_filetype_map = {
-            \ 'ansible': 'yaml',
             \ 'jinja': 'html',
             \ 'liquid': 'html',
             \ 'stylus': 'css',
@@ -544,7 +546,7 @@ augroup END
 augroup MiscSettings
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
-    autocmd FileType python,ruby,yaml BracelessEnable +indent
+    autocmd FileType python,ruby BracelessEnable +indent
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical) | nmap <Leader>i <Plug>(go-info)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
