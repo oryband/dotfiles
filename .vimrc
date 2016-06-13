@@ -511,6 +511,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_python_binary_path = 'python'  " support virtualenv
 
 " Call YCM/Go/js GoTo depending on file type.
 function! GoToDef()
