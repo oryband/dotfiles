@@ -296,8 +296,6 @@ let g:airline#extensions#branch#displayed_head_limit = 15
 " Autoformat {{{
 nmap <Leader>f ;Autoformat<CR>
 let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
-let g:formatters_python = ['yapf']
-let g:formatter_yapf_style = 'pep8'
 "}}}
 " Braceless {{{
 let g:braceless_line_continuation = 0
@@ -540,7 +538,7 @@ augroup END
 "}}}
 " BufWrite {{{
 augroup Buf-Write
-    au BufWrite *.go,*.py,*.js,*.json,*.html :Autoformat
+    au BufWrite *.go,*.js,*.json,*.html :Autoformat
 augroup END
 "}}}
 " FileType {{{
