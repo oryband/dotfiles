@@ -155,11 +155,12 @@ alias gll="g ll"
 alias glt="g lt"
 
 alias gd="g d"
-alias gdi="g di"
 alias gds="g ds"
-alias gdsi="g dsi"
+alias gdc="g dc"
+alias gdcs="g dcs"
 
 alias gsh="g sh"
+alias gshc="g shc"
 
 alias gbs="g bs"
 alias gbdr="g bdr"

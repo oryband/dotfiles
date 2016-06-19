@@ -27,6 +27,8 @@
     added = yellow
     changed = green
     untracked = cyan
+[diff]
+    renames = true
 [merge]
     log = true
 [rebase]
@@ -40,13 +42,16 @@
 
     s = status --short
 
-    d = !"git diff-index --quiet HEAD -- || clear; git diff --find-renames --irreversible-delete --patch-with-stat"
-    di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+    # line diff highlight
+    d  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat"
+    ds = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --staged "
 
-    ds = !"git diff-index --quiet HEAD -- || clear; git diff --find-renames --irreversible-delete --patch-with-stat --staged"
-    dsi = !"d() { git diff --patch-with-stat --staged HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+    # char diff highlight
+    dc  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'"
+    dcs = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+' --staged "
 
-    sh = show --patch-with-stat --find-renames
+    sh = show --irreversible-delete --patch-with-stat
+    shc = show --irreversible-delete --patch-with-stat --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
 
     c = commit --verbose
 
@@ -61,6 +66,7 @@
     bs = branch --remote
     bdr = !"git-delete-branch $@"
     bdm = !"git-delete-merged-branches"
+
     prune = remote update origin --prune
 
     undopush = push --force origin HEAD^:master
