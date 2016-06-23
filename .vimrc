@@ -55,7 +55,7 @@ Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 "}}}
 " Go {{{
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': ['go', 'gohtmltmpl'] }
 "}}}
 " sh,bash,zsh {{{
 Plug 'vitalk/vim-shebang' ", { 'for': ['sh', 'zsh', 'csh', 'ash', 'dash', 'ksh', 'pdksh', 'mksh', 'tcsh'] }
