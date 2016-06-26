@@ -29,6 +29,16 @@ URxvt.keysym.C-0x2d:        font-size:decrease
 ! URxvt.keysym.C-S-Up:        font-size:incglobal
 ! URxvt.keysym.C-S-Down:      font-size:decglobal
 
+rofi.width: 50
+rofi.lines: 5
+rofi.font: Source Code Pro Light 18
+rofi.hlbg: base02
+rofi.bc: base09
+rofi.bw: 3
+rofi.loc: 0
+rofi.fixed-num-lines: true
+rofi.terminal: x-terminal-emulator
+
 ! Base16 Default
 ! #define base00 #181818
 ! #define base01 #282828
@@ -103,13 +113,3 @@ URxvt.keysym.C-0x2d:        font-size:decrease
 ! white
 *color7: #6C7A80
 *color15: #C5C8C6
-
-rofi.width: 50
-rofi.lines: 5
-rofi.font: Source Code Pro Light 18
-rofi.hlbg: base02
-rofi.bc: base09
-rofi.bw: 3
-rofi.loc: 0
-rofi.fixed-num-lines: true
-rofi.terminal: x-terminal-emulator
