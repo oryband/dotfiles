@@ -542,7 +542,7 @@ augroup END
 "}}}
 " BufWrite {{{
 augroup Buf-Write
-    au BufWrite *.go,*.js,*.json,*.html :Autoformat
+    au BufWrite *.go,*.json,*.html :Autoformat
 augroup END
 "}}}
 " FileType {{{
