@@ -20,6 +20,7 @@ zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
 zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
 zplug "github/hub", from:gh-r, as:command, use:"*linux*64*"
 zplug "digitalocean/doctl", from:gh-r, as:command, use:"*linux*amd64*.tar.gz"
+zplug "chriskempson/base16-shell", use:"base16-eighties.dark.sh"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
 zplug "zsh-users/zsh-history-substring-search", nice:19
@@ -64,10 +65,6 @@ autoload -Uz prompt_virtualenv
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 PROMPT="%{$fg_bold[magenta]%}\$(get_pwd)%{$reset_color%} \$(git-radar --zsh --fetch)\$(prompt_virtualenv)%{$fg_bold[magenta]%}λ%{$reset_color%} "
-
-# base16
-BASE16_SHELL="/usr/share/base16-shell/base16-eighties.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # syntax highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
