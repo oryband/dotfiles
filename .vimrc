@@ -23,7 +23,8 @@ Plug 'tpope/vim-sensible'
 Plug 'kana/vim-fakeclip'
 "}}}
 " Colors {{{
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'w0ng/vim-hybrid'
 "}}}
 " Languages {{{
 " Indent {{{
@@ -122,8 +123,11 @@ call plug#end()
 " Options {{{
 " Colors {{{
 set background=dark
-let base16colorspace=256
-colorscheme base16-eighties
+" let base16colorspace=256
+" colorscheme base16-eighties
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+colorscheme hybrid
 "}}}
 " Spaces {{{
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
