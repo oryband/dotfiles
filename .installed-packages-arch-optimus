@@ -135,6 +135,8 @@ extra/mesa-libgl
 extra/mtr
 extra/p7zip
 extra/pkgfile
+extra/pulseaudio
+extra/pulseaudio-alsa
 extra/python2-pip
 extra/python-pip
 extra/ruby

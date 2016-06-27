@@ -1,0 +1,10 @@
+argparse
+ipython
+packaging
+path.py
+pep8
+pydocstyle
+pylint
+virtualenvwrapper
+wsgiref
+yapf
