@@ -99,7 +99,6 @@ extra/geoip
 extra/git
 extra/gnu-netcat
 extra/htop
-extra/mercurial
 extra/mtr
 extra/pkgfile
 extra/python2-pip
