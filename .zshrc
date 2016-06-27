@@ -160,7 +160,7 @@ alias gdcs="g dcs"
 alias gsh="g sh"
 alias gshc="g shc"
 
-alias gbs="g bs"
+alias gbr="g br"
 alias gbdr="g bdr"
 alias gbdm="g bdm"
 alias gprune="g prune"

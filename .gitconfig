@@ -63,7 +63,7 @@
     b = branch
     bd = branch --delete
     bdf = branch -D
-    bs = branch --remote
+    br = branch --remote
     bdr = !"git-delete-branch $@"
     bdm = !"git-delete-merged-branches"
 
