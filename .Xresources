@@ -86,7 +86,7 @@ rofi.terminal: x-terminal-emulator
 ! *.color20:      base04
 ! *.color21:      base06
 
-# hybrid
+! hybrid
 *background: #232C31
 *foreground: #C5C8C6
 ! black
