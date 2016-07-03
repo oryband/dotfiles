@@ -148,6 +148,15 @@ alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 
 # git
+alias g="git"
+
+alias gs="scmpuff_status"
+alias ga="g a"
+alias gc="g c"
+alias gps="g ps"
+alias gco="g co"
+alias grs="g rs"
+
 alias gl="g l"
 alias gll="g ll"
 alias glt="g lt"

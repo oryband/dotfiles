@@ -36,11 +36,14 @@
     autostash = true
     missingCommitsCheck = warn
 [alias]
+    a = add
+    ps = push
+    rs = reset
+    c = commit --verbose
+
     l = log --oneline --graph
     ll = log --graph
-    lt = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-
-    s = status --short
+    lt = log --graph --abbrev-commit --decorate --date=relative --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
 
     # line diff highlight
     d  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat"
@@ -53,12 +56,8 @@
     sh = show --irreversible-delete --patch-with-stat
     shc = show --irreversible-delete --patch-with-stat --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
 
-    c = commit --verbose
-
     co = checkout
     cb = checkout -b
-
-    tags = tag --list
 
     b = branch
     bd = branch --delete
@@ -67,10 +66,10 @@
     bdr = !"git-delete-branch $@"
     bdm = !"git-delete-merged-branches"
 
-    prune = remote update origin --prune
-
-    undopush = push --force origin HEAD^:master
-
     st = stash
     sl = stash list
     sp = stash pop
+
+    tags = tag --list
+    prune = remote update origin --prune
+    undopush = push --force origin HEAD^:master
