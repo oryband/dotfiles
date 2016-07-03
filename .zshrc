@@ -10,18 +10,18 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux' 'completion'
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
-zplug "michaeldfallen/git-radar", as:command, use:git-radar
-zplug "mroth/scmpuff", from:gh-r, as:command, use:"*linux*amd64*.tar.gz"
-zplug "djui/alias-tips"
-zplug "supercrabtree/k"
 zplug "Tarrasch/zsh-bd", use:bd.zsh
-zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
-zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
-zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
-zplug "github/hub", from:gh-r, as:command, use:"*linux*64*"
-zplug "digitalocean/doctl", from:gh-r, as:command, use:"*linux*amd64*.tar.gz"
 zplug "chriskempson/base16-shell", use:"scripts/base16-eighties.sh"
+zplug "digitalocean/doctl", from:gh-r, use:"*linux*amd64*", as:command
+zplug "djui/alias-tips"
+zplug "github/hub", from:gh-r, use:"*linux*amd*", as:command
+zplug "junegunn/fzf", use:"bin/fzf-tmux", as:command
+zplug "junegunn/fzf-bin", from:gh-r, use:"*linux*amd64*", rename-to:"fzf", as:command
+zplug "michaeldfallen/git-radar", use:git-radar, as:command
+zplug "mroth/scmpuff", from:gh-r, use:"*linux*amd64*.tar.gz", as:command
+zplug "supercrabtree/k"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
 zplug "zsh-users/zsh-history-substring-search", nice:19
 
