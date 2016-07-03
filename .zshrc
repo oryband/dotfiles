@@ -11,7 +11,7 @@ zstyle ':prezto:load' pmodule 'environment' 'history' 'terminal' 'utility' 'tmux
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
 zplug "michaeldfallen/git-radar", as:command, use:git-radar
-zplug "ndbroadbent/scm_breeze", hook-build:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
+zplug "mroth/scmpuff", from:gh-r, as:command, use:"*linux*amd64*.tar.gz"
 zplug "djui/alias-tips"
 zplug "supercrabtree/k"
 zplug "Tarrasch/zsh-bd", use:bd.zsh
@@ -112,8 +112,8 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 export GIT_RADAR_FORMAT="[%{$reset_color%}%{remote: }%{branch}%{ :local}%{$reset_color%}%{ :changes}%{ :stash}] "
 export GIT_RADAR_MASTER_SYMBOL="m"
 
-# scm_breeze
-[ -s "/home/ory/.scm_breeze/scm_breeze.sh" ] && source "/home/ory/.scm_breeze/scm_breeze.sh"
+# scm_puff
+eval "$(scmpuff init -s)"
 
 # travis
 [ -f /home/ory/.travis/travis.sh ] && source /home/ory/.travis/travis.sh
