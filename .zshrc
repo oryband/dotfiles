@@ -151,13 +151,15 @@ httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 alias g="git"
 
 alias gs="scmpuff_status"
-alias ga="g a"
+alias ga="g add"
 alias gc="g c"
 alias gps="g ps"
 alias gpl="g pl"
 alias gf="g f"
+alias grs="g reset"
+
 alias gco="g co"
-alias grs="g rs"
+alias gcb="g cb"
 
 alias gl="g l"
 alias gll="g ll"
