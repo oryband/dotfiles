@@ -38,6 +38,8 @@
 [alias]
     a = add
     ps = push
+    pl = pull
+    f = fetch
     rs = reset
     c = commit --verbose
 

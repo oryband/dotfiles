@@ -154,6 +154,8 @@ alias gs="scmpuff_status"
 alias ga="g a"
 alias gc="g c"
 alias gps="g ps"
+alias gpl="g pl"
+alias gf="g f"
 alias gco="g co"
 alias grs="g rs"
 
