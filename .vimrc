@@ -79,7 +79,6 @@ Plug 'rking/ag.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'camelcasemotion'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'd11wtq/ctrlp_bdelete.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'IndexedSearch'
 Plug 'Konfekt/FastFold'
@@ -315,12 +314,12 @@ let g:ctrlp_map = '<Leader>p'
 noremap <silent> <Leader>b :CtrlPBuffer<CR>
 noremap <silent> <Leader>t :CtrlPTag<CR>
 let g:ctrlp_prompt_mappings = {
-            \ 'PrtSelectMove("j")': ['<c-n>'],
-            \ 'PrtSelectMove("k")': ['<c-p>'],
+            \ 'PrtDeleteEnt()': ['<c-@>'],
             \ 'PrtHistory(-1)':  ['<c-j>'],
             \ 'PrtHistory(1)': ['<c-k>'],
+            \ 'PrtSelectMove("j")': ['<c-n>'],
+            \ 'PrtSelectMove("k")': ['<c-p>'],
             \ }
-call ctrlp_bdelete#init()
 "}}}
 " EasyAlign {{{
 vmap <Leader>a <Plug>(EasyAlign)
