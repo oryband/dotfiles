@@ -22,6 +22,7 @@ zplug "mroth/scmpuff", from:gh-r, use:"*linux*amd64*.tar.gz", as:command
 zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
 zplug "supercrabtree/k"
 zplug "stedolan/jq", from:gh-r, as:command, rename-to:jq
+zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
@@ -122,6 +123,9 @@ eval "$(scmpuff init -s)"
 
 # ssh-agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# git-extras
+export PATH=$HOME/.git-extras:$PATH
 
 # source secret env keys, etc.
 source $HOME/.zsh-secrets
