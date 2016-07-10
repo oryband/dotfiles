@@ -12,7 +12,6 @@ community/exfat-utils
 community/i3lock (i3)
 community/i3status (i3)
 community/iotop
-community/jq
 community/keepassx
 community/libvdpau-va-gl
 community/lsb-release
@@ -177,11 +176,8 @@ extra/zsh
 infinality-bundle/cairo-infinality-ultimate (infinality-bundle)
 infinality-bundle/fontconfig-infinality-ultimate (infinality-bundle)
 infinality-bundle/freetype2-infinality-ultimate (infinality-bundle)
-local/base16-shell-git
 local/geolite2-city
 local/geolite2-country
-local/git-extras-git
-local/glide-bin
 local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
@@ -189,12 +185,10 @@ local/i3lock-wrapper (i3)
 local/js-beautify
 local/laptop-mode-tools-git
 local/libcouchbase
-local/lnav
 local/playerctl
 local/redshift-git
 local/redshift-gtk-git
 local/spotify
-local/tmux-cssh-git
 local/ttf-font-awesome
 local/ttf-font-icons
 local/ttf-ms-win8
