@@ -12,18 +12,18 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 
 zplug "Tarrasch/zsh-bd", use:bd.zsh
 zplug "chriskempson/base16-shell", use:"scripts/base16-eighties.sh"
+zplug "dennishafemann/tmux-cssh", use:"tmux-cssh", as:command
 zplug "digitalocean/doctl", from:gh-r, use:"*linux*amd64*", as:command
 zplug "djui/alias-tips"
 zplug "github/hub", from:gh-r, use:"*linux*amd*", as:command
 zplug "junegunn/fzf", use:"bin/fzf-tmux", as:command
 zplug "junegunn/fzf-bin", from:gh-r, use:"*linux*amd64*", rename-to:"fzf", as:command
+zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
 zplug "michaeldfallen/git-radar", use:git-radar, as:command
 zplug "mroth/scmpuff", from:gh-r, use:"*linux*amd64*.tar.gz", as:command
-zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
-zplug "supercrabtree/k"
 zplug "stedolan/jq", from:gh-r, as:command, rename-to:jq
+zplug "supercrabtree/k"
 zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
-zplug "dennishafemann/tmux-cssh", use:"tmux-cssh", as:command
 zplug "tstack/lnav", from:gh-r, use:"*linux*64*", as:command
 zplug "zsh-users/zsh-autosuggestions"
 zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
