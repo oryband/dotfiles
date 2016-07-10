@@ -23,6 +23,8 @@ zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
 zplug "supercrabtree/k"
 zplug "stedolan/jq", from:gh-r, as:command, rename-to:jq
 zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
+zplug "dennishafemann/tmux-cssh", use:"tmux-cssh", as:command
+zplug "tstack/lnav", from:gh-r, use:"*linux*64*", as:command
 zplug "zsh-users/zsh-autosuggestions"
 zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
