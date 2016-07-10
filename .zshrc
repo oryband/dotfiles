@@ -21,6 +21,7 @@ zplug "michaeldfallen/git-radar", use:git-radar, as:command
 zplug "mroth/scmpuff", from:gh-r, use:"*linux*amd64*.tar.gz", as:command
 zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
 zplug "supercrabtree/k"
+zplug "stedolan/jq", from:gh-r, as:command, rename-to:jq
 zplug "zsh-users/zsh-autosuggestions"
 zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
