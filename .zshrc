@@ -1,7 +1,9 @@
 # credits github.com/sorin-ionescu/prezto
 
 # zplug
-source ~/.zplug/init.zsh
+export ZPLUG_HOME=$HOME/.zplug
+export PATH=$ZPLUG_HOME/bin:$PATH
+source $ZPLUG_HOME/init.zsh
 zplug "zplug/zplug", nice:1  # don't forget to zplug update --self && zplug update
 
 zplug "sorin-ionescu/prezto", use:init.zsh, nice:2, hook-build:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
