@@ -117,11 +117,7 @@ extra/zsh
 infinality-bundle/cairo-infinality-ultimate (infinality-bundle)
 infinality-bundle/fontconfig-infinality-ultimate (infinality-bundle)
 infinality-bundle/freetype2-infinality-ultimate (infinality-bundle)
-infinality-bundle-multilib/lib32-cairo-infinality-ultimate (infinality-bundle-multilib)
-infinality-bundle-multilib/lib32-fontconfig-infinality-ultimate (infinality-bundle-multilib)
-infinality-bundle-multilib/lib32-freetype2-infinality-ultimate (infinality-bundle-multilib)
 local/base16-shell-git
-local/git-extras
 local/glxinfo
 local/google-chrome
 local/google-cloud-sdk
