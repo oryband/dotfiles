@@ -108,7 +108,6 @@ function! BuildYCM(info)
 endfunction
 " load YCM on first insert command
 Plug 'Valloric/YouCompleteMe', {
-            \ 'for': [ 'vim', 'python', 'go', 'json', 'sh', 'zsh' ],
             \ 'do': function('BuildYCM')
             \ }
 
