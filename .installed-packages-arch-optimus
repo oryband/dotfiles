@@ -25,6 +25,7 @@ community/reflector
 community/rofi
 community/rxvt-unicode
 community/shutter
+community/smem
 community/stow
 community/sysdig
 community/sysstat
@@ -55,6 +56,7 @@ core/findutils (base base-devel)
 core/flex (base-devel)
 core/gawk (base base-devel)
 core/gcc (base-devel)
+core/gcc-go
 core/gcc-libs (base)
 core/gettext (base base-devel)
 core/glibc (base)
@@ -115,9 +117,12 @@ extra/alsa-utils
 extra/bind-tools
 extra/bluez
 extra/bluez-utils
+extra/clang
 extra/cmake
 extra/ctags
 extra/feh
+extra/firefox
+extra/gdb
 extra/geoip
 extra/git
 extra/gvim
