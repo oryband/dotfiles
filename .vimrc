@@ -107,9 +107,7 @@ function! BuildYCM(info)
     endif
 endfunction
 " load YCM on first insert command
-Plug 'Valloric/YouCompleteMe', {
-            \ 'do': function('BuildYCM')
-            \ }
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 "}}}
