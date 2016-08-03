@@ -345,23 +345,29 @@ let g:easytags_suppress_report = 1
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
 " Vim-Go {{{
+let g:go_template_autocreate = 0
+let g:go_list_height = 10
 let g:go_dispatch_enabled = 1
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_autosave = 0
-" let g:go_fmt_experimental = 1
-" let g:go_textobj_enabled = 1
 let g:go_guru_tags = 'integration'
 
-" let g:go_highlight_array_whitespace_error = 1
-" let g:go_highlight_build_constraints = 1
-" let g:go_highlight_chan_whitespace_error = 1
-" let g:go_highlight_extra_types = 1
+let g:go_fmt_fail_silently = 0
+let g:go_fmt_autosave = 1
+let g:go_fmt_experimental = 1
+
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
 " let g:go_highlight_functions = 1
-" let g:go_highlight_methods = 1
+let g:go_highlight_methods = 1
 " let g:go_highlight_operators = 1
-" let g:go_highlight_space_tab_error = 1
+let g:go_highlight_space_tab_error = 1
 " let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 0
+let g:go_highlight_types = 1
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
@@ -429,7 +435,7 @@ omap T <Plug>Sneak_T
 "}}}
 " Syntastic {{{
 " noremap <silent> <Leader>c :echo "Checking..."<CR> :SyntasticCheck<CR>
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 let g:syntastic_filetype_map = {
             \ 'jinja': 'html',
@@ -455,11 +461,6 @@ highlight link SyntasticStyleErrorSign Todo
 let g:syntastic_python_checkers = ['pylint', 'pep8', 'pydocstyle']
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-
-let g:syntastic_go_checkers = [ 'go', 'gometalinter' ]
-let syntastic_go_gometalinter_args = '-t -D testify -D test -D gofmt -D goimports -D gotype -D structcheck -D dupl -D gocyclo -D aligncheck'
-let g:syntastic_go_go_build_args = '-tags="'.g:go_guru_tags.'"'
-let g:syntastic_go_go_test_args = g:syntastic_go_go_build_args
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
 let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
