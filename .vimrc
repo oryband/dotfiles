@@ -498,16 +498,6 @@ let g:tern_show_argument_hints = 'on_move'
 " Virtualenv {{{
 " let g:virtualenv_directory = 'venv'
 "}}}
-" Vundle {{{
-cabbrev BundleInstall PluginInstall
-cabbrev BundleInstall! PluginInstall!
-cabbrev BundleClean PluginClean
-cabbrev BundleClean! PluginClean!
-cabbrev BundleList PluginList
-cabbrev BundleList! PluginList!
-cabbrev BundleSearch PluginSearch
-cabbrev BundleSearch! PluginSearch!
-"}}}
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
