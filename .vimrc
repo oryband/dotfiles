@@ -346,28 +346,37 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
 " Vim-Go {{{
 let g:go_template_autocreate = 0
-let g:go_list_height = 10
+" let g:go_list_height = 10
 let g:go_dispatch_enabled = 1
 let g:go_guru_tags = 'integration'
+let g:go_def_reuse_buffer = 1
 
-let g:go_fmt_fail_silently = 0
-let g:go_fmt_autosave = 1
-let g:go_fmt_experimental = 1
+let g:go_fmt_autosave = 0
 
-let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave = 0
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
 
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_chan_whitespace_error = 1
 let g:go_highlight_extra_types = 1
-" let g:go_highlight_functions = 1
+let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-" let g:go_highlight_operators = 1
+let g:go_highlight_operators = 1
 let g:go_highlight_space_tab_error = 1
-" let g:go_highlight_structs = 1
+let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 0
-let g:go_highlight_types = 1
+" let g:go_highlight_types = 1
+
+function! GoSyntaxCheck()
+    if (match(expand("%"), "test") != 0)
+        :GoTestCompile
+    else
+        :GoBuild
+    endif
+endfunction
+nnoremap <silent> <leader>c :call GoSyntaxCheck()<CR>
+nnoremap <silent> <leader>m :GoMetaLinter<CR>
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
@@ -434,7 +443,6 @@ omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 "}}}
 " Syntastic {{{
-" noremap <silent> <Leader>c :echo "Checking..."<CR> :SyntasticCheck<CR>
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 let g:syntastic_filetype_map = {
@@ -511,7 +519,7 @@ let g:ycm_python_binary_path = 'python'  " support virtualenv
 " Call YCM/Go/js GoTo depending on file type.
 function! GoToDef()
     if &ft == 'go'
-        call go#def#Jump('')
+        execute 'GoDef'
     elseif &ft == 'javascript'
         execute 'TernDef'
     else
