@@ -1,8 +1,5 @@
 community/acpi
 community/acpid
-community/android-tools
-community/android-udev
-community/atop
 community/ccache
 community/cloc
 community/docker
@@ -25,7 +22,6 @@ community/reflector
 community/rofi
 community/rxvt-unicode
 community/shutter
-community/smem
 community/stow
 community/sysdig
 community/sysstat
@@ -129,13 +125,10 @@ extra/gvim
 extra/htop
 extra/ifplugd
 extra/irssi
-extra/java-runtime-common
-extra/jre8-openjdk-headless
 extra/libva-intel-driver
 extra/libxslt
 extra/mesa-demos
 extra/mesa-libgl
-extra/mtr
 extra/p7zip
 extra/pkgfile
 extra/pulseaudio
@@ -180,18 +173,12 @@ extra/zsh
 infinality-bundle/cairo-infinality-ultimate (infinality-bundle)
 infinality-bundle/fontconfig-infinality-ultimate (infinality-bundle)
 infinality-bundle/freetype2-infinality-ultimate (infinality-bundle)
-local/geolite2-city
-local/geolite2-country
 local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
 local/i3lock-wrapper (i3)
 local/laptop-mode-tools-git
 local/libcouchbase
-local/playerctl
-local/redshift-git
-local/redshift-gtk-git
-local/spotify
 local/ttf-font-awesome
 local/ttf-font-icons
 local/ttf-ms-win8
