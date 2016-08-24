@@ -22,7 +22,7 @@ zplug "junegunn/fzf", use:"bin/fzf-tmux", as:command
 zplug "junegunn/fzf-bin", from:gh-r, use:"*linux*amd64*", rename-to:"fzf", as:command
 zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
 zplug "michaeldfallen/git-radar", use:git-radar, as:command
-zplug "mroth/scmpuff", from:gh-r, use:"*linux*amd64*.tar.gz", as:command
+zplug "scmbreeze/scm_breeze", hook-build:"$ZPLUG_HOME/repos/scmbreeze/scm_breeze/install.sh"
 zplug "stedolan/jq", from:gh-r, as:command, rename-to:jq
 zplug "supercrabtree/k"
 zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
@@ -119,8 +119,8 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 export GIT_RADAR_FORMAT="[%{$reset_color%}%{remote: }%{branch}%{ :local}%{$reset_color%}%{ :changes}%{ :stash}] "
 export GIT_RADAR_MASTER_SYMBOL="m"
 
-# scm_puff
-eval "$(scmpuff init -s)"
+# scm_breeze
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # travis
 [ -f /home/ory/.travis/travis.sh ] && source /home/ory/.travis/travis.sh
@@ -157,49 +157,45 @@ alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 
-# git
-alias g="git"
+alias ga="git add"
+# alias gc="g c"
+# alias gf="g f"
+# alias gcp="g cp"
+# alias gmv="g mv"
+alias grs="git reset"
+# alias grm="g rm"
 
-alias gs="scmpuff_status"
-alias ga="g add"
-alias gc="g c"
-alias gf="g f"
-alias gcp="g cp"
-alias gmv="g mv"
-alias grs="g reset"
-alias grm="g rm"
+# alias gpl="g pl"
+# alias gps="g ps"
+# alias gpsf="g ps --force"
 
-alias gpl="g pl"
-alias gps="g ps"
-alias gpsf="g ps --force"
+# alias gco="g co"
+# alias gcb="g cb"
 
-alias gco="g co"
-alias gcb="g cb"
+# alias gl="g l"
+# alias gll="g ll"
+# alias glt="g lt"
 
-alias gl="g l"
-alias gll="g ll"
-alias glt="g lt"
+# alias gd="g d"
+alias gds="git ds"
+# alias gdc="g dc"
+# alias gdcs="g dcs"
 
-alias gd="g d"
-alias gds="g ds"
-alias gdc="g dc"
-alias gdcs="g dcs"
+# alias grb="g rebase"
+# alias grbi="g rbi"
 
-alias grb="g rebase"
-alias grbi="g rbi"
+# alias gsh="g sh"
+# alias gshc="g shc"
 
-alias gsh="g sh"
-alias gshc="g shc"
+# alias gb="g b"
+# alias gbr="g br"
+# alias gbdr="g bdr"
+# alias gbdm="g bdm"
+# alias gprune="g prune"
 
-alias gb="g b"
-alias gbr="g br"
-alias gbdr="g bdr"
-alias gbdm="g bdm"
-alias gprune="g prune"
-
-alias gst="g st"
-alias gsl="g sl"
-alias gsp="g sp"
+# alias gst="g st"
+# alias gsl="g sl"
+# alias gsp="g sp"
 
 # docker
 alias dr="docker run --rm -it"
