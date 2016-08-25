@@ -27,7 +27,7 @@ Plug 'chriskempson/base16-vim'
 "}}}
 " Languages {{{
 " Indent {{{
-Plug 'tweekmonster/braceless.vim', { 'for': [ 'python', 'ruby', 'yaml' ] }
+Plug 'tweekmonster/braceless.vim', { 'for': [ 'python', 'ruby' ] }
 "}}}
 " HTML {{{
 Plug 'matchit.zip', { 'for': 'html' }
