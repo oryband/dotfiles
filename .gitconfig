@@ -28,6 +28,7 @@
     changed = green
     untracked = cyan
 [diff]
+    tool = vimdiff
     renames = true
 [merge]
     log = true
