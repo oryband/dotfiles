@@ -367,16 +367,6 @@ let g:go_highlight_space_tab_error = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 0
 " let g:go_highlight_types = 1
-
-function! GoSyntaxCheck()
-    if (match(expand("%"), "test") != 0)
-        :GoTestCompile
-    else
-        :GoBuild
-    endif
-endfunction
-nnoremap <silent> <leader>c :call GoSyntaxCheck()<CR>
-nnoremap <silent> <leader>m :GoMetaLinter<CR>
 "}}}
 " ListToggle {{{
 let g:lt_height = 10
@@ -542,7 +532,9 @@ augroup MiscSettings
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
     autocmd FileType python,ruby BracelessEnable +indent
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd FileType go nmap <Leader>d <Plug>(go-doc-vertical) | nmap <Leader>i <Plug>(go-info)
+    autocmd FileType go |
+                \ nmap <leader>c <Plug>(go-test-compile) |
+                \ nmap <leader>m <Plug>(go-metalinter)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
