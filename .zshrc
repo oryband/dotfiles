@@ -176,9 +176,9 @@ alias grs="git reset"
 # alias gll="g ll"
 # alias glt="g lt"
 
-# alias gd="g d"
+alias gd="git d"
 alias gds="git ds"
-# alias gdc="g dc"
+alias gdc="git dc"
 # alias gdcs="g dcs"
 
 # alias grb="g rebase"
