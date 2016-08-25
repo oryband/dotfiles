@@ -522,8 +522,10 @@ augroup Buf-Win-Enter
 augroup END
 "}}}
 " BufWrite {{{
-augroup Buf-Write
-    au BufWrite *.go,*.json,*.html :Autoformat
+augroup AutoFormat
+    autocmd BufWrite *.go,*.html :Autoformat
+    " don't format json if filetype is jinja
+    " autocmd BufWrite *.json if &ft !~? 'jinja' | :Autoformat | endif
 augroup END
 "}}}
 " FileType {{{
