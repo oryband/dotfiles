@@ -127,7 +127,7 @@ export GIT_RADAR_FORMAT="[%{$reset_color%}%{remote: }%{branch}%{ :local}%{$reset
 export GIT_RADAR_MASTER_SYMBOL="m"
 
 # scm_breeze
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+[ -s "/home/ory/.scm_breeze/scm_breeze.sh" ] && source "/home/ory/.scm_breeze/scm_breeze.sh"
 
 # travis
 [ -f /home/ory/.travis/travis.sh ] && source /home/ory/.travis/travis.sh
