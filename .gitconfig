@@ -11,7 +11,7 @@
     editor = vim
     whitespace = space-before-tab,trailing-space,blank-at-eol,cr-at-eol,blank-at-eof
 	excludesfile = ~/.gitignore
-	pager = less -x1,5
+    pager = "diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '"
 [color]
     ui = true
 [color "branch"]
@@ -50,11 +50,7 @@
 
     # line diff highlight
     d  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat"
-    ds = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --staged "
-
-    # char diff highlight
-    dc  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'"
-    dcs = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+' --staged "
+    ds = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --staged"
 
     rbi = rebase -i
 
