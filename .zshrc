@@ -169,7 +169,7 @@ alias ga="git add"
 # alias gc="g c"
 # alias gf="g f"
 # alias gcp="g cp"
-# alias gmv="g mv"
+alias gmv="g mv"
 alias grs="git reset"
 # alias grm="g rm"
 
@@ -192,8 +192,7 @@ alias gdc="git dc"
 # alias grb="g rebase"
 # alias grbi="g rbi"
 
-# alias gsh="g sh"
-# alias gshc="g shc"
+alias gsh="g sh"
 
 # alias gb="g b"
 # alias gbr="g br"
