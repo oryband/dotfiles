@@ -113,11 +113,12 @@ source $VIRTUALENVWRAPPER_SCRIPT
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 
 # go
-export GOROOT=$HOME/Documents/golang/go1.6.2
-export GOPATH=$HOME/.golang/go1.6.2
+GO_VERSION=go1.7
+export GOROOT=$HOME/Documents/golang/$GO_VERSION
+export GOPATH=$HOME/.golang/$GO_VERSION
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-alias go1.6.2=$GOROOT/bin/go
-alias go=go1.6.2
+alias $GO_VERSION=$GOROOT/bin/go
+alias go=$GO_VERSION
 
 # command not found package suggestion
 source /usr/share/doc/pkgfile/command-not-found.zsh
