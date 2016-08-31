@@ -44,9 +44,8 @@
     rs = reset
     c = commit --verbose
 
-    l = log --oneline --graph
+    l = log --graph --abbrev-commit --pretty='format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset'
     ll = log --graph
-    lt = log --graph --abbrev-commit --decorate --date=relative --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
 
     # line diff highlight
     d  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat"

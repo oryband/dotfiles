@@ -180,9 +180,8 @@ alias grs="git reset"
 # alias gco="g co"
 # alias gcb="g cb"
 
-# alias gl="g l"
-# alias gll="g ll"
-# alias glt="g lt"
+alias gl="g l"
+alias gll="g ll"
 
 alias gd="git d"
 alias gds="git ds"
