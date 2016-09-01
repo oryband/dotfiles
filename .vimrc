@@ -79,13 +79,13 @@ Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
 "}}}
 "}}}
 " Everything else {{{
-Plug 'rking/ag.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'camelcasemotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'IndexedSearch'
 Plug 'Konfekt/FastFold'
+Plug 'wincent/ferret'
 Plug 'Valloric/ListToggle'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
@@ -282,12 +282,6 @@ let g:is_bash=1
 "}}}
 "}}}
 " Plugin configurations {{{
-" Ag {{{
-let g:ag_prg = "ag --column --smart-case --follow"
-let g:ag_mapping_message = 0
-cabbrev ag Ag!
-cabbrev Ag Ag!
-"}}}
 " Airline {{{
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
