@@ -73,6 +73,10 @@ Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
 " Nginx {{{
 Plug 'fatih/vim-nginx', { 'for': 'nginx' }
 "}}}
+" HCL {{{
+Plug 'b4b4r07/vim-hcl'
+Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
+"}}}
 "}}}
 " Everything else {{{
 Plug 'rking/ag.vim'
@@ -344,6 +348,11 @@ let g:easytags_suppress_report = 1
 " FakeClip {{{
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
+" HCL {{{
+let g:hcl_fmt_autosave = 0
+let g:tf_fmt_autosave = 0
+let g:nomad_fmt_autosave = 0
+"}}}
 " Vim-Go {{{
 let g:go_template_autocreate = 0
 " let g:go_list_height = 10
@@ -537,7 +546,7 @@ augroup MiscSettings
     autocmd FileType go |
                 \ nmap <leader>c <Plug>(go-test-compile) |
                 \ nmap <leader>m <Plug>(go-metalinter)
-    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx,hcl setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
