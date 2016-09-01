@@ -342,6 +342,9 @@ let g:easytags_suppress_report = 1
 " FakeClip {{{
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
+" Ferret {{{
+let g:FerretMap = 0
+"}}}
 " HCL {{{
 let g:hcl_fmt_autosave = 0
 let g:tf_fmt_autosave = 0
