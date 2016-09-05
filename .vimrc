@@ -519,13 +519,13 @@ nnoremap <leader>] :call GoToDef()<CR>
 augroup Buf-Win-Enter
     autocmd!
     autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType() | call SynMaxColPerFileType()
-    autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.hcl setfiletype conf
+    autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
+    autocmd BufWinEnter *.zsh-theme setfiletype zsh
     autocmd BufWinEnter .jshintrc setfiletype javascript
     autocmd BufWinEnter .tern-config,.tern-project setfiletype json
-    autocmd BufWinEnter *.zsh-theme setfiletype zsh
 augroup END
 "}}}
 " BufWrite {{{
