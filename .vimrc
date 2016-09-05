@@ -520,6 +520,7 @@ augroup Buf-Win-Enter
     autocmd!
     autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType() | call SynMaxColPerFileType()
     autocmd BufWinEnter *.less setfiletype less
+    autocmd BufWinEnter *.hcl setfiletype conf
     autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter .jshintrc setfiletype javascript
