@@ -76,6 +76,9 @@ Plug 'fatih/vim-nginx', { 'for': 'nginx' }
 " HCL {{{
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
+" Ansible {{{
+Plug 'pearofducks/ansible-vim'
+"}}}
 "}}}
 "}}}
 " Everything else {{{
