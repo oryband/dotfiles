@@ -165,43 +165,20 @@ alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 
-alias ga="git add"
-# alias gc="g c"
-# alias gf="g f"
-# alias gcp="g cp"
+# git
+alias ga="g add"
 alias gmv="g mv"
 alias grs="git reset"
-# alias grm="g rm"
-
-# alias gpl="g pl"
-# alias gps="g ps"
-# alias gpsf="g ps --force"
-
-# alias gco="g co"
-# alias gcb="g cb"
-
 alias gl="g l"
 alias gll="g ll"
-
 alias gd="git d"
 alias gds="git ds"
 alias gdc="git dc"
-# alias gdcs="g dcs"
-
-# alias grb="g rebase"
-# alias grbi="g rbi"
-
 alias gsh="g sh"
-
-# alias gb="g b"
-# alias gbr="g br"
-# alias gbdr="g bdr"
-# alias gbdm="g bdm"
-# alias gprune="g prune"
-
-# alias gst="g st"
-# alias gsl="g sl"
-# alias gsp="g sp"
+alias gbr="g br"
+alias gbdr="g bdr"
+alias gbdm="g bdm"
+alias gprune="g prune"
 
 # docker
 alias dr="docker run --rm -it"

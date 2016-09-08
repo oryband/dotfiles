@@ -37,39 +37,18 @@
     autostash = true
     missingCommitsCheck = warn
 [alias]
-    a = add
-    ps = push
-    pl = pull
-    f = fetch
-    rs = reset
-    c = commit --verbose
-
-    l = log --graph --abbrev-commit --pretty='format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset'
+    l = log --graph --abbrev-commit --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset'
     ll = log --graph
 
-    # line diff highlight
     d  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat"
     ds = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --staged"
 
-    rbi = rebase -i
-
     sh = show --irreversible-delete --patch-with-stat
-    shc = show --irreversible-delete --patch-with-stat --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
 
-    co = checkout
-    cb = checkout -b
-
-    b = branch
-    bd = branch --delete
-    bdf = branch -D
     br = branch --remote
     bdr = !"git-delete-branch $@"
     bdm = !"git-delete-merged-branches"
-
-    st = stash
-    sl = stash list
-    sp = stash pop
+    prune = remote update origin --prune
 
     tags = tag --list
-    prune = remote update origin --prune
     undopush = push --force origin HEAD^:master
