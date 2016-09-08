@@ -178,7 +178,6 @@ local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
 local/i3lock-wrapper (i3)
-local/laptop-mode-tools-git
 local/libcouchbase
 local/ttf-font-awesome
 local/ttf-font-icons
