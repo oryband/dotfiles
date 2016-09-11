@@ -182,7 +182,7 @@ alias gprune="g prune"
 
 # docker
 alias dr="docker run --rm -it"
-alias di="docker images"
+alias di="docker images | head -n 1 && docker images | tail -n +2 | sort"
 alias dps="docker ps -a"
 alias drm="docker rm"
 alias drmi="docker rmi"
