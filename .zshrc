@@ -29,6 +29,7 @@ zplug "junegunn/fzf", at:0.13.5, use:"bin/fzf-tmux", as:command
 zplug "junegunn/fzf-bin", at:0.13.5, from:gh-r, use:"*linux*amd64*", rename-to:"fzf", as:command
 zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
 zplug "michaeldfallen/git-radar", use:git-radar, as:command
+zplug "paulirish/git-open", as:command
 zplug "scmbreeze/scm_breeze", hook-build:"$ZPLUG_HOME/repos/scmbreeze/scm_breeze/install.sh"
 zplug "stedolan/jq", from:gh-r, as:command, rename-to:jq
 zplug "supercrabtree/k"
