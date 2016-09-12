@@ -179,6 +179,7 @@ local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
 local/i3lock-wrapper (i3)
 local/libcouchbase
+local/packer-io
 local/profile-sync-daemon
 local/ttf-font-awesome
 local/ttf-font-icons

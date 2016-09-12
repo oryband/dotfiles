@@ -191,3 +191,5 @@ alias drmd="dps | grep -e Exited -e Created | cut -d ' ' -f 1 | tr '\n' ' ' | xa
 alias drmid="docker images -qf dangling=true | tr '\n' ' ' | xargs docker rmi -f && \
     docker images | grep \"^<none>\" | awk \"{print $3}\" | tr '\n' ' ' | tr '\n' ' ' | xargs docker rmi -f"
 alias dc="docker-compose"
+
+alias packer=packer-io
