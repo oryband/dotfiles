@@ -28,7 +28,9 @@ community/sysdig
 community/sysstat
 community/the_silver_searcher
 community/tmux
+community/vagrant
 community/vdpauinfo
+community/virtualbox
 community/wavemon
 community/wireshark-gtk
 community/xautolock
@@ -53,7 +55,6 @@ core/findutils (base base-devel)
 core/flex (base-devel)
 core/gawk (base base-devel)
 core/gcc (base-devel)
-core/gcc-go
 core/gcc-libs (base)
 core/gettext (base base-devel)
 core/glibc (base)
@@ -181,6 +182,7 @@ local/i3lock-wrapper (i3)
 local/libcouchbase
 local/packer-io
 local/profile-sync-daemon
+local/terraform
 local/ttf-font-awesome
 local/ttf-font-icons
 local/ttf-ms-win8

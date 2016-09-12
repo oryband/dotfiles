@@ -1,6 +1,7 @@
 appdirs
 argparse
 ipython
+mercurial
 packaging
 path.py
 pep8
