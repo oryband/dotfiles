@@ -1,11 +1,8 @@
 community/acpi
 community/ccache
-community/cloc
 community/docker
 community/i3lock (i3)
 community/i3status (i3)
-community/iotop
-community/jq
 community/lsb-release
 community/nodejs
 community/powertop
@@ -91,6 +88,7 @@ extra/adobe-source-code-pro-fonts
 extra/alsa-utils
 extra/bc
 extra/bind-tools
+extra/clang
 extra/cmake
 extra/ctags
 extra/feh
@@ -117,8 +115,6 @@ extra/zsh
 infinality-bundle/cairo-infinality-ultimate (infinality-bundle)
 infinality-bundle/fontconfig-infinality-ultimate (infinality-bundle)
 infinality-bundle/freetype2-infinality-ultimate (infinality-bundle)
-local/base16-shell-git
-local/glxinfo
 local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
