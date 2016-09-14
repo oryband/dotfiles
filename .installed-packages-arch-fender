@@ -5,6 +5,7 @@ community/i3lock (i3)
 community/i3status (i3)
 community/lsb-release
 community/nodejs
+community/npm
 community/powertop
 community/reflector
 community/rofi
@@ -97,7 +98,6 @@ extra/geoip
 extra/git
 extra/gnu-netcat
 extra/htop
-extra/mtr
 extra/pkgfile
 extra/python2-pip
 extra/python-pip
@@ -119,9 +119,9 @@ local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
 local/i3lock-wrapper (i3)
-local/js-beautify
 local/lnav
 local/package-query-git
+local/packer-io
 local/spotify
 local/tmux-cssh-git
 local/ttf-font-awesome
@@ -129,5 +129,4 @@ local/ttf-font-icons
 local/ttf-ms-win8
 local/ttf-ms-win8-hebrew
 local/urxvt-font-size-git
-local/vtop
 local/yaourt-git
