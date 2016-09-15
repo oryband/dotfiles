@@ -126,7 +126,6 @@ extra/git
 extra/gvim
 extra/htop
 extra/ifplugd
-extra/irssi
 extra/libva-intel-driver
 extra/libxslt
 extra/mesa-demos
@@ -180,6 +179,7 @@ local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
 local/i3lock-wrapper (i3)
 local/libcouchbase
+local/package-query
 local/packer-io
 local/profile-sync-daemon
 local/terraform
@@ -188,5 +188,4 @@ local/ttf-font-icons
 local/ttf-ms-win8
 local/ttf-ms-win8-hebrew
 local/urxvt-font-size-git
-local/yaourt-git
-multilib/steam
+local/yaourt
