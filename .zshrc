@@ -134,8 +134,9 @@ export GIT_RADAR_MASTER_SYMBOL="m"
 # travis
 [ -f /home/ory/.travis/travis.sh ] && source /home/ory/.travis/travis.sh
 
-# ssh-agent
+# ssh
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+eval $(keychain --eval --quiet ansible github)
 
 # git-extras
 export PATH=$HOME/.git-extras:$PATH

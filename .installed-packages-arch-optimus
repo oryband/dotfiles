@@ -126,6 +126,7 @@ extra/git
 extra/gvim
 extra/htop
 extra/ifplugd
+extra/keychain
 extra/libva-intel-driver
 extra/libxslt
 extra/mesa-demos
