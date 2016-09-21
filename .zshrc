@@ -188,7 +188,7 @@ alias di="docker images | head -n 1 && docker images | tail -n +2 | sort"
 alias dps="docker ps -a"
 alias drm="docker rm"
 alias drmi="docker rmi"
-alias drmd="dps | grep -e Exited -e Created | cut -d ' ' -f 1 | tr '\n' ' ' | xargs docker rm"
+alias drmd="dps | grep -e Exited -e Created | awk '{print \$3}' | xargs docker rm"
 alias drmid="docker images -qf dangling=true | tr '\n' ' ' | xargs docker rmi -f && \
     docker images | grep \"^<none>\" | awk \"{print $3}\" | tr '\n' ' ' | tr '\n' ' ' | xargs docker rmi -f"
 alias dc="docker-compose"
