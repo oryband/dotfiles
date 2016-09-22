@@ -146,6 +146,7 @@ let mapleader=","
 cabbrev vhelp vert help
 
 inoremap jk <Esc>
+inoremap jj <Esc>
 
 nnoremap j gj
 nnoremap k gk
