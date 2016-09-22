@@ -194,3 +194,6 @@ alias drmid="docker images -qf dangling=true | tr '\n' ' ' | xargs docker rmi -f
 alias dc="docker-compose"
 
 alias packer=packer-io
+alias tf=terraform
+alias vg=vagrant
+alias graph="graph-easy --from dot --as boxart --stats"

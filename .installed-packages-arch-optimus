@@ -123,6 +123,7 @@ extra/firefox
 extra/gdb
 extra/geoip
 extra/git
+extra/graphviz
 extra/gvim
 extra/htop
 extra/ifplugd
@@ -182,6 +183,7 @@ local/i3lock-wrapper (i3)
 local/libcouchbase
 local/package-query
 local/packer-io
+local/perl-graph-easy
 local/profile-sync-daemon
 local/terraform
 local/ttf-font-awesome
