@@ -113,8 +113,8 @@ source $VIRTUALENVWRAPPER_SCRIPT
 # ruby
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 
-# go
-GO_VERSION=go1.7
+# golang
+GO_VERSION=go1.7.1
 export GOROOT=$HOME/Documents/golang/$GO_VERSION
 export GOPATH=$HOME/.golang/$GO_VERSION
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
