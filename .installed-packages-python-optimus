@@ -1,6 +1,7 @@
 appdirs
 awscli
 docker-compose
+httpie
 iotop
 packaging
 Reflector
