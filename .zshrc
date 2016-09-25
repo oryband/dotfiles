@@ -136,7 +136,7 @@ export GIT_RADAR_MASTER_SYMBOL="m"
 
 # ssh
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-eval $(keychain --eval --quiet ansible github)
+eval $(keychain --eval --quiet github ansible ansible-old)
 
 # git-extras
 export PATH=$HOME/.git-extras:$PATH
