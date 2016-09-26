@@ -40,6 +40,8 @@
     l = log --graph --abbrev-commit --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset'
     ll = log --graph
 
+    c = commit -vv
+
     d  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat"
     ds = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --staged"
 

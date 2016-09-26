@@ -168,6 +168,7 @@ alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 
 # git
+alias gc="g c"
 alias ga="g add"
 alias gmv="g mv"
 alias grs="git reset"
