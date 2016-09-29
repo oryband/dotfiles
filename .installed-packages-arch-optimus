@@ -119,7 +119,6 @@ extra/clang
 extra/cmake
 extra/ctags
 extra/feh
-extra/firefox
 extra/gdb
 extra/geoip
 extra/git
