@@ -182,10 +182,8 @@ local/i3-gaps-next-git (i3-vcs)
 local/i3lock-wrapper (i3)
 local/libcouchbase
 local/package-query
-local/packer-io
 local/perl-graph-easy
 local/profile-sync-daemon
-local/terraform
 local/ttf-font-awesome
 local/ttf-font-icons
 local/ttf-ms-win8
