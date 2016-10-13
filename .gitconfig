@@ -1,6 +1,8 @@
 [user]
     name = Ory Band
     email = oryband@gmail.com
+[commit]
+    gpgSign = true
 [push]
     default = simple
 [credential]
