@@ -49,6 +49,8 @@
 
     sh = show --irreversible-delete --patch-with-stat
 
+    rp = rev-parse --short
+
     br = branch --remote
     bdr = !"git-delete-branch $@"
     bdm = !"git-delete-merged-branches"
