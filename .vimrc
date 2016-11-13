@@ -80,6 +80,9 @@ Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
 " Ansible {{{
 Plug 'pearofducks/ansible-vim'
 "}}}
+" Prometheus {{{
+Plug 'bracki/vim-prometheus'
+"}}}
 "}}}
 "}}}
 " Everything else {{{
