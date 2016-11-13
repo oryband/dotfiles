@@ -155,11 +155,6 @@ inoremap jj <Esc>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap : ;
-vnoremap : ;
-nnoremap ; :
-vnoremap ; :
-
 nnoremap <silent> <C-j> <C-W>j
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-h> <C-W>h
@@ -296,7 +291,7 @@ let g:airline_right_sep = ''
 let g:airline#extensions#branch#displayed_head_limit = 15
 "}}}
 " Autoformat {{{
-nmap <Leader>f ;Autoformat<CR>
+nmap <Leader>f :Autoformat<CR>
 let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
 "}}}
 " Braceless {{{
@@ -423,7 +418,7 @@ let g:signify_vcs_list = [ 'git' ]
 " Sneak {{{
 highlight link SneakPluginTarget Visual
 
-map : <Plug>SneakNext
+map ; <Plug>SneakNext
 
 nmap <leader>s <Plug>Sneak_s
 nmap <leader>S <Plug>Sneak_S
