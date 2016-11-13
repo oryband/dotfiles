@@ -109,6 +109,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper.sh
 source $VIRTUALENVWRAPPER_SCRIPT
+alias pipupdate='sudo pip install --upgrade $(pip list --outdated --format json | jq -r ".[].name")'
+alias pip2update='sudo pip2 install --upgrade $(pip2 list --outdated --format json | jq -r ".[].name")'
 
 # ruby
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
