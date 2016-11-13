@@ -187,6 +187,7 @@ alias gbdm="g bdm"
 alias gprune="g prune"
 
 # docker
+alias docker='jq -s "reduce .[] as \$x ({}; . * \$x)" $HOME/.docker/config.d/*.json > ~/.docker/config.json && docker'
 alias dr="docker run --rm -it"
 alias di="docker images | head -n 1 && docker images | tail -n +2 | sort"
 alias dps="docker ps -a"
