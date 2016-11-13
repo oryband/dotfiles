@@ -65,7 +65,8 @@ Plug 'vitalk/vim-shebang' ", { 'for': ['sh', 'zsh', 'csh', 'ash', 'dash', 'ksh',
 Plug 'tianon/vim-docker', { 'for': 'dockerfile' }
 "}}}
 " Markdown {{{
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'godlygeek/tabular', { 'for': 'markdown' }  " plasticboy dependency
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 "}}}
 " i3 {{{
 Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
@@ -526,7 +527,6 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType() | call SynMaxColPerFileType()
     autocmd BufWinEnter *.hcl,*.tf setfiletype conf
     autocmd BufWinEnter *.less setfiletype less
-    autocmd BufWinEnter *.md,*.markdown setfiletype markdown
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter *.tfstate setfiletype json
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
