@@ -80,9 +80,6 @@ Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
 " Ansible {{{
 Plug 'pearofducks/ansible-vim'
 "}}}
-" Prometheus {{{
-Plug 'bracki/vim-prometheus'
-"}}}
 "}}}
 "}}}
 " Everything else {{{
@@ -527,6 +524,7 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter *.tfstate setfiletype json
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
+    autocmd BufWinEnter *.rules setfiletype conf
     autocmd BufWinEnter .jshintrc setfiletype javascript
     autocmd BufWinEnter .tern-config,.tern-project setfiletype json
 augroup END
@@ -556,6 +554,7 @@ augroup MiscSettings
 augroup END
 
 augroup CommentStrings
+    autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType i3 setlocal commentstring=#\ %s
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
     autocmd FileType xdefaults setlocal commentstring=!\ %s
