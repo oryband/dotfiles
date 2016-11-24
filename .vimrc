@@ -20,7 +20,7 @@ call plug#begin('~/.vim/plugged')
 "}}}
 " Sane defaults {{{
 Plug 'tpope/vim-sensible'
-Plug 'kana/vim-fakeclip'
+Plug 'svermeulen/vim-easyclip'
 "}}}
 " Colors {{{
 Plug 'chriskempson/base16-vim'
@@ -320,6 +320,11 @@ let g:ctrlp_prompt_mappings = {
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 "}}}
+" EasyClip {{{
+set clipboard=unnamed,unnamedplus
+let g:EasyClipShareYanks = 1
+let g:EasyClipShareYanksDirectory = '$HOME/.vim'
+"}}}
 " EasyTags {{{
 set cpoptions+=d
 let g:easytags_file = '~/.vim/.vimtags'
@@ -338,9 +343,6 @@ let g:easytags_suppress_report = 1
 "             \       'recurse_flag': '-R'
 "             \   }
 "             \}
-"}}}
-" FakeClip {{{
-let g:fakeclip_terminal_multiplexer_type = 'tmux'
 "}}}
 " Ferret {{{
 let g:FerretMap = 0
