@@ -85,7 +85,7 @@ Plug 'pearofducks/ansible-vim'
 " Everything else {{{
 Plug 'Chiel92/vim-autoformat'
 Plug 'camelcasemotion'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'tpope/vim-dispatch'
 Plug 'IndexedSearch'
 Plug 'Konfekt/FastFold'
@@ -294,6 +294,12 @@ let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
 " Braceless {{{
 let g:braceless_line_continuation = 0
 "}}}
+" Buffergator {{{
+let g:buffergator_suppress_keymaps = 1
+noremap <silent> <Leader>b :BuffergatorToggle<CR>
+let g:buffergator_viewport_split_policy = 'R'
+let g:buffergator_sort_regime = 'filepath'
+"}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -301,20 +307,6 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
-"}}}
-" CtrlP {{{
-let g:ctrlp_working_path_mode = 'raw'
-let g:ctrlp_lazy_update = 0
-let g:ctrlp_map = '<Leader>p'
-noremap <silent> <Leader>b :CtrlPBuffer<CR>
-noremap <silent> <Leader>t :CtrlPTag<CR>
-let g:ctrlp_prompt_mappings = {
-            \ 'PrtDeleteEnt()': ['<c-@>'],
-            \ 'PrtHistory(-1)':  ['<c-j>'],
-            \ 'PrtHistory(1)': ['<c-k>'],
-            \ 'PrtSelectMove("j")': ['<c-n>'],
-            \ 'PrtSelectMove("k")': ['<c-p>'],
-            \ }
 "}}}
 " EasyAlign {{{
 vmap <Leader>a <Plug>(EasyAlign)
