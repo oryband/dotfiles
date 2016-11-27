@@ -4,7 +4,7 @@
 export ZPLUG_HOME=$HOME/.zplug
 export PATH=$ZPLUG_HOME/bin:$PATH
 source $ZPLUG_HOME/init.zsh
-zplug "zplug/zplug", at:2.1.0, nice:1  # don't forget to zplug update --self && zplug update
+zplug "zplug/zplug", at:2.3.0, nice:1  # don't forget to zplug update --self && zplug update
 
 zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, nice:2, hook-build:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
 zstyle ':prezto:*:*' case-sensitive 'no'
