@@ -22,7 +22,7 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 zplug "Tarrasch/zsh-bd", use:bd.zsh
 zplug "chriskempson/base16-shell", use:"scripts/base16-eighties.sh"
 zplug "dennishafemann/tmux-cssh", use:"tmux-cssh", as:command
-zplug "digitalocean/doctl", from:gh-r, use:"*1.4.0*linux*amd64*.tar.gz", as:command
+zplug "digitalocean/doctl", from:gh-r, use:"*1.5.0*linux*amd64*.tar.gz", as:command
 zplug "djui/alias-tips"
 zplug "github/hub", from:gh-r, use:"*linux*amd*", as:command
 zplug "junegunn/fzf", at:0.13.5, use:"bin/fzf-tmux", as:command
