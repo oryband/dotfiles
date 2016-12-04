@@ -112,6 +112,9 @@ source $VIRTUALENVWRAPPER_SCRIPT
 alias pipupdate='sudo pip install --upgrade $(pip list --outdated --format json | jq -r ".[].name")'
 alias pip2update='sudo pip2 install --upgrade $(pip2 list --outdated --format json | jq -r ".[].name")'
 
+# js
+alias npmupdate="npm list -g -depth 0 | grep -v /usr | sed '/^$/d' | cut -d' ' -f2 | cut -d'@' -f1 | sort | _ xargs -I {} npm install -g {}"
+
 # ruby
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 
