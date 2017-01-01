@@ -109,11 +109,11 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper.sh
 source $VIRTUALENVWRAPPER_SCRIPT
-alias pipupdate='sudo pip install --upgrade $(pip list --outdated --format json | jq -r ".[].name")'
-alias pip2update='sudo pip2 install --upgrade $(pip2 list --outdated --format json | jq -r ".[].name")'
+alias pipupdate='pip install --user --upgrade $(pip list --outdated --format json | jq -r ".[].name")'
+alias pip2update='pip2 install --user --upgrade $(pip2 list --outdated --format json | jq -r ".[].name")'
 
 # js
-alias npmupdate="npm list -g -depth 0 | grep -v /usr | sed '/^$/d' | cut -d' ' -f2 | cut -d'@' -f1 | sort | _ xargs -I {} npm install -g {}"
+export PATH=$HOME/.node_modules/bin:$PATH
 
 # ruby
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
