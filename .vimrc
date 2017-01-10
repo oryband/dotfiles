@@ -321,6 +321,7 @@ nmap <Leader>a <Plug>(EasyAlign)
 set clipboard=unnamed,unnamedplus
 let g:EasyClipShareYanks = 1
 let g:EasyClipShareYanksDirectory = '$HOME/.vim'
+nmap M <Plug>MoveMotionEndOfLinePlug
 "}}}
 " EasyTags {{{
 set cpoptions+=d
