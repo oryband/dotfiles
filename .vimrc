@@ -77,6 +77,11 @@ Plug 'fatih/vim-nginx', { 'for': 'nginx' }
 " HCL {{{
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
+
+" TOML {{{
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
+"}}}
 " Ansible {{{
 Plug 'pearofducks/ansible-vim'
 "}}}
