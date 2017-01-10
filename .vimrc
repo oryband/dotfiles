@@ -462,7 +462,7 @@ let g:syntastic_style_warning_symbol = 'SW'
 let g:syntastic_style_error_symbol = 'SE'
 highlight link SyntasticStyleErrorSign Todo
 
-let g:syntastic_python_checkers = ['pylint', 'pep8', 'pydocstyle']
+let g:syntastic_python_checkers = ['pylint', 'pycodestyle', 'pydocstyle']
 let g:syntastic_html_checkers = ['tidy', 'jshint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
