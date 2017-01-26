@@ -1,8 +1,11 @@
 community/acpi
 community/acpid
+community/android-tools
+community/atop
 community/ccache
 community/cloc
 community/docker
+community/dstat
 community/dunst
 community/evtest
 community/exfat-utils
@@ -11,7 +14,11 @@ community/i3status (i3)
 community/iotop
 community/keepassx
 community/libvdpau-va-gl
+community/linux-tools-meta
 community/lsb-release
+community/nethogs
+community/ngrep
+community/nodejs
 community/npm
 community/openbsd-netcat
 community/os-prober
@@ -23,6 +30,7 @@ community/rofi
 community/rxvt-unicode
 community/shellcheck
 community/shutter
+community/smem
 community/stow
 community/sysdig
 community/sysstat
@@ -115,10 +123,13 @@ extra/alsa-utils
 extra/bind-tools
 extra/bluez
 extra/bluez-utils
+extra/cairo
 extra/clang
 extra/cmake
 extra/ctags
 extra/feh
+extra/fontconfig
+extra/freetype2
 extra/gdb
 extra/geoip
 extra/git
@@ -133,11 +144,15 @@ extra/mesa-demos
 extra/mesa-libgl
 extra/p7zip
 extra/pkgfile
+extra/protobuf
 extra/pulseaudio
 extra/pulseaudio-alsa
 extra/python2-pip
 extra/python-pip
 extra/ruby
+extra/smartmontools
+extra/socat
+extra/strace
 extra/tcpdump
 extra/transmission-gtk
 extra/tree
@@ -146,8 +161,8 @@ extra/unzip
 extra/wget
 extra/whois
 extra/xclip
-extra/xf86-input-synaptics (xorg-drivers xorg)
-extra/xf86-video-intel (xorg-drivers xorg)
+extra/xf86-input-synaptics (xorg-drivers)
+extra/xf86-video-intel (xorg-drivers)
 extra/xorg-luit (xorg xorg-apps)
 extra/xorg-server-utils
 extra/xorg-server (xorg)
@@ -172,20 +187,22 @@ extra/xorg-xwininfo (xorg-apps xorg)
 extra/xorg-xwud (xorg-apps xorg)
 extra/zip
 extra/zsh
-infinality-bundle/cairo-infinality-ultimate (infinality-bundle)
-infinality-bundle/fontconfig-infinality-ultimate (infinality-bundle)
-infinality-bundle/freetype2-infinality-ultimate (infinality-bundle)
+local/fonts-meta-extended-lt
 local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
 local/i3lock-wrapper (i3)
 local/libcouchbase
+local/netatop (modules)
 local/package-query
 local/perl-graph-easy
+local/playerctl
 local/profile-sync-daemon
+local/spotify
 local/ttf-font-awesome
 local/ttf-font-icons
 local/ttf-ms-win8
 local/ttf-ms-win8-hebrew
 local/urxvt-font-size-git
 local/yaourt
+pritunl/pritunl-client
