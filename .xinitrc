@@ -14,7 +14,7 @@ fi
 [ -f /usr/bin/VBoxClient-all ] && /usr/bin/VBoxClient-all
 
 # lock desktop timer
-xautolock -time 10 -locker "i3lock-wrapper" &
+/usr/bin/xautolock -time 5 -locker "pm-suspend ; lock" -detectsleep &
 
 # toggle external screen if connected
 external-monitor &

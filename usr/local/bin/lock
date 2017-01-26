@@ -1,2 +1,2 @@
 #!/bin/sh
-i3lock-wrapper
+i3lock-fancy -p -f Source-Code-Pro

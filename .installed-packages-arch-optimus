@@ -191,7 +191,7 @@ local/fonts-meta-extended-lt
 local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
-local/i3lock-wrapper (i3)
+local/i3lock-fancy-git
 local/libcouchbase
 local/netatop (modules)
 local/package-query
