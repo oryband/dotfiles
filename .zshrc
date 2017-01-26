@@ -204,3 +204,7 @@ alias dc="docker-compose"
 
 alias vg=vagrant
 alias graph="graph-easy --from dot --as boxart --stats"
+
+# stow
+alias stowusr="sudo stow -vR -t /usr usr"
+alias stowetc="sudo stow -vR -t /etc etc"
