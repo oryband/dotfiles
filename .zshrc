@@ -197,9 +197,12 @@ alias di="docker images | head -n 1 && docker images | tail -n +2 | sort"
 alias dps="docker ps -a"
 alias drm="docker rm"
 alias drmi="docker rmi"
-alias drmd="dps | grep -e Exited -e Created | awk '{print \$3}' | xargs docker rm"
-alias drmid="docker images -qf dangling=true | tr '\n' ' ' | xargs docker rmi -f && \
-    docker images | grep \"^<none>\" | awk \"{print $3}\" | tr '\n' ' ' | tr '\n' ' ' | xargs docker rmi -f"
+alias drmcd='drm $(dps -q -f status=exited -f status=created)'
+alias drmvd='docker volume rm $(docker volume ls -q -f dangling=true)'
+alias drmid='drmi $(docker images -q -f dangling=true)'
+# alias drmid="docker images -q -f dangling=true | tr '\n' ' ' | xargs docker rmi -f && \
+#     docker images | grep \"^<none>\" | awk \"{print $3}\" | tr '\n' ' ' | tr '\n' ' ' | xargs docker rmi -f"
+alias dpurge="drmcd && drmvd && drmid"
 alias dc="docker-compose"
 
 alias vg=vagrant
