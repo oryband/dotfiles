@@ -6,4 +6,4 @@
 0 * * * * python $(which pipdeptree) --warn silence | grep -E '^\w+' | cut -d'=' -f1 | sort> $HOME/.installed-packages-python-$(hostname)
 0 * * * * python2 $(which pipdeptree) --warn silence | grep -E '^\w+' | cut -d'=' -f1 | sort > $HOME/.installed-packages-python2-$(hostname)
 0 * * * * npm list -g -depth 0 | grep -v /usr | sed '/^$/d' | cut -d' ' -f2 | cut -d'@' -f1 | sort > $HOME/.installed-packages-node-$(hostname)
-* */1 * * * curl -sS 'https://unsplash.it/1920/1080/?random' | DISPLAY=:0.0 feh --bg-scale -
+*/60 * * * * curl -sS 'https://unsplash.it/1920/1080/?random' | DISPLAY=:0.0 feh --bg-scale -
