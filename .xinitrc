@@ -22,9 +22,6 @@ external-monitor &
 # FIXME
 # redshift-gtk &
 
-# inital wallpaper, next wallpapers are switched by cron
-feh --bg-scale "$(find $HOME/Documents/interfacelift-downloader/wallpapers/*.jpg | shuf -n1)"
-
 exec i3  # >> ~/i3.log 2>&1
 
 # vim:filetype=sh
