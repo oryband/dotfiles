@@ -202,7 +202,7 @@ alias drmvd='docker volume rm $(docker volume ls -q -f dangling=true)'
 alias drmid='drmi $(docker images -q -f dangling=true)'
 # alias drmid="docker images -q -f dangling=true | tr '\n' ' ' | xargs docker rmi -f && \
 #     docker images | grep \"^<none>\" | awk \"{print $3}\" | tr '\n' ' ' | tr '\n' ' ' | xargs docker rmi -f"
-alias dpurge="drmcd && drmvd && drmid"
+alias dpurge="drmcd ; drmvd ; drmid"
 alias dc="docker-compose"
 
 alias vg=vagrant
