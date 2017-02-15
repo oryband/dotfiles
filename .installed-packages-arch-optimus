@@ -138,6 +138,7 @@ extra/htop
 extra/ifplugd
 extra/inkscape
 extra/keychain
+extra/libnotify
 extra/libva-intel-driver
 extra/libxslt
 extra/mesa-demos
