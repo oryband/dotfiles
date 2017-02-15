@@ -1,9 +1,8 @@
-ajv-cli
 diff-so-fancy
+/home/ory/.node_modules/lib
 js-beautify
 jshint
+json2yaml
 jsonlint
-npm
-semver
 tern
-vtop
+yaml2json
