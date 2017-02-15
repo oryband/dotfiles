@@ -1,9 +1,10 @@
-appdirs
 awscli
+bcc
+Beaker
 docker-compose
-httpie
 iotop
-packaging
+isc
+Mako
+pipdeptree
 Reflector
-SoftLayer
-sshuttle
+setuptools
