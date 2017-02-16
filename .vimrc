@@ -302,8 +302,9 @@ let g:braceless_line_continuation = 0
 " Buffergator {{{
 let g:buffergator_suppress_keymaps = 1
 noremap <silent> <Leader>b :BuffergatorToggle<CR>
-let g:buffergator_viewport_split_policy = 'R'
-let g:buffergator_sort_regime = 'filepath'
+let g:buffergator_viewport_split_policy = 'B'
+let g:buffergator_hsplit_size = 5
+let g:buffergator_sort_regime = 'mru'
 "}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
