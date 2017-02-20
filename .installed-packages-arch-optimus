@@ -145,7 +145,6 @@ extra/mesa-demos
 extra/mesa-libgl
 extra/p7zip
 extra/pkgfile
-extra/pm-utils
 extra/protobuf
 extra/pulseaudio
 extra/pulseaudio-alsa
@@ -204,6 +203,7 @@ local/package-query
 local/perf-tools-git
 local/perl-graph-easy
 local/playerctl
+local/pm-utils
 local/profile-sync-daemon
 local/python2-bcc
 local/python-bcc
