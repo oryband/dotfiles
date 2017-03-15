@@ -205,7 +205,6 @@ local/perf-tools-git
 local/perl-graph-easy
 local/playerctl
 local/pm-utils
-local/profile-sync-daemon
 local/python2-bcc
 local/python-bcc
 local/shutter
