@@ -142,7 +142,6 @@ extra/libnotify
 extra/libva-intel-driver
 extra/libxslt
 extra/mesa-demos
-extra/mesa-libgl
 extra/mtr
 extra/p7zip
 extra/pkgfile
