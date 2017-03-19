@@ -158,6 +158,8 @@ alias l="k -h --no-vcs"
 alias ll="l"  # override scm_breeze
 alias la="l -A"  # override scm_breeze
 
+alias tailf="tail -f"
+
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 
