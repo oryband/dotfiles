@@ -6,5 +6,8 @@ iotop
 isc
 Mako
 pipdeptree
+pygobject
+pyudev
 Reflector
 setuptools
+solaar

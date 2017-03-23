@@ -42,6 +42,8 @@ community/virtualbox
 community/wavemon
 community/wireshark-gtk
 community/xautolock
+community/xautomation
+community/xbindkeys
 core/autoconf (base-devel)
 core/automake (base-devel)
 core/bash (base)
@@ -120,7 +122,6 @@ extra/adobe-source-code-pro-fonts
 extra/alsa-utils
 extra/bind-tools
 extra/bluez
-extra/bluez-utils
 extra/cairo
 extra/clang
 extra/cmake
@@ -189,6 +190,7 @@ extra/zip
 extra/zsh
 local/bcc
 local/bcc-tools
+local/bluez-utils-compat
 local/fonts-meta-extended-lt
 local/google-chrome
 local/google-cloud-sdk
@@ -206,6 +208,7 @@ local/pm-utils
 local/python2-bcc
 local/python-bcc
 local/shutter
+local/solaar
 local/spotify
 local/ttf-font-awesome
 local/ttf-font-icons

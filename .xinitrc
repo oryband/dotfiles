@@ -16,6 +16,8 @@ fi
 # lock desktop timer
 /usr/bin/xautolock -time 5 -locker "pm-suspend ; lock" -detectsleep &
 
+xbindkeys
+
 # toggle external screen if connected
 external-monitor &
 
