@@ -4,6 +4,7 @@ community/android-tools
 community/atop
 community/ccache
 community/cloc
+community/connman
 community/docker
 community/dstat
 community/dunst
@@ -51,7 +52,6 @@ core/coreutils (base)
 core/cronie
 core/cryptsetup (base)
 core/device-mapper (base)
-core/dhcpcd (base)
 core/dialog
 core/diffutils (base)
 core/e2fsprogs (base)
@@ -88,7 +88,6 @@ core/man-db (base)
 core/man-pages (base)
 core/mdadm (base)
 core/nano (base)
-core/netctl (base)
 core/net-tools
 core/openssh
 core/pacman (base base-devel)
@@ -213,5 +212,6 @@ local/ttf-font-icons
 local/ttf-ms-win8
 local/ttf-ms-win8-hebrew
 local/urxvt-font-size-git
+local/vidyodesktop
 local/yaourt
 pritunl/pritunl-client
