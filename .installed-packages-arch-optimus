@@ -208,7 +208,7 @@ local/pm-utils
 local/python2-bcc
 local/python-bcc
 local/shutter
-local/solaar
+local/solaar-git
 local/spotify
 local/ttf-font-awesome
 local/ttf-font-icons
