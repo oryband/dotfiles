@@ -1,0 +1,11 @@
+# thumb wheel down => previous tab
+"xte 'keydown Control_L' 'key Page_Down' 'keyup Control_L'"
+    b:6
+
+# thumb wheel up => next tab
+"xte 'keydown Control_L' 'key Page_Up' 'keyup Control_L'"
+    b:7
+
+# thumb button => ctrl+w
+"sleep 0.1 && xte 'keydown Control_L' 'key w' 'keyup Control_L'"
+    m:0xc + c:23
