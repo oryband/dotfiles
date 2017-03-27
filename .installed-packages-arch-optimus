@@ -3,6 +3,7 @@ community/acpid
 community/android-tools
 community/atop
 community/ccache
+community/chrony
 community/cloc
 community/connman
 community/docker
