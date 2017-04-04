@@ -11,6 +11,7 @@ community/dstat
 community/dunst
 community/evtest
 community/exfat-utils
+community/i3blocks (i3)
 community/i3lock (i3)
 community/i3status (i3)
 community/iotop
@@ -195,7 +196,6 @@ local/bluez-utils-compat
 local/fonts-meta-extended-lt
 local/google-chrome
 local/google-cloud-sdk
-local/i3blocks
 local/i3-gaps-next-git (i3-vcs)
 local/i3lock-fancy-git
 local/lastpass
