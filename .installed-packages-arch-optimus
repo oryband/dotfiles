@@ -27,6 +27,7 @@ community/openbsd-netcat
 community/os-prober
 community/pandoc
 community/parallel
+community/playerctl
 community/powertop
 community/reflector
 community/rofi
@@ -204,7 +205,6 @@ local/netatop-dkms (modules)
 local/package-query
 local/perf-tools-git
 local/perl-graph-easy
-local/playerctl
 local/pm-utils
 local/python2-bcc
 local/python-bcc
