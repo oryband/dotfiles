@@ -3,7 +3,6 @@ community/acpid
 community/android-tools
 community/atop
 community/ccache
-community/chrony
 community/cloc
 community/connman
 community/docker
@@ -147,6 +146,7 @@ extra/libva-intel-driver
 extra/libxslt
 extra/mesa-demos
 extra/mtr
+extra/ntp
 extra/p7zip
 extra/pkgfile
 extra/protobuf
