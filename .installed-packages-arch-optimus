@@ -146,7 +146,6 @@ extra/libva-intel-driver
 extra/libxslt
 extra/mesa-demos
 extra/mtr
-extra/ntp
 extra/p7zip
 extra/pkgfile
 extra/protobuf
