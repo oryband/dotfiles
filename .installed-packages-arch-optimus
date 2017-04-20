@@ -8,8 +8,10 @@ community/connman
 community/docker
 community/dstat
 community/dunst
+community/electrum
 community/evtest
 community/exfat-utils
+community/geth
 community/i3blocks (i3)
 community/i3lock (i3)
 community/i3status (i3)
@@ -201,6 +203,7 @@ local/i3-gaps-next-git (i3-vcs)
 local/i3lock-fancy-git
 local/lastpass
 local/libcouchbase
+local/mist
 local/netatop-dkms (modules)
 local/package-query
 local/perf-tools-git
