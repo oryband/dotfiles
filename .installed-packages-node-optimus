@@ -2,7 +2,5 @@ diff-so-fancy
 /home/ory/.node_modules/lib
 js-beautify
 jshint
-json2yaml
 jsonlint
 tern
-yaml2json
