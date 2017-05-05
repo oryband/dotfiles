@@ -30,7 +30,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'tweekmonster/braceless.vim', { 'for': [ 'python', 'ruby' ] }
 "}}}
 " HTML {{{
-Plug 'matchit.zip', { 'for': 'html' }
+Plug 'tmhedberg/matchit', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 "}}}
 " Templates {{{
@@ -89,10 +89,10 @@ Plug 'pearofducks/ansible-vim'
 "}}}
 " Everything else {{{
 Plug 'Chiel92/vim-autoformat'
-Plug 'camelcasemotion'
+Plug 'bkad/CamelCaseMotion'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'tpope/vim-dispatch'
-Plug 'IndexedSearch'
+Plug 'henrik/vim-indexed-search'
 Plug 'Konfekt/FastFold'
 Plug 'wincent/ferret'
 Plug 'Valloric/ListToggle'
