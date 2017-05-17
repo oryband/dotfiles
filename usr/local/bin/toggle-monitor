@@ -3,13 +3,13 @@
 
 ARG=$(echo $1 | awk '{ print toupper($0) }')
 
-LVDS1_ALIASES=(LVDS1 LVDS LAPTOP);
+eDP1_ALIASES=(eDP1 eDP LAPTOP);
 HDMI1_ALIASES=(HDMI1 HDMI);
 
-LVDS1=$(printf "%s\n" "${LVDS1_ALIASES[@]}" | grep -c "^$ARG$")
+eDP1=$(printf "%s\n" "${eDP1_ALIASES[@]}" | grep -c "^$ARG$")
 HDMI1=$(printf "%s\n" "${HDMI1_ALIASES[@]}" | grep -c "^$ARG$")
 
-if [[ $LVDS1 -eq 1 ]]; then OUTPUT="LVDS1";
+if [[ $eDP1 -eq 1 ]]; then OUTPUT="eDP1";
 elif [[ $HDMI1 -eq 1 ]]; then OUTPUT="HDMI1"; fi
 
 IS_ACTIVE=$(xrandr | grep -cE "$OUTPUT connected (primary )?[1-9]+")
