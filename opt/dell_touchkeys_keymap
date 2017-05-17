@@ -1,0 +1,6 @@
+0x90 previoussong # Previous song
+0xA2 playpause # Play/Pause
+0x99 nextsong # Next song
+0xDB computer # First touch key, Dell apparently uses a key sequence here where 0xDB is a modifer, 0x2D stands for the touch key and 0x19 for the monitor toggle
+0x85 prog1 # Second touch key
+0x84 media # Third touch key
