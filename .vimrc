@@ -116,7 +116,8 @@ Plug 'regedarek/ZoomWin'
 
 function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.force
-        !python install.py --gocode-completer --tern-completer " --clang-completer --system-libclang
+        !python install.py --gocode-completer --tern-completer
+        " !python install.py --gocode-completer --tern-completer --clang-completer --system-libclang
     endif
 endfunction
 " load YCM on first insert command
