@@ -1,0 +1,145 @@
+community/atop
+community/ccache
+community/connman
+community/diff-so-fancy
+community/docker
+community/geth
+community/i3blocks (i3)
+community/i3lock (i3)
+community/i3status (i3)
+community/iftop
+community/jq
+community/nodejs
+community/npm
+community/playerctl
+community/powertop
+community/reflector
+community/rofi
+community/rxvt-unicode
+community/speedtest-cli
+community/stow
+community/terminus-font
+community/the_silver_searcher
+community/tmux
+community/xautomation
+community/xbindkeys
+core/autoconf (base-devel)
+core/automake (base-devel)
+core/bash (base)
+core/binutils (base-devel)
+core/bison (base-devel)
+core/bzip2 (base)
+core/coreutils (base)
+core/cronie
+core/cryptsetup (base)
+core/device-mapper (base)
+core/diffutils (base)
+core/e2fsprogs (base)
+core/fakeroot (base-devel)
+core/file (base base-devel)
+core/filesystem (base)
+core/findutils (base base-devel)
+core/flex (base-devel)
+core/gawk (base base-devel)
+core/gcc (base-devel)
+core/gcc-libs (base)
+core/gettext (base base-devel)
+core/glibc (base)
+core/grep (base base-devel)
+core/gzip (base base-devel)
+core/hdparm
+core/inetutils (base)
+core/iproute2 (base)
+core/iputils (base)
+core/jfsutils (base)
+core/less (base)
+core/libtool (base-devel)
+core/licenses (base)
+core/linux (base)
+core/logrotate (base)
+core/lvm2 (base)
+core/m4 (base-devel)
+core/make (base-devel)
+core/man-db (base)
+core/man-pages (base)
+core/mdadm (base)
+core/nano (base)
+core/openssh
+core/pacman (base base-devel)
+core/patch (base-devel)
+core/pciutils (base)
+core/pcmciautils (base)
+core/perl (base)
+core/pkg-config (base-devel)
+core/procps-ng (base)
+core/psmisc (base)
+core/reiserfsprogs (base)
+core/rfkill
+core/sdparm
+core/sed (base base-devel)
+core/shadow (base)
+core/s-nail (base)
+core/sudo (base-devel)
+core/sysfsutils (base)
+core/systemd-sysvcompat (base)
+core/tar (base)
+core/texinfo (base base-devel)
+core/usbutils (base)
+core/util-linux (base base-devel)
+core/vi (base)
+core/which (base base-devel)
+core/wpa_supplicant
+core/xfsprogs (base)
+extra/adobe-source-code-pro-fonts
+extra/alsa-utils
+extra/bluez
+extra/clang
+extra/cmake
+extra/ctags
+extra/dkms
+extra/feh
+extra/git
+extra/gvim
+extra/htop
+extra/intel-ucode
+extra/keychain
+extra/libva-intel-driver
+extra/lm_sensors
+extra/ntfs-3g
+extra/python
+extra/python2
+extra/python2-pip
+extra/python-pip
+extra/refind-efi
+extra/ruby
+extra/tree
+extra/vlc
+extra/vulkan-icd-loader
+extra/vulkan-intel
+extra/wget
+extra/xclip
+extra/xf86-video-intel (xorg-drivers)
+extra/xorg-server (xorg)
+extra/xorg-xclipboard
+extra/xorg-xdpyinfo (xorg-apps xorg)
+extra/xorg-xinit
+extra/yajl
+extra/zsh
+local/acpi_call-dkms
+local/bluez-utils-compat
+local/fonts-meta-extended-lt
+local/google-chrome
+local/google-cloud-sdk
+local/i3-gaps-next-git (i3-vcs)
+local/libinput-gestures
+local/libva-utils
+local/lnav
+local/pm-utils
+local/solaar-git
+local/spotify
+local/tmux-cssh
+local/ttf-font-awesome
+local/ttf-font-icons
+local/urxvt-font-size-git
+local/xorg-server-utils
+local/yaourt-git
