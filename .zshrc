@@ -127,9 +127,6 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 alias $GO_VERSION=$GOROOT/bin/go
 alias go=$GO_VERSION
 
-# command not found package suggestion
-source /usr/share/doc/pkgfile/command-not-found.zsh
-
 # git-radar
 export GIT_RADAR_FORMAT="[%{$reset_color%}%{remote: }%{branch}%{ :local}%{$reset_color%}%{ :changes}%{ :stash}] "
 export GIT_RADAR_MASTER_SYMBOL="m"
