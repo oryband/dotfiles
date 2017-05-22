@@ -1,6 +1,5 @@
 community/atop
 community/ccache
-community/connman
 community/diff-so-fancy
 community/docker
 community/geth
@@ -117,6 +116,7 @@ extra/vlc
 extra/vulkan-icd-loader
 extra/vulkan-intel
 extra/wget
+extra/wpa_supplicant_gui
 extra/xclip
 extra/xf86-video-intel (xorg-drivers)
 extra/xorg-server (xorg)
