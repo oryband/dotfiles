@@ -55,6 +55,7 @@ core/less (base)
 core/libtool (base-devel)
 core/licenses (base)
 core/linux (base)
+core/linux-firmware
 core/logrotate (base)
 core/lvm2 (base)
 core/m4 (base-devel)
