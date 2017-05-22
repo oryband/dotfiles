@@ -1,0 +1,2 @@
+#!/bin/bash
+scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/'
