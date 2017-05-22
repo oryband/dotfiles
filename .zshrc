@@ -211,6 +211,7 @@ alias graph="graph-easy --from dot --as boxart --stats"
 # stow
 alias stowusr="sudo stow -vR -t /usr usr"
 alias stowetc="sudo stow -vR -t /etc etc"
+alias stowopt="sudo stow -vR -t /opt opt"
 
 # yaml2json
 yaml2json() { python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' }
