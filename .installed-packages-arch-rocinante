@@ -136,6 +136,7 @@ local/libinput-gestures
 local/libva-utils
 local/lnav
 local/pm-utils
+local/profile-sync-daemon
 local/slack-desktop
 local/solaar-git
 local/spotify
