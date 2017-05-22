@@ -31,10 +31,8 @@ zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
 zplug "michaeldfallen/git-radar", use:git-radar, as:command
 zplug "paulirish/git-open", as:command
 zplug "scmbreeze/scm_breeze", hook-build:"$ZPLUG_HOME/repos/scmbreeze/scm_breeze/install.sh"
-zplug "stedolan/jq", from:gh-r, as:command, rename-to:jq
 zplug "supercrabtree/k"
 zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
-zplug "tstack/lnav", from:gh-r, use:"*linux*64*", as:command
 zplug "zsh-users/zsh-autosuggestions"
 zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
 zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
