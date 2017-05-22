@@ -1,0 +1,7 @@
+awscli
+boto3
+pipdeptree
+pycairo
+requests
+setuptools
+virtualenvwrapper
