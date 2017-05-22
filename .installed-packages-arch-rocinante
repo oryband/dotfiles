@@ -135,6 +135,7 @@ local/libinput-gestures
 local/libva-utils
 local/lnav
 local/pm-utils
+local/slack-desktop
 local/solaar-git
 local/spotify
 local/tmux-cssh
