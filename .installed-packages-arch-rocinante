@@ -135,6 +135,7 @@ local/i3-gaps-next-git (i3-vcs)
 local/libinput-gestures
 local/libva-utils
 local/lnav
+local/markdown2ctags
 local/pm-utils
 local/profile-sync-daemon
 local/slack-desktop
