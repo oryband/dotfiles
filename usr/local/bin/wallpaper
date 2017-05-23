@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -sS 'https://unsplash.it/3840/2160/?random' | DISPLAY=:0.0 feh --bg-scale -
