@@ -85,6 +85,9 @@ Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
 " Ansible {{{
 Plug 'pearofducks/ansible-vim'
 "}}}
+" Solidity {{{
+Plug 'tomlion/vim-solidity'
+"}}}
 "}}}
 "}}}
 " Everything else {{{
