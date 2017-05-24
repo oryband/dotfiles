@@ -43,7 +43,7 @@ Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 " Javascript {{{
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript'] }
 "}}}
 " Python {{{
