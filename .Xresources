@@ -34,6 +34,9 @@ URxvt.keysym.C-0x2d:        font-size:decrease
 ! URxvt.keysym.C-S-Up:        font-size:incglobal
 ! URxvt.keysym.C-S-Down:      font-size:decglobal
 
+! URxvt.perl-ext: bidi
+! URxvt.bidi.enabled: 0
+
 rofi.width: 50
 rofi.lines: 5
 rofi.font: Source Code Pro Light 18

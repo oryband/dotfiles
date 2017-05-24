@@ -145,6 +145,7 @@ local/spotify
 local/tmux-cssh
 local/ttf-font-awesome
 local/ttf-font-icons
+local/urxvt-bidi
 local/urxvt-font-size-git
 local/xorg-server-utils
 local/yaourt-git
