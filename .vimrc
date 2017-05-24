@@ -491,6 +491,20 @@ let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 
 let g:tagbar_type_javascript = { 'ctagsbin' : 'jsctags' }
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : 'markdown2ctags',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
 "}}}
 " Tern {{{
 let g:tern#command = ['tern', '--no-port-file']
