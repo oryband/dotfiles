@@ -1,7 +1,9 @@
+ansible
+appdirs
 awscli
 boto3
+packaging
 pipdeptree
 pycairo
 requests
-setuptools
 virtualenvwrapper

@@ -1,7 +1,9 @@
+appdirs
 awscli
 Beaker
 docker-compose
 Mako
+packaging
 pipdeptree
 pygobject
 pyudev
@@ -9,3 +11,4 @@ Reflector
 setuptools
 solaar
 speedtest-cli
+virtualenv

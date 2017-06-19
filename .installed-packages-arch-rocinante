@@ -1,14 +1,19 @@
+community/acpi
 community/atop
 community/ccache
 community/docker
+community/dos2unix
+community/dunst
 community/geth
 community/i3blocks (i3)
 community/i3lock (i3)
 community/i3status (i3)
 community/iftop
 community/jq
+community/libva-utils
 community/nodejs
 community/npm
+community/parity
 community/playerctl
 community/powertop
 community/reflector
@@ -99,6 +104,7 @@ extra/cmake
 extra/ctags
 extra/dkms
 extra/feh
+extra/gimp
 extra/git
 extra/gvim
 extra/htop
@@ -106,6 +112,7 @@ extra/intel-ucode
 extra/keychain
 extra/libva-intel-driver
 extra/lm_sensors
+extra/mtr
 extra/ntfs-3g
 extra/python
 extra/python2
@@ -114,6 +121,7 @@ extra/python-pip
 extra/refind-efi
 extra/ruby
 extra/tree
+extra/unzip
 extra/vlc
 extra/vulkan-icd-loader
 extra/vulkan-intel
@@ -130,11 +138,11 @@ extra/zsh
 local/acpi_call-dkms
 local/bluez-utils-compat
 local/fonts-meta-extended-lt
+local/gitter
 local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
 local/libinput-gestures
-local/libva-utils
 local/lnav
 local/markdown2ctags
 local/pm-utils
