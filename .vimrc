@@ -551,7 +551,7 @@ augroup END
 "}}}
 " BufWrite {{{
 augroup AutoFormat
-    autocmd BufWrite *.go,*.html :Autoformat
+    autocmd BufWrite *.go :Autoformat
     " don't format json if filetype is jinja
     " autocmd BufWrite *.json if &ft !~? 'jinja' | :Autoformat | endif
 augroup END
