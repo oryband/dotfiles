@@ -169,9 +169,9 @@ client.urgent           #c86f70 #ac4142 #ffffff
 client.background       #151515
 
 # audio keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set -c 0 Master 2%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set -c 0 Master 2%-
-bindsym XF86AudioMute exec --no-startup-id amixer -c 0 -q set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set -c 1 PCM 2%+ && amixer set -c 0 Master 2%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set -c 1 PCM 2%- && amixer set -c 0 Master 2%-
+bindsym XF86AudioMute exec --no-startup-id amixer -c 1 -q set PCM toggle && amixer -c 0 -q set Master toggle
 
 # brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
