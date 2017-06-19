@@ -1,5 +1,5 @@
 # wallpaper
-*/60 * * * * wallpaper
+*/60 * * * * /usr/local/bin/wallpaper
 
 # low battery popup
 */1 * * * * DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pidof i3)/environ | cut -d= -f2-) /usr/local/bin/warn-battery
