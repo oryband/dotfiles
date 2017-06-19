@@ -18,10 +18,10 @@ Xft*antialias:              true
 Xft*hinting:                true
 Xft*hintstyle:              hintfull
 
-URxvt*font:                 xft:Source Code Pro Light:size=16:Regular,xft:Arial Light:size=16:Regular
-URxvt*boldFont:             xft:Source Code Pro Light:size=16:Bold,xft:Arial Light:size=16:Bold
-URxvt*italicFont:           xft:Source Code Pro Light:size=16:Italic,xft:Arial Light:size=16:Italic
-URxvt*boldItalicFont:       xft:Source Code Pro Light:size=16:Bold:Italic,xft:Arial Light:size=16:Bold:Italic
+URxvt*font:                 xft:Source Code Pro Light:size=15:Regular,xft:Arial Light:size=15:Regular
+URxvt*boldFont:             xft:Source Code Pro Light:size=15:Bold,xft:Arial Light:size=15:Bold
+URxvt*italicFont:           xft:Source Code Pro Light:size=15:Italic,xft:Arial Light:size=15:Italic
+URxvt*boldItalicFont:       xft:Source Code Pro Light:size=15:Bold:Italic,xft:Arial Light:size=15:Bold:Italic
 
 URxvt*intensityStyles:      false
 
