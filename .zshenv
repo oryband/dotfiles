@@ -2,3 +2,6 @@
 
 # ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then source "${ZDOTDIR:-$HOME}/.zprofile"; fi
+
+# sound card
+[[ -f /etc/arch-release && `hostname` == 'rocinante' ]] && export ALSA_CARD=Audio
