@@ -6,6 +6,6 @@
 
 # installed packages
 0 * * * * yaourt -Qe --nocolor | cut -d' ' -f1,3- | sort > $HOME/.installed-packages-arch-$(hostname)
-0 * * * * python $HOME/.local/bin/pipdeptree --warn silence | grep -E '^\w+' | cut -d'=' -f1 | sort> $HOME/.installed-packages-python-$(hostname)
-0 * * * * python2 $HOME/.local/bin/pipdeptree --warn silence | grep -E '^\w+' | cut -d'=' -f1 | sort > $HOME/.installed-packages-python2-$(hostname)
+0 * * * * python  -m pipdeptree --warn silence | grep -E '^\w+' | cut -d'=' -f1 | sort > $HOME/.installed-packages-python-$(hostname)
+0 * * * * python2 -m pipdeptree --warn silence | grep -E '^\w+' | cut -d'=' -f1 | sort > $HOME/.installed-packages-python2-$(hostname)
 0 * * * * npm list -g -depth 0 | grep -v /usr | sed '/^$/d' | cut -d' ' -f2 | cut -d'@' -f1 | sort > $HOME/.installed-packages-node-$(hostname)
