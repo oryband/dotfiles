@@ -205,6 +205,7 @@ set nowrap
 set linebreak
 set textwidth=79
 set relativenumber
+set number
 set matchtime=3
 set nolist
 set nosmartindent
