@@ -2,7 +2,8 @@ appdirs
 awscli
 Beaker
 docker-compose
-Mako
+httpie
+ipython
 packaging
 pipdeptree
 pygobject
