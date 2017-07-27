@@ -216,3 +216,8 @@ alias stowopt="sudo stow -vR -t /opt opt"
 # yaml2json
 yaml2json() { python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' }
 json2yaml() { python -c 'import sys, yaml, json; yaml.dump(json.load(sys.stdin), sys.stdout, indent=4)' }
+
+alias killchrome="/usr/bin/pkill --oldest --signal TERM -f chrome"
+alias killslack="/usr/bin/pkill --oldest --signal TERM -f slack"
+alias killspotify="/usr/bin/pkill --oldest --signal TERM -f spotify"
+alias restartapps="killchrome ; killslack ; killspotify ; nohup google-chrome-stable > /dev/null & ; nohup slack > /dev/null & ; nohup spotify > /dev/null &"
