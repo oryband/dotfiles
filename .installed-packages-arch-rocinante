@@ -1,6 +1,7 @@
 community/acpi
 community/atop
 community/ccache
+community/colordiff
 community/docker
 community/dos2unix
 community/dunst
@@ -137,6 +138,7 @@ extra/yajl
 extra/zsh
 local/acpi_call-dkms
 local/bluez-utils-compat
+local/cwdiff
 local/fonts-meta-extended-lt
 local/gitter
 local/google-chrome
