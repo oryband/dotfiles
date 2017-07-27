@@ -12,7 +12,7 @@ pygobject
 pylint
 pyudev
 Reflector
-setuptools
 solaar
 speedtest-cli
-virtualenv
+sshuttle
+udiskie
