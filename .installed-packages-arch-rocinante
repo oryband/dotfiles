@@ -138,6 +138,7 @@ extra/zsh
 local/acpi_call-dkms
 local/bluez-utils-compat
 local/cwdiff
+local/dunst-service
 local/fonts-meta-extended-lt
 local/gitter
 local/google-chrome
