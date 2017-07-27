@@ -6,7 +6,10 @@ httpie
 ipython
 packaging
 pipdeptree
+pycodestyle
+pydocstyle
 pygobject
+pylint
 pyudev
 Reflector
 setuptools
