@@ -2,8 +2,11 @@ ansible
 appdirs
 awscli
 boto3
+Electrum
 packaging
+Pillow
 pipdeptree
 pycairo
-requests
+pycryptodomex
+python-sane
 virtualenvwrapper
