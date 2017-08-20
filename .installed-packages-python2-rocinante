@@ -9,4 +9,5 @@ pipdeptree
 pycairo
 pycryptodomex
 python-sane
+simplejson
 virtualenvwrapper
