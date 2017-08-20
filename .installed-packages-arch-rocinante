@@ -125,6 +125,7 @@ extra/python2-pip
 extra/python-pip
 extra/refind-efi
 extra/ruby
+extra/transmission-gtk
 extra/tree
 extra/unzip
 extra/vlc
