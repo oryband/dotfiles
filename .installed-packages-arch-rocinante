@@ -17,6 +17,7 @@ community/kodi
 community/libva-utils
 community/nodejs
 community/npm
+community/pandoc
 community/parity
 community/playerctl
 community/powertop
