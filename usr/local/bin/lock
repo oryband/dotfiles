@@ -1,2 +1,2 @@
 #!/bin/sh
-i3lock-fancy -p -f Source-Code-Pro
+i3lock-fancy -p -f Source-Code-Pro -- scrot -z
