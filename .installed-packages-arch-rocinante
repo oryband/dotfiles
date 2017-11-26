@@ -15,10 +15,10 @@ community/iftop
 community/jq
 community/kodi
 community/libva-utils
+community/ncdu
 community/nodejs
 community/npm
 community/pandoc
-community/parity
 community/playerctl
 community/powertop
 community/reflector
@@ -30,7 +30,9 @@ community/stow
 community/terminus-font
 community/the_silver_searcher
 community/tmux
+community/ttf-font-awesome
 community/wavemon
+community/xautolock
 community/xautomation
 community/xbindkeys
 core/autoconf (base-devel)
@@ -73,6 +75,7 @@ core/man-db (base)
 core/man-pages (base)
 core/mdadm (base)
 core/nano (base)
+core/net-tools
 core/openssh
 core/pacman (base base-devel)
 core/patch (base-devel)
@@ -83,7 +86,6 @@ core/pkg-config (base-devel)
 core/procps-ng (base)
 core/psmisc (base)
 core/reiserfsprogs (base)
-core/rfkill
 core/sdparm
 core/sed (base base-devel)
 core/shadow (base)
@@ -101,6 +103,7 @@ core/wpa_supplicant
 core/xfsprogs (base)
 extra/adobe-source-code-pro-fonts
 extra/alsa-utils
+extra/bc
 extra/bluez
 extra/clang
 extra/cmake
@@ -109,6 +112,7 @@ extra/dkms
 extra/feh
 extra/gimp
 extra/git
+extra/gnu-netcat
 extra/gvim
 extra/htop
 extra/intel-ucode
@@ -118,6 +122,7 @@ extra/libreoffice-fresh-he
 extra/libva-intel-driver
 extra/lm_sensors
 extra/mtr
+extra/nmap
 extra/ntfs-3g
 extra/python
 extra/python2
@@ -125,13 +130,14 @@ extra/python2-pip
 extra/python-pip
 extra/refind-efi
 extra/ruby
-extra/transmission-gtk
+extra/transmission-qt
 extra/tree
 extra/unzip
 extra/vlc
 extra/vulkan-icd-loader
 extra/vulkan-intel
 extra/wget
+extra/whois
 extra/wpa_supplicant_gui
 extra/xclip
 extra/xf86-video-intel (xorg-drivers)
@@ -145,11 +151,13 @@ local/acpi_call-dkms
 local/bluez-utils-compat
 local/cwdiff
 local/dunst-service
+local/electron-cash-git
 local/fonts-meta-extended-lt
 local/gitter
 local/google-chrome
 local/google-cloud-sdk
 local/i3-gaps-next-git (i3-vcs)
+local/i3lock-fancy-git
 local/libinput-gestures
 local/lnav
 local/markdown2ctags
@@ -159,8 +167,8 @@ local/slack-desktop
 local/solaar-git
 local/spotify
 local/tmux-cssh
-local/ttf-font-awesome
 local/ttf-font-icons
+local/tunnelbear
 local/urxvt-bidi
 local/urxvt-font-size-git
 local/xorg-server-utils

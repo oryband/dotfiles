@@ -1,6 +1,10 @@
 diff-so-fancy
+ethereumjs-testrpc
 /home/ory/.node_modules/lib
 js-beautify
 jsctags
 jshint
+orbs-common-library
 tern
+truffle
+yarn
