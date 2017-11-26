@@ -120,7 +120,7 @@ export PATH=$HOME/.node_modules/bin:$PATH
 export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
 
 # golang
-GO_VERSION=go1.8.1
+GO_VERSION=go1.9.2
 export GOROOT=$HOME/Documents/golang/$GO_VERSION
 export GOPATH=$HOME/.golang/$GO_VERSION
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
