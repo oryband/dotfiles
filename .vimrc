@@ -46,6 +46,9 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript'] }
 "}}}
+" Typescript {{{
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+"}}}
 " Python {{{
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
