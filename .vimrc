@@ -470,7 +470,7 @@ let g:syntastic_style_error_symbol = 'SE'
 highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['pylint', 'pycodestyle', 'pydocstyle']
-let g:syntastic_html_checkers = ['tidy', 'jshint']
+let g:syntastic_html_checkers = ['tidy', 'eslint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
@@ -546,7 +546,6 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter *.tfstate setfiletype json
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
     autocmd BufWinEnter *.rules setfiletype conf
-    autocmd BufWinEnter .jshintrc setfiletype javascript
     autocmd BufWinEnter .tern-config,.tern-project setfiletype json
 augroup END
 "}}}
