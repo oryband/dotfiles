@@ -474,6 +474,7 @@ highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['pylint', 'pycodestyle', 'pydocstyle']
 let g:syntastic_html_checkers = ['tidy', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
