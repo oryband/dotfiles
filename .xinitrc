@@ -14,7 +14,7 @@ fi
 [ -f /usr/bin/VBoxClient-all ] && /usr/bin/VBoxClient-all
 
 # lock desktop timer
-/usr/bin/xautolock -time 5 -locker "pm-suspend ; lock" -detectsleep &
+/usr/bin/xautolock -time 5 -locker "systemctl suspend ; lock" -detectsleep &
 
 xbindkeys
 libinput-gestures-setup start
