@@ -1,10 +1,11 @@
 diff-so-fancy
+eslint
 ethereumjs-testrpc
 /home/ory/.node_modules/lib
 js-beautify
 jsctags
-jshint
 orbs-common-library
+orbs-interfaces
 tern
 truffle
 yarn

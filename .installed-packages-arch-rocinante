@@ -1,4 +1,5 @@
 community/acpi
+community/acpi_call-dkms
 community/atop
 community/ccache
 community/colordiff
@@ -27,6 +28,7 @@ community/rxvt-unicode
 community/scrot
 community/speedtest-cli
 community/stow
+community/sysdig
 community/terminus-font
 community/the_silver_searcher
 community/tmux
@@ -113,6 +115,7 @@ extra/feh
 extra/gimp
 extra/git
 extra/gnu-netcat
+extra/gobject-introspection
 extra/gvim
 extra/htop
 extra/intel-ucode
@@ -135,13 +138,13 @@ extra/refind-efi
 extra/ruby
 extra/transmission-qt
 extra/tree
+extra/udisks2
 extra/unzip
 extra/vlc
 extra/vulkan-icd-loader
 extra/vulkan-intel
 extra/wget
 extra/whois
-extra/wpa_supplicant_gui
 extra/xclip
 extra/xf86-video-intel (xorg-drivers)
 extra/xorg-server (xorg)
@@ -150,11 +153,9 @@ extra/xorg-xdpyinfo (xorg-apps xorg)
 extra/xorg-xinit
 extra/yajl
 extra/zsh
-local/acpi_call-dkms
 local/bluez-utils-compat
 local/cwdiff
 local/dunst-service
-local/electron-cash-git
 local/fonts-meta-extended-lt
 local/gitter
 local/google-chrome
@@ -164,9 +165,13 @@ local/i3lock-fancy-git
 local/libinput-gestures
 local/lnav
 local/markdown2ctags
+local/netatop-dkms (modules)
 local/pm-utils
 local/profile-sync-daemon
+local/pulsemixer
+local/python-btchip
 local/slack-desktop
+local/snapd-git
 local/solaar-git
 local/spotify
 local/tmux-cssh
@@ -174,5 +179,6 @@ local/ttf-font-icons
 local/tunnelbear
 local/urxvt-bidi
 local/urxvt-font-size-git
+local/wpa_supplicant_gui
 local/xorg-server-utils
 local/yaourt-git
