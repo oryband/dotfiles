@@ -124,6 +124,9 @@ extra/lm_sensors
 extra/mtr
 extra/nmap
 extra/ntfs-3g
+extra/paprefs
+extra/pavucontrol
+extra/pulseaudio-alsa
 extra/python
 extra/python2
 extra/python2-pip
