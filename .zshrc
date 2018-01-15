@@ -161,6 +161,8 @@ alias tailf="tail -f"
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 
+alias cd..="cd .."
+
 alias js="node"
 alias tree="tree -C"
 alias vi="vim"
