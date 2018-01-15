@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+NEW_DPI="$1"
+OLD_DPI="$(grep Xft.dpi ~/.Xresources | awk '{print $2}')"
+
+sed -ie "s/Xft.dpi: $OLD_DPI/Xft.dpi: $NEW_DPI/g" $HOME/.Xresources
+
+xrdb $HOME/.Xresources
+i3-msg restart
