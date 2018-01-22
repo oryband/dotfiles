@@ -13,8 +13,13 @@ fi
 # virtualbox
 [ -f /usr/bin/VBoxClient-all ] && /usr/bin/VBoxClient-all
 
-# lock desktop timer
-/usr/bin/xautolock -time 5 -locker "systemctl suspend ; lock" -detectsleep &
+# suspend desktop timer
+/usr/bin/xautolock \
+    -time 10 \
+    -locker "systemctl suspend" \
+    -notify 30 \
+    -notifier "notify-send -u critical -t 10000 -- 'Suspending in 30s'" \
+    -detectsleep &
 
 xbindkeys
 libinput-gestures-setup start
