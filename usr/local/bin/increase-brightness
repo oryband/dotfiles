@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+set -x
+
+CURRENT=$(cat /sys/class/backlight/intel_backlight/brightness)
+MAX=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+
+if [[ $CURRENT -lt $MAX ]]; then
+    echo $(($CURRENT + 100)) > /sys/class/backlight/intel_backlight/brightness
+fi
