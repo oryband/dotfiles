@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+
+xrandr --output eDP-1 --auto --output HDMI-1 --off
+switch-dpi 240
