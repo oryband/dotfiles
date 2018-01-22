@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
+i3-kill Google-chrome
+i3-kill Slack
+i3-kill Spotify
