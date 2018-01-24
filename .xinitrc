@@ -10,9 +10,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
     unset f
 fi
 
-# virtualbox
-[ -f /usr/bin/VBoxClient-all ] && /usr/bin/VBoxClient-all
-
 # suspend desktop timer
 /usr/bin/xautolock \
     -time 10 \
