@@ -21,12 +21,6 @@ fi
 xbindkeys
 libinput-gestures-setup start
 
-# toggle external screen if connected
-external-monitor &
-
-# logitech mouse
-solaar --restart-on-wake-up &
-
 # auto mount usb drives
 udiskie &
 
