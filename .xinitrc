@@ -26,6 +26,7 @@ udiskie &
 
 # FIXME
 # redshift-gtk &
+pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 exec i3  # >> ~/i3.log 2>&1
 
