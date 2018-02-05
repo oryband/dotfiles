@@ -36,8 +36,7 @@ URxvt.keysym.C-0x2d:        font-size:decrease
 
 rofi.width: 50
 rofi.lines: 5
-rofi.font: Source Code Pro Light 18
-! rofi.font: Source Code Pro Light 40
+rofi.font: SauceCodePro Nerd Font Mono Light 18
 rofi.hlbg: base02
 rofi.bc: base09
 rofi.bw: 3
