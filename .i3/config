@@ -169,9 +169,9 @@ client.urgent           #c86f70 #ac4142 #ffffff
 client.background       #151515
 
 # audio keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +1%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -1%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume combined +1%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume combined -1%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute combined toggle
 
 # brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id increase-brightness
