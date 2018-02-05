@@ -1,1 +1,1 @@
-ACTION=="change", SUBSYSTEM=="power_supply", KERNEL=="hidpp_battery_*", RUN+="/usr/bin/solaar config 1 dpi 600"
+ACTION=="change", SUBSYSTEM=="power_supply", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c52b", ATTR{online}=="1", RUN+="/usr/bin/solaar config 1 dpi 600"
