@@ -4,9 +4,9 @@
 export ZPLUG_HOME=$HOME/.zplug
 export PATH=$ZPLUG_HOME/bin:$PATH
 source $ZPLUG_HOME/init.zsh
-zplug "zplug/zplug", at:2.3.3, nice:1  # don't forget to zplug update --self && zplug update
+zplug "zplug/zplug", at:2.4.2  # don't forget to zplug update --self && zplug update
 
-zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, nice:2, hook-build:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
+zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
@@ -21,22 +21,18 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 
 zplug "Tarrasch/zsh-bd", use:bd.zsh
 zplug "chriskempson/base16-shell", use:"scripts/base16-eighties.sh"
-zplug "dennishafemann/tmux-cssh", use:"tmux-cssh", as:command
-zplug "digitalocean/doctl", from:gh-r, use:"*1.6.1*linux*amd64*.tar.gz", as:command
 zplug "djui/alias-tips"
 zplug "github/hub", from:gh-r, use:"*linux*amd*", as:command
-zplug "junegunn/fzf", at:0.15.9, use:"bin/fzf-tmux", as:command
-zplug "junegunn/fzf-bin", at:0.15.9, from:gh-r, use:"*linux*amd64*", rename-to:"fzf", as:command
-zplug "justone/dockviz", from:gh-r, use:"*linux*amd64*", as:command
+zplug "junegunn/fzf", at:0.17.3, use:"bin/fzf-tmux", as:command
+zplug "junegunn/fzf-bin", at:0.17.3, from:gh-r, use:"*linux*amd64*", rename-to:"fzf", as:command
 zplug "michaeldfallen/git-radar", use:git-radar, as:command
 zplug "paulirish/git-open", as:command
 zplug "scmbreeze/scm_breeze", hook-build:"$ZPLUG_HOME/repos/scmbreeze/scm_breeze/install.sh"
-zplug "supercrabtree/k"
 zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "b4b4r07/enhancd", use:init.sh, nice:17  # after prezto
-zplug "zsh-users/zsh-syntax-highlighting", nice:18  # >=10 means after compinit
-zplug "zsh-users/zsh-history-substring-search", nice:19
+zplug "b4b4r07/enhancd", use:init.sh, defer:1  # after prezto
+zplug "zsh-users/zsh-syntax-highlighting", defer:2  # after compinit
+zplug "zsh-users/zsh-history-substring-search", defer:2
 
 zplug load
 
@@ -147,17 +143,12 @@ source $HOME/.zsh-secrets
 
 alias c="cd"
 alias c-="c -"
-
-alias l="k -h --no-vcs"
-alias ll="l"  # override scm_breeze
-alias la="l -A"  # override scm_breeze
+alias cd..="cd .."
 
 alias tailf="tail -f"
 
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
-
-alias cd..="cd .."
 
 alias js="node"
 alias tree="tree -C"

@@ -98,8 +98,11 @@ git_stash_apply_alias="gasha"
 git_stash_pop_alias="gashp"
 git_stash_list_alias="gashl"
 git_tag_alias="gt"
+git_submodule_update_alias="gsu"
+git_submodule_update_rec_alias="gsur"
 git_top_level_alias="gtop"
 git_whatchanged_alias="gwc"
+git_apply_alias="gapp"
 # Hub aliases (https://github.com/github/hub)
 git_pull_request_alias="gpr"
 
@@ -118,6 +121,6 @@ git_commit_all_with_ci_skip_keys="\C-xv"  # CTRL+x, v    (Appends [ci skip] to c
 # Expand numbered args for common shell commands
 shell_command_wrapping_enabled="true"
 # Here you can tweak the list of wrapped commands.
-scmb_wrapped_shell_commands="vim emacs gedit cat rm cp mv ln cd"
+scmb_wrapped_shell_commands=""
 # Add numbered shortcuts to output of ls -l, just like 'git status'
 shell_ls_aliases_enabled="true"
