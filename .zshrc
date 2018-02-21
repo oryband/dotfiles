@@ -130,6 +130,10 @@ export GIT_RADAR_MASTER_SYMBOL="m"
 # scm_breeze
 [ -s "/home/ory/.scm_breeze/scm_breeze.sh" ] && source "/home/ory/.scm_breeze/scm_breeze.sh"
 
+# gnupg, ssh
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
 # travis
 [ -f /home/ory/.travis/travis.sh ] && source /home/ory/.travis/travis.sh
 
