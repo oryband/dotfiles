@@ -24,7 +24,7 @@ URxvt*intensityStyles:      false
 
 URxvt*pointerBlank:         true
 
-URxvt.perl-ext-common:      font-size
+URxvt.perl-ext-common:      font-size,selection-to-clipboard
 
 URxvt.keysym.C-equal:       font-size:increase
 URxvt.keysym.C-0x2d:        font-size:decrease
