@@ -196,7 +196,7 @@ alias dc="sudo docker-compose"
 
 alias vg=vagrant
 alias graph="graph-easy --from dot --as boxart --stats"
-alias tmux="tmux attach -t ory"
+# alias tmux="tmux attach -t ory"
 
 # stow
 alias stowusr="sudo stow -vR -t /usr usr"
