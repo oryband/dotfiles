@@ -1,6 +1,7 @@
 [user]
     name = Ory Band
     email = oryband@gmail.com
+    signingkey = 2F829952
 [commit]
     gpgSign = true
 [push]
