@@ -3,6 +3,8 @@ colorama
 hidapi
 Jinja2
 lxml
+mercurial
+olefile
 packaging
 paramiko
 Pillow
@@ -16,7 +18,6 @@ pycairo
 pycrypto
 pycryptodomex
 PySocks
-python-sane
 PyYAML
 regex
 requests
@@ -24,4 +25,3 @@ rsa
 s3transfer
 simplejson
 virtualenvwrapper
-zenmap
