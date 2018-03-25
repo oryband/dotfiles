@@ -1,0 +1,10 @@
+[Unit]
+Description=Change wallpaper
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/wallpaper
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=default.target

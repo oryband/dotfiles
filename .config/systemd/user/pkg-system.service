@@ -1,0 +1,9 @@
+[Unit]
+Description=Update system package list
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "/usr/bin/yay -Qe --color never | cut -d ' ' -f 1,3- | sort > %h/.pkg-system-%H"
+
+[Install]
+WantedBy=default.target

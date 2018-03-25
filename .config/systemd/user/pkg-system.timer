@@ -1,0 +1,11 @@
+[Unit]
+Description=Update system package list timer
+
+[Timer]
+OnActiveSec=5sec
+OnUnitActiveSec=1hour
+Persistent=true
+Unit=pkg-system.service
+
+[Install]
+WantedBy=timers.target

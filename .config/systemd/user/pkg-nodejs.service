@@ -1,0 +1,9 @@
+[Unit]
+Description=Update Node.js package list
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "npm list -g -depth 0 | grep -v /home/ory | sed '/^$/d' | cut -d ' ' -f 2 | cut -d '@' -f 1 | sort > %h/.pkg-nodejs-%H"
+
+[Install]
+WantedBy=default.target

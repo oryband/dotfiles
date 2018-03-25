@@ -1,0 +1,11 @@
+[Unit]
+Description=Change wallpaper timer
+
+[Timer]
+OnActiveSec=5sec
+OnUnitActiveSec=1hour
+Persistent=true
+Unit=wallpaper.service
+
+[Install]
+WantedBy=timers.target

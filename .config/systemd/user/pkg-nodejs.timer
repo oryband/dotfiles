@@ -1,0 +1,11 @@
+[Unit]
+Description=Update Node.js package list timer
+
+[Timer]
+OnActiveSec=5sec
+OnUnitActiveSec=1hour
+Persistent=true
+Unit=pkg-nodejs.service
+
+[Install]
+WantedBy=timers.target
