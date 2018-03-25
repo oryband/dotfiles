@@ -1,0 +1,11 @@
+[Unit]
+Description=Notify on lower battery timer
+
+[Timer]
+OnActiveSec=5sec
+OnUnitActiveSec=1min
+Persistent=true
+Unit=warn-battery.service
+
+[Install]
+WantedBy=timers.target

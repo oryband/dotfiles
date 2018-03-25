@@ -1,0 +1,9 @@
+[Unit]
+Description=Notify on low battery
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/warn-battery
+
+[Install]
+WantedBy=default.target
