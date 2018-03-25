@@ -20,8 +20,7 @@ call plug#begin('~/.vim/plugged')
 " }}}
 " Sane defaults {{{
 Plug 'tpope/vim-sensible'
-Plug 'svermeulen/vim-easyclip'
-"}}}
+" }}}
 " Colors {{{
 Plug 'chriskempson/base16-vim'
 " }}}
@@ -285,7 +284,8 @@ set nostartofline
 set splitbelow splitright
 set hidden
 set title
-"}}}
+set clipboard=unnamedplus
+" }}}
 " Languages {{{
 " sh,bash,zsh {{{
 let g:sh_fold_enabled = 3
@@ -326,13 +326,7 @@ sunmap e
 " EasyAlign {{{
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
-"}}}
-" EasyClip {{{
-set clipboard=unnamed,unnamedplus
-let g:EasyClipShareYanks = 1
-let g:EasyClipShareYanksDirectory = '$HOME/.vim'
-nmap M <Plug>MoveMotionEndOfLinePlug
-"}}}
+" }}}
 " EasyTags {{{
 set cpoptions+=d
 let g:easytags_file = '~/.vim/.vimtags'
