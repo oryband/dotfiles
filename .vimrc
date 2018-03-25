@@ -7,7 +7,7 @@
 " github.com/lukerandall/dotvim/blob/master/vimrc
 " github.com/mathiasbynens/dotfiles/blob/master/.vimrc
 " viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
-"}}}
+" }}}
 " Plugins {{{
 " Init vim-plug {{{
 set nocompatible
@@ -17,82 +17,82 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-"}}}
+" }}}
 " Sane defaults {{{
 Plug 'tpope/vim-sensible'
 Plug 'svermeulen/vim-easyclip'
 "}}}
 " Colors {{{
 Plug 'chriskempson/base16-vim'
-"}}}
+" }}}
 " Languages {{{
 " Indent {{{
 Plug 'tweekmonster/braceless.vim', { 'for': [ 'python', 'ruby' ] }
-"}}}
+" }}}
 " HTML {{{
 Plug 'tmhedberg/matchit', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
-"}}}
+" }}}
 " Templates {{{
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 Plug 'tpope/vim-liquid', { 'for': 'liquid' }
-"}}}
+" }}}
 " CSS {{{
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
-"}}}
+" }}}
 " Javascript {{{
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript'] }
-"}}}
+" }}}
 " Typescript {{{
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-"}}}
+" }}}
 " Python {{{
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
-"}}}
+" }}}
 " Ruby {{{
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-"}}}
+" }}}
 " Go {{{
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"}}}
+" }}}
 " sh,bash,zsh {{{
 Plug 'vitalk/vim-shebang' ", { 'for': ['sh', 'zsh', 'csh', 'ash', 'dash', 'ksh', 'pdksh', 'mksh', 'tcsh'] }
-"}}}
+" }}}
 " Docker {{{
 " Plug 'ekalinin/Dockerfile.vim'
 Plug 'tianon/vim-docker', { 'for': 'dockerfile' }
-"}}}
+" }}}
 " Markdown {{{
 Plug 'godlygeek/tabular', { 'for': 'markdown' }  " plasticboy dependency
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-"}}}
+" }}}
 " i3 {{{
 Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
-"}}}
+" }}}
 " Nginx {{{
 Plug 'fatih/vim-nginx', { 'for': 'nginx' }
-"}}}
+" }}}
 " HCL {{{
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
-"}}}
+" }}}
 " TOML {{{
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
-"}}}
+" }}}
 " Ansible {{{
 Plug 'pearofducks/ansible-vim'
-"}}}
+" }}}
 " Solidity {{{
 Plug 'tomlion/vim-solidity'
-"}}}
-"}}}
-"}}}
+" }}}
+" }}}
+" }}}
 " Everything else {{{
 Plug 'Chiel92/vim-autoformat'
 Plug 'bkad/CamelCaseMotion'
@@ -130,30 +130,30 @@ endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
-"}}}
+" }}}
 " Finish Init vim-plug {{{
 call plug#end()
-"}}}
-"}}}
+" }}}
+" }}}
 " Options {{{
 " Colors {{{
 set background=dark
 let base16colorspace=256
 colorscheme base16-eighties
-"}}}
+" }}}
 " Spaces {{{
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
-"}}}
+" }}}
 " Status Line {{{
 set shortmess=atI
 set noshowmode
-"}}}
+" }}}
 " Ignored {{{
 set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,\.DS_Store,\.empty
 set wildignore+=*.pyc,*.pyo,*.egg,*.egg-info
 set wildignore+=*.a,*.o,*.so
 set wildignore+=*.class
-"}}}
+" }}}
 " Keys {{{
 let mapleader=","
 cabbrev vhelp vert help
@@ -195,14 +195,14 @@ vnoremap <c-]> g<c-]>
 " inoremap ( 9
 " inoremap ) 0
 " inoremap _ -
-"}}}
+" }}}
 " Searching {{{
 set smartcase
 set ignorecase
 set gdefault
 set wildmode=list:longest
 if exists('&wildignorecase') | set wildignorecase | endif
-"}}}
+" }}}
 " Format {{{
 set nowrap
 set linebreak
@@ -243,7 +243,7 @@ function! SynMaxColPerFileType()
     let langs = ["go"]
     if index(langs, &filetype) >= 0 | set synmaxcol=1000 | else | set synmaxcol=3000 | endif
 endfunc
-"}}}
+" }}}
 " Folding {{{
 set foldenable
 if &diff | set foldmethod=diff | else | set foldmethod=syntax | endif
@@ -266,20 +266,20 @@ function! FoldText() " {{{
     return line . repeat(" ", fillcharcount)
 endfunction " }}}
 set foldtext=FoldText()
-"}}}
+" }}}
 " Backup {{{
 set nobackup
 set nowritebackup
 set directory=~/.vim/swp//
-"}}}
+" }}}
 " Mouse {{{
 behave xterm
 set mouse-=a
 set mousehide
-"}}}
+" }}}
 " Bells {{{
 set novisualbell
-"}}}
+" }}}
 " Misc. {{{
 set nostartofline
 set splitbelow splitright
@@ -291,23 +291,23 @@ set title
 let g:sh_fold_enabled = 3
 let g:zsh_fold_enable = 1
 let g:is_bash=1
-"}}}
-"}}}
-"}}}
+" }}}
+" }}}
+" }}}
 " Plugin configurations {{{
 " Airline {{{
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols_ascii = 1
 let g:airline#extensions#branch#displayed_head_limit = 15
-"}}}
+" }}}
 " Autoformat {{{
 nmap <Leader>f :Autoformat<CR>
 let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
-"}}}
+" }}}
 " Braceless {{{
 let g:braceless_line_continuation = 0
-"}}}
+" }}}
 " Buffergator {{{
 let g:buffergator_suppress_keymaps = 1
 noremap <silent> <Leader>b :BuffergatorToggle<CR>
@@ -322,7 +322,7 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
-"}}}
+" }}}
 " EasyAlign {{{
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
@@ -351,15 +351,15 @@ let g:easytags_suppress_report = 1
 "             \       'recurse_flag': '-R'
 "             \   }
 "             \}
-"}}}
+" }}}
 " Ferret {{{
 let g:FerretMap = 0
-"}}}
+" }}}
 " HCL {{{
 let g:hcl_fmt_autosave = 0
 let g:tf_fmt_autosave = 0
 let g:nomad_fmt_autosave = 0
-"}}}
+" }}}
 " Vim-Go {{{
 let g:go_template_autocreate = 0
 " let g:go_list_height = 10
@@ -383,10 +383,10 @@ let g:go_highlight_space_tab_error = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 0
 " let g:go_highlight_types = 1
-"}}}
+" }}}
 " ListToggle {{{
 let g:lt_height = 10
-"}}}
+" }}}
 " NERDTree {{{
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 1
@@ -409,19 +409,19 @@ let NERDTreeIgnore = [
 " augroup END
 
 noremap <silent> <Leader>n :NERDTreeToggle<CR>
-"}}}
+" }}}
 " Python {{{
 let python_slow_sync = 1
 let python_highlight_indent_errors = 0
 let python_highlight_space_errors = 0
 let python_highlight_all = 1
-"}}}
+" }}}
 " Repeat {{{
 silent! call repeat#set("\<Plug>.", v:count)
-"}}}
+" }}}
 " Signify {{{
 let g:signify_vcs_list = [ 'git' ]
-"}}}
+" }}}
 " Sneak {{{
 highlight link SneakPluginTarget Visual
 
@@ -447,7 +447,7 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
-"}}}
+" }}}
 " Syntastic {{{
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
@@ -487,7 +487,7 @@ let g:syntastic_cpp_check_header = g:syntastic_c_check_header
 let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
 let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
-"}}}
+" }}}
 " Tagbar {{{
 nnoremap <silent> <Leader>g :TagbarToggle<CR>
 
@@ -510,15 +510,15 @@ let g:tagbar_type_markdown = {
     \ },
     \ 'sort': 0,
 \ }
-"}}}
+" }}}
 " Tern {{{
 let g:tern#command = ['tern', '--no-port-file']
 let g:tern_show_signature_in_pum = 1
 let g:tern_show_argument_hints = 'on_move'
-"}}}
+" }}}
 " Virtualenv {{{
 " let g:virtualenv_directory = 'venv'
-"}}}
+" }}}
 " YouCompleteMe - YCM {{{
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -538,7 +538,7 @@ function! GoToDef()
     endif
 endfunction
 nnoremap <leader>] :call GoToDef()<CR>
-"}}}
+" }}}
 " Autocmds {{{
 " BufWinEnter {{{
 augroup Buf-Win-Enter
@@ -585,6 +585,6 @@ augroup CommentStrings
     autocmd FileType gohtmltmpl setlocal commentstring={{/*\ %s\ */}}
     autocmd FileType nginx setlocal commentstring=#\ %s
 augroup END
-"}}}
-"}}}
-"}}}
+" }}}
+" }}}
+" }}}
