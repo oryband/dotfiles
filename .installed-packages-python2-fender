@@ -1,8 +1,0 @@
-argparse
-packaging
-pep8
-pydocstyle
-pylint
-virtualenvwrapper
-wsgiref
-yapf
