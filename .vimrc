@@ -534,28 +534,32 @@ endfunction
 nnoremap <leader>] :call GoToDef()<CR>
 " }}}
 " Autocmds {{{
-" BufWinEnter {{{
+" Actions on opening a new buffer {{{
 augroup Buf-Win-Enter
     autocmd!
     autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType() | call SynMaxColPerFileType()
-    autocmd BufWinEnter *.hcl,*.tf setfiletype conf
-    autocmd BufWinEnter *.less setfiletype less
-    autocmd BufWinEnter *.sql setfiletype mysql
-    autocmd BufWinEnter *.tfstate setfiletype json
-    autocmd BufWinEnter *.zsh-theme setfiletype zsh
-    autocmd BufWinEnter *.rules setfiletype conf
-    autocmd BufWinEnter .tern-config,.tern-project setfiletype json
 augroup END
-"}}}
-" BufWrite {{{
+" }}}
+" AutoFormat plugin actions {{{
 augroup AutoFormat
+    autocmd!
     autocmd BufWrite *.go :Autoformat
     " don't format json if filetype is jinja
     " autocmd BufWrite *.json if &ft !~? 'jinja' | :Autoformat | endif
 augroup END
-"}}}
-" FileType {{{
-augroup MiscSettings
+" }}}
+" Set file types {{{
+augroup SetFileTypes
+    autocmd!
+    autocmd BufWinEnter *.hcl,*.tf,*.rules setfiletype conf
+    autocmd BufWinEnter *.less setfiletype less
+    autocmd BufWinEnter *.sql setfiletype mysql
+    autocmd BufWinEnter *.zsh-theme setfiletype zsh
+    autocmd BufWinEnter Pipfile setfiletype toml
+    autocmd BufWinEnter Pipfile.lock,*.tfstate,.tern-config,.tern-project setfiletype json
+" }}}
+" Filetype actions {{{
+augroup FileTypeActions
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
     autocmd FileType python,ruby BracelessEnable +indent
@@ -570,8 +574,10 @@ augroup MiscSettings
     autocmd FileType tex setlocal number norelativenumber
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
-
+" }}}
+" Set comment strings {{{
 augroup CommentStrings
+    autocmd!
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType i3 setlocal commentstring=#\ %s
     autocmd FileType jinja setlocal commentstring={#\ %s\ #}
