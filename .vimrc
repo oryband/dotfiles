@@ -565,6 +565,7 @@ augroup FileTypeActions
     autocmd FileType python,ruby BracelessEnable +indent
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType go |
+                \ setlocal textwidth=100 |
                 \ nmap <leader>c <Plug>(go-test-compile) |
                 \ nmap <leader>m <Plug>(go-metalinter)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx,hcl setlocal tabstop=2 softtabstop=2 shiftwidth=2
