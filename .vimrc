@@ -364,7 +364,7 @@ let g:go_def_reuse_buffer = 1
 let g:go_fmt_autosave = 0
 
 let g:go_metalinter_autosave = 0
-let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_enabled = ['vet', 'golint'] ", 'errcheck']
 
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_build_constraints = 1
