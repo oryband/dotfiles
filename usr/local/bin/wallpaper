@@ -1,2 +1,2 @@
 #!/bin/sh
-curl -sSL 'https://unsplash.it/3840/2160/?random' | DISPLAY=:0.0 /usr/bin/feh --bg-scale -
+systemctl start --user wallpaper
