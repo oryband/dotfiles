@@ -1,2 +1,1 @@
-# These are my configuration files for various common apps.
-## Have fun and fork at will! :)
+My working machine setup. Fork at will. :fork_and_knife:
