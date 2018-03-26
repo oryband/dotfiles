@@ -3,7 +3,7 @@ Description=Update system package list
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/sh -c "/usr/bin/pacman -Qqett --color never | sort > %h/.pkg-system-%H"
+ExecStart=/usr/bin/sh -c 'echo $(pacman -Qget | cut -d " " -f 1 | uniq | sort | xargs -I {} echo "({})" && pacman -Qqett | sort) | tr " " "\\n" > %h/.pkg-system-%H'
 
 [Install]
 WantedBy=default.target
