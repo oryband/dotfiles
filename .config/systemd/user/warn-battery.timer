@@ -1,5 +1,5 @@
 [Unit]
-Description=Notify on lower battery timer
+Description=Notify on low battery every minute
 
 [Timer]
 OnActiveSec=5sec

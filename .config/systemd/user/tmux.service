@@ -1,5 +1,5 @@
 [Unit]
-Description=Start tmux in detached session
+Description=Start tmux in a detached session
 
 [Service]
 Type=forking

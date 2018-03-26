@@ -1,5 +1,5 @@
 [Unit]
-Description=Change wallpaper timer
+Description=Change wallpaper every hour
 
 [Timer]
 OnActiveSec=5sec
