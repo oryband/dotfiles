@@ -103,7 +103,7 @@ export PATH=$HOME/.local/bin:$PATH
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Documents
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
 
 # js
 export PATH=$HOME/.node_modules/bin:$PATH
