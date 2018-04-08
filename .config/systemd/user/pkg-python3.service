@@ -1,9 +1,0 @@
-[Unit]
-Description=Update python3 package list
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/sh -c "python3 -m pipdeptree --warn silence | grep -E '^\\w+' | cut -d '=' -f 1 | sort > %h/.pkg-python3-%H"
-
-[Install]
-WantedBy=default.target
