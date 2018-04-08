@@ -103,11 +103,7 @@ export PATH=$HOME/.local/bin:$PATH
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Documents
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-export VIRTUALENVWRAPPER_PYTHON=$(which python2)
-export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper.sh
-source $VIRTUALENVWRAPPER_SCRIPT
-alias pipupdate='pip install --user --upgrade $(pip list --outdated --format json | jq -r ".[].name")'
-alias pip2update='pip2 install --user --upgrade $(pip2 list --outdated --format json | jq -r ".[].name")'
+source /usr/bin/virtualenvwrapper.sh
 
 # js
 export PATH=$HOME/.node_modules/bin:$PATH
