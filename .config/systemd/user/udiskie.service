@@ -1,0 +1,10 @@
+[Unit]
+Description=Start udiskie
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/udiskie
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -21,9 +21,6 @@ fi
 xbindkeys
 libinput-gestures-setup start
 
-# auto mount usb drives
-udiskie &
-
 exec i3  # >> ~/i3.log 2>&1
 
 # vim:filetype=sh
