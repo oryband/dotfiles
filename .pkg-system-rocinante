@@ -20,11 +20,13 @@ cmake
 colordiff
 ctags
 cwdiff
+diff-so-fancy
 docker-compose
 doctl-bin
 dos2unix
 dunst
 electrum
+eslint
 exfat-utils
 fakeroot
 feh
@@ -48,7 +50,7 @@ iputils
 ipython
 jfsutils
 jq
-lastpass
+js-beautify
 libinput-gestures
 libva-intel-driver
 libva-utils
@@ -64,7 +66,7 @@ mtr
 nano
 ncdu
 nerd-fonts-source-code-pro
-npm
+nodejs-tern
 ntfs-3g
 pacman
 pandoc
