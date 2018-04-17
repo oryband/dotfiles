@@ -556,7 +556,7 @@ augroup SetFileTypes
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
     autocmd BufWinEnter Pipfile setfiletype toml
-    autocmd BufWinEnter Pipfile.lock,*.tfstate,.tern-config,.tern-project setfiletype json
+    autocmd BufWinEnter Pipfile.lock,*.tfstate,.tern-config,.tern-project,*.abi setfiletype json
 " }}}
 " Filetype actions {{{
 augroup FileTypeActions
