@@ -84,7 +84,7 @@ pulseaudio-alsa
 pulsemixer
 python2-pip
 python-btchip
-python-pip
+python-pipenv
 python-virtualenvwrapper
 redshift
 refind-efi
