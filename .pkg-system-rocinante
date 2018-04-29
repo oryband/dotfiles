@@ -51,6 +51,7 @@ ipython
 jfsutils
 jq
 js-beautify
+jsctags-tern-git
 libinput-gestures
 libva-intel-driver
 libva-utils
