@@ -77,7 +77,6 @@ pcmciautils
 pkg-config
 playerctl
 pm-utils
-postgresql
 powertop
 profile-sync-daemon
 pulseaudio-alsa
