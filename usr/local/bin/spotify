@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+DPI="$(grep Xft.dpi ~/.Xresources | awk '{print $2}')"
+if [ "$DPI" == 96 ]; then SCALE_FACTOR="1.0"; fi;
+if [ "$DPI" == 240 ]; then SCALE_FACTOR="2.5"; fi;
+i3-msg "exec /usr/bin/spotify --force-device-scale-factor=$SCALE_FACTOR"
