@@ -2,9 +2,9 @@
 set -e
 
 NEW_DPI="$1"
-OLD_DPI="$(grep Xft.dpi ~/.Xresources | awk '{print $2}')"
+OLD_DPI="$(grep '*.dpi' ~/.Xresources | awk '{print $2}')"
 
-sed -ie "s/Xft.dpi: $OLD_DPI/Xft.dpi: $NEW_DPI/g" $HOME/.Xresources
+sed -ie "s/\*.dpi: $OLD_DPI/\*.dpi: $NEW_DPI/g" $HOME/.Xresources
 
 xrdb $HOME/.Xresources
 
