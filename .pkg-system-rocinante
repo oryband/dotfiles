@@ -80,7 +80,6 @@ playerctl
 pm-utils
 powertop
 profile-sync-daemon
-pulseaudio-alsa
 pulsemixer
 python2-pip
 python-btchip
