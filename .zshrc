@@ -148,6 +148,7 @@ alias c-="c -"
 alias cd..="cd .."
 
 alias tailf="tail -f"
+alias lnav="lnav -q"
 
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
