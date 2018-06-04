@@ -589,6 +589,7 @@ augroup CommentStrings
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType gohtmltmpl setlocal commentstring={{/*\ %s\ */}}
     autocmd FileType nginx setlocal commentstring=#\ %s
+    autocmd FileType toml setlocal commentstring=#\ %s
 augroup END
 " }}}
 " }}}
