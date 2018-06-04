@@ -1,6 +1,7 @@
 (base)
 (base-devel)
 (i3)
+(modules)
 (xorg)
 (xorg-apps)
 acpi
@@ -30,6 +31,7 @@ eslint
 exfat-utils
 fakeroot
 feh
+firefox
 flex
 fonts-meta-extended-lt
 gettext
@@ -39,6 +41,7 @@ gitter
 gnu-netcat
 google-chrome
 gvim
+haskell-base-orphans
 hdparm
 htop
 i3blocks
@@ -49,7 +52,6 @@ intel-ucode
 iputils
 ipython
 jfsutils
-jq
 js-beautify
 jsctags-tern-git
 libinput-gestures
@@ -67,6 +69,7 @@ mtr
 nano
 ncdu
 nerd-fonts-source-code-pro
+netatop-dkms
 nodejs-tern
 ntfs-3g
 pacman
@@ -83,6 +86,7 @@ profile-sync-daemon
 pulsemixer
 python2-pip
 python-btchip
+python-evdev
 python-pipenv
 python-virtualenvwrapper
 redshift
@@ -97,8 +101,10 @@ s-nail
 solaar-git
 speedtest-cli
 spotify
+sshpass
 sshuttle
 stow
+sysdig
 systemd-sysvcompat
 terminus-font
 the_silver_searcher
@@ -153,6 +159,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsel
+yamllint
 yay-bin
 zoom
 zsh
