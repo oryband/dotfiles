@@ -470,6 +470,8 @@ let g:syntastic_python_checkers = ['pylint', 'pycodestyle', 'pydocstyle']
 let g:syntastic_html_checkers = ['tidy', 'eslint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_yaml_checkers = ['yamllint']
+let g:syntastic_ansible_checkers = ['ansible_lint']
 
 let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
 let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
@@ -557,6 +559,7 @@ augroup SetFileTypes
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
     autocmd BufWinEnter Pipfile setfiletype toml
     autocmd BufWinEnter Pipfile.lock,*.tfstate,.tern-config,.tern-project,*.abi setfiletype json
+    autocmd BufWinEnter */playbooks/*.yml setfiletype yaml.ansible
 " }}}
 " Filetype actions {{{
 augroup FileTypeActions
