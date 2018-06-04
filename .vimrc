@@ -546,6 +546,7 @@ augroup END
 augroup AutoFormat
     autocmd!
     autocmd BufWrite *.go :Autoformat
+    autocmd BufWrite *.tf :HclFmt
     " don't format json if filetype is jinja
     " autocmd BufWrite *.json if &ft !~? 'jinja' | :Autoformat | endif
 augroup END
