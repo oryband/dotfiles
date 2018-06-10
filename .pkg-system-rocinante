@@ -34,6 +34,7 @@ feh
 firefox
 flex
 fonts-meta-extended-lt
+fzf
 gettext
 gimp
 git-lfs
