@@ -77,12 +77,11 @@ Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
 Plug 'fatih/vim-nginx', { 'for': 'nginx' }
 " }}}
 " HCL {{{
-Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
+Plug 'hashivim/vim-terraform'
 " }}}
 " TOML {{{
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
 " }}}
 " Ansible {{{
 Plug 'pearofducks/ansible-vim'
@@ -349,11 +348,6 @@ let g:easytags_suppress_report = 1
 " Ferret {{{
 let g:FerretMap = 0
 " }}}
-" HCL {{{
-let g:hcl_fmt_autosave = 0
-let g:tf_fmt_autosave = 0
-let g:nomad_fmt_autosave = 0
-" }}}
 " Vim-Go {{{
 let g:go_template_autocreate = 0
 " let g:go_list_height = 10
@@ -546,7 +540,6 @@ augroup END
 augroup AutoFormat
     autocmd!
     autocmd BufWrite *.go :Autoformat
-    autocmd BufWrite *.tf :HclFmt
     " don't format json if filetype is jinja
     " autocmd BufWrite *.json if &ft !~? 'jinja' | :Autoformat | endif
 augroup END
@@ -554,12 +547,11 @@ augroup END
 " Set file types {{{
 augroup SetFileTypes
     autocmd!
-    autocmd BufWinEnter *.hcl,*.tf,*.rules setfiletype conf
     autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
     autocmd BufWinEnter Pipfile setfiletype toml
-    autocmd BufWinEnter Pipfile.lock,*.tfstate,.tern-config,.tern-project,*.abi setfiletype json
+    autocmd BufWinEnter Pipfile.lock,.tern-config,.tern-project,*.abi setfiletype json
     autocmd BufWinEnter */playbooks/*.yml setfiletype yaml.ansible
 " }}}
 " Filetype actions {{{
@@ -572,7 +564,7 @@ augroup FileTypeActions
                 \ setlocal textwidth=100 |
                 \ nmap <leader>c <Plug>(go-test-compile) |
                 \ nmap <leader>m <Plug>(go-metalinter)
-    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx,hcl setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
@@ -584,12 +576,13 @@ augroup END
 augroup CommentStrings
     autocmd!
     autocmd FileType conf setlocal commentstring=#\ %s
-    autocmd FileType i3 setlocal commentstring=#\ %s
-    autocmd FileType jinja setlocal commentstring={#\ %s\ #}
-    autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType gohtmltmpl setlocal commentstring={{/*\ %s\ */}}
+    autocmd FileType i3 setlocal commentstring=#\ %s
+    autocmd FileType jinja2 setlocal commentstring={#\ %s\ #}
     autocmd FileType nginx setlocal commentstring=#\ %s
+    autocmd FileType terraform setlocal commentstring=#\ %s
     autocmd FileType toml setlocal commentstring=#\ %s
+    autocmd FileType xdefaults setlocal commentstring=!\ %s
 augroup END
 " }}}
 " }}}
