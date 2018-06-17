@@ -39,6 +39,7 @@ gettext
 gimp
 git-lfs
 gitter
+glxinfo
 gnu-netcat
 google-chrome
 gvim
@@ -73,13 +74,12 @@ nerd-fonts-source-code-pro
 netatop-dkms
 nodejs-tern
 ntfs-3g
-pacman
 pandoc
 paprefs
 parity
 pavucontrol
 pcmciautils
-pkg-config
+pkgconf
 playerctl
 pm-utils
 powertop
