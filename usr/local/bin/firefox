@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+DPI="$(grep \*.dpi ~/.Xresources | awk '{print $2}')"
+if [ "$DPI" == 96 ]; then GDK_SCALE="1.0" GDK_DPI_SCALE="1.0"; fi;
+if [ "$DPI" == 240 ]; then GDK_SCALE="2.5" GDK_DPI_SCALE="0.5"; fi;
+i3-msg "exec env GDK_SCALE=$GDK_SCALE GDK_DPI_SCALE=$GDK_DPI_SCALE /usr/bin/firefox"

@@ -3,8 +3,7 @@ set -e
 
 kill-apps
 
-i3-msg "exec $(which google-chrome-stable)"
-i3-msg "exec $(which slack)"
+i3-msg "exec /usr/local/bin/firefox"
 i3-msg "exec /usr/local/bin/spotify"
 
 systemctl restart --user dunst
