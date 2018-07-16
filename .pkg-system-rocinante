@@ -42,6 +42,7 @@ gitter
 glxinfo
 gnu-netcat
 google-chrome
+google-cloud-sdk
 gvim
 haskell-base-orphans
 hdparm
@@ -107,6 +108,7 @@ sshuttle
 stow
 sysdig
 systemd-sysvcompat
+tcpdump
 terminus-font
 the_silver_searcher
 tmux-cssh
@@ -123,6 +125,7 @@ vulkan-intel
 wavemon
 which
 whois
+wireshark-gtk
 wpa_supplicant_gui
 x11-ssh-askpass
 xautolock
