@@ -19,6 +19,7 @@ ccache
 clang
 cmake
 colordiff
+compton
 ctags
 cwdiff
 diff-so-fancy

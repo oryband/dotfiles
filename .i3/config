@@ -155,6 +155,8 @@ bar {
 # suspend monitor after 10 minutes
 exec --no-startup-id xset dpms 600
 
+exec --no-startup-id compton -b
+
 # borders
 new_window pixel 5
 new_float pixel 5
