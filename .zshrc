@@ -98,13 +98,7 @@ fi
 
 # python
 export PATH=$HOME/.local/bin:$PATH
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Documents
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-source /usr/bin/virtualenvwrapper_lazy.sh
-alias pip="pip --disable-pip-version-check"
-alias pip2="pip2 --disable-pip-version-check"
-
 # js
 export PATH=$HOME/.node_modules/bin:$PATH
 

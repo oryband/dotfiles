@@ -92,7 +92,6 @@ python2-pip
 python-btchip
 python-evdev
 python-pipenv
-python-virtualenvwrapper
 redshift
 refind-efi
 reflector
