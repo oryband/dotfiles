@@ -88,7 +88,6 @@ pm-utils
 powertop
 profile-sync-daemon
 pulsemixer
-python2-pip
 python-btchip
 python-evdev
 python-pipenv
