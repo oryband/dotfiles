@@ -6,10 +6,10 @@ OLD_DPI="$(grep '*.dpi' ~/.Xresources | awk '{print $2}')"
 
 sed -ie "s/\*.dpi: $OLD_DPI/\*.dpi: $NEW_DPI/g" $HOME/.Xresources
 
-xrdb $HOME/.Xresources
+DISPLAY=:0 xrdb $HOME/.Xresources
 
 # must run before i3-msg restart to work.
 # also, don't wait to finish (takes too long)
 systemctl start --user wallpaper &
 
-i3-msg restart
+DISPLAY=:0 i3-msg restart

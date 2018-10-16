@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-xrandr --output eDP-1 --auto --output HDMI-1 --off
+DISPLAY=:0 xrandr --output eDP-1 --auto --output HDMI-1 --off
 echo 1000 > /sys/class/backlight/intel_backlight/brightness
 switch-dpi 240
