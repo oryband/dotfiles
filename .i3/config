@@ -149,12 +149,7 @@ bar {
 }
 
 # startup
-# exec urxvt
-# exec google-chrome-stable
-
-# suspend monitor after 10 minutes
-exec --no-startup-id xset dpms 600
-
+# compositor (for no tearing)
 exec --no-startup-id compton -b
 
 # borders
