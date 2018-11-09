@@ -1,7 +1,41 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# based on https://github.com/artebin/felix/blob/fca9a08718b023e9a1f742fc7d879bf53196d9b0/18.04_BionicBeaver/user/0121-u-configure_firefox_default_profile/configure_firefox_default_profile.sh
 set -e
 
+# retrieve path to default profile
+PREFS_JS_PATH=""
+FIREFOX_DEFAULT_PROFILE_PATH=$(find ~/.mozilla/firefox -maxdepth 1 -iname "*\.default")
+if [ -f "${FIREFOX_DEFAULT_PROFILE_PATH}/prefs.js" ]; then
+    PREFS_JS_PATH="${FIREFOX_DEFAULT_PROFILE_PATH}/prefs.js"
+fi
+if [ ! -f "${PREFS_JS_PATH}" ]; then
+    echo "Can not find Firefox default profile"
+fi
+
 DPI="$(grep \*.dpi ~/.Xresources | awk '{print $2}')"
-if [ "$DPI" == 96 ]; then GDK_SCALE="1.0" GDK_DPI_SCALE="1.0"; fi;
-if [ "$DPI" == 240 ]; then GDK_SCALE="2.5" GDK_DPI_SCALE="0.5"; fi;
+
+if [ "$DPI" == 96 ]; then 
+    GDK_SCALE="1.0" GDK_DPI_SCALE="1.0";
+
+    # rm custom devPixelPerPx configuration (use default)
+    if grep -q "layout.css.devPixelsPerPx" "${PREFS_JS_PATH}"; then
+        sed -i '/^user_pref("layout.css.devPixelsPerPx"/d' "${PREFS_JS_PATH}"
+    fi
+fi;
+
+if [ "$DPI" == 240 ]; then 
+    GDK_SCALE="2.5" GDK_DPI_SCALE="0.5";
+
+    # set hidpi pixel scaling
+    if [ -n "${PREFS_JS_PATH}" ] && [ -f "${PREFS_JS_PATH}" ]; then
+        # if entry exists, replace dpi value
+        if grep -q "layout.css.devPixelsPerPx" "${PREFS_JS_PATH}"; then
+            sed -i '/^user_pref("layout.css.devPixelsPerPx"/s/.*/user_pref("layout.css.devPixelsPerPx", "2.5");/' "${PREFS_JS_PATH}"
+        else
+            # else create dpi entry
+            echo 'user_pref("layout.css.devPixelsPerPx", "2.5");' >> "${PREFS_JS_PATH}"
+        fi
+    fi
+fi;
+
 i3-msg "exec env GDK_SCALE=$GDK_SCALE GDK_DPI_SCALE=$GDK_DPI_SCALE /usr/bin/firefox"
