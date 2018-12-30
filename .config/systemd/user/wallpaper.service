@@ -3,7 +3,7 @@ Description=Change wallpaper
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/sh -c 'curl -sSL "https://unsplash.it/3840/2160/?random" | /usr/bin/feh --bg-scale -'
+ExecStart=/usr/bin/sh -c 'curl -sSL "https://unsplash.it/`wallpaper-resolution`/?random" | /usr/bin/feh --bg-scale -'
 Environment=DISPLAY=:0.0
 
 [Install]
