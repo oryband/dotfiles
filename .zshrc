@@ -150,7 +150,6 @@ alias tree="tree -C"
 alias vi="vim"
 alias viupdate="vi '+PlugUpgrade' '+PlugUpdate!' '+qall!'"
 # alias xclip="xclip -selection clipboard"
-alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config && ssh"  # allow for multiple ssh config files
 
 # tcpdump all requests made by given process
 alias sysdig="sudo sysdig"
