@@ -14,6 +14,7 @@ bbswitch-dkms
 bc
 bind-tools
 bison
+bluez-utils
 bumblebee
 ccache
 clang
@@ -27,6 +28,7 @@ docker-compose
 doctl-bin
 dos2unix
 dunst
+electron-cash
 electrum
 eslint
 exfat-utils
@@ -46,12 +48,15 @@ google-chrome
 google-cloud-sdk
 gvim
 haskell-base-orphans
+haskell-mono-traversable
+haskell-mwc-random
 hdparm
 htop
 i3blocks
 i3-gaps-next-git
 i3lock-fancy-git
 i3status
+iftop
 intel-ucode
 iputils
 ipython
@@ -60,6 +65,7 @@ js-beautify
 jsctags-tern-git
 kernel-modules-hook
 libinput-gestures
+libpqxx
 libva-intel-driver
 libva-utils
 licenses
@@ -79,14 +85,15 @@ nodejs-tern
 ntfs-3g
 pandoc
 paprefs
-parity
 pavucontrol
 pcmciautils
+pigz
 pkgconf
 playerctl
 pm-utils
 powertop
 profile-sync-daemon
+pulseaudio-bluetooth
 pulsemixer
 python-btchip
 python-evdev
@@ -98,6 +105,7 @@ reiserfsprogs
 rofi
 scrot
 sdparm
+signal
 slack-desktop
 s-nail
 solaar-git
@@ -106,11 +114,13 @@ spotify
 sshpass
 sshuttle
 stow
+sway
 sysdig
 systemd-sysvcompat
 tcpdump
 terminus-font
 the_silver_searcher
+tk
 tmux-cssh
 tree
 tunnelbear
@@ -123,6 +133,7 @@ vi
 vlc
 vulkan-intel
 wavemon
+wget
 which
 whois
 wireshark-gtk
@@ -165,5 +176,6 @@ xorg-xwud
 xsel
 yamllint
 yay-bin
+youtube-dl
 zoom
 zsh
