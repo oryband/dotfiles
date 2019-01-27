@@ -313,6 +313,7 @@ noremap <silent> <Leader>b :BuffergatorToggle<CR>
 let g:buffergator_viewport_split_policy = 'B'
 let g:buffergator_hsplit_size = 5
 let g:buffergator_sort_regime = 'mru'
+let g:buffergator_keep_old_mru_switching_keymap = 1
 "}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
