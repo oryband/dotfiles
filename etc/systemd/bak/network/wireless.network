@@ -1,0 +1,10 @@
+[Match]
+Name=wlp2s0
+
+[Network]
+DHCP=yes
+# LinkLocalAddressing=no
+# IPv6AcceptRA=no
+
+[DHCPv4]
+UseHostname=false
