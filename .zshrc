@@ -24,7 +24,8 @@ zplug "Tarrasch/zsh-bd", use:bd.zsh
 zplug "chriskempson/base16-shell", use:"scripts/base16-eighties.sh"
 zplug "djui/alias-tips"
 zplug "github/hub", from:gh-r, use:"*linux*amd*", as:command
-zplug "michaeldfallen/git-radar", use:git-radar, as:command
+zplug "mafredri/zsh-async", from:github, at: "no-zpty"
+zplug "denysdovhan/spaceship-prompt", from:github, use:spaceship.zsh, as:theme
 zplug "paulirish/git-open", as:command
 zplug "scmbreeze/scm_breeze", hook-build:"$ZPLUG_HOME/repos/scmbreeze/scm_breeze/install.sh"
 zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
@@ -62,20 +63,8 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word  # ctrl-w removed word backwards
 bindkey '^r' history-incremental-search-backward  # ctrl-r starts searching history backward
 
-# theme
-get_pwd() {
-    git_root=$PWD
-    while [[ $git_root != / && ! -e $git_root/.git ]]; do git_root=$git_root:h; done
-    if [[ $git_root = $HOME || $git_root = / ]]; then unset git_root; prompt_short_dir=%~;
-    else parent=${git_root%\/*}; prompt_short_dir=${PWD#$parent/}; fi
-    echo $prompt_short_dir
-}
-prompt_virtualenv() { [[ -n $VIRTUAL_ENV && -n $VIRTUAL_ENV_DISABLE_PROMPT ]] && echo "%{$fg_bold[white]%}($(basename $VIRTUAL_ENV)) "; }
-autoload -Uz get_pwd
-autoload -Uz prompt_virtualenv
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
-PROMPT="%{$fg_bold[magenta]%}\$(get_pwd)%{$reset_color%} \$(git-radar --zsh --fetch)\$(prompt_virtualenv)%{$fg_bold[magenta]%}λ%{$reset_color%} "
 
 # syntax highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
@@ -99,7 +88,6 @@ fi
 
 # python
 export PATH=$HOME/.local/bin:$PATH
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 # js
 export PATH=$HOME/.node_modules/bin:$PATH
 
@@ -113,10 +101,6 @@ export GOPATH=$HOME/.golang/$GO_VERSION
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 alias $GO_VERSION=$GOROOT/bin/go
 alias go=$GO_VERSION
-
-# git-radar
-export GIT_RADAR_FORMAT="[%{$reset_color%}%{remote: }%{branch}%{ :local}%{$reset_color%}%{ :changes}%{ :stash}] "
-export GIT_RADAR_MASTER_SYMBOL="m"
 
 # scm_breeze
 [ -s "/home/ory/.scm_breeze/scm_breeze.sh" ] && source "/home/ory/.scm_breeze/scm_breeze.sh"
