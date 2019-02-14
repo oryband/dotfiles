@@ -28,7 +28,6 @@ docker-compose
 doctl-bin
 dos2unix
 dunst
-electron-cash
 electrum
 eslint
 exfat-utils
