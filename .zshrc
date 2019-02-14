@@ -77,6 +77,30 @@ autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 SPACESHIP_NODE_SYMBOL='\uf898 '
 SPACESHIP_GOLANG_SYMBOL='\ufcd1 '
+SPACESHIP_PROMPT_ORDER=(
+    # time
+    # user
+    dir
+    # host
+    git
+    # hg
+    # package
+    node
+    golang
+    docker
+    aws
+    venv
+    # pyenv
+    # terraform
+    # exec_time
+    line_sep
+    # battery
+    vi_mode
+    jobs
+    exit_code
+    char
+)
+
 
 # syntax highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
