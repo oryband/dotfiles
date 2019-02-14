@@ -41,12 +41,21 @@ zplug load
 # disable C-s stopping receiving keyboard signals.
 stty start undef
 stty stop undef
-# don't expand aliases _before_ completion has finished, like: git comm-[tab]
+
 setopt COMPLETE_ALIASES
-unsetopt CORRECT  # no autocorrection suggestions
-setopt MENU_COMPLETE  # select first menu option automatically
-setopt NO_NOMATCH  # stop zsh from catching ^ chars.
-setopt PROMPT_SUBST  # prompt substitution
+unsetopt CORRECT
+setopt MENU_COMPLETE
+setopt NO_NOMATCH
+setopt PROMPT_SUBST
+
+# completion options
+setopt COMPLETE_IN_WORD
+setopt ALWAYS_TO_END
+setopt PATH_DIRS
+setopt AUTO_LIST
+setopt AUTO_PARAM_SLASH
+setopt EXTENDED_GLOB
+setopt FLOW_CONTROL
 
 # vi mode
 bindkey -v
