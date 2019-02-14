@@ -65,11 +65,10 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^b' backward-word
 bindkey '^f' forward-word
-bindkey '^p' up-history  # Use vim cli mode
+bindkey '^p' up-history
 bindkey '^n' down-history
 bindkey '^?' backward-delete-char  # backspace and ^h working even after returning from command mode
 bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word  # ctrl-w removed word backwards
 bindkey '^r' history-incremental-search-backward  # ctrl-r starts searching history backward
 
 autoload -Uz colors && colors
