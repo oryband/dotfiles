@@ -37,7 +37,7 @@ feh
 firefox
 flex
 fonts-meta-extended-lt
-fzf
+fzy
 gettext
 gimp
 git-lfs
@@ -79,7 +79,7 @@ mercurial
 mtr
 nano
 ncdu
-nerd-fonts-source-code-pro
+nerd-fonts-complete
 netatop-dkms
 nodejs-tern
 ntfs-3g
