@@ -72,8 +72,11 @@ bindkey '^?' backward-delete-char  # backspace and ^h working even after returni
 bindkey '^h' backward-delete-char
 bindkey '^r' history-incremental-search-backward  # ctrl-r starts searching history backward
 
+# terminal
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
+SPACESHIP_NODE_SYMBOL='\uf898 '
+SPACESHIP_GOLANG_SYMBOL='\ufcd1 '
 
 # syntax highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
