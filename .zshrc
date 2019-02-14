@@ -13,6 +13,7 @@ zstyle ':prezto:load' pmodule \
     'environment' \
     'history' \
     'terminal' \
+    'editor' \
     'utility' \
     'tmux' \
     'completion' \
