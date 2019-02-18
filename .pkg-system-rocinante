@@ -90,6 +90,7 @@ pcmciautils
 pigz
 pkgconf
 playerctl
+plymouth-theme-arch-logo
 pm-utils
 powertop
 profile-sync-daemon
@@ -166,7 +167,6 @@ xorg-xkill
 xorg-xlsatoms
 xorg-xlsclients
 xorg-xpr
-xorg-xprop
 xorg-xrefresh
 xorg-xsetroot
 xorg-xvinfo
