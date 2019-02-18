@@ -90,30 +90,28 @@ Plug 'tomlion/vim-solidity'
 " }}}
 " Everything else {{{
 Plug 'Chiel92/vim-autoformat'
-Plug 'bkad/CamelCaseMotion'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'tpope/vim-dispatch'
-Plug 'henrik/vim-indexed-search'
 Plug 'Konfekt/FastFold'
-Plug 'wincent/ferret'
-Plug 'Valloric/ListToggle'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'bkad/CamelCaseMotion'
+Plug 'henrik/vim-indexed-search'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'junegunn/vim-easy-align'
+Plug 'justinmk/vim-sneak'
 Plug 'majutsushi/tagbar'
-Plug 'vim-syntastic/syntastic'
+Plug 'mhinz/vim-signify'
+Plug 'romainl/vim-qf'
+Plug 'ryanoasis/vim-devicons', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-commentary'
-Plug 'junegunn/vim-easy-align'
+Plug 'vim-syntastic/syntastic'
+Plug 'wincent/ferret'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
-Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'justinmk/vim-sneak'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-Plug 'papanikge/vim-voogle'
-Plug 'regedarek/ZoomWin'
 
 function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.force
@@ -370,9 +368,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 0
 " let g:go_highlight_types = 1
 " }}}
-" ListToggle {{{
-let g:lt_height = 10
-" }}}
 " NERDTree {{{
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 1
@@ -389,11 +384,6 @@ let NERDTreeIgnore = [
             \ '\.tags$'
             \ ]
 
-" augroup NERD-Tree
-"     autocmd!
-"     autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" augroup END
-
 noremap <silent> <Leader>n :NERDTreeToggle<CR>
 " }}}
 " Python {{{
@@ -401,6 +391,10 @@ let python_slow_sync = 1
 let python_highlight_indent_errors = 0
 let python_highlight_space_errors = 0
 let python_highlight_all = 1
+" }}}
+" Quickfix {{{
+nmap <Leader>q <Plug>(qf_qf_toggle)
+nmap <Leader>l <Plug>(qf_loc_toggle)
 " }}}
 " Repeat {{{
 silent! call repeat#set("\<Plug>.", v:count)
