@@ -25,9 +25,6 @@ Plug 'tpope/vim-sensible'
 Plug 'chriskempson/base16-vim'
 " }}}
 " Languages {{{
-" Indent {{{
-Plug 'tweekmonster/braceless.vim', { 'for': ['python'] }
-" }}}
 " HTML {{{
 Plug 'tmhedberg/matchit', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -298,9 +295,6 @@ let g:airline#extensions#branch#displayed_head_limit = 15
 nmap <Leader>f :Autoformat<CR>
 let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
 " }}}
-" Braceless {{{
-let g:braceless_line_continuation = 0
-" }}}
 " Buffergator {{{
 let g:buffergator_suppress_keymaps = 1
 noremap <silent> <Leader>b :BuffergatorToggle<CR>
@@ -549,8 +543,6 @@ augroup SetFileTypes
 augroup FileTypeActions
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
-    autocmd FileType python BracelessEnable +indent
-    autocmd FileType python,yaml BracelessEnable +indent
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType go |
                 \ setlocal textwidth=100 |
