@@ -26,7 +26,7 @@ Plug 'chriskempson/base16-vim'
 " }}}
 " Languages {{{
 " Indent {{{
-Plug 'tweekmonster/braceless.vim', { 'for': [ 'python', 'ruby' ] }
+Plug 'tweekmonster/braceless.vim', { 'for': ['python'] }
 " }}}
 " HTML {{{
 Plug 'tmhedberg/matchit', { 'for': 'html' }
@@ -52,9 +52,6 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
-" }}}
-" Ruby {{{
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " }}}
 " Go {{{
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -224,7 +221,7 @@ augroup END
 " Set color column per file type.
 function! ColorColumnPerFileType()
     call clearmatches()
-    let langs = ["python","ruby"]
+    let langs = ["python"]
     if index(langs, &filetype) >= 0 | call matchadd('ColorColumn', printf('\%%%dv', &textwidth+1), -1) | endif
 endfunc
 
@@ -464,7 +461,6 @@ highlight link SyntasticStyleErrorSign Todo
 let g:syntastic_python_checkers = ['pylint', 'pycodestyle', 'pydocstyle']
 let g:syntastic_html_checkers = ['tidy', 'eslint']
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_ansible_checkers = ['ansible_lint']
 
@@ -559,13 +555,14 @@ augroup SetFileTypes
 augroup FileTypeActions
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
-    autocmd FileType python,ruby BracelessEnable +indent
+    autocmd FileType python BracelessEnable +indent
+    autocmd FileType python,yaml BracelessEnable +indent
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType go |
                 \ setlocal textwidth=100 |
                 \ nmap <leader>c <Plug>(go-test-compile) |
                 \ nmap <leader>m <Plug>(go-metalinter)
-    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,ruby,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
