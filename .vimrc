@@ -88,6 +88,7 @@ Plug 'tomlion/vim-solidity'
 " Everything else {{{
 Plug 'Chiel92/vim-autoformat'
 Plug 'Konfekt/FastFold'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'bkad/CamelCaseMotion'
 Plug 'henrik/vim-indexed-search'
 Plug 'jeetsukumaran/vim-buffergator'
@@ -363,6 +364,7 @@ let g:go_highlight_trailing_whitespace_error = 0
 " let g:go_highlight_types = 1
 " }}}
 " NERDTree {{{
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 1
