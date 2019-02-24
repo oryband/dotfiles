@@ -25,8 +25,8 @@ zplug "Tarrasch/zsh-bd", use:bd.zsh
 zplug "chriskempson/base16-shell", use:"scripts/base16-eighties.sh"
 zplug "djui/alias-tips"
 zplug "github/hub", from:gh-r, use:"*linux*amd*", as:command
-zplug "mafredri/zsh-async", from:github, at: "no-zpty"
-zplug "denysdovhan/spaceship-prompt", from:github, use:spaceship.zsh, as:theme
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "paulirish/git-open", as:command
 zplug "scmbreeze/scm_breeze", hook-build:"$ZPLUG_HOME/repos/scmbreeze/scm_breeze/install.sh"
 zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
@@ -75,32 +75,6 @@ bindkey '^r' history-incremental-search-backward  # ctrl-r starts searching hist
 # terminal
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
-SPACESHIP_NODE_SYMBOL='\uf898 '
-SPACESHIP_GOLANG_SYMBOL='\ufcd1 '
-SPACESHIP_PROMPT_ORDER=(
-    # time
-    # user
-    dir
-    # host
-    git
-    # hg
-    # package
-    node
-    golang
-    docker
-    aws
-    venv
-    # pyenv
-    # terraform
-    # exec_time
-    line_sep
-    # battery
-    vi_mode
-    jobs
-    exit_code
-    char
-)
-
 
 # syntax highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
