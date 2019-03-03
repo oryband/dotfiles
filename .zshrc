@@ -25,7 +25,7 @@ zplug "Tarrasch/zsh-bd", use:bd.zsh
 zplug "chriskempson/base16-shell", use:"scripts/base16-eighties.sh"
 zplug "djui/alias-tips"
 zplug "github/hub", from:gh-r, use:"*linux*amd*", as:command
-zplug "mafredri/zsh-async", from:github
+zplug "mafredri/zsh-async", from:github, at: no-zpty
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "paulirish/git-open", as:command
 zplug "scmbreeze/scm_breeze", hook-build:"$ZPLUG_HOME/repos/scmbreeze/scm_breeze/install.sh"
