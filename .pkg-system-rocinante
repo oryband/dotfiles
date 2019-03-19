@@ -63,6 +63,7 @@ jfsutils
 js-beautify
 jsctags-tern-git
 kernel-modules-hook
+keybase-gui
 libinput-gestures
 libpqxx
 libva-intel-driver
@@ -85,6 +86,7 @@ ntfs-3g
 ntfy
 pandoc
 paprefs
+parallel
 pavucontrol
 pcmciautils
 pigz
