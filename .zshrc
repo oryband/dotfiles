@@ -1,62 +1,77 @@
-# credits github.com/sorin-ionescu/prezto
+# credits https://pastebin.com/Tgji4PZv
 
-# zplug
-export ZPLUG_HOME=$HOME/.zplug
-export PATH=$ZPLUG_HOME/bin:$PATH
-source $ZPLUG_HOME/init.zsh
-zplug "zplug/zplug", at:2.4.2  # don't forget to zplug update --self && zplug update
+# zplugin
+source '/home/ory/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto ~/.zprezto"
+# prezto
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
-    'environment' \
-    'history' \
-    'terminal' \
-    'editor' \
-    'utility' \
-    'tmux' \
-    'completion' \
-    'gpg' \
-    ;
-zstyle ':prezto:module:terminal' auto-title 'yes'
+zplugin snippet PZT::modules/helper/init.zsh
 
-zplug "Tarrasch/zsh-bd", use:bd.zsh
-zplug "chriskempson/base16-shell", use:"scripts/base16-eighties.sh"
-zplug "djui/alias-tips"
-zplug "github/hub", from:gh-r, use:"*linux*amd*", as:command
-zplug "mafredri/zsh-async", from:github, at: no-zpty
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-zplug "paulirish/git-open", as:command
-zplug "scmbreeze/scm_breeze", hook-build:"$ZPLUG_HOME/repos/scmbreeze/scm_breeze/install.sh"
-zplug "tj/git-extras", use:"bin/*", as:command, hook-build:"make install PREFIX=$HOME/.git-extras"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "b4b4r07/enhancd", use:init.sh, defer:1  # after prezto
-zplug "zsh-users/zsh-syntax-highlighting", defer:2  # after compinit
-zplug "zsh-users/zsh-history-substring-search", defer:2
+# prompt
+zplugin ice pick"scripts/base16-eighties.sh"; zplugin light chriskempson/base16-shell
+zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
+# PURE_PROMPT_SYMBOL='$'
 
-zplug load
+# git scm_breeze
+zplugin ice atpull"$ZPLGM[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"/home/ory/.scm_breeze/scm_breeze.sh"; zplugin light scmbreeze/scm_breeze 
 
-# options
+# misc plugins
+zplugin ice svn; zplugin snippet PZT::modules/environment
+zplugin ice svn; zplugin snippet PZT::modules/terminal
+zplugin ice svn; zplugin snippet PZT::modules/editor
+zplugin ice svn silent; zplugin snippet PZT::modules/gpg
+# zplugin ice svn load"[[ -z "$TMUX" ]]" silent pick"init.zsh" lucid;
+zplugin ice svn snippet PZT::modules/tmux
+zplugin ice svn silent pick"init.zsh" lucid; zplugin snippet PZT::modules/utility
+zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull"%atclone" pick"c.zsh"; zplugin light trapd00r/LS_COLORS
+zplugin ice pick"bd.zsh"; zplugin light Tarrasch/zsh-bd
+zplugin light djui/alias-tips
+zplugin light paulirish/git-open
+
+# enhancd / fzy
+export ENHANCD_FILTER=fzy
+export ENHANCD_DISABLE_DOT=1
+export ENHANCD_DISABLE_HYPHEN=1
+export ENHANCD_DISABLE_HOME=1
+zplugin ice pick"init.sh"; zplugin light b4b4r07/enhancd
+
+# completion
+zplugin ice svn wait"0" silent pick"init.zsh" blockf; zplugin snippet PZT::modules/completion
+unsetopt CORRECT
+setopt ALWAYS_TO_END
+setopt AUTO_LIST
+setopt AUTO_PARAM_SLASH
+setopt COMPLETE_ALIASES
+setopt COMPLETE_IN_WORD
+setopt EXTENDED_GLOB
+setopt FLOW_CONTROL
+setopt MENU_COMPLETE
+setopt NO_NOMATCH
+setopt PATH_DIRS
+
+# suggestions
+zplugin ice wait"0" atload"_zsh_autosuggest_start" lucid; zplugin light zsh-users/zsh-autosuggestions
+
+# history
+zplugin ice svn; zplugin snippet PZT::modules/history
+zplugin ice wait"1" silent pick"zsh-history-substring-search.plugin.zsh" lucid; zplugin light zsh-users/zsh-history-substring-search
+zplugin ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zplugin light zdharma/history-search-multi-word
+
+# syntax highlighting, NOTE must be last plugin to load
+zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"; zplugin light zdharma/fast-syntax-highlighting
+
+# load everything
+autoload -Uz compinit
+compinit
+zplugin cdreplay -q
 
 # disable C-s stopping receiving keyboard signals.
 stty start undef
 stty stop undef
-
-setopt COMPLETE_ALIASES
-unsetopt CORRECT
-setopt MENU_COMPLETE
-setopt NO_NOMATCH
-setopt PROMPT_SUBST
-
-# completion options
-setopt COMPLETE_IN_WORD
-setopt ALWAYS_TO_END
-setopt PATH_DIRS
-setopt AUTO_LIST
-setopt AUTO_PARAM_SLASH
-setopt EXTENDED_GLOB
-setopt FLOW_CONTROL
 
 # vi mode
 bindkey -v
@@ -70,9 +85,9 @@ bindkey '^p' up-history
 bindkey '^n' down-history
 bindkey '^?' backward-delete-char  # backspace and ^h working even after returning from command mode
 bindkey '^h' backward-delete-char
-bindkey '^r' history-incremental-search-backward  # ctrl-r starts searching history backward
 
 # terminal
+setopt PROMPT_SUBST
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 
@@ -82,23 +97,9 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
 
-# history substring search
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
-# enhancd
-if zplug check b4b4r07/enhancd; then
-    export ENHANCD_FILTER=fzy
-    export ENHANCD_DISABLE_DOT=1
-    export ENHANCD_DISABLE_HYPHEN=1
-    export ENHANCD_DISABLE_HOME=1
-fi
-
 # python
 export PATH=$HOME/.local/bin:$PATH
+
 # js
 export PATH=$HOME/.node_modules/bin:$PATH
 
@@ -113,14 +114,8 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 alias $GO_VERSION=$GOROOT/bin/go
 alias go=$GO_VERSION
 
-# scm_breeze
-[ -s "/home/ory/.scm_breeze/scm_breeze.sh" ] && source "/home/ory/.scm_breeze/scm_breeze.sh"
-
 # travis
 [ -f /home/ory/.travis/travis.sh ] && source /home/ory/.travis/travis.sh
-
-# git-extras
-export PATH=$HOME/.git-extras:$PATH
 
 # source secret env keys, etc.
 source $HOME/.zsh-secrets
@@ -148,7 +143,7 @@ alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 
-# git
+# git aliases
 alias gc="g c"
 alias ga="g add"
 alias gmv="g mv"
