@@ -30,7 +30,10 @@
     max_icon_size = 64
     icon_path = /usr/share/icons/Adwaita/256x256/actions/:/usr/share/icons/Adwaita/256x256/apps/:/usr/share/icons/Adwaita/256x256/categories/:/usr/share/icons/Adwaita/256x256/devices/:/usr/share/icons/Adwaita/256x256/emblems/:/usr/share/icons/Adwaita/256x256/emotes/:/usr/share/icons/Adwaita/256x256/mimetypes/:/usr/share/icons/Adwaita/256x256/places/:/usr/share/icons/Adwaita/256x256/status/
     frame_width = 1
-    frame_color = "#aaaaaa"
+
+    foreground = "#e8e6df"
+    frame_color = "#d3d0c8"
+    separator_color = "#d3d0c8"
 
 [shortcuts]
     close = ctrl+space
@@ -39,16 +42,21 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#222222"
-    foreground = "#888888"
+    msg_urgency = low
+    background = "#393939"
+    foreground = "#747369"
     timeout = 10
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    msg_urgency = normal
+    background = "#515151"
+    foreground = "#d3d0c8"
     timeout = 10
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
+    msg_urgency = critical
+    background = "#f2777a"
     timeout = 0
+
+
+# vi: ft=toml
