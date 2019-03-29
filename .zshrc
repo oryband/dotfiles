@@ -60,6 +60,7 @@ zplugin ice wait"0" atload"_zsh_autosuggest_start" lucid; zplugin light zsh-user
 zplugin ice svn; zplugin snippet PZT::modules/history
 zplugin ice wait"1" silent pick"zsh-history-substring-search.plugin.zsh" lucid; zplugin light zsh-users/zsh-history-substring-search
 zplugin ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zplugin light zdharma/history-search-multi-word
+zstyle ":plugin:history-search-multi-word" active "standout"
 
 # syntax highlighting, NOTE must be last plugin to load
 zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"; zplugin light zdharma/fast-syntax-highlighting
