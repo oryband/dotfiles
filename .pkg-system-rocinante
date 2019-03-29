@@ -149,6 +149,7 @@ xclip
 xorg-iceauth
 xorg-luit
 xorg-server
+xorg-server-xwayland
 xorg-sessreg
 xorg-smproxy
 xorg-x11perf
