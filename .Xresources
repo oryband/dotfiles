@@ -37,8 +37,6 @@ URxvt.keysym.C-0x2d:        font-size:decrease
 rofi.width: 50
 rofi.lines: 5
 rofi.font: SauceCodePro Nerd Font Mono Light 18
-rofi.hlbg: base02
-rofi.bc: base09
 rofi.bw: 3
 rofi.loc: 0
 rofi.fixed-num-lines: true
@@ -46,13 +44,6 @@ rofi.terminal: x-terminal-emulator
 
 ! Base16 Eighties
 ! Scheme: Chris Kempson (http://chriskempson.com)
-
-rofi.color-enabled: true
-rofi.color-window:  #393939, #393939, #2d2d2d
-rofi.color-normal:  #393939, #d3d0c8, #393939, #393939, #f2f0ec
-rofi.color-active:  #393939, #6699cc, #393939, #393939, #6699cc
-rofi.color-urgent:  #393939, #f2777a, #393939, #393939, #f2777a
-rofi.separator-style: solid
 
 #define base00 #2d2d2d
 #define base01 #393939
@@ -70,6 +61,15 @@ rofi.separator-style: solid
 #define base0D #6699cc
 #define base0E #cc99cc
 #define base0F #d27b53
+
+rofi.bc: base09
+rofi.color-enabled: true
+rofi.color-window:  base01, base01, base00
+rofi.color-normal:  base01, base05, base01, base02, base07
+rofi.color-active:  base01, base0D, base01, base01, base0D
+rofi.color-urgent:  base01, base08, base01, base01, base08
+rofi.separator-style: solid
+
 
 *foreground:   base05
 #ifdef background_opacity
@@ -104,4 +104,4 @@ rofi.separator-style: solid
 *color18:      base01
 *color19:      base02
 *color20:      base04
-*color21: base06
+*color21:      base06
