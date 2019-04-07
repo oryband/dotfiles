@@ -116,7 +116,6 @@ alias go=$GO_VERSION
 source $HOME/.zsh-secrets
 
 # aliases
-
 alias c="cd"
 alias c-="c -"
 alias cd..="cd .."
@@ -131,7 +130,6 @@ alias js="node"
 alias tree="tree -C"
 alias vi="vim"
 alias viupdate="vi '+PlugUpgrade' '+PlugUpdate!' '+qall!'"
-# alias xclip="xclip -selection clipboard"
 
 # tcpdump all requests made by given process
 alias sysdig="sudo sysdig"
