@@ -112,9 +112,6 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 alias $GO_VERSION=$GOROOT/bin/go
 alias go=$GO_VERSION
 
-# travis
-[ -f /home/ory/.travis/travis.sh ] && source /home/ory/.travis/travis.sh
-
 # source secret env keys, etc.
 source $HOME/.zsh-secrets
 
