@@ -14,7 +14,10 @@ zplugin snippet PZT::modules/helper/init.zsh
 # prompt
 zplugin ice pick"scripts/base16-eighties.sh"; zplugin light chriskempson/base16-shell
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
-# PURE_PROMPT_SYMBOL='$'
+PURE_PROMPT_SYMBOL='#'
+PURE_PROMPT_VICMD_SYMBOL=''
+PURE_GIT_DOWN_ARROW='↓'
+PURE_GIT_UP_ARROW='↑'
 
 # git scm_breeze
 zplugin ice atpull"$ZPLGM[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"/home/ory/.scm_breeze/scm_breeze.sh"; zplugin light scmbreeze/scm_breeze 
