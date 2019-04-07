@@ -95,12 +95,6 @@ setopt PROMPT_SUBST
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 
-# syntax highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[path]='none'
-ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
-
 # python
 export PATH=$HOME/.local/bin:$PATH
 
