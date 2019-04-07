@@ -140,7 +140,7 @@ wavemon
 wget
 which
 whois
-wireshark-gtk
+wireshark-qt
 wpa_supplicant_gui
 x11-ssh-askpass
 xautolock
