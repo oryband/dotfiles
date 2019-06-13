@@ -20,7 +20,7 @@ PURE_GIT_DOWN_ARROW='↓'
 PURE_GIT_UP_ARROW='↑'
 
 # git scm_breeze
-zplugin ice atpull"$ZPLGM[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"/home/ory/.scm_breeze/scm_breeze.sh"; zplugin light scmbreeze/scm_breeze 
+zplugin ice atpull"$ZPLGM[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"$HOME/.scm_breeze/scm_breeze.sh"; zplugin light scmbreeze/scm_breeze
 
 # misc plugins
 zplugin ice svn; zplugin snippet PZT::modules/environment
