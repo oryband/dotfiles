@@ -25,7 +25,7 @@
     separator_color = frame
     startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/google-chrome-stable -new-tab
+    browser = /usr/local/bin/firefox
     icon_position = right
     max_icon_size = 64
     icon_path = /usr/share/icons/Adwaita/256x256/actions/:/usr/share/icons/Adwaita/256x256/apps/:/usr/share/icons/Adwaita/256x256/categories/:/usr/share/icons/Adwaita/256x256/devices/:/usr/share/icons/Adwaita/256x256/emblems/:/usr/share/icons/Adwaita/256x256/emotes/:/usr/share/icons/Adwaita/256x256/mimetypes/:/usr/share/icons/Adwaita/256x256/places/:/usr/share/icons/Adwaita/256x256/status/
