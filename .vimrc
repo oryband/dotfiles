@@ -132,13 +132,6 @@ call plug#end()
 " Colors {{{
 set background=dark
 let base16colorspace=256
-" https://github.com/chriskempson/base16-vim/issues/197
-" https://github.com/chriskempson/base16-vim/pull/198
-function FixupBase16(info)
-    !sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' ~/.vim/plugged/base16-vim/colors/*.vim
-endfunction
-Plug 'chriskempson/base16-vim', { 'do': function('FixupBase16') }
-
 if !exists('g:colors_name') || g:colors_name != 'base16-eighties'
   colorscheme base16-eighties
 endif
