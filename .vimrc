@@ -542,7 +542,7 @@ augroup FileTypeActions
                 \ setlocal textwidth=100 |
                 \ nmap <leader>c <Plug>(go-test-compile) |
                 \ nmap <leader>m <Plug>(go-metalinter)
-    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,yaml,gitcommit,nginx setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,yaml,gitcommit,nginx,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
