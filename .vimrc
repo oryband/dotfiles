@@ -33,6 +33,9 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 Plug 'tpope/vim-liquid', { 'for': 'liquid' }
 " }}}
+" C++ {{{
+Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
+" }}}
 " CSS {{{
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 " }}}
@@ -462,17 +465,6 @@ let g:syntastic_html_checkers = ['tidy', 'eslint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_ansible_checkers = ['ansible_lint']
-
-let g:syntastic_c_compiler_options = '-ansi -Wall -Wextra'
-let g:syntastic_cpp_compiler_options = '-Wall -Wextra -Weffc++'
-let g:syntastic_c_include_dirs = [ 'includes', 'include', 'inc',  'headers' ]
-let g:syntastic_c_check_header = 1
-let g:syntastic_c_auto_refresh_includes = 1
-let g:syntastic_c_remove_include_errors = 1
-let g:syntastic_cpp_check_header = g:syntastic_c_check_header
-let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
-let g:syntastic_cpp_auto_refresh_includes = g:syntastic_c_auto_refresh_includes
-let g:syntastic_cpp_remove_include_errors = g:syntastic_c_remove_include_errors
 " }}}
 " Tagbar {{{
 nnoremap <silent> <Leader>g :TagbarToggle<CR>
@@ -509,8 +501,6 @@ let g:tern_show_argument_hints = 'on_move'
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_seed_identifiers_with_syntax = 1
 
 " Call YCM/Go/js GoTo depending on file type.
