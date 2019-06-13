@@ -12,6 +12,7 @@ automake
 aws-cli
 bbswitch-dkms
 bc
+bear
 bind-tools
 bison
 bluez-utils
