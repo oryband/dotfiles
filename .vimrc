@@ -116,7 +116,7 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 
 function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.force
-        !python install.py --gocode-completer --tern-completer --clang-completer --system-libclang
+        !python install.py --gocode-completer --ts-completer --clang-completer --system-libclang
     endif
 endfunction
 " load YCM on first insert command
