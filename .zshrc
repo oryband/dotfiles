@@ -96,15 +96,6 @@ setopt PROMPT_SUBST
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 
-# python
-export PATH=$HOME/.local/bin:$PATH
-
-# js
-export PATH=$HOME/.node_modules/bin:$PATH
-
-# ruby
-export PATH=$(ruby -e 'print Gem.user_dir')/bin:$PATH
-
 # golang
 GO_VERSION=go1.12
 export GOROOT=$HOME/Documents/golang/$GO_VERSION
