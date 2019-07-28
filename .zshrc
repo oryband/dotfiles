@@ -44,7 +44,7 @@ export ENHANCD_DISABLE_HOME=1
 zplugin ice pick"init.sh"; zplugin light b4b4r07/enhancd
 
 # completion
-zplugin ice svn wait"0" silent pick"init.zsh" blockf; zplugin snippet PZT::modules/completion
+zplugin ice svn wait silent pick"init.zsh" blockf; zplugin snippet PZT::modules/completion
 unsetopt CORRECT
 setopt ALWAYS_TO_END
 setopt AUTO_LIST
@@ -58,7 +58,7 @@ setopt NO_NOMATCH
 setopt PATH_DIRS
 
 # suggestions
-zplugin ice wait"0" atload"_zsh_autosuggest_start" lucid; zplugin light zsh-users/zsh-autosuggestions
+zplugin ice wait atload"_zsh_autosuggest_start" lucid; zplugin light zsh-users/zsh-autosuggestions
 
 # history
 zplugin ice svn; zplugin snippet PZT::modules/history
@@ -67,7 +67,7 @@ zplugin ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zpl
 zstyle ":plugin:history-search-multi-word" active "standout"
 
 # syntax highlighting, NOTE must be last plugin to load
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"; zplugin light zdharma/fast-syntax-highlighting
+zplugin ice wait atinit"zpcompinit; zpcdreplay"; zplugin light zdharma/fast-syntax-highlighting
 
 # load everything
 autoload -Uz compinit
