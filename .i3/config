@@ -88,8 +88,7 @@ workspace_auto_back_and_forth yes
 
 assign [class="^Google-chrome$"] 2
 assign [class="^Firefox$"] 2
-assign [class="^Slack$"] 3
-for_window [class="^Spotify$"] move to workspace 6
+for_window [class="^Spotify$"] move to workspace 3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
