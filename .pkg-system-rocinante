@@ -9,6 +9,7 @@ acpi_call-dkms
 alsa-utils
 autoconf
 automake
+awless
 aws-cli
 bbswitch-dkms
 bc
