@@ -20,10 +20,10 @@ bison
 bluez-utils
 bumblebee
 ccache
-clang
 cmake
 colordiff
 compton
+cquery
 ctags
 cwdiff
 diff-so-fancy
