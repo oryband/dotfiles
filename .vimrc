@@ -350,15 +350,11 @@ let g:FerretMap = 0
 " }}}
 " Vim-Go {{{
 let g:go_template_autocreate = 0
-" let g:go_list_height = 10
 let g:go_dispatch_enabled = 1
 let g:go_guru_tags = 'integration'
 let g:go_def_reuse_buffer = 1
-
 let g:go_fmt_autosave = 0
-
 let g:go_metalinter_autosave = 0
-let g:go_metalinter_enabled = ['vet', 'golint'] ", 'errcheck']
 
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_build_constraints = 1
