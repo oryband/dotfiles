@@ -540,6 +540,7 @@ augroup SetFileTypes
     autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
+    autocmd BufWinEnter *.x setfiletype c  " XDR
     autocmd BufWinEnter Pipfile setfiletype toml
     autocmd BufWinEnter Pipfile.lock,.tern-config,.tern-project,*.abi setfiletype json
     autocmd BufWinEnter */playbooks/*.yml setfiletype yaml.ansible
