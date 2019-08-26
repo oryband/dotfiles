@@ -34,7 +34,7 @@ zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull"%atclone" pick"c.zsh"
 zplugin ice pick"bd.zsh"; zplugin light Tarrasch/zsh-bd
 zplugin light djui/alias-tips
 zplugin light paulirish/git-open
-zplugin ice as"program" pick"tmux-cssh"; zplugin light jsecchiero/tmux-cssh
+zplugin ice as"program" pick"tmux-cssh"; zplugin light peikk0/tmux-cssh
 
 # enhancd / fzy
 export ENHANCD_FILTER=fzy
