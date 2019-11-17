@@ -12,7 +12,7 @@ fi
 
 # suspend desktop timer
 /usr/bin/xautolock \
-    -time 10 \
+    -time 15 \
     -locker "systemctl suspend" \
     -notify 30 \
     -notifier "notify-send -u critical -t 10000 -- 'Suspending in 30s'" \
