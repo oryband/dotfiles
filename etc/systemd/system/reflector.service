@@ -1,5 +1,7 @@
 [Unit]
 Description=Update Pacman mirrorlist
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 Type=oneshot
