@@ -3,7 +3,7 @@ Description=Notify on low battery every minute
 
 [Timer]
 OnActiveSec=5sec
-OnUnitActiveSec=1min
+OnUnitActiveSec=5min
 Persistent=true
 Unit=warn-battery.service
 
