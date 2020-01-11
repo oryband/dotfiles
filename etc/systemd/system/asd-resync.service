@@ -1,0 +1,14 @@
+[Unit]
+Description=Timed resync
+Documentation=man:asd(1) man:anything-sync-daemon(1)
+Documentation=https://wiki.archlinux.org/index.php/Anything-sync-daemon
+After=asd.service
+Wants=asd-resync.timer
+PartOf=asd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/anything-sync-daemon resync
+
+[Install]
+WantedBy=default.target
