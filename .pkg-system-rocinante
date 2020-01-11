@@ -23,7 +23,6 @@ bumblebee
 ccache
 cmake
 colordiff
-compton
 cquery
 ctags
 cwdiff
@@ -60,6 +59,7 @@ i3lock-fancy-rapid-git
 i3status
 iftop
 intel-ucode
+iotop
 iputils
 ipython
 jfsutils
@@ -73,6 +73,7 @@ libva-intel-driver
 libva-utils
 licenses
 linux
+linux-firmware
 lnav
 logrotate
 man-db
@@ -87,15 +88,19 @@ netatop-dkms
 nodejs-tern
 ntfs-3g
 ntfy
+nvme-cli
+pacman
 pandoc
 paprefs
 parallel
 pavucontrol
 pcmciautils
+picom
 pigz
 pkgconf
 playerctl
 plymouth-theme-arch-logo
+plymouth-theme-monoarch
 pm-utils
 powertop
 profile-sync-daemon
@@ -111,6 +116,7 @@ reiserfsprogs
 rofi
 scrot
 sdparm
+sedutil
 s-nail
 solaar-git
 speedtest-cli
@@ -130,6 +136,7 @@ tmux
 transmission-gtk
 tree
 tunnelbear
+typescript
 udiskie
 unzip
 urxvt-bidi
@@ -140,7 +147,6 @@ vlc
 vulkan-intel
 wavemon
 wget
-which
 whois
 wireshark-qt
 wpa_supplicant_gui
@@ -181,6 +187,7 @@ xorg-xwininfo
 xorg-xwud
 xsel
 yamllint
+yarn
 yay-bin
 youtube-dl
 zip
