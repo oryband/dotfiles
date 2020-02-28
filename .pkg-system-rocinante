@@ -59,6 +59,7 @@ i3lock-fancy-rapid-git
 i3status
 iftop
 intel-ucode
+intel-undervolt
 iotop
 iputils
 ipython
@@ -80,6 +81,7 @@ man-db
 man-pages
 markdown2ctags
 mercurial
+msr-tools
 mtr
 nano
 ncdu
