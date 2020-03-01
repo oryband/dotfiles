@@ -50,7 +50,6 @@ google-chrome
 gvim
 haskell-mono-traversable
 haskell-mwc-random
-hdparm
 htop
 hub
 i3blocks
@@ -77,6 +76,7 @@ linux
 linux-firmware
 lnav
 logrotate
+lsof
 man-db
 man-pages
 markdown2ctags
@@ -103,7 +103,6 @@ pkgconf
 playerctl
 plymouth-theme-arch-logo
 plymouth-theme-monoarch
-pm-utils
 powertop
 profile-sync-daemon
 pulseaudio-bluetooth
