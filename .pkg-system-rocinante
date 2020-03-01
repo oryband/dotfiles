@@ -134,6 +134,7 @@ tcpdump
 terminus-font
 the_silver_searcher
 tk
+tlp-rdw
 tmux
 transmission-gtk
 tree
@@ -143,7 +144,6 @@ udiskie
 unzip
 urxvt-bidi
 urxvt-font-size-git
-usbutils
 vi
 vlc
 vulkan-intel
