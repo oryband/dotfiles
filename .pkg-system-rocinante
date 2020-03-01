@@ -5,7 +5,6 @@
 (xorg)
 (xorg-apps)
 acpi
-acpi_call-dkms
 alsa-utils
 anything-sync-daemon
 autoconf
@@ -44,7 +43,6 @@ gimp
 git-extras
 git-lfs
 gitter
-glxinfo
 gnu-netcat
 google-chrome
 gvim
