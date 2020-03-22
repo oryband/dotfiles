@@ -2,7 +2,3 @@
     path = .vim
     url = git@github.com:oryband/dotvim.git
     ignore = all
-[submodule ".zplug"]
-    path = .zplug
-    url = https://github.com/b4b4r07/zplug
-    ignore = all
