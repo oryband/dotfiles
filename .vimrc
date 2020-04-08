@@ -136,7 +136,6 @@ autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable(
 " Finish Init vim-plug {{{
 call plug#end()
 " }}}
-" }}}
 " Options {{{
 " Colors {{{
 set background=dark
