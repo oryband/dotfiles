@@ -1,4 +1,4 @@
-*.dpi: 240
+*.dpi: 120
 
 URxvt*termName:             rxvt-unicode-256color
 

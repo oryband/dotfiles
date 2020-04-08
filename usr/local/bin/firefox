@@ -13,29 +13,24 @@ if [ ! -f "${PREFS_JS_PATH}" ]; then
 fi
 
 DPI="$(grep \*.dpi ~/.Xresources | awk '{print $2}')"
+SCALE_FACTOR=$(echo "scale=2; $DPI/96" | bc)
 
-if [ "$DPI" == 96 ]; then 
-    GDK_SCALE="1.0" GDK_DPI_SCALE="1.0";
-
+if [ "$SCALE_FACTOR" == "1.00" ]; then
     # rm custom devPixelPerPx configuration (use default)
     if grep -q "layout.css.devPixelsPerPx" "${PREFS_JS_PATH}"; then
-        sed -i '/^user_pref("layout.css.devPixelsPerPx"/d' "${PREFS_JS_PATH}"
+        sed -i "/^user_pref(\"layout.css.devPixelsPerPx\"/d" "${PREFS_JS_PATH}"
     fi
-fi;
-
-if [ "$DPI" == 240 ]; then 
-    GDK_SCALE="2.5" GDK_DPI_SCALE="0.5";
-
+else
     # set hidpi pixel scaling
     if [ -n "${PREFS_JS_PATH}" ] && [ -f "${PREFS_JS_PATH}" ]; then
         # if entry exists, replace dpi value
         if grep -q "layout.css.devPixelsPerPx" "${PREFS_JS_PATH}"; then
-            sed -i '/^user_pref("layout.css.devPixelsPerPx"/s/.*/user_pref("layout.css.devPixelsPerPx", "2.5");/' "${PREFS_JS_PATH}"
+            sed -i "/^user_pref(\"layout.css.devPixelsPerPx\"/s/.*/user_pref(\"layout.css.devPixelsPerPx\", \"$SCALE_FACTOR\");/" "${PREFS_JS_PATH}"
         else
             # else create dpi entry
-            echo 'user_pref("layout.css.devPixelsPerPx", "2.5");' >> "${PREFS_JS_PATH}"
+            echo "user_pref(\"layout.css.devPixelsPerPx\", \"$SCALE_FACTOR\");" >> "${PREFS_JS_PATH}"
         fi
     fi
 fi;
 
-i3-msg "exec env GDK_SCALE=$GDK_SCALE GDK_DPI_SCALE=$GDK_DPI_SCALE /usr/bin/firefox"
+i3-msg "exec env GDK_SCALE=$SCALE_FACTOR /usr/bin/firefox"

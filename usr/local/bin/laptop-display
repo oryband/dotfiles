@@ -3,4 +3,4 @@ set -e
 
 DISPLAY=:0 xrandr --output eDP-1 --auto --output HDMI-1 --off
 echo 1000 > /sys/class/backlight/intel_backlight/brightness
-switch-dpi 240
+switch-dpi 120
