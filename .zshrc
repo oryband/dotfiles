@@ -1,50 +1,50 @@
 # credits https://pastebin.com/Tgji4PZv
 
-# zplugin
-source '/home/ory/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+# zinit
+source '/home/ory/.zinit/bin/zinit.zsh'
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # prezto
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
-zplugin snippet PZT::modules/helper/init.zsh
+zinit snippet PZT::modules/helper/init.zsh
 
 # prompt
-zplugin ice pick"scripts/base16-eighties.sh"; zplugin light chriskempson/base16-shell
-zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
+zinit ice pick"scripts/base16-eighties.sh"; zinit light chriskempson/base16-shell
+zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
 PURE_PROMPT_SYMBOL='#'
 PURE_PROMPT_VICMD_SYMBOL=''
 PURE_GIT_DOWN_ARROW='↓'
 PURE_GIT_UP_ARROW='↑'
 
 # git scm_breeze
-zplugin ice atpull"$ZPLGM[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"$HOME/.scm_breeze/scm_breeze.sh"; zplugin light scmbreeze/scm_breeze
+zinit ice atpull"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"$HOME/.scm_breeze/scm_breeze.sh"; zinit light scmbreeze/scm_breeze
 
 # misc plugins
-zplugin ice svn; zplugin snippet PZT::modules/environment
-zplugin ice svn; zplugin snippet PZT::modules/terminal
-zplugin ice svn; zplugin snippet PZT::modules/editor
-zplugin ice svn silent; zplugin snippet PZT::modules/gpg
-# zplugin ice svn load"[[ -z "$TMUX" ]]" silent pick"init.zsh" lucid;
-zplugin ice svn snippet PZT::modules/tmux
-zplugin ice svn silent pick"init.zsh" lucid; zplugin snippet PZT::modules/utility
-zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull"%atclone" pick"c.zsh"; zplugin light trapd00r/LS_COLORS
-zplugin ice pick"bd.zsh"; zplugin light Tarrasch/zsh-bd
-zplugin light djui/alias-tips
-zplugin light paulirish/git-open
-zplugin ice as"program" pick"tmux-cssh"; zplugin light peikk0/tmux-cssh
+zinit ice svn; zinit snippet PZT::modules/environment
+zinit ice svn; zinit snippet PZT::modules/terminal
+zinit ice svn; zinit snippet PZT::modules/editor
+zinit ice svn silent; zinit snippet PZT::modules/gpg
+# zinit ice svn load"[[ -z "$TMUX" ]]" silent pick"init.zsh" lucid;
+zinit ice svn snippet PZT::modules/tmux
+zinit ice svn silent pick"init.zsh" lucid; zinit snippet PZT::modules/utility
+zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull"%atclone" pick"c.zsh"; zinit light trapd00r/LS_COLORS
+zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
+zinit light djui/alias-tips
+zinit light paulirish/git-open
+zinit ice as"program" pick"tmux-cssh"; zinit light peikk0/tmux-cssh
 
 # enhancd / fzy
 export ENHANCD_FILTER=fzy
 export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HYPHEN=1
 export ENHANCD_DISABLE_HOME=1
-zplugin ice pick"init.sh"; zplugin light b4b4r07/enhancd
+zinit ice pick"init.sh"; zinit light b4b4r07/enhancd
 
 # completion
-zplugin ice svn wait silent pick"init.zsh" blockf; zplugin snippet PZT::modules/completion
+zinit ice svn wait silent pick"init.zsh" blockf; zinit snippet PZT::modules/completion
 unsetopt CORRECT
 setopt ALWAYS_TO_END
 setopt AUTO_LIST
@@ -58,21 +58,21 @@ setopt NO_NOMATCH
 setopt PATH_DIRS
 
 # suggestions
-zplugin ice wait atload"_zsh_autosuggest_start" lucid; zplugin light zsh-users/zsh-autosuggestions
+zinit ice wait atload"_zsh_autosuggest_start" lucid; zinit light zsh-users/zsh-autosuggestions
 
 # history
-zplugin ice svn; zplugin snippet PZT::modules/history
-zplugin ice wait"1" silent pick"zsh-history-substring-search.plugin.zsh" lucid; zplugin light zsh-users/zsh-history-substring-search
-zplugin ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zplugin light zdharma/history-search-multi-word
+zinit ice svn; zinit snippet PZT::modules/history
+zinit ice wait"1" silent pick"zsh-history-substring-search.plugin.zsh" lucid; zinit light zsh-users/zsh-history-substring-search
+zinit ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zinit light zdharma/history-search-multi-word
 zstyle ":plugin:history-search-multi-word" active "standout"
 
 # syntax highlighting, NOTE must be last plugin to load
-zplugin ice wait atinit"zpcompinit; zpcdreplay"; zplugin light zdharma/fast-syntax-highlighting
+zinit ice wait lucid atinit"zpcompinit; zpcdreplay"; zinit light zdharma/fast-syntax-highlighting
 
 # load everything
 autoload -Uz compinit
 compinit
-zplugin cdreplay -q
+zinit cdreplay -q
 
 # disable C-s stopping receiving keyboard signals.
 stty start undef
