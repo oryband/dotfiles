@@ -96,6 +96,10 @@ setopt PROMPT_SUBST
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 
+# python
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # golang
 GO_VERSION=go1.12.8
 export GOROOT=$HOME/Documents/golang/$GO_VERSION
