@@ -43,6 +43,11 @@ Plug 'pdavydov108/vim-lsp-cquery', { 'for': 'cpp' }
 " CSS {{{
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 " }}}
+" Clojure {{{
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+" }}}
 " Javascript {{{
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
@@ -509,7 +514,9 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 " Call YCM/Go/js GoTo depending on file type.
 function! GoToDef()
-    if &ft == 'go'
+    if &ft == 'clojure'
+        execute "normal \<Plug>FireplaceDjump"
+    elseif &ft == 'go'
         execute 'GoDef'
     elseif &ft == 'javascript'
         execute 'TernDef'
