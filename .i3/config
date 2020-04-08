@@ -178,7 +178,7 @@ client.background       $base07
 
 # startup
 # compositor (for no tearing)
-exec --no-startup-id compton -b
+exec --no-startup-id picom -b
 
 # borders
 new_window pixel 5
