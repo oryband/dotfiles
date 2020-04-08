@@ -151,18 +151,18 @@ alias gprune="g prune"
 
 # docker
 alias docker='jq -s "reduce .[] as \$x ({}; . * \$x)" $HOME/.docker/config.d/*.json > ~/.docker/config.json && docker'
-alias dr="sudo docker run --rm -it"
-alias di="sudo docker images | head -n 1 && sudo docker images | tail -n +2 | sort"
-alias dps="sudo docker ps -a"
-alias drm="sudo docker rm"
-alias drmi="sudo docker rmi"
+alias dr="docker run --rm -it"
+alias di="docker images | head -n 1 && docker images | tail -n +2 | sort"
+alias dps="docker ps -a"
+alias drm="docker rm"
+alias drmi="docker rmi"
 alias drmcd='drm $(dps -q -f status=exited -f status=created)'
-alias drmvd='sudo docker volume rm $(sudo docker volume ls -q -f dangling=true)'
-alias drmid='drmi $(sudo docker images -q -f dangling=true)'
+alias drmvd='docker volume rm $(docker volume ls -q -f dangling=true)'
+alias drmid='drmi $(docker images -q -f dangling=true)'
 # alias drmid="docker images -q -f dangling=true | tr '\n' ' ' | xargs docker rmi -f && \
 #     docker images | grep \"^<none>\" | awk \"{print $3}\" | tr '\n' ' ' | tr '\n' ' ' | xargs docker rmi -f"
-alias dpurge="drmcd ; drmvd ; drmid ;sudo docker network prune -f"
-alias dc="sudo docker-compose"
+alias dpurge="drmcd ; drmvd ; drmid ;docker network prune -f"
+alias dc="docker-compose"
 
 alias vg=vagrant
 alias graph="graph-easy --from dot --as boxart --stats"
