@@ -13,7 +13,7 @@ fi
 # suspend desktop timer
 /usr/bin/xautolock \
     -time 15 \
-    -locker "systemctl suspend" \
+    -locker "systemctl suspend-then-hibernate" \
     -notify 30 \
     -notifier "notify-send -u critical -t 10000 -- 'Suspending in 30s'" \
     -detectsleep &
