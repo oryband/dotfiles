@@ -93,6 +93,7 @@ speedtest-cli
 spotify
 stow
 subversion
+systemd-boot-pacman-hook
 terminus-font
 the_silver_searcher
 tlp-rdw
