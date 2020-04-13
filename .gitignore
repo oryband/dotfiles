@@ -63,6 +63,7 @@
 .viminfo
 .virtualenvs/
 .wget-hsts
+.wpa_cli_history
 .zcompdump
 .zhistory
 .zinit/
