@@ -44,9 +44,12 @@ Plug 'pdavydov108/vim-lsp-cquery', { 'for': 'cpp' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 " }}}
 " Clojure {{{
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'fbeline/kibit-vim', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
 " }}}
 " Javascript {{{
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
