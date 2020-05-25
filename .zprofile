@@ -3,6 +3,7 @@
 export EDITOR='vim'
 export VISUAL=$EDITOR
 export PAGER='less'
+export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 if [[ -z "$LANG" ]]; then export LANG='en_US.UTF-8'; fi
 
@@ -15,7 +16,6 @@ path=(/usr/local/{bin,sbin} $path)
 # set the default less options.
 # mouse-wheel scrolling has been disabled by -x (disable screen clearing).
 # remove -x and -f (exit if the content fits on one screen) to enable it.
-export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 # set the less input preprocessor.
 # try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
