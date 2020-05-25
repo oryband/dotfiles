@@ -50,6 +50,7 @@
 /.gsutil/
 /.histfile
 /.ipython/
+/.k9s
 /.kube/
 /.lein/
 /.lesshst
