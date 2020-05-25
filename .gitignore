@@ -65,6 +65,7 @@
 /.pyenv/
 /.python_history
 /.scm_breeze
+/.scmbrc
 /.ssh/
 /.subversion/
 /.viminf*.tmp
