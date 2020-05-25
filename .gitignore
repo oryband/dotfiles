@@ -8,6 +8,7 @@
 /.Xauthority
 /.boto
 /.cache/
+/.cargo/
 /.ccache/
 /.clojure/
 /.clojure_history
@@ -16,7 +17,6 @@
 /.config/Keybase/
 /.config/QtProject.conf
 /.config/Slack/
-/.config/Thunar/
 /.config/Unknown Organization/
 /.config/autostart/
 /.config/configstore/
@@ -34,11 +34,16 @@
 /.config/psd/.psd.conf
 /.config/pulse/
 /.config/pulse/cookie
+/.config/solaar/
 /.config/spotify/
+/.config/systemd/user/default.target.wants
+/.config/systemd/user/timers.target.wants/
 /.config/xfce4/
 /.config/zoomus.conf
 /.dbshell
 /.docker/.buildNodeID
+/.docker/.config.json
+/.electrum/
 /.enhancd/
 /.fehbg
 /.gnupg/
@@ -48,19 +53,20 @@
 /.kube/
 /.lein/
 /.lesshst
+/.lnav/
 /.local/
 /.m2/
 /.mongorc.js
 /.mozilla/
 /.npm/
-/.pip/
+/.pip/pip.conf
 /.pki/
 /.pyenv/
 /.python_history
 /.scm_breeze
-/.scmbrc
 /.ssh/
 /.subversion/
+/.viminf*.tmp
 /.viminfo
 /.virtualenvs/
 /.wget-hsts
