@@ -13,11 +13,11 @@ zinit snippet PZT::modules/helper/init.zsh
 
 # prompt
 zinit ice pick"scripts/base16-eighties.sh"; zinit light chriskempson/base16-shell
-zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
-PURE_PROMPT_SYMBOL='#'
-PURE_PROMPT_VICMD_SYMBOL=''
-PURE_GIT_DOWN_ARROW='↓'
-PURE_GIT_UP_ARROW='↑'
+# zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
+# PURE_PROMPT_SYMBOL='#'
+# PURE_PROMPT_VICMD_SYMBOL=''
+# PURE_GIT_DOWN_ARROW='↓'
+# PURE_GIT_UP_ARROW='↑'
 
 # git scm_breeze
 zinit ice atpull"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"$HOME/.scm_breeze/scm_breeze.sh"; zinit light scmbreeze/scm_breeze
@@ -35,6 +35,9 @@ zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
 zinit light djui/alias-tips
 zinit light paulirish/git-open
 zinit ice as"program" pick"tmux-cssh"; zinit light peikk0/tmux-cssh
+
+# prompt
+eval "$(starship init zsh)"
 
 # enhancd / fzy
 export ENHANCD_FILTER=fzy
