@@ -178,10 +178,6 @@ alias dpurge="drmcd ; drmvd ; drmid ;docker network prune -f"
 alias dc="docker-compose"
 # }}}
 
-alias vg=vagrant
-alias graph="graph-easy --from dot --as boxart --stats"
-# alias tmux="tmux attach -t ory"
-
 # stow {{{
 alias stowusr="sudo stow -vR -t /usr usr"
 alias stowetc="sudo stow -vR -t /etc etc"
