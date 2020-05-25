@@ -31,6 +31,7 @@ feh
 firefox
 flex
 fonts-meta-extended-lt
+fzf
 fzy
 gimp
 google-chrome
@@ -92,6 +93,7 @@ slack-desktop
 sloc
 speedtest-cli
 spotify
+starship
 stow
 subversion
 systemd-boot-pacman-hook

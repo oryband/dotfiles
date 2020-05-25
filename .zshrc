@@ -11,17 +11,6 @@ zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
 zinit snippet PZT::modules/helper/init.zsh
-
-# prompt
-zinit ice pick"scripts/base16-eighties.sh"; zinit light chriskempson/base16-shell
-# zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
-# PURE_PROMPT_SYMBOL='#'
-# PURE_PROMPT_VICMD_SYMBOL=''
-# PURE_GIT_DOWN_ARROW='↓'
-# PURE_GIT_UP_ARROW='↑'
-
-
-# misc plugins
 zinit ice svn; zinit snippet PZT::modules/environment
 zinit ice svn; zinit snippet PZT::modules/terminal
 zinit ice svn; zinit snippet PZT::modules/editor
@@ -32,7 +21,11 @@ zinit ice svn silent pick"init.zsh" lucid; zinit snippet PZT::modules/utility
 # }}}
 
 # colors {{{
+export BASE16_THEME='eighties'
+zinit light 'chrissicool/zsh-256color'
 zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull"%atclone" pick"c.zsh"; zinit light trapd00r/LS_COLORS
+zinit ice pick"scripts/base16-${BASE16_THEME}.sh"; zinit light chriskempson/base16-shell
+zinit ice lucid wait'0' src"bash/base16-${BASE16_THEME}.config" pick"bash/base16-${BASE16_THEME}.config" nocompile'!'; zinit light nicodebo/base16-fzf
 # }}}
 
 # misc plugins {{{
@@ -45,7 +38,7 @@ zinit ice as"program" pick"tmux-cssh"; zinit light peikk0/tmux-cssh
 eval "$(starship init zsh)"
 
 # enhancd {{{
-export ENHANCD_FILTER=fzy
+export ENHANCD_FILTER=fzf-tmux
 export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HYPHEN=1
 export ENHANCD_DISABLE_HOME=1
