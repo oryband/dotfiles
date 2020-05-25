@@ -42,7 +42,7 @@
 /.config/zoomus.conf
 /.dbshell
 /.docker/.buildNodeID
-/.docker/.config.json
+/.docker/config.json
 /.electrum/
 /.enhancd/
 /.fehbg
