@@ -107,8 +107,8 @@ autoload -Uz promptinit && promptinit
 # }}}
 
 # python {{{
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+export ZSH_PYENV_LAZY_VIRTUALENV=true
+zinit light davidparsson/zsh-pyenv-lazy
 # }}}
 
 # source secret env keys, etc.
