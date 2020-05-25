@@ -100,14 +100,6 @@ autoload -Uz promptinit && promptinit
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# golang
-GO_VERSION=go1.12.8
-export GOROOT=$HOME/Documents/golang/$GO_VERSION
-export GOPATH=$HOME/.golang/$GO_VERSION
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-alias $GO_VERSION=$GOROOT/bin/go
-alias go=$GO_VERSION
-
 # source secret env keys, etc.
 source $HOME/.zsh-secrets
 
