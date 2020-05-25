@@ -5,6 +5,7 @@
 (xorg-apps)
 acpi
 acpid
+alacritty
 alsa-utils
 anything-sync-daemon
 autoconf
@@ -100,7 +101,6 @@ tlp-rdw
 tmux
 tree
 unzip
-urxvt-font-size-git
 vdpauinfo
 wget
 wpa_supplicant_gui
