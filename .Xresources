@@ -15,10 +15,10 @@ Xft*antialias:              true
 Xft*hinting:                true
 Xft*hintstyle:              hintfull
 
-URxvt*font:                 xft:SauceCodePro Nerd Font Mono:size=13:Light
-URxvt*boldFont:             xft:SauceCodePro Nerd Font Mono:size=13:Regular
-URxvt*italicFont:           xft:SauceCodePro Nerd Font Mono:size=13:Bold
-URxvt*boldItalicFont:       xft:SauceCodePro Nerd Font Mono:size=13:Bold:Italic
+URxvt*font:                 xft:SauceCodePro Nerd Font Mono:size=14:Light
+URxvt*boldFont:             xft:SauceCodePro Nerd Font Mono:size=14:Regular
+URxvt*italicFont:           xft:SauceCodePro Nerd Font Mono:size=14:Bold
+URxvt*boldItalicFont:       xft:SauceCodePro Nerd Font Mono:size=14:Bold:Italic
 
 URxvt*intensityStyles:      false
 
