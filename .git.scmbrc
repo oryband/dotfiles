@@ -18,7 +18,7 @@ export git_setup_aliases="yes"
 # Git Index Config
 # ----------------------------------------------
 # Repos will be automatically added from this directory.
-export GIT_REPO_DIR="$HOME/code"
+export GIT_REPO_DIR=""
 # Add the full paths of any extra repos to GIT_REPOS, separated with ':'
 # e.g. "/opt/rails/project:/opt/rails/another project:$HOME/other/repo"
 export GIT_REPOS=""
@@ -119,8 +119,8 @@ git_commit_all_with_ci_skip_keys="\C-xv"  # CTRL+x, v    (Appends [ci skip] to c
 # Shell Command Wrapping
 # ----------------------------------------------
 # Expand numbered args for common shell commands
-shell_command_wrapping_enabled="true"
+shell_command_wrapping_enabled="false"
 # Here you can tweak the list of wrapped commands.
 scmb_wrapped_shell_commands=""
 # Add numbered shortcuts to output of ls -l, just like 'git status'
-shell_ls_aliases_enabled="true"
+shell_ls_aliases_enabled="false"
