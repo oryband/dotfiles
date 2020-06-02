@@ -4,7 +4,7 @@ set -e
 
 # retrieve path to default profile
 PREFS_JS_PATH=""
-FIREFOX_DEFAULT_PROFILE_PATH=$(find ~/.mozilla/firefox -maxdepth 1 -iname "*\.default")
+FIREFOX_DEFAULT_PROFILE_PATH=$(find ~/.mozilla/firefox -maxdepth 1 -iname "*\.default-release")
 if [ -f "${FIREFOX_DEFAULT_PROFILE_PATH}/prefs.js" ]; then
     PREFS_JS_PATH="${FIREFOX_DEFAULT_PROFILE_PATH}/prefs.js"
 fi
