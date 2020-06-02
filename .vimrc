@@ -329,10 +329,6 @@ sunmap w
 sunmap b
 sunmap e
 " }}}
-" EasyAlign {{{
-vmap <Leader>a <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
-" }}}
 " EasyTags {{{
 set cpoptions+=d
 let g:easytags_file = '~/.vim/.vimtags'
