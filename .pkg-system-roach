@@ -50,7 +50,7 @@ gvim
 htop
 i3blocks
 i3-gaps-next-git
-i3lock-fancy-rapid-git
+i3lock-color
 i3status
 iftop
 informant
@@ -92,7 +92,6 @@ openvpn
 paprefs
 pavucontrol
 picom
-pkgconf
 playerctl
 powertop
 profile-sync-daemon

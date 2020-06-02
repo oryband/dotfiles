@@ -1,2 +1,2 @@
 #!/bin/sh
-i3lock-fancy-rapid 10 5
+i3lock --blur 5 --keylayout 1
