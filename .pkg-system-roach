@@ -10,6 +10,7 @@ alsa-utils
 anything-sync-daemon
 autoconf
 automake
+autorandr
 base
 bbswitch-dkms
 bc
@@ -142,7 +143,6 @@ xorg-xbacklight
 xorg-xclipboard
 xorg-xcmsdb
 xorg-xcursorgen
-xorg-xdpyinfo
 xorg-xdriinfo
 xorg-xev
 xorg-xfontsel

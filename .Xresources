@@ -1,4 +1,3 @@
-*.dpi: 120
 
 URxvt*termName:             rxvt-unicode-256color
 
@@ -10,6 +9,7 @@ URxvt*scrollBar:            false
 URxvt*scrollTtyOutput:      false
 URxvt*scrollTtyKeypress:    true
 URxvt*scrollWithBuffer:     true
+*.dpi: 96
 
 Xft*antialias:              true
 Xft*hinting:                true

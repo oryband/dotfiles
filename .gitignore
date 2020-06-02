@@ -18,6 +18,9 @@
 /.config/QtProject.conf
 /.config/Slack/
 /.config/Unknown Organization/
+/.config/autorandr/default
+/.config/autorandr/laptop/
+/.config/autorandr/usb-c/
 /.config/autostart/
 /.config/configstore/
 /.config/dconf/

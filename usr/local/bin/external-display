@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-DISPLAY=:0 xrandr --output eDP-1 --off --output HDMI-1 --auto
-echo 0 > /sys/class/backlight/intel_backlight/brightness
-switch-dpi 96
