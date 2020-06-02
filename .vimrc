@@ -112,8 +112,9 @@ Plug 'justinmk/vim-sneak'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'romainl/vim-qf'
-Plug 'ryanoasis/vim-devicons', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'ryanoasis/vim-devicons', { 'on':  'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
