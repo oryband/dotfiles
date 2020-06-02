@@ -349,9 +349,6 @@ let g:easytags_suppress_ctags_warning = 1
 "             \   }
 "             \}
 " }}}
-" Ferret {{{
-let g:FerretMap = 0
-" }}}
 " Vim-Go {{{
 let g:go_template_autocreate = 0
 let g:go_dispatch_enabled = 1
@@ -422,13 +419,6 @@ let g:signify_vcs_list = [ 'git' ]
 highlight link SneakPluginTarget Visual
 
 map ; <Plug>SneakNext
-
-nmap <leader>s <Plug>Sneak_s
-nmap <leader>S <Plug>Sneak_S
-xmap <leader>s <Plug>Sneak_s
-xmap <leader>S <Plug>Sneak_S
-omap <leader>s <Plug>Sneak_s
-omap <leader>S <Plug>Sneak_S
 
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
