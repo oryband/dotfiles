@@ -86,9 +86,11 @@ bindsym $alt+Tab workspace back_and_forth
 
 workspace_auto_back_and_forth yes
 
+assign [class="^Alacritty$"] 1
 assign [class="^Google-chrome$"] 2
 assign [class="^Firefox$"] 2
-for_window [class="^Spotify$"] move to workspace 3
+assign [class="^Slack$"] 3
+for_window [class="^Spotify$"] move to workspace 9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
