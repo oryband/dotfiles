@@ -9,8 +9,7 @@ autoload -Uz _zinit
 # prezto {{{
 zstyle ':prezto:*:*' case-sensitive 'no'
 zstyle ':prezto:*:*' color 'yes'
-zstyle ':prezto:load' pmodule \
-zinit snippet PZT::modules/helper/init.zsh
+zinit ice svn; zinit snippet PZT::modules/helper
 zinit ice svn; zinit snippet PZT::modules/environment
 zinit ice svn; zinit snippet PZT::modules/terminal
 zinit ice svn; zinit snippet PZT::modules/editor
@@ -32,8 +31,9 @@ zinit light djui/alias-tips
 zinit ice as"program" pick"tmux-cssh"; zinit light peikk0/tmux-cssh
 # }}}
 
-# prompt
+# prompt {{{
 eval "$(starship init zsh)"
+# }}}
 
 # tmux {{
 zstyle ':prezto:module:tmux:session' name '0'
