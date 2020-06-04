@@ -15,8 +15,6 @@ zinit ice svn; zinit snippet PZT::modules/environment
 zinit ice svn; zinit snippet PZT::modules/terminal
 zinit ice svn; zinit snippet PZT::modules/editor
 zinit ice svn silent; zinit snippet PZT::modules/gpg
-# zinit ice svn load"[[ -z "$TMUX" ]]" silent pick"init.zsh" lucid;
-zinit ice svn snippet PZT::modules/tmux
 zinit ice svn silent pick"init.zsh" lucid; zinit snippet PZT::modules/utility
 # }}}
 
@@ -36,6 +34,12 @@ zinit ice as"program" pick"tmux-cssh"; zinit light peikk0/tmux-cssh
 
 # prompt
 eval "$(starship init zsh)"
+
+# tmux {{
+zstyle ':prezto:module:tmux:session' name '0'
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zinit ice svn; zinit snippet PZT::modules/tmux
+# }}}
 
 # enhancd {{{
 export ENHANCD_FILTER=fzf-tmux
