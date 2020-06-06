@@ -69,6 +69,7 @@ libinput-gestures
 libva-intel-driver
 libva-utils
 light
+lightdm-gtk-greeter
 linux
 linux-firmware
 linux-headers

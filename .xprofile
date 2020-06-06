@@ -21,6 +21,5 @@ fi
 xbindkeys
 libinput-gestures-setup start
 
-exec i3  # >> ~/i3.log 2>&1
 
 # vim:filetype=sh
