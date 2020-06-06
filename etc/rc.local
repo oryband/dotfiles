@@ -1,2 +1,0 @@
-# Fix touch keys
-/usr/lib/udev/keymap input/event0 /opt/dell_touchkeys_keymap

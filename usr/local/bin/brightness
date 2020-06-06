@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -e
-set -x
-
-CURRENT=$(cat /sys/class/backlight/intel_backlight/brightness)
-MAX=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-
-notify-send "Brightness" "$CURRENT / $MAX"
