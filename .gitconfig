@@ -6,6 +6,8 @@
     gpgSign = true
 [push]
     default = simple
+[pull]
+	rebase = true
 [credential]
     helper = cache --timeout=3600
 [apply]
