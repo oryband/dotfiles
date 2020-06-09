@@ -19,6 +19,7 @@
 /.config/Slack/
 /.config/Unknown Organization/
 /.config/autorandr/default
+/.config/autorandr/hdmi/
 /.config/autorandr/laptop/
 /.config/autorandr/usb-c/
 /.config/autostart/
