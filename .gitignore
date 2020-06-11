@@ -77,6 +77,8 @@
 /.virtualenvs/
 /.wget-hsts
 /.wpa_cli_history
+/.xsession-errors
+/.xsession-errors.old
 /.zcompdump
 /.zhistory
 /.zinit/
