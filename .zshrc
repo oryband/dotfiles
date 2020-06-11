@@ -112,6 +112,7 @@ autoload -Uz promptinit && promptinit
 
 # python {{{
 export ZSH_PYENV_LAZY_VIRTUALENV=true
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 zinit light davidparsson/zsh-pyenv-lazy
 # }}}
 
