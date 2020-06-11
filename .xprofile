@@ -20,6 +20,7 @@ fi
 
 xbindkeys
 libinput-gestures-setup start
+autorandr --change
 
 
 # vim:filetype=sh
