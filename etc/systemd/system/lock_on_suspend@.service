@@ -10,3 +10,4 @@ ExecStart=/usr/local/bin/lock
 [Install]
 WantedBy=sleep.target
 WantedBy=suspend.target
+WantedBy=suspend-then-hibernate.target
