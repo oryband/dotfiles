@@ -16,6 +16,8 @@ bbswitch-dkms
 bc
 bind-tools
 bison
+blueman
+bluez-utils
 bumblebee
 ccache
 clang
@@ -96,6 +98,7 @@ picom
 playerctl
 powertop
 profile-sync-daemon
+pulseaudio-bluetooth
 pulsemixer
 pyenv-virtualenv
 python-pipenv
