@@ -63,6 +63,7 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 " Python {{{
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 " }}}
 " Go {{{
