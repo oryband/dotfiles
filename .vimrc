@@ -90,6 +90,9 @@ Plug 'fatih/vim-nginx', { 'for': 'nginx' }
 Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
 Plug 'hashivim/vim-terraform'
 " }}}
+" YAML {{{
+Plug 'pedrohdz/vim-yaml-folds', { 'for': 'yaml' }
+" }}}
 " TOML {{{
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 " }}}
