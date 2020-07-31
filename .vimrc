@@ -77,7 +77,7 @@ Plug 'vitalk/vim-shebang' ", { 'for': ['sh', 'zsh', 'csh', 'ash', 'dash', 'ksh',
 Plug 'tianon/vim-docker', { 'for': 'dockerfile' }
 " }}}
 " Markdown {{{
-Plug 'godlygeek/tabular', { 'for': 'markdown' }  " plasticboy dependency
+Plug 'godlygeek/tabular', { 'for': ['clojure', 'markdown'] }  " plasticboy dependency
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " }}}
 " i3 {{{
