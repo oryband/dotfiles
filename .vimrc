@@ -96,9 +96,6 @@ Plug 'pedrohdz/vim-yaml-folds', { 'for': 'yaml' }
 " TOML {{{
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 " }}}
-" Ansible {{{
-Plug 'pearofducks/ansible-vim'
-" }}}
 " Solidity {{{
 Plug 'tomlion/vim-solidity'
 " }}}
@@ -466,7 +463,6 @@ let g:syntastic_python_checkers = ['pylint', 'pycodestyle', 'pydocstyle']
 let g:syntastic_html_checkers = ['tidy', 'eslint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_yaml_checkers = ['yamllint']
-let g:syntastic_ansible_checkers = ['ansible_lint']
 " }}}
 " Tagbar {{{
 nnoremap <silent> <Leader>g :TagbarToggle<CR>
@@ -543,7 +539,6 @@ augroup SetFileTypes
     autocmd BufWinEnter *.x setfiletype c  " XDR
     autocmd BufWinEnter Pipfile setfiletype toml
     autocmd BufWinEnter Pipfile.lock,.tern-config,.tern-project,*.abi setfiletype json
-    autocmd BufWinEnter */playbooks/*.yml setfiletype yaml.ansible
 " }}}
 " Filetype actions {{{
 augroup FileTypeActions
