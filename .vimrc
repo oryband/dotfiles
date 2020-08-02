@@ -107,9 +107,10 @@ Plug 'Konfekt/FastFold'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'bkad/CamelCaseMotion'
 Plug 'henrik/vim-indexed-search'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'romainl/vim-qf'
@@ -125,7 +126,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
-Plug 'wincent/ferret'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 
 function! BuildYCM(info)
@@ -311,17 +311,8 @@ let g:airline_symbols_ascii = 1
 let g:airline#extensions#branch#displayed_head_limit = 15
 " }}}
 " Autoformat {{{
-nmap <Leader>f :Autoformat<CR>
 let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
 " }}}
-" Buffergator {{{
-let g:buffergator_suppress_keymaps = 1
-noremap <silent> <Leader>b :BuffergatorToggle<CR>
-let g:buffergator_viewport_split_policy = 'B'
-let g:buffergator_hsplit_size = 5
-let g:buffergator_sort_regime = 'mru'
-let g:buffergator_keep_old_mru_switching_keymap = 1
-"}}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -349,6 +340,12 @@ let g:easytags_suppress_ctags_warning = 1
 "             \       'recurse_flag': '-R'
 "             \   }
 "             \}
+" }}}
+" fzf {{{
+let g:fzf_command_prefix = 'Fzf'
+noremap <silent> <Leader>f :FzfFiles<CR>
+noremap <silent> <Leader>b :FzfBuffers<CR>
+noremap <silent> <Leader>a :FzfAg<CR>
 " }}}
 " Vim-Go {{{
 let g:go_template_autocreate = 0
