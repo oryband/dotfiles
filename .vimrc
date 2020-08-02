@@ -345,9 +345,9 @@ let g:easytags_suppress_ctags_warning = 1
 " }}}
 " fzf {{{
 let g:fzf_command_prefix = 'Fzf'
-noremap <silent> <Leader>f :FzfFiles<CR>
-noremap <silent> <Leader>b :FzfBuffers<CR>
-noremap <silent> <Leader>a :FzfAg<CR>
+nnoremap <silent> <Leader>f :FzfFiles<CR>
+nnoremap <silent> <Leader>b :FzfBuffers<CR>
+nnoremap <silent> <Leader>a :FzfAg<CR>
 " }}}
 " Vim-Go {{{
 let g:go_template_autocreate = 0
