@@ -172,6 +172,8 @@ inoremap jj <Esc>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <leader>3 <C-^>
+
 nnoremap <silent> <C-j> <C-W>j
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-h> <C-W>h
