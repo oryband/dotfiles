@@ -29,15 +29,6 @@ Plug 'guns/vim-slamhound', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 " }}}
-" Javascript {{{
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-Plug 'elzr/vim-json', { 'for': ['json', 'javascript'] }
-" }}}
-" Typescript {{{
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-" }}}
 " Python {{{
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
@@ -295,17 +286,6 @@ let g:easytags_async = 1
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_report = 1
 let g:easytags_suppress_ctags_warning = 1
-
-" let g:easytags_languages = {
-"             \   'javascript': {
-"             \       'cmd': 'jsctags',
-"             \       'args': [],
-"             \       'fileoutput_opt': '-f',
-"             \       'stdout_opt': '-f-',
-"             \       'recurse_flag': '-R'
-"             \   }
-"             \}
-" }}}
 " fzf {{{
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <Leader>f :FzfFiles<CR>
@@ -373,7 +353,6 @@ let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 
-let g:tagbar_type_javascript = { 'ctagsbin' : 'jsctags' }
 let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',
     \ 'ctagsbin' : 'markdown2ctags',
@@ -388,11 +367,6 @@ let g:tagbar_type_markdown = {
     \ },
     \ 'sort': 0,
 \ }
-" }}}
-" Tern {{{
-let g:tern#command = ['tern', '--no-port-file']
-let g:tern_show_signature_in_pum = 1
-let g:tern_show_argument_hints = 'on_move'
 " }}}
 " Virtualenv {{{
 " let g:virtualenv_directory = 'venv'
