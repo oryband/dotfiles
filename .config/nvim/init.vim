@@ -368,11 +368,9 @@ augroup END
 " Set file types {{{
 augroup SetFileTypes
     autocmd!
-    autocmd BufWinEnter *.less setfiletype less
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
-    autocmd BufWinEnter *.x setfiletype c  " XDR
-    autocmd BufWinEnter Pipfile.lock,.tern-config,.tern-project,*.abi setfiletype json
+    autocmd BufWinEnter Pipfile.lock setfiletype json
 " }}}
 " Filetype actions {{{
 augroup FileTypeActions
@@ -380,8 +378,6 @@ augroup FileTypeActions
     autocmd FileType * set tags=./.tags;,~/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType qf setlocal wrap
-    autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType tex setlocal number norelativenumber
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
