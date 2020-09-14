@@ -21,13 +21,6 @@ Plug 'tpope/vim-sensible'
 Plug 'chriskempson/base16-vim'
 " }}}
 " Languages {{{
-" C++ {{{
-Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
-Plug 'prabirshrestha/async.vim', { 'for': 'cpp' }
-Plug 'prabirshrestha/vim-lsp', { 'for': 'cpp' }
-Plug 'pdavydov108/vim-lsp-cquery', { 'for': 'cpp' }
-
-" }}}
 " Clojure {{{
 Plug 'fbeline/kibit-vim', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
@@ -318,17 +311,6 @@ let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <Leader>f :FzfFiles<CR>
 nnoremap <silent> <Leader>b :FzfBuffers<CR>
 nnoremap <silent> <Leader>a :FzfAg<CR>
-" }}}
-" LSP (C++) {{{
-if executable('cquery')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'cquery',
-      \ 'cmd': {server_info->['cquery']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': { 'cacheDirectory': '/tmp/' . $USER . '/cquery/cache' },
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
-endif
 " }}}
 " NERDTree {{{
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
