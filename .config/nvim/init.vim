@@ -21,10 +21,6 @@ Plug 'tpope/vim-sensible'
 Plug 'chriskempson/base16-vim'
 " }}}
 " Languages {{{
-" Templates {{{
-Plug 'lepture/vim-jinja', { 'for': 'jinja' }
-Plug 'tpope/vim-liquid', { 'for': 'liquid' }
-" }}}
 " C++ {{{
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
 Plug 'prabirshrestha/async.vim', { 'for': 'cpp' }
@@ -452,7 +448,6 @@ augroup CommentStrings
     autocmd!
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType i3 setlocal commentstring=#\ %s
-    autocmd FileType jinja2 setlocal commentstring={#\ %s\ #}
     autocmd FileType nginx setlocal commentstring=#\ %s
     autocmd FileType terraform setlocal commentstring=#\ %s
     autocmd FileType toml setlocal commentstring=#\ %s
