@@ -120,16 +120,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
-
-function! BuildYCM(info)
-    if a:info.status == 'installed' || a:info.force
-        !python install.py --gocode-completer --ts-completer --clang-completer --system-libclang
-    endif
-endfunction
-" load YCM on first insert command
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 " }}}
 " Finish Init vim-plug {{{
 call plug#end()
@@ -464,24 +454,6 @@ let g:tern_show_argument_hints = 'on_move'
 " }}}
 " Virtualenv {{{
 " let g:virtualenv_directory = 'venv'
-" }}}
-" YouCompleteMe - YCM {{{
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-
-" Call YCM/js GoTo depending on file type.
-function! GoToDef()
-    if &ft == 'clojure'
-        execute "normal \<Plug>FireplaceDjump"
-    elseif &ft == 'javascript'
-        execute 'TernDef'
-    else
-        execute 'YcmCompleter GoTo'
-    endif
-endfunction
-nnoremap <leader>] :call GoToDef()<CR>
 " }}}
 " Autocmds {{{
 " Actions on opening a new buffer {{{
