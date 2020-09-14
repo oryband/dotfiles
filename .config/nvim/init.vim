@@ -49,10 +49,6 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " i3 {{{
 Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
 " }}}
-" HCL {{{
-Plug 'fatih/vim-hclfmt', { 'do': 'go get -u github.com/fatih/hclfmt' }
-Plug 'hashivim/vim-terraform'
-" }}}
 " YAML {{{
 Plug 'pedrohdz/vim-yaml-folds', { 'for': 'yaml' }
 " }}}
@@ -401,7 +397,6 @@ augroup CommentStrings
     autocmd!
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType i3 setlocal commentstring=#\ %s
-    autocmd FileType terraform setlocal commentstring=#\ %s
     autocmd FileType toml setlocal commentstring=#\ %s
     autocmd FileType xdefaults setlocal commentstring=!\ %s
 augroup END
