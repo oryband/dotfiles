@@ -115,7 +115,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-syntastic/syntastic'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 " }}}
 " Finish Init vim-plug {{{
@@ -392,33 +391,6 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
-" }}}
-" Syntastic {{{
-let g:syntastic_filetype_map = {
-            \ 'jinja': 'html',
-            \ 'liquid': 'html',
-            \ 'stylus': 'css',
-            \ 'scss': 'css',
-            \ 'less': 'css'
-            \ }
-
-let g:syntastic_id_checkers = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_loc_list = 2
-
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = 'E'
-let g:syntastic_warning_symbol = 'W'
-let g:syntastic_style_warning_symbol = 'SW'
-let g:syntastic_style_error_symbol = 'SE'
-highlight link SyntasticStyleErrorSign Todo
-
-let g:syntastic_python_checkers = ['pylint', 'pycodestyle', 'pydocstyle']
-let g:syntastic_html_checkers = ['tidy', 'eslint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_yaml_checkers = ['yamllint']
 " }}}
 " Tagbar {{{
 nnoremap <silent> <Leader>g :TagbarToggle<CR>
