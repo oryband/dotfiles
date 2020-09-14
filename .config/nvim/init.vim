@@ -36,9 +36,6 @@ Plug 'prabirshrestha/vim-lsp', { 'for': 'cpp' }
 Plug 'pdavydov108/vim-lsp-cquery', { 'for': 'cpp' }
 
 " }}}
-" CSS {{{
-Plug 'wavded/vim-stylus', { 'for': 'stylus' }
-" }}}
 " Clojure {{{
 Plug 'fbeline/kibit-vim', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
