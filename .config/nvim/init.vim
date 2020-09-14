@@ -52,9 +52,6 @@ Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
 " YAML {{{
 Plug 'pedrohdz/vim-yaml-folds', { 'for': 'yaml' }
 " }}}
-" TOML {{{
-Plug 'cespare/vim-toml', { 'for': 'toml' }
-" }}}
 " Solidity {{{
 Plug 'tomlion/vim-solidity'
 " }}}
@@ -378,7 +375,6 @@ augroup SetFileTypes
     autocmd BufWinEnter *.sql setfiletype mysql
     autocmd BufWinEnter *.zsh-theme setfiletype zsh
     autocmd BufWinEnter *.x setfiletype c  " XDR
-    autocmd BufWinEnter Pipfile setfiletype toml
     autocmd BufWinEnter Pipfile.lock,.tern-config,.tern-project,*.abi setfiletype json
 " }}}
 " Filetype actions {{{
@@ -397,7 +393,6 @@ augroup CommentStrings
     autocmd!
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType i3 setlocal commentstring=#\ %s
-    autocmd FileType toml setlocal commentstring=#\ %s
     autocmd FileType xdefaults setlocal commentstring=!\ %s
 augroup END
 " }}}
