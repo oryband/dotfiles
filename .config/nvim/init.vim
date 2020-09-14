@@ -21,10 +21,6 @@ Plug 'tpope/vim-sensible'
 Plug 'chriskempson/base16-vim'
 " }}}
 " Languages {{{
-" HTML {{{
-Plug 'tmhedberg/matchit', { 'for': 'html' }
-Plug 'othree/html5.vim', { 'for': 'html' }
-" }}}
 " Templates {{{
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 Plug 'tpope/vim-liquid', { 'for': 'liquid' }
@@ -445,8 +441,6 @@ augroup FileTypeActions
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,yaml,gitcommit,nginx,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
     autocmd FileType scss,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType tex setlocal number norelativenumber
