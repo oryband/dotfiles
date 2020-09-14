@@ -308,7 +308,6 @@ sunmap e
 " }}}
 " EasyTags {{{
 set cpoptions+=d
-let g:easytags_file = '~/.vim/.vimtags'
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_dynamic_files = 2
 let g:easytags_async = 1
@@ -475,7 +474,7 @@ augroup SetFileTypes
 " Filetype actions {{{
 augroup FileTypeActions
     autocmd!
-    autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
+    autocmd FileType * set tags=./.tags;,~/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,yaml,gitcommit,nginx,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
