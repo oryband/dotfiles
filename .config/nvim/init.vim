@@ -52,9 +52,6 @@ Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
 " YAML {{{
 Plug 'pedrohdz/vim-yaml-folds', { 'for': 'yaml' }
 " }}}
-" Solidity {{{
-Plug 'tomlion/vim-solidity'
-" }}}
 " }}}
 " }}}
 " Everything else {{{
