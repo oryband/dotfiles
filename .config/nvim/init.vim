@@ -62,9 +62,6 @@ Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 " }}}
-" Go {{{
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" }}}
 " sh,bash,zsh {{{
 Plug 'vitalk/vim-shebang' ", { 'for': ['sh', 'zsh', 'csh', 'ash', 'dash', 'ksh', 'pdksh', 'mksh', 'tcsh'] }
 " }}}
@@ -345,26 +342,6 @@ nnoremap <silent> <Leader>f :FzfFiles<CR>
 nnoremap <silent> <Leader>b :FzfBuffers<CR>
 nnoremap <silent> <Leader>a :FzfAg<CR>
 " }}}
-" Vim-Go {{{
-let g:go_template_autocreate = 0
-let g:go_dispatch_enabled = 1
-let g:go_guru_tags = 'integration'
-let g:go_def_reuse_buffer = 1
-let g:go_fmt_autosave = 0
-let g:go_metalinter_autosave = 0
-
-let g:go_highlight_array_whitespace_error = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_chan_whitespace_error = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_space_tab_error = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_trailing_whitespace_error = 0
-" let g:go_highlight_types = 1
-" }}}
 " LSP (C++) {{{
 if executable('cquery')
    au User lsp_setup call lsp#register_server({
@@ -431,8 +408,6 @@ omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 " }}}
 " Syntastic {{{
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
 let g:syntastic_filetype_map = {
             \ 'jinja': 'html',
             \ 'liquid': 'html',
@@ -496,12 +471,10 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 
-" Call YCM/Go/js GoTo depending on file type.
+" Call YCM/js GoTo depending on file type.
 function! GoToDef()
     if &ft == 'clojure'
         execute "normal \<Plug>FireplaceDjump"
-    elseif &ft == 'go'
-        execute 'GoDef'
     elseif &ft == 'javascript'
         execute 'TernDef'
     else
@@ -515,14 +488,6 @@ nnoremap <leader>] :call GoToDef()<CR>
 augroup Buf-Win-Enter
     autocmd!
     autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType() | call SynMaxColPerFileType()
-augroup END
-" }}}
-" AutoFormat plugin actions {{{
-augroup AutoFormat
-    autocmd!
-    autocmd BufWrite *.go :Autoformat
-    " don't format json if filetype is jinja
-    " autocmd BufWrite *.json if &ft !~? 'jinja' | :Autoformat | endif
 augroup END
 " }}}
 " Set file types {{{
@@ -540,10 +505,6 @@ augroup FileTypeActions
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vim/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd FileType go |
-                \ setlocal textwidth=100 |
-                \ nmap <leader>c <Plug>(go-test-compile) |
-                \ nmap <leader>m <Plug>(go-metalinter)
     autocmd FileType html,json,xml,jinja,liquid,css,scss,less,stylus,yaml,gitcommit,nginx,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType html,xml,jinja,liquid runtime! macros/matchit.vim
     autocmd FileType qf setlocal wrap
@@ -556,7 +517,6 @@ augroup END
 augroup CommentStrings
     autocmd!
     autocmd FileType conf setlocal commentstring=#\ %s
-    autocmd FileType gohtmltmpl setlocal commentstring={{/*\ %s\ */}}
     autocmd FileType i3 setlocal commentstring=#\ %s
     autocmd FileType jinja2 setlocal commentstring={#\ %s\ #}
     autocmd FileType nginx setlocal commentstring=#\ %s
