@@ -1,6 +1,6 @@
 # credits github.com/sorin-ionescu/prezto
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export VISUAL=$EDITOR
 export PAGER='less'
 export LESS='-F -g -i -M -R -S -w -X -z-4'

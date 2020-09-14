@@ -132,7 +132,7 @@ alias agl="ag --pager less"
 
 alias js="node"
 alias tree="tree -C"
-alias vi="vim"
+alias vi="nvim"
 alias viupdate="vi '+PlugUpgrade' '+PlugUpdate!' '+qall!'"
 
 # tcpdump all requests made by given process
