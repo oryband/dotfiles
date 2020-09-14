@@ -10,8 +10,6 @@
 " }}}
 " Plugins {{{
 " Init vim-plug {{{
-set nocompatible
-
 call plug#begin(stdpath('data') . '/plugged')
 " }}}
 " Sane defaults {{{
@@ -85,7 +83,6 @@ call plug#end()
 " }}}
 " Options {{{
 " Colors {{{
-set background=dark
 let base16colorspace=256
 if !exists('g:colors_name') || g:colors_name != 'base16-eighties'
   colorscheme base16-eighties
@@ -167,7 +164,6 @@ set nosmartindent
 set cindent
 syntax sync minlines=256
 set lazyredraw
-set ttyfast
 
 nnoremap <silent> <Leader>r :redraw!<CR>
 
@@ -222,7 +218,6 @@ set foldtext=FoldText()
 " Backup {{{
 set nobackup
 set nowritebackup
-set directory=~/.vim/swp//
 " }}}
 " Mouse {{{
 behave xterm
@@ -233,7 +228,6 @@ set mousehide
 set novisualbell
 " }}}
 " Misc. {{{
-set nostartofline
 set splitbelow splitright
 set hidden
 set title
