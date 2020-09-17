@@ -36,10 +36,17 @@
     changed = green
     untracked = cyan
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
     renames = true
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
+    tool = vimdiff
     log = true
+[mergetool]
+    prompt = true
+[mergetool "vimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [rebase]
     autosquash = true
     autostash = true
