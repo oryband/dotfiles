@@ -54,7 +54,7 @@
 /.gsutil/
 /.histfile
 /.ipython/
-/.k9s
+/.k9s/config.yml
 /.kube/
 /.lein/
 /.lesshst
