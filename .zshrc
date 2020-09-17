@@ -49,6 +49,10 @@ export ENHANCD_DISABLE_HOME=1
 zinit ice pick"init.sh"; zinit light b4b4r07/enhancd
 # }}}
 
+# fzf {{{
+export FZF_DEFAULT_COMMAND='ag --hidden --smart-case --follow -g ""'
+# }}}
+
 # completion {{{
 zinit ice svn wait silent pick"init.zsh" blockf; zinit snippet PZT::modules/completion
 unsetopt CORRECT
