@@ -57,8 +57,8 @@
 
     c = commit -vv
 
-    d  = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat"
-    ds = !"git diff-index --quiet HEAD -- || clear; git diff --irreversible-delete --patch-with-stat --staged"
+    d  = diff --irreversible-delete --patch-with-stat
+    ds = d --staged
 
     sh = show --irreversible-delete --patch-with-stat
 
