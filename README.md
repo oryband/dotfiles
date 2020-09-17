@@ -8,7 +8,7 @@ The links in the following text lead to my configuration files and other interes
 
 Currently my main machine is a [Dell XPS 7590][laptop].
 I run [Arch Linux][arch] and use [yay][yay] as a package manager wrapper.
-I use [i3][i3] as my tiling manager (desktop environment) with [i3bar][i3bar] [picom][picom] as a composite manager.
+I use [i3][i3] as my tiling manager (desktop environment) with [i3bar][i3bar].
 My shell is [Zsh][zsh] with [zinit][zinit] as my shell plugin manager.
 [Alacritty][alacritty] is my terminal emulator with [tmux][tmux] on top for terminal window management.
 I code with [Neovim][nvim], with [vim-plug][vim-plug] as the plugin manager.
@@ -19,7 +19,6 @@ I code with [Neovim][nvim], with [vim-plug][vim-plug] as the plugin manager.
 [yay]: .config/yay/config.json
 [i3]: .i3/config
 [i3bar]: .i3status.conf
-[picom]: .config/picom.conf
 [zsh]: .zshrc
 [zinit]: https://github.com/zdharma/zinit
 [alacritty]: .config/alacritty/alacritty.yml
