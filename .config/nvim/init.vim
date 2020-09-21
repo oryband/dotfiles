@@ -150,6 +150,7 @@ vnoremap <c-]> g<c-]>
 " Searching {{{
 set smartcase
 set ignorecase
+set nohlsearch
 set gdefault
 set wildmode=list:longest
 if exists('&wildignorecase') | set wildignorecase | endif
