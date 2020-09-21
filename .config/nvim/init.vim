@@ -103,6 +103,7 @@ set wildignore+=*.class
 " }}}
 " Keys {{{
 let mapleader=","
+let maplocalleader=","
 cabbrev vhelp vert help
 
 inoremap jk <Esc>
