@@ -21,7 +21,7 @@ bluez-utils
 bumblebee
 ccache
 clang
-clojure
+clojure-lsp-bin
 cmake
 colordiff
 consul
@@ -48,7 +48,6 @@ go
 google-chrome
 google-cloud-sdk
 go-tools
-gvim
 htop
 i3blocks
 i3-gaps-next-git
@@ -86,6 +85,7 @@ minikube
 mongodb-bin
 mtr
 ncdu
+neovim
 nerd-fonts-source-code-pro
 netatop-dkms
 nodejs-tern
