@@ -328,6 +328,7 @@ let g:easytags_async = 1
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_report = 1
 let g:easytags_suppress_ctags_warning = 1
+" }}}
 " fzf {{{
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <Leader>f :FzfFiles<CR>
