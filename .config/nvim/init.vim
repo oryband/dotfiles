@@ -22,12 +22,11 @@ Plug 'chriskempson/base16-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 " Clojure {{{
-Plug 'fbeline/kibit-vim', { 'for': 'clojure' }
+Plug 'Olical/conjure', { 'for': 'clojure', 'tag': 'v4.4.0' }
+Plug 'gberenfield/cljfold.vim', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
 " }}}
 " Python {{{
 Plug 'hdima/python-syntax', { 'for': 'python' }
