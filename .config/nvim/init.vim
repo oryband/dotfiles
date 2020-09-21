@@ -153,7 +153,7 @@ set ignorecase
 set nohlsearch
 set gdefault
 set wildmode=list:longest
-if exists('&wildignorecase') | set wildignorecase | endif
+set wildignorecase
 " }}}
 " Format {{{
 set nowrap
