@@ -15,6 +15,7 @@
 /.config/3T/
 /.config/GIMP/
 /.config/Keybase/
+/.config/MongoDB Compass/
 /.config/QtProject.conf
 /.config/Slack/
 /.config/Unknown Organization/
@@ -23,12 +24,14 @@
 /.config/autorandr/laptop/
 /.config/autorandr/usb-c/
 /.config/autostart/
+/.config/coc/
 /.config/configstore/
 /.config/dconf/
 /.config/discord/
 /.config/gcloud/
 /.config/google-chrome
 /.config/google-chrome-back-ovfs/
+/.config/google-chrome-backup-crashrecovery-*/
 /.config/google-chrome-backup/
 /.config/gtk-2.0/
 /.config/gtk-3.0/
@@ -67,6 +70,7 @@
 /.pip/pip.conf
 /.pki/
 /.pyenv/
+/.pylint.d/
 /.python_history
 /.scm_breeze
 /.scmbrc
