@@ -342,6 +342,10 @@ nnoremap <silent> <leader>rle :call CocRequest('clojure-lsp', 'workspace/execute
 nnoremap <silent> <leader>rom :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'add-missing-libspec', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 nnoremap <silent> <leader>ros :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'inline-symbol', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 " }}}
+" }}}
+" Conjure {{{
+let g:conjure#mapping#def_word = v:false
+" }}}
 " EasyTags {{{
 set cpoptions+=d
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
