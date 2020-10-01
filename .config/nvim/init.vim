@@ -268,11 +268,12 @@ let g:coc_global_extensions = [
             \ 'coc-json',
             \ ]
 
-function! s:show_doc()
 highlight! link CocErrorHighlight NONE
 highlight! link CocWarningHighlight NONE
 highlight! link CocInfoHighlight NONE
 highlight! link CocHintHighlight NONE
+
+function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
     else
@@ -280,31 +281,46 @@ highlight! link CocHintHighlight NONE
     endif
 endfunction
 
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap <leader>rn <Plug>(coc-rename)
+
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 " nnoremap <silent> K :call <SID>show_doc()<CR>
-nnoremap <silent><leader>dh :call <SID>show_doc()<CR>
+nnoremap <silent><leader>dh :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-nnoremap <silent><leader>gd :call CocAction('jumpDefinition')<CR>
-nnoremap <silent><leader>gl :call CocAction('jumpDeclaration')<CR>
-nnoremap <silent><leader>gi :call CocAction('jumpImplementation')<CR>
-nnoremap <silent><leader>gr <Plug>(coc-references)
+" nnoremap <silent><leader>gd :call CocAction('jumpDefinition')<CR>
+" nnoremap <silent><leader>gl :call CocAction('jumpDeclaration')<CR>
+" nnoremap <silent><leader>gi :call CocAction('jumpImplementation')<CR>
+" nnoremap <silent><leader>gr <Plug>(coc-references)
+nmap <silent><leader>gd <Plug>(coc-definition)
+nmap <silent><leader>gy <Plug>(coc-type-definition)
+nmap <silent><leader>gi <Plug>(coc-implementation)
+nmap <silent><leader>gr <Plug>(coc-references)
 
-nmap <silent> [e <Plug>(coc-diagnostic-prev)
-nmap <silent> ]e <Plug>(coc-diagnostic-next)
-nmap <leader>qf <Plug>(coc-fix-current)
+nnoremap <silent><nowait> <leader>ga  :<C-u>CocList diagnostics<cr>
+nmap <silent><leader>ge <Plug>(coc-diagnostic-info)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [e <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]e <Plug>(coc-diagnostic-next)
+" nmap <leader>qf <Plug>(coc-fix-current)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Other helpful stuff
-nnoremap <silent><leader>gc :call CocAction('codeAction')<CR>
-nnoremap <silent><leader>gR :call CocAction('rename')<CR>
-nnoremap <silent><leader>gq :call CocAction('quickfixes')<CR>
-nnoremap <silent><leader>,. :call CocActionAsync('format')<CR>
-nnoremap <silent><leader>gL :CocList<CR>
+" nnoremap <silent><leader>gc :call CocAction('codeAction')<CR>
+" nnoremap <silent><leader>gR :call CocAction('rename')<CR>
+" nnoremap <silent><leader>gq :call CocAction('quickfixes')<CR>
+" nnoremap <silent><leader>,. :call CocActionAsync('format')<CR>
+" nnoremap <silent><leader>gL :CocList<CR>
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" }}}
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Clojure stuff {{{
 nnoremap <silent> <leader>rrc :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'cycle-coll', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
