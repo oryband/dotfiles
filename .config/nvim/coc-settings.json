@@ -1,4 +1,8 @@
 {
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.enableMessage": "jump",
+    "diagnostic.enableHighlightLineNumber": false,
+
     "languageserver": {
         "clojure-lsp": {
             "command": "bash",
@@ -8,6 +12,7 @@
             "additionalSchemes": ["jar", "zipfile"],
             "trace.server": "verbose",
             "initializationOptions": {
+                "ignore-classpath-directories": true
             }
         }
     }

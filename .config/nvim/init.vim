@@ -93,6 +93,7 @@ endif
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 " }}}
 " Status Line {{{
+set signcolumn=auto:9
 set shortmess=atI
 set noshowmode
 " }}}
@@ -268,6 +269,10 @@ let g:coc_global_extensions = [
             \ ]
 
 function! s:show_doc()
+highlight! link CocErrorHighlight NONE
+highlight! link CocWarningHighlight NONE
+highlight! link CocInfoHighlight NONE
+highlight! link CocHintHighlight NONE
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
     else
