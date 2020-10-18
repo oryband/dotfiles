@@ -3,5 +3,5 @@
 [character]
 symbol = "#"
 
-# [package]
-# disabled = true
+[gcloud]
+disabled = true
