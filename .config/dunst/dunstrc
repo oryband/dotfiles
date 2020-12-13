@@ -58,5 +58,9 @@
     background = "#f2777a"
     timeout = 0
 
+# filter specific notifications
+[solaar]
+   appname = "Solaar"
+   format = ""
 
 # vi: ft=toml
