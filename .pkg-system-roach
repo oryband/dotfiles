@@ -21,6 +21,8 @@ bluez-utils
 bumblebee
 ccache
 clang
+cloc
+clojure
 clojure-lsp-bin
 cmake
 colordiff
@@ -59,6 +61,7 @@ intel-ucode
 intel-undervolt
 iotop
 ipython
+jet-bin
 js-beautify
 jsctags-tern-git
 k9s
@@ -76,7 +79,9 @@ linux-firmware
 linux-headers
 lnav
 logrotate
+lsd
 lsof
+luit
 man-db
 man-pages
 mawk
@@ -96,7 +101,6 @@ openvpn
 paprefs
 pavucontrol
 picom
-pkgconf
 playerctl
 powertop
 profile-sync-daemon
@@ -109,7 +113,6 @@ python-wheel
 redshift
 reflector
 rlwrap
-robo3t-bin
 rofi
 scrot
 slack-desktop
@@ -120,6 +123,7 @@ spotify
 starship
 stow
 subversion
+sudo
 sysdig
 systemd-boot-pacman-hook
 tcpdump
@@ -129,7 +133,6 @@ tldr
 tlp-rdw
 tmux
 transmission-gtk
-tree
 udiskie
 unzip
 vdpauinfo
@@ -142,7 +145,6 @@ xautomation
 xbindkeys
 xclip
 xorg-iceauth
-xorg-luit
 xorg-server
 xorg-sessreg
 xorg-smproxy
