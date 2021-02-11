@@ -1,0 +1,9 @@
+{:cljfmt
+ {:indents
+  {against-background [[:inner 0]]
+   fact               [[:block 1]]
+   facts              [[:block 1]]
+   future-fact        [[:block 1]]
+   future-facts       [[:block 1]]
+   system-map         [[:block 0]]
+   tabular            [[:inner 0]]}}}
