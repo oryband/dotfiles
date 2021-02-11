@@ -59,7 +59,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'bkad/CamelCaseMotion'
 Plug 'henrik/vim-indexed-search'
 Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
@@ -397,23 +397,23 @@ silent! call repeat#set("\<Plug>.", v:count)
 let g:signify_vcs_list = [ 'git' ]
 " }}}
 " Sneak {{{
-highlight link SneakPluginTarget Visual
+" highlight link SneakPluginTarget Visual
 
-map ; <Plug>SneakNext
+" map ; <Plug>SneakNext
 
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
+" nmap f <Plug>Sneak_f
+" nmap F <Plug>Sneak_F
+" xmap f <Plug>Sneak_f
+" xmap F <Plug>Sneak_F
+" omap f <Plug>Sneak_f
+" omap F <Plug>Sneak_F
 
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
+" nmap t <Plug>Sneak_t
+" nmap T <Plug>Sneak_T
+" xmap t <Plug>Sneak_t
+" xmap T <Plug>Sneak_T
+" omap t <Plug>Sneak_t
+" omap T <Plug>Sneak_T
 " }}}
 " Tagbar {{{
 nnoremap <silent> <Leader>g :TagbarToggle<CR>
