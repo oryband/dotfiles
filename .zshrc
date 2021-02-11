@@ -132,6 +132,8 @@ alias c="cd"
 alias c-="c -"
 alias cd..="cd .."
 
+alias cat="bat"
+
 alias ls="lsd"
 
 alias tailf="tail -f"
