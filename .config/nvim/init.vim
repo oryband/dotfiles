@@ -170,6 +170,7 @@ set lazyredraw
 
 nnoremap <silent> <Leader>r :redraw!<CR>
 
+" TODO consider removing
 augroup Format-Options
     autocmd!
     autocmd BufEnter * setlocal formatoptions=crqn2l1j
@@ -455,6 +456,7 @@ augroup SetFileTypes
     autocmd BufWinEnter Pipfile.lock setfiletype json
 " }}}
 " Filetype actions {{{
+" TODO consider editing
 augroup FileTypeActions
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vimtags
