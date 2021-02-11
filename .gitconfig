@@ -57,10 +57,10 @@
 
     c = commit -vv
 
-    d  = diff --irreversible-delete --patch-with-stat
+    d  = diff --patch-with-stat
     ds = d --staged
 
-    sh = show --irreversible-delete --patch-with-stat
+    sh = show --patch-with-stat
 
     rp = rev-parse --short
 
