@@ -132,14 +132,15 @@ alias c="cd"
 alias c-="c -"
 alias cd..="cd .."
 
+alias ls="lsd"
+
 alias tailf="tail -f"
-alias lnav="lnav -q"
 
 alias ag="ag --smart-case --follow --group"
 alias agl="ag --pager less"
 
 alias js="node"
-alias tree="tree -C"
+alias tree="lsd --tree"
 alias vi="nvim"
 alias viupdate="vi '+PlugUpgrade' '+PlugUpdate!' '+qall!'"
 
@@ -147,6 +148,10 @@ alias viupdate="vi '+PlugUpgrade' '+PlugUpdate!' '+qall!'"
 alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
+
+alias java-8="sudo archlinux-java set java-8-openjdk"
+alias java-11="sudo archlinux-java set java-11-openjdk"
+
 # }}}
 
 # git {{{
