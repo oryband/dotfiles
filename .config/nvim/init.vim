@@ -62,6 +62,7 @@ Plug 'junegunn/vim-easy-align'
 " Plug 'justinmk/vim-sneak'
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'romainl/vim-qf'
@@ -305,7 +306,7 @@ nmap <silent><leader>gy <Plug>(coc-type-definition)
 nmap <silent><leader>gi <Plug>(coc-implementation)
 nmap <silent><leader>gr <Plug>(coc-references)
 
-nnoremap <silent><nowait> <leader>ga  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <leader>ga  :<C-u>CocFzfList diagnostics<cr>
 nmap <silent><leader>ge <Plug>(coc-diagnostic-info)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -319,7 +320,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " nnoremap <silent><leader>gR :call CocAction('rename')<CR>
 " nnoremap <silent><leader>gq :call CocAction('quickfixes')<CR>
 " nnoremap <silent><leader>,. :call CocActionAsync('format')<CR>
-" nnoremap <silent><leader>gL :CocList<CR>
+" nnoremap <silent><leader>gL :CocFzfList<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 " autocmd CursorHold * silent call CocActionAsync('highlight')
