@@ -1,5 +1,6 @@
 !/.gitignore
 
+/Desktop
 /Downloads
 /documents
 /go
@@ -36,7 +37,10 @@
 /.config/gtk-2.0/
 /.config/gtk-3.0/
 /.config/keybase/
+/.config/lnav/
+/.config/menus/
 /.config/mimeapps.list
+/.config/nvim/.netrwhist
 /.config/pavucontrol.ini
 /.config/psd/.psd.conf
 /.config/pulse/
@@ -45,6 +49,7 @@
 /.config/spotify/
 /.config/systemd/user/default.target.wants
 /.config/systemd/user/timers.target.wants/
+/.config/transmission/
 /.config/xfce4/
 /.config/zoomus.conf
 /.dbshell
@@ -53,6 +58,7 @@
 /.electrum/
 /.enhancd/
 /.fehbg
+/.gnome/
 /.gnupg/
 /.gsutil/
 /.histfile
