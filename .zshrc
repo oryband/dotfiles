@@ -37,7 +37,7 @@ eval "$(starship init zsh)"
 
 # tmux {{
 zstyle ':prezto:module:tmux:session' name '0'
-[[ -n $DISPLAY ]] && zstyle ':prezto:module:tmux:auto-start' local 'yes'
+# [[ -n $DISPLAY ]] && zstyle ':prezto:module:tmux:auto-start' local 'yes'
 zinit ice svn; zinit snippet PZT::modules/tmux
 # }}}
 
