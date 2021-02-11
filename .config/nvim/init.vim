@@ -268,6 +268,7 @@ let g:clojure_fold = 1
 " }}}
 " CoC {{{
 let g:coc_global_extensions = [
+            \ 'coc-diagnostic',
             \ 'coc-json',
             \ ]
 
