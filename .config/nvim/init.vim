@@ -22,8 +22,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 " Clojure {{{
-Plug 'Olical/conjure', { 'for': 'clojure', 'tag': 'v4.4.0' }
-Plug 'gberenfield/cljfold.vim', { 'for': 'clojure' }
+Plug 'Olical/conjure', { 'for': 'clojure', 'tag': 'develop' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
@@ -93,7 +92,7 @@ endif
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 " }}}
 " Status Line {{{
-set signcolumn=auto:9
+set signcolumn=auto:2
 set shortmess=atI
 set noshowmode
 " }}}
@@ -263,6 +262,9 @@ sunmap w
 sunmap b
 sunmap e
 " }}}
+" Clojure-Static {{{
+let g:clojure_fold = 1
+" }}}
 " CoC {{{
 let g:coc_global_extensions = [
             \ 'coc-json',
@@ -305,8 +307,6 @@ nnoremap <silent><nowait> <leader>ga  :<C-u>CocList diagnostics<cr>
 nmap <silent><leader>ge <Plug>(coc-diagnostic-info)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" nmap <silent> [e <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]e <Plug>(coc-diagnostic-next)
 " nmap <leader>qf <Plug>(coc-fix-current)
 
 " Add `:OR` command for organize imports of the current buffer.
