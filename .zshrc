@@ -120,6 +120,10 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 zinit light davidparsson/zsh-pyenv-lazy
 # }}}
 
+# jq {{{
+export JQ_COLORS='0;31:0;39:0;39:0;39:0;32:1;39:1;39'
+# }}}
+
 # source secret env keys, etc.
 source $HOME/.zsh-secrets
 
