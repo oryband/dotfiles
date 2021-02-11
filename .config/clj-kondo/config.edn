@@ -1,0 +1,11 @@
+{:skip-comments true
+ :lint-as {sea-cucumber.core/defn-inst clojure.core/defn}
+ ; :linters {:invalid-arity {:skip-args [monger.query/with-collection
+ ;                                       monger.gridfs/store-file]}
+ ;           :unresolved-symbol {:exclude [(compojure.core/ANY)
+ ;                                         (compojure.core/DELETE)
+ ;                                         (compojure.core/GET)
+ ;                                         (compojure.core/PATCH)
+ ;                                         (compojure.core/POST)
+ ;                                         (compojure.core/PUT)]}}
+ }
