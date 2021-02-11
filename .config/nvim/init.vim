@@ -416,7 +416,7 @@ let g:signify_vcs_list = [ 'git' ]
 " omap T <Plug>Sneak_T
 " }}}
 " Tagbar {{{
-nnoremap <silent> <Leader>g :TagbarToggle<CR>
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
 
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
