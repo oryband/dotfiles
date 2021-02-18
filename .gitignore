@@ -30,6 +30,9 @@
 /.config/autorandr/laptop/
 /.config/autorandr/usb-c/
 /.config/autostart/
+/.config/chromium
+/.config/chromium-back-ovfs/
+/.config/chromium-backup/
 /.config/coc/
 /.config/configstore/
 /.config/dconf/
