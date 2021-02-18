@@ -12,6 +12,7 @@ autoconf
 automake
 autorandr
 base
+bat
 bbswitch-dkms
 bc
 bind
@@ -20,6 +21,7 @@ blueman
 bluez-utils
 bumblebee
 ccache
+chromium
 clang
 cloc
 clojure
@@ -29,6 +31,7 @@ colordiff
 consul
 ctags
 cwdiff
+diagnostic-languageserver
 diff-so-fancy
 discord
 docker-compose
