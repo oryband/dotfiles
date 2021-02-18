@@ -1,11 +1,11 @@
-{:skip-comments true
- :lint-as {sea-cucumber.core/defn-inst clojure.core/defn}
- :linters {:refer-all         {:exclude [clojure.test
-                                         midje.sweet]}
-           :unresolved-symbol {:level   :error
+{:lint-as {sea-cucumber.core/defn-inst clojure.core/defn}
+ :linters {:unresolved-symbol {:level   :error
                                :exclude [fact
                                          facts
                                          =>
                                          (midje.sweet/fact)
                                          (midje.sweet/facts)
-                                         (midje.parsing.arrow-symbols/=>)]}}}
+                                         (midje.parsing.arrow-symbols/=>)]}
+           :unused-binding {:exclude-destructured-as true}
+           :refer-all      {:exclude [clojure.test
+                                      midje.sweet]}}}
