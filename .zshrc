@@ -116,6 +116,11 @@ autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 # }}}
 
+# java {{{
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export PATH="$JAVA_HOME/bin:$PATH"
+# }}}
+
 # python {{{
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
