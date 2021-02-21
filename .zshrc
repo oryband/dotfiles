@@ -191,7 +191,8 @@ alias gprune="g prune"
 # }}}
 
 # docker {{{
-alias docker='jq -s "reduce .[] as \$x ({}; . * \$x)" $HOME/.docker/config.d/*.json > ~/.docker/config.json && docker'
+zinit ice from"gh-r" as"program"; zinit light derailed/k9s
+alias docker='jq -s "reduce .[] as \$x ({}; . * \$x)" $HOME/.docker/config.d/*.json > ~/.docker/config.json && sudo docker'
 alias dr="docker run --rm -it"
 alias di="docker images | head -n 1 && docker images | tail -n +2 | sort"
 alias dps="docker ps -a"
