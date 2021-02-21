@@ -204,6 +204,7 @@ alias drmid='drmi $(docker images -q -f dangling=true)'
 # alias drmid="docker images -q -f dangling=true | tr '\n' ' ' | xargs docker rmi -f && \
 #     docker images | grep \"^<none>\" | awk \"{print $3}\" | tr '\n' ' ' | tr '\n' ' ' | xargs docker rmi -f"
 alias dpurge="drmcd ; drmvd ; drmid ;docker network prune -f"
+alias docker-compose="sudo -E docker-compose"
 alias dc="docker-compose"
 # }}}
 
