@@ -29,6 +29,8 @@ zinit ice lucid wait'0' src"bash/base16-${BASE16_THEME}.config" pick"bash/base16
 zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
 zinit light djui/alias-tips
 zinit ice as"program" pick"tmux-cssh"; zinit light peikk0/tmux-cssh
+zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"lsd-*/lsd"; zinit light Peltoche/lsd
+zinit ice from"gh-r" as"program" pick"diff-so-fancy"; zinit light so-fancy/diff-so-fancy
 # }}}
 
 # prompt {{{
