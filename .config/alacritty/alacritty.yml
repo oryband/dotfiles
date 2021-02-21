@@ -8,7 +8,7 @@ window:
     decorations: none
 
 font:
-  size: 13
+  size: 12
   normal:
     family: SauceCodePro Nerd Font
     style: Light
