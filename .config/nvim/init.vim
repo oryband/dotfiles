@@ -60,7 +60,7 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'henrik/vim-indexed-search'
 Plug 'junegunn/vim-easy-align'
 " Plug 'justinmk/vim-sneak'
-Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
 Plug 'majutsushi/tagbar'
