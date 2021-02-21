@@ -165,6 +165,7 @@ alias java-11="sudo archlinux-java set java-11-openjdk"
 
 # git {{{
 zinit light paulirish/git-open
+zinit ice as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"; zinit light tj/git-extras
 
 # scm_breeze {{{
 zinit ice atpull"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"$HOME/.scm_breeze/scm_breeze.sh"; zinit light scmbreeze/scm_breeze
