@@ -139,7 +139,7 @@ alias c="cd"
 alias c-="c -"
 alias cd..="cd .."
 
-alias cat="bat"
+alias cat="batcat"
 
 alias ls="lsd"
 
