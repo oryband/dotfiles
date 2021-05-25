@@ -52,7 +52,7 @@
     autostash = true
     missingCommitsCheck = warn
 [alias]
-    l = log --graph --abbrev-commit --pretty='format:%C(yellow)%h%Creset %C(magenta)%G?%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset'
+    l = log --graph --abbrev-commit --pretty='format:%C(yellow)%h%Creset %s %C(blue)<%an>%Creset %Cgreen(%cr, %cD)%C(yellow)%d%Creset'
     ll = log --graph
 
     c = commit -vv
