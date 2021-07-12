@@ -16,10 +16,12 @@
     editor = $VISUAL
     whitespace = space-before-tab,trailing-space,blank-at-eol,cr-at-eol,blank-at-eof
     excludesfile = ~/.gitignore
-    pager = "diff-so-fancy | less --tabs=4 -RFX"
+    pager = "diff-so-fancy | less --tabs=4 -RFXi"
 [diff-so-fancy]
     stripLeadingSymbols = false
     rulerWidth = 47
+[interactive]
+    diffFilter = "diff-so-fancy --patch"
 [color]
     ui = true
 [color "branch"]
