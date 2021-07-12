@@ -24,6 +24,7 @@ font:
 
 mouse:
   hide_when_typing: true
+config:
   url:
     modifiers: Shift
 
