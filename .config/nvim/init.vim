@@ -17,48 +17,23 @@ Plug 'tpope/vim-sensible'
 " }}}
 " Colors {{{
 Plug 'chriskempson/base16-vim'
+" Plug 'RRethy/nvim-base16'
 " }}}
 " Languages {{{
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 " Clojure {{{
 Plug 'Olical/conjure', { 'for': 'clojure', 'tag': 'develop' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'guns/vim-slamhound', { 'for': 'clojure' }
 " }}}
 " Python {{{
-Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
-" }}}
-" sh,bash,zsh {{{
-Plug 'vitalk/vim-shebang' ", { 'for': ['sh', 'zsh', 'csh', 'ash', 'dash', 'ksh', 'pdksh', 'mksh', 'tcsh'] }
-" }}}
-" Docker {{{
-" Plug 'ekalinin/Dockerfile.vim'
-Plug 'tianon/vim-docker', { 'for': 'dockerfile' }
-" }}}
-" Markdown {{{
-Plug 'godlygeek/tabular', { 'for': ['clojure', 'markdown'] }  " plasticboy dependency
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-" }}}
-" i3 {{{
-Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
-" }}}
-" YAML {{{
-Plug 'pedrohdz/vim-yaml-folds', { 'for': 'yaml' }
 " }}}
 " }}}
 " }}}
 " Everything else {{{
-Plug 'Chiel92/vim-autoformat'
-Plug 'Konfekt/FastFold'
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'bkad/CamelCaseMotion'
-Plug 'henrik/vim-indexed-search'
-Plug 'junegunn/vim-easy-align'
 " Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -67,6 +42,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'romainl/vim-qf'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'ryanoasis/vim-devicons', { 'on':  'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
@@ -77,7 +53,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 " }}}
 " Finish Init vim-plug {{{
 call plug#end()
@@ -198,11 +173,6 @@ function! SynMaxColPerFileType()
 endfunc
 " }}}
 " Folding {{{
-set foldenable
-if &diff | set foldmethod=diff | else | set foldmethod=syntax | endif
-set foldlevel=0
-set foldopen=block,hor,tag,percent,mark,quickfix
-
 function! FoldText() " {{{
     let line = getline(v:foldstart)
 
@@ -218,6 +188,13 @@ function! FoldText() " {{{
 
     return line . repeat(" ", fillcharcount)
 endfunction " }}}
+
+set foldenable
+set foldmethod=expr
+" if &diff | set foldmethod=diff | else | set foldmethod=syntax | endif
+set foldexpr=nvim_treesitter#foldexpr()
+set foldlevel=0
+set foldopen=block,hor,tag,percent,mark,quickfix
 set foldtext=FoldText()
 " }}}
 " Backup {{{
@@ -253,9 +230,6 @@ let g:airline_right_sep = ''
 let g:airline_symbols_ascii = 1
 let g:airline#extensions#branch#displayed_head_limit = 15
 " }}}
-" Autoformat {{{
-let g:formatters_go = ['gofmt_1', 'gofmt_2']  " disable goimports
-" }}}
 " Camelcase motion {{{
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -263,9 +237,6 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
-" }}}
-" Clojure-Static {{{
-let g:clojure_fold = 1
 " }}}
 " CoC {{{
 let g:coc_global_extensions = [
@@ -349,15 +320,6 @@ nnoremap <silent> <leader>ros :call CocRequest('clojure-lsp', 'workspace/execute
 " Conjure {{{
 let g:conjure#mapping#def_word = v:false
 " }}}
-" EasyTags {{{
-set cpoptions+=d
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_dynamic_files = 2
-let g:easytags_async = 1
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_report = 1
-let g:easytags_suppress_ctags_warning = 1
-" }}}
 " fzf {{{
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <Leader>f :FzfFiles<CR>
@@ -382,12 +344,6 @@ let NERDTreeIgnore = [
             \ ]
 
 noremap <silent> <Leader>n :NERDTreeToggle<CR>
-" }}}
-" Python {{{
-let python_slow_sync = 1
-let python_highlight_indent_errors = 0
-let python_highlight_space_errors = 0
-let python_highlight_all = 1
 " }}}
 " Quickfix {{{
 nmap <Leader>q <Plug>(qf_qf_toggle)
@@ -440,8 +396,55 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 \ }
 " }}}
-" Virtualenv {{{
-" let g:virtualenv_directory = 'venv'
+" Treesitter {{{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  -- Modules and its options go here
+  highlight = {
+    enable = true
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    }
+  },
+  indent = {
+    enable = true,
+    --disable = {"python"}
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = false,
+    max_file_lines = 4000
+  }
+}
+--require('base16-colorscheme').setup({
+--  base00 = '#2d2d2d',
+--  base01 = '#f2777a',
+--  base02 = '#99cc99',
+--  base03 = '#ffcc66',
+
+--  base04 = '#6699cc',
+--  base05 = '#cc99cc',
+--  base06 = '#66cccc',
+--  base07 = '#d3d0c8',
+
+--  base08 = '#747369',
+--  base09 = '#f2777a',
+--  base0a = '#99cc99',
+--  base0b = '#ffcc66',
+
+--  base0c = '#6699cc',
+--  base0d = '#cc99cc',
+--  base0e = '#66cccc',
+--  base0f = '#d3d0c8',
+--})
+EOF
 " }}}
 " Autocmds {{{
 " Actions on opening a new buffer {{{
@@ -450,29 +453,13 @@ augroup Buf-Win-Enter
     autocmd BufWinEnter * call ColorColumnPerFileType() | call RegExpEnginePerFileType() | call SynMaxColPerFileType()
 augroup END
 " }}}
-" Set file types {{{
-augroup SetFileTypes
-    autocmd!
-    autocmd BufWinEnter *.sql setfiletype mysql
-    autocmd BufWinEnter *.zsh-theme setfiletype zsh
-    autocmd BufWinEnter Pipfile.lock setfiletype json
-" }}}
 " Filetype actions {{{
-" TODO consider editing
 augroup FileTypeActions
     autocmd!
     autocmd FileType * set tags=./.tags;,~/.vimtags
     autocmd FileType gitcommit setlocal textwidth=72
     autocmd FileType qf setlocal wrap
     autocmd FileType vim setlocal foldmethod=marker
-augroup END
-" }}}
-" Set comment strings {{{
-augroup CommentStrings
-    autocmd!
-    autocmd FileType conf setlocal commentstring=#\ %s
-    autocmd FileType i3 setlocal commentstring=#\ %s
-    autocmd FileType xdefaults setlocal commentstring=!\ %s
 augroup END
 " }}}
 " }}}
