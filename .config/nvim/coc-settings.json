@@ -17,7 +17,8 @@
             "additionalSchemes": ["jar", "zipfile"],
             "trace.server": "verbose",
             "initializationOptions": {
-                "ignore-classpath-directories": true
+                "ignore-classpath-directories": true,
+                "semantic-tokens?": false
             }
         }
     }
