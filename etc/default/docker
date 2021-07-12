@@ -1,1 +1,0 @@
-DOCKER_OPTS="--dns 8.8.8.8"
