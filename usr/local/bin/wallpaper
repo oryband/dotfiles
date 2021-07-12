@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-systemctl start --user wallpaper

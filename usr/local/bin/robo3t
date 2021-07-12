@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-
-DPI="$(grep \*.dpi ~/.Xresources | awk '{print $2}')"
-SCALE_FACTOR=$(echo "scale=2; $DPI/96" | bc)
-
-i3-msg "exec env QT_SCALE_FACTOR=$SCALE_FACTOR /usr/bin/robo3t"

@@ -1,2 +1,0 @@
-#!/bin/sh
-i3-msg "[class=\"^$1$\"] kill"

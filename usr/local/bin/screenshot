@@ -1,2 +1,0 @@
-#!/bin/bash
-scrot --delay 3 -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Downloads'
