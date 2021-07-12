@@ -2,6 +2,7 @@
 # global ignores
 .clj-kondo/
 .lsp/
+.tags
 
 !/.gitignore
 
