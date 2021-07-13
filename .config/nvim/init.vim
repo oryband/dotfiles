@@ -16,14 +16,14 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'tpope/vim-sensible'
 " }}}
 " Colors {{{
-Plug 'chriskempson/base16-vim'
-" Plug 'RRethy/nvim-base16'
+Plug 'fnune/base16-vim'
 " }}}
 " Languages {{{
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
+Plug 'p00f/nvim-ts-rainbow'
 " Clojure {{{
 Plug 'Olical/conjure', { 'for': 'clojure', 'tag': 'develop' }
 " }}}
@@ -60,9 +60,7 @@ call plug#end()
 " Options {{{
 " Colors {{{
 let base16colorspace=256
-if !exists('g:colors_name') || g:colors_name != 'base16-eighties'
-  colorscheme base16-eighties
-endif
+colorscheme base16-eighties
 " }}}
 " Spaces {{{
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
@@ -244,6 +242,7 @@ let g:coc_global_extensions = [
             \ 'coc-json',
             \ ]
 
+highlight! link LineNr StatusLine
 highlight! link CocErrorHighlight NONE
 highlight! link CocWarningHighlight NONE
 highlight! link CocInfoHighlight NONE
@@ -319,6 +318,7 @@ nnoremap <silent> <leader>ros :call CocRequest('clojure-lsp', 'workspace/execute
 " }}}
 " Conjure {{{
 let g:conjure#mapping#def_word = v:false
+highlight! link NormalFloat StatusLine
 " }}}
 " fzf {{{
 let g:fzf_command_prefix = 'Fzf'
@@ -402,7 +402,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   -- Modules and its options go here
   highlight = {
-    enable = true
+    enable = true,
   },
   incremental_selection = {
     enable = true,
@@ -415,7 +415,6 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
-    --disable = {"python"}
   },
   rainbow = {
     enable = true,
@@ -423,27 +422,6 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = 4000
   }
 }
---require('base16-colorscheme').setup({
---  base00 = '#2d2d2d',
---  base01 = '#f2777a',
---  base02 = '#99cc99',
---  base03 = '#ffcc66',
-
---  base04 = '#6699cc',
---  base05 = '#cc99cc',
---  base06 = '#66cccc',
---  base07 = '#d3d0c8',
-
---  base08 = '#747369',
---  base09 = '#f2777a',
---  base0a = '#99cc99',
---  base0b = '#ffcc66',
-
---  base0c = '#6699cc',
---  base0d = '#cc99cc',
---  base0e = '#66cccc',
---  base0f = '#d3d0c8',
---})
 EOF
 " }}}
 " Autocmds {{{
