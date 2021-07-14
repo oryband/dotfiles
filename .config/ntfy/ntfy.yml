@@ -1,6 +1,0 @@
----
-backends:
-    # - linux
-    - pushbullet
-pushbullet:
-    access_token: ''
