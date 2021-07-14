@@ -1,9 +1,0 @@
-[Unit]
-Description=Notify on low battery
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/bash -c 'if [[ $(echo $(acpi -b | head -n 1) | grep "Discharging") && $(acpi -b | head -n 1 | cut -f 5 -d " ") < 00:20:00 ]]; then /usr/bin/notify-send -u critical "Low Battery" "$(acpi -b | head -n 1)" ; fi'
-
-[Install]
-WantedBy=default.target
