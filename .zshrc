@@ -144,7 +144,7 @@ alias cd..="cd .."
 
 alias cat="batcat"
 
-alias ls="lsd"
+alias ls="lsd --group-dirs first"
 
 alias tailf="tail -f"
 
