@@ -50,7 +50,7 @@ zinit ice pick"init.sh"; zinit light b4b4r07/enhancd
 # }}}
 
 # fzf {{{
-export FZF_DEFAULT_COMMAND='ag --hidden --smart-case --follow -g ""'
+export FZF_DEFAULT_COMMAND='ag --ignore-dir .git --hidden --smart-case --follow -g ""'
 # }}}
 
 # completion {{{
