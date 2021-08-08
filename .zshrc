@@ -160,10 +160,6 @@ alias viupdate="vi '+PlugUpgrade' '+PlugUpdate!' '+qall!'"
 alias sysdig="sudo sysdig"
 alias csysdig="sudo csysdig"
 httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
-
-alias java-8="sudo archlinux-java set java-8-openjdk"
-alias java-11="sudo archlinux-java set java-11-openjdk"
-
 # }}}
 
 # git {{{
