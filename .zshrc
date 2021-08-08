@@ -119,6 +119,11 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 export PATH="$JAVA_HOME/bin:$PATH"
 # }}}
 
+# clojure {{{
+zinit ice from"gh-r" as"program" pick"clojure-lsp"; zinit light clojure-lsp/clojure-lsp
+zinit ice from"gh-r" as"program" pick"bb"; zinit light babashka/babashka
+# }}}
+
 # python {{{
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
