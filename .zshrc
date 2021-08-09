@@ -43,6 +43,7 @@ zinit ice svn; zinit snippet PZT::modules/tmux
 
 # fzf {{{
 zinit ice as"program" pick="bin/(fzf|fzf-tmux)" atclone="cp shell/completion.zsh _fzf_completion" atpull"%atclone" make="install"; zinit light junegunn/fzf
+export FZF_DEFAULT_COMMAND='ag --ignore-dir .git --hidden --smart-case --follow -g ""'
 # }}}
 
 # enhancd {{{
@@ -51,10 +52,6 @@ export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HYPHEN=1
 export ENHANCD_DISABLE_HOME=1
 zinit ice pick"init.sh"; zinit light b4b4r07/enhancd
-# }}}
-
-# fzf {{{
-export FZF_DEFAULT_COMMAND='ag --ignore-dir .git --hidden --smart-case --follow -g ""'
 # }}}
 
 # completion {{{
