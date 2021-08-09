@@ -41,6 +41,10 @@ zstyle ':prezto:module:tmux:session' name '0'
 zinit ice svn; zinit snippet PZT::modules/tmux
 # }}}
 
+# fzf {{{
+zinit ice as"program" pick="bin/(fzf|fzf-tmux)" atclone="cp shell/completion.zsh _fzf_completion" atpull"%atclone" make="install"; zinit light junegunn/fzf
+# }}}
+
 # enhancd {{{
 export ENHANCD_FILTER=fzf-tmux
 export ENHANCD_DISABLE_DOT=1
