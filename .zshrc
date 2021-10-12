@@ -204,17 +204,5 @@ alias dpurge="drmcd ; drmvd ; drmid ; docker network prune -f"
 alias dc="docker-compose"
 # }}}
 
-# stow {{{
-alias stowusr="sudo stow -vR -t /usr usr"
-alias stowetc="sudo stow -vR -t /etc etc"
-alias stowopt="sudo stow -vR -t /opt opt"
-# }}}}
-
-# JSON, YAML {{{
-yaml2json() { python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' }
-json2yaml() { python -c 'import sys, yaml, json; yaml.dump(json.load(sys.stdin), sys.stdout, indent=4)' }
-# }}}
-
-
 # vim:foldlevel=0
 # vim:foldmethod=marker
