@@ -41,13 +41,16 @@
 /.config/gedit/
 /.config/gnome-control-center/
 /.config/gnome-initial-setup-done
+/.config/goa-1.0/
 /.config/google-chrome
 /.config/google-chrome-back-ovfs/
 /.config/google-chrome-backup-crashrecovery-*/
 /.config/google-chrome-backup/
 /.config/gtk-2.0/
 /.config/gtk-3.0/
+/.config/gtk-4.0/
 /.config/ibus/
+/.config/k9s/config.yml
 /.config/keybase/
 /.config/lnav/
 /.config/menus/
@@ -70,6 +73,7 @@
 /.config/user-dirs.dirs
 /.config/user-dirs.locale
 /.config/variety/
+/.config/vlc/
 /.config/xfce4/
 /.config/zoomus.conf
 /.dbshell
@@ -97,6 +101,7 @@
 /.mongodb/
 /.mongorc.js
 /.mozilla/
+/.node_repl_history
 /.npm/
 /.nvidia-settings-rc
 /.pip/pip.conf
