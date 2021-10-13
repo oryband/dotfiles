@@ -37,6 +37,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " }}}
 " Everything else {{{
 Plug 'bkad/CamelCaseMotion'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -322,6 +323,11 @@ nnoremap <silent> <leader>ros :call CocRequest('clojure-lsp', 'workspace/execute
 " Conjure {{{
 let g:conjure#mapping#def_word = v:false
 highlight! link NormalFloat StatusLine
+" }}}
+" Firenvim {{{
+if exists('g:started_by_firenvim')
+  set guifont=SauceCodePro\ Nerd\ Font:h12:i
+endif
 " }}}
 " fzf {{{
 let g:fzf_command_prefix = 'Fzf'
