@@ -24,10 +24,11 @@ require('packer').startup(function()
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use 'joshdick/onedark.vim' -- Theme inspired by Atom
-  use 'itchyny/lightline.vim' -- Fancier statusline
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
+  use 'fnune/base16-vim'
+  use 'kyazdani42/nvim-web-devicons'
+  use { 'shadmansaleh/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- Highlight, edit, and navigate code using a fast incremental parsing library
@@ -71,16 +72,19 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 --Set colorscheme (order is important here)
-vim.o.termguicolors = true
-vim.g.onedark_terminal_italics = 2
-vim.cmd [[colorscheme onedark]]
+vim.o.termguicolors = false
+vim.api.nvim_set_var('base16colorspace', '256')
+vim.cmd [[colorscheme base16-eighties]]
+
+require('nvim-web-devicons').setup { default = true }
 
 --Set statusbar
-vim.g.lightline = {
-  colorscheme = 'onedark',
-  active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
-  component_function = { gitbranch = 'fugitive#head' },
-}
+require('lualine').setup{
+  options = {
+    theme = 'jellybeans',
+    section_separators = '',
+    component_separators = '',
+}}
 
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
