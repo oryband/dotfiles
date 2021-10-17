@@ -151,12 +151,13 @@ require('gitsigns').setup {
 }
 
 -- Telescope
+local actions = require('telescope.actions')
 require('telescope').setup {
   defaults = {
     mappings = {
       i = {
         ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        ['<C-d>'] = actions.delete_buffer,
       },
     },
   },
