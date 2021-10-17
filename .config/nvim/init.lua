@@ -1,4 +1,3 @@
--- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -17,12 +16,11 @@ vim.api.nvim_exec(
 
 local use = require('packer').use
 require('packer').startup(function()
-  use 'wbthomason/packer.nvim' -- Package manager
-  use 'tpope/vim-fugitive' -- Git commands in nvim
-  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
-  use 'ludovicchabant/vim-gutentags' -- Automatic tags management
-  -- UI to select things (files, grep results, open buffers...)
+  use 'wbthomason/packer.nvim'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use 'tpope/vim-commentary'
+  use 'ludovicchabant/vim-gutentags'
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { "AckslD/nvim-neoclip.lua",
     requires = {'tami5/sqlite.lua', module = 'sqlite'},
@@ -35,45 +33,28 @@ require('packer').startup(function()
   use 'fnune/base16-vim'
   use 'kyazdani42/nvim-web-devicons'
   use { 'shadmansaleh/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
-  -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  -- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter'
-  -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use { 'Olical/conjure', { opt = true, ft = { 'clojure' }, branch = 'develop' } }
 end)
 
---Incremental live completion (note: this is now a default on master)
 vim.o.inccommand = 'nosplit'
-
---Set highlight on search
 vim.o.hlsearch = false
-
---Make line numbers default
 vim.wo.number = true
-
---Do not save when switching buffers (note: this is now a default on master)
 vim.o.hidden = true
-
---Enable mouse mode
 vim.o.mouse = 'a'
-
---Enable break indent
 vim.o.breakindent = true
 
---Save undo history
 vim.opt.undofile = true
 
---Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
 
 vim.o.expandtab = true
 vim.o.tabstop = 2
@@ -82,18 +63,25 @@ vim.o.shiftwidth = 2
 
 vim.o.splitbelow = true
 vim.o.splitright = true
+
 vim.opt.clipboard = {'unnamed', 'unnamedplus'}
 
---Decrease update time
+vim.api.nvim_exec(
+  [[
+    augroup FileTypeActions
+      autocmd!
+      autocmd FileType * set tags=./.tags;,~/.vimtags
+    augroup END
+]],
+  false
+)
+
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
---Set colorscheme (order is important here)
 vim.o.termguicolors = false
 vim.api.nvim_set_var('base16colorspace', '256')
 vim.cmd [[colorscheme base16-eighties]]
-
---Folding
 
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
@@ -101,10 +89,8 @@ vim.wo.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),
 vim.wo.fillchars = "fold: "
 vim.wo.foldminlines = 1
 
---Icons
 require('nvim-web-devicons').setup { default = true }
 
---Set statusbar
 require('lualine').setup{
   options = {
     theme = 'jellybeans',
@@ -112,20 +98,16 @@ require('lualine').setup{
     component_separators = '',
 }}
 
---Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
---Remap for dealing with word wrap
 vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
 vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
---Remap esc
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
--- Highlight on yank
 vim.api.nvim_exec(
   [[
   augroup YankHighlight
@@ -136,10 +118,8 @@ vim.api.nvim_exec(
   false
 )
 
--- Y yank until the end of line  (note: this is now a default on master)
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 
--- Gitsigns
 require('gitsigns').setup {
   signs = {
     add = { hl = 'GitGutterAdd', text = '+' },
@@ -150,7 +130,6 @@ require('gitsigns').setup {
   },
 }
 
--- Telescope
 local actions = require('telescope.actions')
 require('telescope').setup {
   defaults = {
@@ -163,7 +142,6 @@ require('telescope').setup {
   },
 }
 
---Add leader shortcuts
 vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
@@ -175,8 +153,6 @@ vim.api.nvim_set_keymap('n', '<leader>so', [[<cmd>lua require('telescope.builtin
 vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sc', [[<cmd>lua require('telescope').extensions.neoclip.default()<CR>]], { noremap = true, silent = true })
 
--- Treesitter configuration
--- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true, -- false will disable the whole extension
@@ -233,9 +209,7 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- LSP settings
 local nvim_lsp = require 'lspconfig'
-
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = false,
   signs = true,
@@ -268,11 +242,9 @@ local on_attach = function(_, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
--- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- Enable the following language servers
 local servers = { 'clojure_lsp' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -281,13 +253,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
--- luasnip setup
 local luasnip = require 'luasnip'
 
--- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
   snippet = {
@@ -331,6 +300,5 @@ cmp.setup {
   },
 }
 
--- Conjure
 vim.api.nvim_set_var('conjure#mapping#def_word', 'v:false')
 vim.cmd [[highlight! link NormalFloat StatusLine]]
