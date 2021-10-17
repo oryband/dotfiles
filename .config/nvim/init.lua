@@ -38,6 +38,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use { 'Olical/conjure', { opt = true, ft = { 'clojure' }, branch = 'develop' } }
 end)
 
 --Incremental live completion (note: this is now a default on master)
@@ -282,3 +283,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Conjure
+vim.api.nvim_set_var('conjure#mapping#def_word', 'v:false')
+vim.cmd [[highlight! link NormalFloat StatusLine]]
