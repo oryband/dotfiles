@@ -16,6 +16,7 @@
 /.ccache/
 /.clojure/
 /.clojure_history
+/.config/.nvim/plugin/packer_compiled.lua
 /.config/3T/
 /.config/GIMP/
 /.config/Keybase/
