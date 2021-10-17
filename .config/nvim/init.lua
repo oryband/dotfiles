@@ -46,10 +46,10 @@ end)
 
 vim.o.inccommand = 'nosplit'
 vim.o.hlsearch = false
-vim.wo.number = true
+vim.wo.relativenumber = true
 vim.o.hidden = true
 vim.o.mouse = 'a'
-vim.o.breakindent = true
+vim.o.breakindent = false
 
 vim.opt.undofile = true
 
