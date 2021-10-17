@@ -75,6 +75,15 @@ vim.o.termguicolors = false
 vim.api.nvim_set_var('base16colorspace', '256')
 vim.cmd [[colorscheme base16-eighties]]
 
+--Folding
+
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')]]
+vim.wo.fillchars = "fold: "
+vim.wo.foldminlines = 1
+
+--Icons
 require('nvim-web-devicons').setup { default = true }
 
 --Set statusbar
