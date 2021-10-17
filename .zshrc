@@ -25,6 +25,7 @@ zinit ice lucid wait'0' src"bash/base16-${BASE16_THEME}.config" pick"bash/base16
 # }}}
 
 # misc plugins {{{
+zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"fd-*/fd"; zinit light sharkdp/fd
 zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
 zinit light djui/alias-tips
 zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"lsd-*/lsd"; zinit light Peltoche/lsd
@@ -42,7 +43,6 @@ zinit ice svn; zinit snippet PZT::modules/tmux
 # }}}
 
 # fzf {{{
-export FZF_DEFAULT_COMMAND='ag --ignore-dir .git --hidden --smart-case --follow -g ""'
 zinit ice as"program" pick="bin/(fzf|fzf-tmux)" atclone="\cp -f shell/completion.zsh _fzf_completion" atpull"%atclone" make="install"; zinit light junegunn/fzf
 # }}}
 
@@ -149,8 +149,8 @@ alias ls="lsd --group-dirs first"
 
 alias tailf="tail -f"
 
-alias ag="ag --smart-case --follow --group"
-alias agl="ag --pager less"
+alias grep="rg"
+alias ag="rg"
 
 alias js="node"
 alias tree="lsd --tree"
