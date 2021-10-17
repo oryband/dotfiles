@@ -74,6 +74,14 @@ vim.opt.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+
+vim.o.splitbelow = true
+vim.o.splitright = true
 vim.opt.clipboard = {'unnamed', 'unnamedplus'}
 
 --Decrease update time
