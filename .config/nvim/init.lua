@@ -21,6 +21,7 @@ require('packer').startup(function()
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
+  use 'chaoren/vim-wordmotion'
   use 'ludovicchabant/vim-gutentags'
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { "AckslD/nvim-neoclip.lua",
