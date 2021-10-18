@@ -30,6 +30,15 @@ require('packer').startup(function()
       default_register = {'"', '+', '*'},
     }
     end, }
+  use { 'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require'nvim-tree'.setup {
+      view = {
+        auto_close = false,
+        hijack_cursor = false,
+        side = 'right'
+      }}
+    end }
   use 'fnune/base16-vim'
   use 'kyazdani42/nvim-web-devicons'
   use { 'shadmansaleh/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
@@ -79,7 +88,7 @@ vim.api.nvim_exec(
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
-vim.o.termguicolors = false
+vim.o.termguicolors = true
 vim.api.nvim_set_var('base16colorspace', '256')
 vim.cmd [[colorscheme base16-eighties]]
 
@@ -119,6 +128,8 @@ vim.api.nvim_exec(
 )
 
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 require('gitsigns').setup {
   signs = {
