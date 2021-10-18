@@ -25,11 +25,10 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { "AckslD/nvim-neoclip.lua",
     requires = {'tami5/sqlite.lua', module = 'sqlite'},
-    config = function()
-      require('neoclip').setup({
-        enable_persistant_history = false,
-        default_register = {'"', '+', '*'},
-      })
+    config = function() require('neoclip').setup {
+      enable_persistant_history = false,
+      default_register = {'"', '+', '*'},
+    }
     end, }
   use 'fnune/base16-vim'
   use 'kyazdani42/nvim-web-devicons'
