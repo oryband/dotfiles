@@ -322,3 +322,5 @@ cmp.setup {
 
 vim.api.nvim_set_var('conjure#mapping#def_word', 'v:false')
 vim.cmd [[highlight! link NormalFloat StatusLine]]
+
+vim.api.nvim_set_var('sexp_enable_insert_mode_mappings', 0)
