@@ -21,6 +21,7 @@ require('packer').startup(function()
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
   use 'chaoren/vim-wordmotion'
   use 'ludovicchabant/vim-gutentags'
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -52,6 +53,7 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use { 'Olical/conjure', { opt = true, ft = { 'clojure' }, branch = 'develop' } }
+  use 'guns/vim-sexp'
 end)
 
 vim.o.inccommand = 'nosplit'
