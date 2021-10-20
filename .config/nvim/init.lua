@@ -61,7 +61,8 @@ vim.o.hlsearch = false
 vim.wo.relativenumber = true
 vim.o.hidden = true
 vim.o.mouse = 'a'
-vim.o.breakindent = false
+vim.o.breakindent = true
+vim.wo.wrap = false
 
 vim.opt.undofile = true
 
