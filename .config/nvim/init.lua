@@ -52,8 +52,14 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use { 'Olical/conjure', { opt = true, ft = { 'clojure' }, branch = 'develop' } }
-  use 'guns/vim-sexp'
+  use {'guns/vim-sexp', opt = true, ft = {'clojure'}}
+  use {'Olical/conjure', opt = true, ft = {'clojure'}}
+  use {'tami5/lispdocs.nvim',
+    opt = true,
+    ft = { 'clojure' },
+    requires = {
+      {'tami5/sqlite.lua'},
+      {'Olical/conjure'}}}
 end)
 
 vim.o.inccommand = 'nosplit'
@@ -324,3 +330,5 @@ vim.api.nvim_set_var('conjure#mapping#def_word', 'v:false')
 vim.cmd [[highlight! link NormalFloat StatusLine]]
 
 vim.api.nvim_set_var('sexp_enable_insert_mode_mappings', 0)
+vim.api.nvim_set_var('lispdocs_mappings', 0)
+vim.cmd [[ command! ClojureDocs execute ":lua require'lispdocs'.find()" ]]
