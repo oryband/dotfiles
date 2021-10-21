@@ -142,6 +142,7 @@ vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 require('gitsigns').setup {
+  keymaps = {},
   signs = {
     add = { hl = 'GitGutterAdd', text = '+' },
     change = { hl = 'GitGutterChange', text = '~' },
