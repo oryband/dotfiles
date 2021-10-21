@@ -24,7 +24,7 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'chaoren/vim-wordmotion'
   use 'ludovicchabant/vim-gutentags'
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
   use { "AckslD/nvim-neoclip.lua",
     requires = {'tami5/sqlite.lua', module = 'sqlite'},
     config = function() require('neoclip').setup {
@@ -43,8 +43,8 @@ require('packer').startup(function()
     end }
   use 'fnune/base16-vim'
   use 'kyazdani42/nvim-web-devicons'
-  use { 'shadmansaleh/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {'shadmansaleh/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig'
