@@ -60,6 +60,7 @@
 /.config/monitors.xml~
 /.config/nautilus/
 /.config/nvim/.netrwhist
+/.config/nvim/plugin
 /.config/pavucontrol.ini
 /.config/psd/.psd.conf
 /.config/pulse/
