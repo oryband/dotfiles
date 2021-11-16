@@ -73,13 +73,13 @@ zinit ice wait atload"_zsh_autosuggest_start" lucid; zinit light zsh-users/zsh-a
 # history {{{
 zinit ice svn; zinit snippet PZT::modules/history
 zinit ice wait"1" silent pick"zsh-history-substring-search.plugin.zsh" lucid; zinit light zsh-users/zsh-history-substring-search
-zinit ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zinit light zdharma/history-search-multi-word
+zinit ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zinit light zdharma-continuum/history-search-multi-word
 zstyle ":plugin:history-search-multi-word" active "standout"
 # }}}
 
 # syntax highlighting {{{
 # NOTE must be last plugin to load
-zinit ice wait lucid atinit"zpcompinit; zpcdreplay"; zinit light zdharma/fast-syntax-highlighting
+zinit ice wait lucid atinit"zpcompinit; zpcdreplay"; zinit light zdharma-continuum/fast-syntax-highlighting
 # }}}
 
 # load everything {{{
