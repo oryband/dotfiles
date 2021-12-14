@@ -46,7 +46,7 @@ require('packer').startup(function()
     end }
   use 'fnune/base16-vim'
   use 'kyazdani42/nvim-web-devicons'
-  use {'shadmansaleh/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -113,9 +113,16 @@ vim.wo.foldminlines = 1
 
 require('nvim-web-devicons').setup { default = true }
 
+local lualine_base16_eighties = require'lualine.themes.auto'
+lualine_base16_eighties.normal.b.bg = 'gray'
+lualine_base16_eighties.insert.b.bg = 'gray'
+lualine_base16_eighties.visual.b.bg = 'gray'
+lualine_base16_eighties.replace.b.bg = 'gray'
+lualine_base16_eighties.command.b.bg = 'gray'
+lualine_base16_eighties.inactive.b.bg = 'gray'
 require('lualine').setup{
   options = {
-    theme = 'jellybeans',
+    theme = lualine_base16_eighties,
     section_separators = '',
     component_separators = '',
 }}
