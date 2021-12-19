@@ -44,7 +44,7 @@ require('packer').startup(function()
         side = 'right'
       }}
     end }
-  use 'fnune/base16-vim'
+  use 'dracula/vim'
   use 'kyazdani42/nvim-web-devicons'
   use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
@@ -102,8 +102,7 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 vim.o.termguicolors = true
-vim.api.nvim_set_var('base16colorspace', '256')
-vim.cmd [[colorscheme base16-eighties]]
+vim.cmd[[colorscheme dracula]]
 
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
@@ -113,16 +112,9 @@ vim.wo.foldminlines = 1
 
 require('nvim-web-devicons').setup { default = true }
 
-local lualine_base16_eighties = require'lualine.themes.auto'
-lualine_base16_eighties.normal.b.bg = 'gray'
-lualine_base16_eighties.insert.b.bg = 'gray'
-lualine_base16_eighties.visual.b.bg = 'gray'
-lualine_base16_eighties.replace.b.bg = 'gray'
-lualine_base16_eighties.command.b.bg = 'gray'
-lualine_base16_eighties.inactive.b.bg = 'gray'
 require('lualine').setup{
   options = {
-    theme = lualine_base16_eighties,
+    theme = 'dracula',
     section_separators = '',
     component_separators = '',
 }}

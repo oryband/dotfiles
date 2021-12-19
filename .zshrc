@@ -18,10 +18,9 @@ zinit ice svn silent pick"init.zsh" lucid; zinit snippet PZT::modules/utility
 # }}}
 
 # colors {{{
-export BASE16_THEME='eighties'
-zinit light 'chrissicool/zsh-256color'
-zinit ice pick"scripts/base16-${BASE16_THEME}.sh"; zinit light fnune/base16-shell
-zinit ice lucid wait'0' src"bash/base16-${BASE16_THEME}.config" pick"bash/base16-${BASE16_THEME}.config" nocompile'!'; zinit light fnune/base16-fzf
+zinit ice pick"zsh/dracula.zsh-theme"; zinit light dracula/zsh
+zinit ice lucid as"null" id-as"dracula-alacritty" ; zinit light dracula/alacritty
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 # }}}
 
 # misc plugins {{{
@@ -40,6 +39,7 @@ eval "$(starship init zsh)"
 zstyle ':prezto:module:tmux:session' name '0'
 # [[ -n $DISPLAY ]] && zstyle ':prezto:module:tmux:auto-start' local 'yes'
 zinit ice svn; zinit snippet PZT::modules/tmux
+zinit ice lucid wait'!0a' as'null' id-as'tpm' atclone'mkdir -p $HOME/.tmux/plugins; ln -sf $ZINIT[PLUGINS_DIR]/tpm $HOME/.tmux/plugins/tpm' ; zinit light tmux-plugins/tpm
 # }}}
 
 # fzf / enhancd {{{
