@@ -78,11 +78,6 @@ zinit ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zinit
 zstyle ":plugin:history-search-multi-word" active "standout"
 # }}}
 
-# syntax highlighting {{{
-# NOTE must be last plugin to load
-zinit ice wait lucid atinit"zpcompinit; zpcdreplay"; zinit light zdharma-continuum/fast-syntax-highlighting
-# }}}
-
 # load everything {{{
 autoload -Uz compinit
 compinit
@@ -200,6 +195,12 @@ alias drmvd='docker volume rm $(docker volume ls -q -f dangling=true)'
 alias drmid='drmi $(docker images -q -f dangling=true)'
 alias dpurge="drmcd ; drmvd ; drmid ; docker network prune -f"
 alias dc="docker-compose"
+# }}}
+
+# syntax highlighting {{{
+# NOTE must be last plugin to load
+zinit ice pick"zsh-syntax-highlighting.sh" lucid ; zinit light dracula/zsh-syntax-highlighting
+zinit ice wait lucid atinit"zpcompinit; zpcdreplay"; zinit light zsh-users/zsh-syntax-highlighting
 # }}}
 
 # vim:foldlevel=0
