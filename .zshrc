@@ -200,6 +200,8 @@ alias dc="docker-compose"
 # syntax highlighting {{{
 # NOTE must be last plugin to load
 zinit ice pick"zsh-syntax-highlighting.sh" lucid ; zinit light dracula/zsh-syntax-highlighting
+# https://github.com/dracula/zsh-syntax-highlighting/issues/7
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
 zinit ice wait lucid atinit"zpcompinit; zpcdreplay"; zinit light zsh-users/zsh-syntax-highlighting
 # }}}
 
