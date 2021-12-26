@@ -33,6 +33,7 @@ zinit ice from"gh-r" as"program" pick"diff-so-fancy"; zinit light so-fancy/diff-
 # }}}
 
 # prompt {{{
+zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"starship"; zinit light starship/starship
 eval "$(starship init zsh)"
 # }}}
 
