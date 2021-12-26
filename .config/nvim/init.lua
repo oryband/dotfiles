@@ -49,6 +49,7 @@ require('packer').startup(function()
   use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
@@ -184,7 +185,7 @@ vim.api.nvim_set_keymap('n', '<leader>sc', [[<cmd>lua require('telescope').exten
 
 require('nvim-treesitter.configs').setup {
   highlight = {
-    enable = true, -- false will disable the whole extension
+    enable = true,
   },
   incremental_selection = {
     enable = true,
@@ -236,6 +237,24 @@ require('nvim-treesitter.configs').setup {
       },
     },
   },
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false, -- Whether the query persists across vim sessions
+    keybindings = {
+      -- toggle_query_editor = 'o',
+      -- toggle_hl_groups = 'i',
+      -- toggle_injected_languages = 't',
+      -- toggle_anonymous_nodes = 'a',
+      -- toggle_language_display = 'I',
+      -- focus_language = 'f',
+      -- unfocus_language = 'F',
+      -- update = 'R',
+      -- goto_node = '<cr>',
+      -- show_help = '?',
+    },
+  }
 }
 
 local nvim_lsp = require 'lspconfig'
