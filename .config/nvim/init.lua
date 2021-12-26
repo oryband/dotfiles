@@ -55,6 +55,7 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'simrat39/symbols-outline.nvim'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use {'guns/vim-sexp', opt = true, ft = {'clojure'}}
@@ -349,9 +350,15 @@ cmp.setup {
   },
 }
 
+vim.g.symbols_outline = {
+  width = 50,
+}
+vim.api.nvim_set_keymap('n', '<C-t>', ':SymbolsOutline<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_var('conjure#mapping#def_word', 'v:false')
 vim.cmd [[highlight! link NormalFloat StatusLine]]
 
 vim.api.nvim_set_var('sexp_enable_insert_mode_mappings', 0)
 vim.api.nvim_set_var('lispdocs_mappings', 0)
+
 vim.cmd [[ command! ClojureDocs execute ":lua require'lispdocs'.find()" ]]
