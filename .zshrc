@@ -123,8 +123,8 @@ zinit ice from"gh-r" as"program" pick"bb"; zinit light babashka/babashka
 # }}}
 
 # python {{{
+export PATH="$HOME/.local/bin:$PATH"
 export ZSH_PYENV_LAZY_VIRTUALENV=true
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 zinit light davidparsson/zsh-pyenv-lazy
 # }}}
 
