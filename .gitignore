@@ -16,9 +16,11 @@
 /.ccache/
 /.clojure/
 /.clojure_history
+/.config/.gsd-keyboard.settings-ported
 /.config/.nvim/plugin/packer_compiled.lua
 /.config/3T/
 /.config/GIMP/
+/.config/GalaxyBudsClient/
 /.config/Keybase/
 /.config/MongoDB Compass/
 /.config/QtProject.conf
@@ -65,8 +67,10 @@
 /.config/psd/.psd.conf
 /.config/pulse/
 /.config/pulse/cookie
+/.config/pypoetry/
 /.config/solaar/
 /.config/spotify/
+/.config/systemd/
 /.config/systemd/user/default.target.wants
 /.config/systemd/user/timers.target.wants/
 /.config/teamviewer/
@@ -77,21 +81,25 @@
 /.config/variety/
 /.config/vlc/
 /.config/xfce4/
+/.config/yarn/
 /.config/zoomus.conf
 /.dbshell
 /.dbus/
 /.deps.clj/
 /.docker/.buildNodeID
 /.docker/config.json
+/.dotnet/
 /.electrum/
 /.enhancd/
 /.fehbg
 /.fonts/
+/.gitlibs/
 /.gnome/
 /.gnupg/
 /.gsutil/
 /.histfile
 /.ipython/
+/.java/
 /.k9s/config.yml
 /.kube/
 /.launchpadlib/
@@ -103,6 +111,8 @@
 /.mongodb/
 /.mongorc.js
 /.mozilla/
+/.net/
+/.node/
 /.node_repl_history
 /.npm/
 /.nvidia-settings-rc
@@ -117,6 +127,9 @@
 /.ssh/
 /.subversion/
 /.sudo_as_admin_successful
+/.swt/
+/.tmux/
+/.var/
 /.viminf*.tmp
 /.viminfo
 /.virtualenvs/
@@ -124,6 +137,8 @@
 /.wpa_cli_history
 /.xsession-errors
 /.xsession-errors.old
+/.yarn/
+/.yarnrc
 /.zcompdump
 /.zhistory
 /.zinit/
@@ -138,3 +153,5 @@
 /documents
 /go
 /snap/
+/studio3t/
+/tags
