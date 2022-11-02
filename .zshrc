@@ -39,7 +39,7 @@ zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"starship
 eval "$(starship init zsh)"
 # }}}
 
-# tmux {{
+# tmux {{{
 zstyle ':prezto:module:tmux:session' name '0'
 # [[ -n $DISPLAY ]] && zstyle ':prezto:module:tmux:auto-start' local 'yes'
 zinit ice svn; zinit snippet PZT::modules/tmux
