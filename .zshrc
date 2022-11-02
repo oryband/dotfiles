@@ -128,6 +128,10 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 zinit light davidparsson/zsh-pyenv-lazy
 # }}}
 
+# javascript {{{
+export PATH="$(yarn global bin):$PATH"
+# }}}
+
 # jq {{{
 export JQ_COLORS='0;31:0;39:0;39:0;39:0;32:1;39:1;39'
 # }}}
