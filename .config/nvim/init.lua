@@ -52,7 +52,6 @@ require('packer').startup(function()
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/playground'
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'p00f/nvim-ts-rainbow'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
@@ -109,11 +108,13 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 vim.cmd[[colorscheme dracula]]
 
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
-vim.wo.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')]]
-vim.wo.fillchars = "fold: "
-vim.wo.foldminlines = 1
+vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
+  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+  callback = function()
+    vim.opt.foldmethod     = 'expr'
+    vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+  end
+})
 
 require('nvim-web-devicons').setup { default = true }
 
@@ -190,15 +191,7 @@ vim.api.nvim_set_keymap('n', '<leader>sc', [[<cmd>lua require('telescope').exten
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = 'gnn',
-      node_incremental = 'grn',
-      scope_incremental = 'grc',
-      node_decremental = 'grm',
-    },
+    additional_vim_regex_highlighting = false
   },
   indent = {
     enable = true,
@@ -207,39 +200,6 @@ require('nvim-treesitter.configs').setup {
     enable = true,
     extended_mode = false,
     max_file_lines = 4000
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
   },
   playground = {
     enable = true,
