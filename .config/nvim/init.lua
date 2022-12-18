@@ -39,10 +39,12 @@ require('packer').startup(function()
         ignore = false
       },
       view = {
-        auto_close = false,
-        hijack_cursor = false,
         side = 'right'
-      }}
+      },
+      update_focused_file = {
+        enable = true,
+      },
+    }
     end }
   use 'dracula/vim'
   use 'kyazdani42/nvim-web-devicons'
