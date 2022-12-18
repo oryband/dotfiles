@@ -268,7 +268,12 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local servers = { 'clojure_lsp' }
+local servers = {
+  'diagnostics',
+  'clojure_lsp',
+  'jedi_language_server',
+  -- 'java_language_server',
+}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
