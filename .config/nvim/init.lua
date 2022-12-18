@@ -269,7 +269,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local servers = {
-  'diagnostics',
+  'diagnosticls',
   'clojure_lsp',
   'jedi_language_server',
   -- 'java_language_server',
