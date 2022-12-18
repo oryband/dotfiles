@@ -328,9 +328,9 @@ cmp.setup {
   },
 }
 
-vim.g.symbols_outline = {
+require("symbols-outline").setup({
   width = 50,
-}
+})
 vim.api.nvim_set_keymap('n', '<C-t>', ':SymbolsOutline<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_var('conjure#mapping#def_word', 'v:false')
