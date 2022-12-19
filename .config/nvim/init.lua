@@ -273,6 +273,7 @@ local servers = {
   'clojure_lsp',
   'jedi_language_server',
   -- 'java_language_server',
+  'yamlls',
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
