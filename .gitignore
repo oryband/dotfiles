@@ -63,6 +63,7 @@
 /.config/nautilus/
 /.config/nvim/.netrwhist
 /.config/nvim/plugin
+/.config/nvim/queries/
 /.config/pavucontrol.ini
 /.config/psd/.psd.conf
 /.config/pulse/
@@ -76,6 +77,7 @@
 /.config/teamviewer/
 /.config/tlpui/
 /.config/transmission/
+/.config/tree-sitter/
 /.config/user-dirs.dirs
 /.config/user-dirs.locale
 /.config/variety/
