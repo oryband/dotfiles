@@ -139,6 +139,7 @@ export PATH="$(yarn global bin):$PATH"
 
 # jq {{{
 export JQ_COLORS='0;31:0;39:0;39:0;39:0;32:1;39:1;39'
+zinit ice from"gh-r" as"program" mv"yq_* -> yq" ; zinit light mikefarah/yq
 # }}}
 
 # source secret env keys, etc.
