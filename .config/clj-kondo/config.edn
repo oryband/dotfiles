@@ -15,6 +15,9 @@
            :unresolved-symbol {:level   :error
                                :exclude [(midje.sweet/fact
                                           [throws
+                                           around
+                                           before
+                                           after
                                            contains
                                            as-checker
                                            exactly
