@@ -30,7 +30,6 @@ zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
 zinit light djui/alias-tips
 zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"lsd-*/lsd"; zinit light Peltoche/lsd
 zinit ice from"gh-r" as"program" pick"diff-so-fancy"; zinit light so-fancy/diff-so-fancy
-zinit ice from"gh-r" as"program" pick"diff-so-fancy"; zinit light so-fancy/diff-so-fancy
 zinit ice from"gh-r" as"program" bpick"*Linux_64bit_Portable*" mv"GalaxyBudsClient* -> GalaxyBudsClient"; zinit light ThePBone/GalaxyBudsClient
 # }}}
 
