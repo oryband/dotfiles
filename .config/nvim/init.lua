@@ -51,8 +51,9 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use { 'paopaol/telescope-git-diffs.nvim', requires = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" }, }
+  use {'nvim-treesitter/nvim-treesitter', version = 'v0.8.1', run = ':TSUpdate'}
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/playground'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
