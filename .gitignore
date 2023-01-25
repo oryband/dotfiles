@@ -31,6 +31,7 @@
 /.config/autorandr/laptop/
 /.config/autorandr/usb-c/
 /.config/autostart/
+/.config/cef_user_data/
 /.config/chromium
 /.config/chromium-back-ovfs/
 /.config/chromium-backup/
@@ -85,6 +86,7 @@
 /.config/vlc/
 /.config/xfce4/
 /.config/yarn/
+/.config/zoom.conf
 /.config/zoomus.conf
 /.dbshell
 /.dbus/
