@@ -201,6 +201,7 @@ zinit ice from"gh-r" as"program" mv"tree-sitter* -> tree-sitter" ; zinit light t
 # }}}
 
 # docker {{{
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 zinit ice from"gh-r" as"program" bpick"*Linux_x86_64*"; zinit light derailed/k9s
 zinit ice id-as"k9s-theme" cloneonly depth"1" atclone'mkdir -p $HOME/.config/k9s; ln -sf $ZINIT[PLUGINS_DIR]/k9s-theme/skins/dracula.yml $HOME/.config/k9s/skin.yml' atpull"%atclone"; zinit load derailed/k9s
 alias dr="docker run --rm -it"
