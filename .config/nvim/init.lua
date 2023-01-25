@@ -62,7 +62,7 @@ require('packer').startup(function()
   use 'simrat39/symbols-outline.nvim'
   use {'guns/vim-sexp', opt = true, ft = {'clojure'}}
   use {'Olical/conjure', opt = true, ft = {'clojure'}}
-  use {'tami5/lispdocs.nvim',
+  use {'kkharji/lispdocs.nvim',
     opt = true,
     ft = { 'clojure' },
     requires = {
@@ -317,6 +317,6 @@ vim.api.nvim_set_var('conjure#mapping#def_word', 'v:false')
 vim.cmd [[highlight! link NormalFloat StatusLine]]
 
 vim.api.nvim_set_var('sexp_enable_insert_mode_mappings', 0)
-vim.api.nvim_set_var('lispdocs_mappings', 0)
+-- vim.api.nvim_set_var('lispdocs_mappings', 0)
 
-vim.cmd [[ command! ClojureDocs execute ":lua require'lispdocs'.find()" ]]
+-- vim.cmd [[ command! ClojureDocs execute ":lua require'lispdocs'.find()" ]]
