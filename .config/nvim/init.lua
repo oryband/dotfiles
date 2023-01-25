@@ -53,7 +53,6 @@ require('packer').startup(function()
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/playground'
-  use 'p00f/nvim-ts-rainbow'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -204,11 +203,6 @@ require('nvim-treesitter.configs').setup {
   },
   indent = {
     enable = true,
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = false,
-    max_file_lines = 4000
   },
   playground = {
     enable = true,
