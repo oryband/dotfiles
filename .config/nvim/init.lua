@@ -52,6 +52,7 @@ require('packer').startup(function()
   use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use { 'paopaol/telescope-git-diffs.nvim', requires = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" }, }
   use 'nvim-treesitter/playground'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
@@ -160,6 +161,7 @@ require('gitsigns').setup {
 
 local actions = require('telescope.actions')
 require('telescope').load_extension('lsp_handlers')
+require('telescope').load_extension('git_diffs')
 require('telescope').setup {
   defaults = {
     mappings = {
