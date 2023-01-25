@@ -32,9 +32,9 @@ require('packer').startup(function()
       enable_persistent_history = false,
       default_register = {'"', '+', '*'},
     }
-    end, }
-  use { 'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
+    end }
+  use { 'nvim-tree/nvim-tree.lua',
+    requires = 'nvim-tree/nvim-web-devicons',
     config = function() require'nvim-tree'.setup {
       git = {
         ignore = false
