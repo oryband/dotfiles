@@ -25,6 +25,7 @@ require('packer').startup(function()
   use 'chaoren/vim-wordmotion'
   use 'ludovicchabant/vim-gutentags'
   use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
+  use 'gbrlsnchs/telescope-lsp-handlers.nvim'
   use { "AckslD/nvim-neoclip.lua",
     requires = {'tami5/sqlite.lua', module = 'sqlite'},
     config = function() require('neoclip').setup {
@@ -161,6 +162,7 @@ require('gitsigns').setup {
 }
 
 local actions = require('telescope.actions')
+require('telescope').load_extension('lsp_handlers')
 require('telescope').setup {
   defaults = {
     mappings = {
@@ -173,6 +175,13 @@ require('telescope').setup {
   pickers = {
     buffers = {
       sort_lastused = true,
+    },
+  },
+  extensions = {
+    lsp_handlers = {
+      code_action = {
+        telescope = require('telescope.themes').get_dropdown({}),
+      },
     },
   },
 }
