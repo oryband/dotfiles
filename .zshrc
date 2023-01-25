@@ -45,13 +45,9 @@ zinit ice svn; zinit snippet PZT::modules/tmux
 zinit ice lucid wait'!0a' as'null' id-as'tpm' atclone'mkdir -p $HOME/.tmux/plugins; ln -sf $ZINIT[PLUGINS_DIR]/tpm $HOME/.tmux/plugins/tpm' ; zinit light tmux-plugins/tpm
 # }}}
 
-# fzf / enhancd {{{
-export ENHANCD_FILTER=fzf-tmux
-export ENHANCD_DISABLE_DOT=1
-export ENHANCD_DISABLE_HYPHEN=1
-export ENHANCD_DISABLE_HOME=1
+# fzf / zoxide {{{
 zinit ice as"program" pick="bin/(fzf|fzf-tmux)" atclone="\cp -f shell/completion.zsh _fzf_completion" atpull"%atclone" make="install"; zinit light junegunn/fzf
-zinit ice pick"init.sh"; zinit light b4b4r07/enhancd
+zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux*.tar.gz"; zinit light ajeetdsouza/zoxide
 # }}}
 
 # completion {{{
@@ -85,6 +81,9 @@ autoload -Uz compinit
 compinit
 zinit cdreplay -q
 # }}}
+
+# must be called after compinit
+eval "$(zoxide init zsh)"
 
 # disable C-s stopping receiving keyboard signals.
 stty start undef
@@ -145,9 +144,9 @@ zinit ice from"gh-r" as"program" mv"yq_* -> yq" ; zinit light mikefarah/yq
 source $HOME/.zsh-secrets
 
 # aliases {{{
-alias c="cd"
-alias c-="c -"
-alias cd..="cd .."
+alias c="zi"
+alias c-="zi -"
+alias cd..="zi .."
 
 alias cat="batcat"
 
