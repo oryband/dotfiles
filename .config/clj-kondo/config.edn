@@ -15,6 +15,7 @@
            :unresolved-symbol {:level   :error
                                :exclude [(midje.sweet/fact
                                           [throws
+                                           ?form
                                            around
                                            before
                                            after
