@@ -63,6 +63,7 @@
 /.config/monitors.xml
 /.config/monitors.xml~
 /.config/nautilus/
+/.config/nvim/
 /.config/nvim/.netrwhist
 /.config/nvim/plugin
 /.config/nvim/queries/
