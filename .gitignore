@@ -126,6 +126,7 @@
 /.pip/pip.conf
 /.pki/
 /.profile
+/.psql_history
 /.pyenv/
 /.pylint.d/
 /.python_history
