@@ -57,6 +57,7 @@
 /.config/ibus/
 /.config/k9s/config.yml
 /.config/keybase/
+/.config/lazygit/
 /.config/lnav/
 /.config/menus/
 /.config/mimeapps.list
