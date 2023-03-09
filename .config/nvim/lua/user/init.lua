@@ -49,11 +49,18 @@ local config = {
         ["mason-null-ls"] = {
             ensure_installed = {
                 "black",
-                "joker",
                 "jq",
                 "stylua",
+                "zprint",
             },
         },
+        ["null-ls"] = function(config)
+            local null_ls = require "null-ls"
+            config.sources = {
+                null_ls.builtins.formatting.zprint,
+            }
+            return config
+        end,
         ["mason-nvim-dap"] = {
             ensure_installed = { "python" },
         },
