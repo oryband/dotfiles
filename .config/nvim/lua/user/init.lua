@@ -46,7 +46,6 @@ local config = {
                 "black",
                 "joker",
                 "jq",
-                -- "mypy",
                 "stylua",
             },
         },
