@@ -49,6 +49,9 @@ local config = {
                 "stylua",
             },
         },
+        ["mason-nvim-dap"] = {
+            ensure_installed = { "python" },
+        },
         ["guns/vim-sexp"] = {
             vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0),
         },
