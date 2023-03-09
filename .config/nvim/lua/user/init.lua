@@ -9,6 +9,11 @@ local config = {
             maplocalleader = ",",
         },
     },
+    lsp = {
+        formatting = {
+            format_on_save = false,
+        },
+    },
     diagnostics = {
         virtual_text = false,
         underline = false,
