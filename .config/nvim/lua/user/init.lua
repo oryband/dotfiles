@@ -1,83 +1,39 @@
-local config = {
-    colorscheme = "dracula",
-    header = {},
-    options = {
-        opt = {
-            termguicolors = true,
-        },
-        g = {
-            maplocalleader = ",",
-        },
+return {
+  colorscheme = "dracula",
+  opt = {
+    termguicolors = true,
+  },
+  g = {
+    maplocalleader = ",",
+    autopairs_enabled = false,
+  },
+  diagnostics = {
+    virtual_text = false,
+    underline = false,
+  },
+  lsp = {
+    formatting = {
+      format_on_save = {
+        enabled = false,
+      },
     },
-    lsp = {
-        formatting = {
-            format_on_save = false,
-        },
-    },
-    diagnostics = {
-        virtual_text = false,
-        underline = false,
-    },
-    plugins = {
-        init = {
-            { "windwp/nvim-autopairs", disable = true },
+  },
+  plugins = {
+    { "dracula/vim", name = "dracula" },
 
-            { "dracula/vim",           as = "dracula" },
+    { "goolord/alpha-nvim", opts = function(_, opts) opts.section.header.val = {} end },
 
-            { "tpope/vim-surround" },
-            { "tpope/vim-repeat" },
+    { "tpope/vim-surround" },
+    { "tpope/vim-repeat" },
 
-            { "guns/vim-sexp",         opt = true,    ft = { "clojure" } },
-            { "Olical/conjure",        opt = true,    ft = { "clojure" } },
-        },
-        treesitter = {
-            ensure_installed = {
-                "clojure",
-                "lua",
-                "markdown",
-                "markdown_inline",
-                "python",
-            },
-        },
-        ["mason-lspconfig"] = {
-            ensure_installed = {
-                "clojure_lsp",
-                "sumneko_lua", -- old name for lua_language_server
-                "pyright",
-            },
-        },
-        ["mason-null-ls"] = {
-            ensure_installed = {
-                "black",
-                "jq",
-                "stylua",
-                "zprint",
-            },
-        },
-        ["null-ls"] = function(config)
-            local null_ls = require "null-ls"
-            config.sources = {
-                null_ls.builtins.formatting.zprint,
-            }
-            return config
-        end,
-        ["mason-nvim-dap"] = {
-            ensure_installed = { "python" },
-        },
-        ["guns/vim-sexp"] = {
-            vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0),
-        },
-    },
-    polish = function()
-        -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#packernvim
-        vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
-            group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
-            callback = function()
-                vim.opt.foldmethod = "expr"
-                vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-            end,
-        })
-    end,
+    { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end, },
+    -- { "Olical/conjure", ft = { "clojure" } },
+
+    { "nvim-treesitter/nvim-treesitter", ensure_installed = { "clojure", "lua", "markdown", "python" } },
+    { "nvim-treesitter/playground", lazy = false},
+    { "williamboman/mason-lspconfig.nvim", ensure_installed = { "clojure_lsp", "lua_language_server" } },
+    { "jay-babu/mason-null-ls.nvim", ensure_installed = { "black", "jq", "stylua", "zprint" } },
+    { "jose-elias-alvarez/null-ls.nvim", config = function(config) local null_ls = require "null-ls" ; config.sources = { null_ls.builtins.formatting.zprint } ; return config end },
+    { "jay-babu/mason-nvim-dap.nvim", ensure_installed = { "python" } },
+  },
 }
-
-return config
