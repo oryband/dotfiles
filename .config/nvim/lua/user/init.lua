@@ -23,6 +23,7 @@ return {
     { "goolord/alpha-nvim", opts = function(_, opts) opts.section.header.val = {} end },
     { "tpope/vim-surround", lazy = false },
     { "tpope/vim-repeat", lazy = false },
+    { "bkad/CamelCaseMotion", lazy = false },
 
     { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end },
     -- { "Olical/conjure", ft = { "clojure" } },
@@ -41,4 +42,12 @@ return {
     },
     { "jay-babu/mason-nvim-dap.nvim", ensure_installed = { "python" } },
   },
+  polish = function()
+    local opts = { silent = true }
+    local map = vim.api.nvim_set_keymap
+
+    map("", "w", "<Plug>CamelCaseMotion_w", opts)
+    map("", "e", "<Plug>CamelCaseMotion_e", opts)
+    map("", "b", "<Plug>CamelCaseMotion_b", opts)
+  end,
 }
