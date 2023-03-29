@@ -36,18 +36,11 @@ return {
       config = function() require("copilot_cmp").setup { formatters = { insert_text = require("copilot_cmp.format").remove_existing } } end,
     },
 
-    { "nvim-treesitter/nvim-treesitter", ensure_installed = { "clojure", "lua", "markdown", "python" } },
-    { "nvim-treesitter/playground", lazy = false },
-    { "williamboman/mason-lspconfig.nvim", ensure_installed = { "clojure_lsp", "lua_language_server" } },
-    { "jay-babu/mason-null-ls.nvim", ensure_installed = { "black", "jq", "stylua", "zprint" } },
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function(config)
-        local null_ls = require "null-ls"
-        config.sources = { null_ls.builtins.formatting.zprint }
-        return config
-      end,
-    },
+    { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = { "clojure", "lua", "markdown", "python" } } },
+    { "nvim-treesitter/playground", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+    { "williamboman/mason-lspconfig.nvim", opts = { ensure_installed = { "clojure_lsp", "lua_ls" } } },
+    { "jay-babu/mason-null-ls.nvim", opts = { ensure_installed = { "black", "jq", "stylua", "zprint" } } },
+    { "jose-elias-alvarez/null-ls.nvim" },
     { "jay-babu/mason-nvim-dap.nvim", ensure_installed = { "python" } },
 
     {
@@ -62,7 +55,6 @@ return {
           { name = "buffer", priority = 500 },
           { name = "path", priority = 250 },
         }
-
         return opts
       end,
     },
