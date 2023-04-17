@@ -38,7 +38,7 @@ return {
       config = function() require("copilot_cmp").setup { formatters = { insert_text = require("copilot_cmp.format").remove_existing } } end,
     },
 
-    { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = { "clojure", "lua", "markdown", "python" } } },
+    { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = { "clojure", "lua", "markdown", "python", "sql", "yaml" } } },
     { "nvim-treesitter/playground", dependencies = { "nvim-treesitter/nvim-treesitter" } },
     { "williamboman/mason-lspconfig.nvim", opts = { ensure_installed = { "clojure_lsp", "lua_ls" } } },
     { "jay-babu/mason-null-ls.nvim", opts = { ensure_installed = { "black", "jq", "stylua", "zprint" } } },
