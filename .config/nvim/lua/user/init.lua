@@ -1,11 +1,13 @@
 return {
   colorscheme = "dracula",
-  opt = {
-    termguicolors = true,
-  },
-  g = {
-    maplocalleader = ",",
-    autopairs_enabled = false,
+  options = {
+    opt = {
+      termguicolors = true,
+    },
+    g = {
+      maplocalleader = ",",
+      autopairs_enabled = false,
+    },
   },
   diagnostics = {
     virtual_text = false,
