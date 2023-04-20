@@ -13,6 +13,13 @@ env:
 import:
   - /home/ory/.local/share/zinit/plugins/dracula-alacritty/dracula.yml
 
+key_bindings:
+  # https://stackoverflow.com/a/42461580
+  - { key: Return, mods: Shift,   chars: "\x1b[13;2u" }
+  - { key: Return, mods: Control, chars: "\x1b[13;5u" }
+  - { key: Space,  mods: Shift,   chars: "\x1b[32;2u" }
+  - { key: Space,  mods: Control, chars: "\x1b[32;5u" } # NOTE: This is an edge case and might not work.
+
 font:
   size: 12
   normal:
