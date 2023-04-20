@@ -46,10 +46,10 @@ return {
     },
 
     {
-        "jcdickinson/codeium.nvim",
-        event = "InsertEnter",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function() require("codeium").setup({}) end
+      "jcdickinson/codeium.nvim",
+      event = "InsertEnter",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function() require("codeium").setup {} end,
     },
 
     { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = { "clojure", "lua", "markdown", "python", "sql", "yaml" } } },
@@ -63,7 +63,7 @@ return {
       "hrsh7th/nvim-cmp",
       dependencies = {
         "zbirenbaum/copilot-cmp",
-        "jcdickinson/codeium.nvim"
+        "jcdickinson/codeium.nvim",
       },
       opts = function(_, opts)
         local cmp = require "cmp"
@@ -85,7 +85,7 @@ return {
         symbol_map = {
           Copilot = "",
           Codeium = "󱃖",
-        }
+        },
       },
     },
   },
