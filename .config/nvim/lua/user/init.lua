@@ -26,9 +26,16 @@ return {
     { "tpope/vim-surround", lazy = false },
     { "tpope/vim-repeat", lazy = false },
     { "bkad/CamelCaseMotion", lazy = false },
+    { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end, },
 
-    { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end },
-    -- { "Olical/conjure", ft = { "clojure" } },
+    {
+      "Olical/conjure",
+      ft = { "clojure", "python" },
+      version = "4.39.x",
+      config = function()
+        vim.api.nvim_set_var("conjure#mapping#doc_word", "k")
+      end,
+    },
 
     { "zbirenbaum/copilot.lua", config = function() require("copilot").setup { suggestion = { enabled = false }, panel = { enabled = false } } end, },
     {
