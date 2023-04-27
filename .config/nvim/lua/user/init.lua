@@ -22,8 +22,18 @@ return {
     },
   },
   plugins = {
-    { "dracula/vim", name = "dracula" },
+    {
+      "Mofiqul/dracula.nvim",
+      opts = function(_, opts)
+        local colors = require("dracula").colors()
+        opts.overrides = {
+          Special = { fg = colors.green, italic = false },
+        }
+      end,
+    },
+
     { "goolord/alpha-nvim", opts = function(_, opts) opts.section.header.val = {} end },
+
     { "tpope/vim-surround", lazy = false },
     { "tpope/vim-repeat", lazy = false },
     { "bkad/CamelCaseMotion", lazy = false },
