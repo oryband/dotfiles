@@ -74,7 +74,19 @@ return {
       config = function() require("codeium").setup {} end,
     },
 
-    { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = { "clojure", "lua", "markdown", "python", "sql", "yaml" } } },
+    { "nvim-treesitter/nvim-treesitter",
+      lazy = false,
+      opts = {
+        ensure_installed = {
+          "clojure",
+          "lua",
+          "markdown",
+          "python",
+          "sql",
+          "yaml"
+        },
+      },
+    },
     { "nvim-treesitter/playground", lazy = false, dependencies = { "nvim-treesitter/nvim-treesitter" } },
     { "williamboman/mason-lspconfig.nvim", opts = { ensure_installed = { "clojure_lsp", "lua_ls" } } },
     { "jay-babu/mason-null-ls.nvim", opts = { ensure_installed = { "black", "jq", "stylua", "zprint" } } },
