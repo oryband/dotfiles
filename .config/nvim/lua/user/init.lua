@@ -7,6 +7,7 @@ return {
     g = {
       maplocalleader = ",",
       autopairs_enabled = false,
+      codelens_enabled = false,
     },
   },
   diagnostics = {
