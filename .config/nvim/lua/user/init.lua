@@ -42,7 +42,6 @@ return {
     {
       "Olical/conjure",
       ft = { "clojure", "python" },
-      version = "4.39.x",
       config = function()
         vim.api.nvim_set_var("conjure#mapping#doc_word", "k")
       end,
