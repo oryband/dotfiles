@@ -79,10 +79,15 @@ return {
     },
 
     {
-      "jcdickinson/codeium.nvim",
-      event = "InsertEnter",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      config = function() require("codeium").setup {} end,
+      "nvim-telescope/telescope.nvim",
+      opts = function(_, opts)
+        local actions = require "telescope.actions"
+
+        opts.defaults.mappings.i["<C-n>"] = actions.move_selection_next
+        opts.defaults.mappings.i["<C-p>"] = actions.move_selection_previous
+        opts.defaults.mappings.i["<C-j>"] = actions.cycle_history_next
+        opts.defaults.mappings.i["<C-k>"] = actions.cycle_history_prev
+      end
     },
 
     { "nvim-treesitter/nvim-treesitter",
