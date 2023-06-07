@@ -53,6 +53,9 @@ return {
       ft = { "clojure", "python" },
       config = function()
         vim.api.nvim_set_var("conjure#mapping#doc_word", "k")
+        vim.api.nvim_set_var("conjure#client#clojure#nrepl#connection#auto_repl#hidden", true)
+        vim.api.nvim_set_var("conjure#client#clojure#nrepl#connection#auto_repl#enabled", false)
+        vim.api.nvim_set_var("conjure#client#clojure#nrepl#eval#auto_require", false)
       end,
     },
 
