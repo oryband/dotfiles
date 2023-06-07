@@ -21,6 +21,15 @@ return {
       },
     },
   },
+  lazy = {
+    -- zipPlugin is enabled (not disabled below) since Clojure go-to-definition goes into zipped jar files.
+    -- also forces lazyness to be disabled.
+    performance = {
+      rtp = {
+        disabled_plugins = { "tohtml", "gzip", "matchit", "netrwPlugin", "tarPlugin" },
+      },
+    },
+  },
   plugins = {
     {
       "Mofiqul/dracula.nvim",
