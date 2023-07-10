@@ -55,6 +55,8 @@ return {
         vim.api.nvim_set_var("conjure#client#clojure#nrepl#connection#auto_repl#hidden", true)
         vim.api.nvim_set_var("conjure#client#clojure#nrepl#connection#auto_repl#enabled", false)
         vim.api.nvim_set_var("conjure#client#clojure#nrepl#eval#auto_require", false)
+        -- vim.api.nvim_set_var("conjure#debug", true)
+        -- vim.api.nvim_set_var("conjure#client_on_load", false)
       end,
     },
 
