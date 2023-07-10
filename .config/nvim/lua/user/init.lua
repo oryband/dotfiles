@@ -96,8 +96,10 @@ return {
       end,
     },
 
-    { "nvim-treesitter/nvim-treesitter",
+    {
+      "nvim-treesitter/nvim-treesitter",
       lazy = false,
+      commit = "cc360a9",
       opts = {
         ensure_installed = {
           "clojure",
