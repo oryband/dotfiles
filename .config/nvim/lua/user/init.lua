@@ -93,7 +93,7 @@ return {
         opts.defaults.mappings.i["<C-p>"] = actions.move_selection_previous
         opts.defaults.mappings.i["<C-j>"] = actions.cycle_history_next
         opts.defaults.mappings.i["<C-k>"] = actions.cycle_history_prev
-      end
+      end,
     },
 
     { "nvim-treesitter/nvim-treesitter",
@@ -105,7 +105,7 @@ return {
           "markdown",
           "python",
           "sql",
-          "yaml"
+          "yaml",
         },
       },
     },

@@ -121,7 +121,6 @@ export PATH="$JAVA_HOME/bin:$PATH"
 # clojure {{{
 zinit ice from"gh-r" as"program" pick"bb"; zinit light babashka/babashka
 zinit ice from"gh-r" as"program" bpick"zprintl-*" mv"zprintl-* -> zprint"; zinit light kkinnear/zprint
-
 # }}}
 
 # python {{{
