@@ -34,9 +34,8 @@ return {
     {
       "Mofiqul/dracula.nvim",
       opts = function(_, opts)
-        local colors = require("dracula").colors()
         opts.overrides = {
-          Special = { fg = colors.green, italic = false },
+          Special = { fg = "green", italic = false },
         }
       end,
     },
