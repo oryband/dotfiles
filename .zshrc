@@ -213,7 +213,7 @@ alias drmcd='drm $(dps -q -f status=exited -f status=created)'
 alias drmvd='docker volume rm $(docker volume ls -q -f dangling=true)'
 alias drmid='drmi $(docker images -q -f dangling=true)'
 alias dpurge="drmcd ; drmvd ; drmid ; docker network prune -f"
-alias dc="docker-compose"
+alias dc="docker compose"
 # }}}
 
 # syntax highlighting {{{
