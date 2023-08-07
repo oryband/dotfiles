@@ -28,7 +28,7 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"fd-*/fd"; zinit light sharkdp/fd
 zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
 zinit light djui/alias-tips
-zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"lsd-*/lsd"; zinit light Peltoche/lsd
+zinit ice from"gh-r" as"program" bpick"*x86_64-unknown-linux-gnu*" pick"lsd-*/lsd"; zinit light lsd-rs/lsd
 zinit ice from"gh-r" as"program" pick"diff-so-fancy"; zinit light so-fancy/diff-so-fancy
 zinit ice from"gh-r" as"program" bpick"*Linux_64bit_Portable*" mv"GalaxyBudsClient* -> GalaxyBudsClient"; zinit light ThePBone/GalaxyBudsClient
 # }}}
