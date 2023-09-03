@@ -27,8 +27,3 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then export LESSOPEN="| /usr/bin/env $co
 # temporary files
 if [[ ! -d "$TMPDIR" ]]; then export TMPDIR="/tmp/$LOGNAME"; mkdir -p -m 700 "$TMPDIR"; fi
 TMPPREFIX="${TMPDIR%/}/zsh"
-
-# firefox wayland
-if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-  export MOZ_ENABLE_WAYLAND=1
-fi
