@@ -156,10 +156,8 @@ alias tailf="tail -f"
 alias grep="rg"
 alias ag="rg"
 
-alias js="node"
 alias tree="lsd --tree"
 alias vi="nvim"
-alias viupdate="vi '+PackerSync' '+qall!'"
 
 # tcpdump all requests made by given process
 alias sysdig="sudo sysdig"
