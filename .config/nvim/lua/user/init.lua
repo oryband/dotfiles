@@ -94,13 +94,11 @@ return {
       "hrsh7th/nvim-cmp",
       dependencies = {
         "zbirenbaum/copilot-cmp",
-        "jcdickinson/codeium.nvim",
       },
       opts = function(_, opts)
         local cmp = require "cmp"
         opts.sources = cmp.config.sources {
           { name = "copilot", priority = 1000 },
-          { name = "codeium", priority = 900 },
           { name = "nvim_lsp", priority = 800 },
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },
@@ -115,7 +113,6 @@ return {
       opts = {
         symbol_map = {
           Copilot = "",
-          Codeium = "󱃖",
         },
       },
     },
