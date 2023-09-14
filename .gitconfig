@@ -41,14 +41,14 @@
     tool = nvimdiff
     renames = true
 [difftool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+    cmd = "$EDITOR -d \"$LOCAL\" \"$REMOTE\""
 [merge]
     tool = vimdiff
     log = true
 [mergetool]
     prompt = true
 [mergetool "vimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+    cmd = "$EDITOR -d \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w|only|diffoff!'"
 [rebase]
     autosquash = true
     autostash = true
