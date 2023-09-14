@@ -31,58 +31,29 @@ return {
     },
   },
   plugins = {
-    {
-      "Mofiqul/dracula.nvim",
-      opts = function(_, opts)
-        opts.overrides = {
-          Special = { fg = "green", italic = false },
-        }
-      end,
-    },
-
     { "goolord/alpha-nvim", opts = function(_, opts) opts.section.header.val = {} end },
+
+    {
+      "AstroNvim/astrocommunity",
+      { import = "astrocommunity.colorscheme.dracula-nvim" },
+      { import = "astrocommunity.completion.copilot-lua" },
+      { "copilot.lua", opts = { suggestion = { enabled = false }, panel = { enabled = false } } },
+      { import = "astrocommunity.pack.bash" },
+      { import = "astrocommunity.pack.clojure" },
+      { import = "astrocommunity.pack.docker" },
+      { import = "astrocommunity.pack.helm" },
+      { import = "astrocommunity.pack.json" },
+      { import = "astrocommunity.pack.lua" },
+      { import = "astrocommunity.pack.markdown" },
+      { import = "astrocommunity.pack.python" },
+      { import = "astrocommunity.pack.yaml" },
+    },
 
     { "tpope/vim-surround", lazy = false },
     { "tpope/vim-repeat", lazy = false },
     { "bkad/CamelCaseMotion", lazy = false },
-    { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end, },
-
-    {
-      "Olical/conjure",
-      ft = { "clojure", "python" },
-      config = function()
-        vim.api.nvim_set_var("conjure#mapping#doc_word", "k")
-        vim.api.nvim_set_var("conjure#client#clojure#nrepl#connection#auto_repl#hidden", true)
-        vim.api.nvim_set_var("conjure#client#clojure#nrepl#connection#auto_repl#enabled", false)
-        vim.api.nvim_set_var("conjure#client#clojure#nrepl#eval#auto_require", false)
-        -- vim.api.nvim_set_var("conjure#debug", true)
-        -- vim.api.nvim_set_var("conjure#client_on_load", false)
-      end,
-    },
-
-    {
-      "jackMort/ChatGPT.nvim",
-      event = "VeryLazy",
-      config = function() require("chatgpt").setup() end,
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
-      },
-    },
-
-    {
-      "zbirenbaum/copilot.lua",
-      config = function() require("copilot").setup { suggestion = { enabled = false }, panel = { enabled = false } } end,
-    },
-    {
-      "zbirenbaum/copilot-cmp",
-      event = "InsertEnter",
-      dependencies = { "zbirenbaum/copilot.lua" },
-      config = function()
-        require("copilot_cmp").setup { formatters = { insert_text = require("copilot_cmp.format").remove_existing } }
-      end,
-    },
+    { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end },
+    { "gpanders/nvim-parinfer", enabled = false },
 
     {
       "nvim-telescope/telescope.nvim",
@@ -96,27 +67,19 @@ return {
       end,
     },
 
-    {
-      "nvim-treesitter/nvim-treesitter",
-      lazy = false,
-      commit = "cc360a9",
-      opts = {
-        ensure_installed = {
-          "clojure",
-          "lua",
-          "markdown",
-          "python",
-          "sql",
-          "yaml",
-        },
-      },
-    },
+    { "nvim-treesitter/nvim-treesitter" },
     { "nvim-treesitter/playground", lazy = false, dependencies = { "nvim-treesitter/nvim-treesitter" } },
-    { "williamboman/mason-lspconfig.nvim", opts = { ensure_installed = { "clojure_lsp", "lua_ls" } } },
-    { "jay-babu/mason-null-ls.nvim", opts = { ensure_installed = { "black", "jq", "stylua", "zprint" } } },
+    { "williamboman/mason-lspconfig.nvim" },
+    { "jay-babu/mason-null-ls.nvim" },
     { "jose-elias-alvarez/null-ls.nvim" },
-    { "jay-babu/mason-nvim-dap.nvim", ensure_installed = { "python" } },
+    { "jay-babu/mason-nvim-dap.nvim" },
 
+    {
+      "zbirenbaum/copilot-cmp",
+      event = "InsertEnter",
+      dependencies = { "zbirenbaum/copilot.lua" },
+      config = function() require("copilot_cmp").setup {} end,
+    },
     {
       "hrsh7th/nvim-cmp",
       dependencies = {
