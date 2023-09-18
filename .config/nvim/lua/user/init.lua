@@ -21,6 +21,11 @@ return {
       },
     },
   },
+  mappings = {
+    n = {
+      ["<leader>s"] = { "<CMD>TSJToggle<CR>", desc = "Toggle Treesitter Join" },
+    },
+  },
   lazy = {
     -- zipPlugin is enabled (not disabled below) since Clojure go-to-definition goes into zipped jar files.
     -- also forces lazyness to be disabled.
@@ -41,8 +46,6 @@ return {
       { import = "astrocommunity.colorscheme.dracula-nvim" },
       { import = "astrocommunity.completion.copilot-lua" },
       { "copilot.lua", opts = { suggestion = { enabled = false }, panel = { enabled = false } } },
-      { import = "astrocommunity.editing-support.treesj" },
-      { "treesj", opts = { use_default_keymaps = false }, keys = { { "<leader>s", "<CMD>TSJToggle<CR>", desc = "Toggle Treesitter Join" } } },
       { import = "astrocommunity.editing-support.nvim-devdocs" },
       { "nvim-devdocs", opts = { previewer_cmd = nil, picker_cmd = false, wrap = true, ensure_installed = { "python-3.10", "clojure-1.11", "docker", "bash", "markdown", "http" } } },
       { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
@@ -64,6 +67,15 @@ return {
     { "bkad/CamelCaseMotion", lazy = false },
     { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end },
     { "gpanders/nvim-parinfer", enabled = false },
+
+    {
+      'Wansmer/treesj',
+      dependencies = { 'nvim-treesitter/nvim-treesitter' },
+      config = function()
+        require('treesj').setup({use_default_keymaps = false})
+      end,
+    },
+
 
     {
       "nvim-telescope/telescope.nvim",
