@@ -60,6 +60,7 @@ return {
       { import = "astrocommunity.git.diffview-nvim" },
       { import = "astrocommunity.pack.bash" },
       { import = "astrocommunity.pack.clojure" },
+      { "gpanders/nvim-parinfer", enabled = false },
       { import = "astrocommunity.pack.docker" },
       { import = "astrocommunity.pack.helm" },
       { import = "astrocommunity.pack.json" },
@@ -73,7 +74,6 @@ return {
     { "tpope/vim-repeat", lazy = false },
     { "bkad/CamelCaseMotion", lazy = false },
     { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end },
-    { "gpanders/nvim-parinfer", enabled = false },
 
     {
       'Wansmer/treesj',
