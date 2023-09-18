@@ -47,7 +47,14 @@ return {
       { import = "astrocommunity.completion.copilot-lua" },
       { "copilot.lua", opts = { suggestion = { enabled = false }, panel = { enabled = false } } },
       { import = "astrocommunity.editing-support.nvim-devdocs" },
-      { "nvim-devdocs", opts = { previewer_cmd = nil, picker_cmd = false, wrap = true, ensure_installed = { "python-3.10", "clojure-1.11", "docker", "bash", "markdown", "http" } } },
+      { "nvim-devdocs",
+        opts = function(_, opts)
+          opts.previewer_cmd = nil
+          opts.picker_cmd = false
+          opts.wrap = true
+          opts.ensure_installed = { "python-3.10", "clojure-1.11", "docker", "bash", "markdown" }
+        end
+      },
       { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
       { import = "astrocommunity.git.blame-nvim" },
       { import = "astrocommunity.git.diffview-nvim" },
