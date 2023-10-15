@@ -111,6 +111,7 @@ autoload -Uz promptinit && promptinit
 
 # shell dev env {{{
 zinit from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src="zhook.zsh" for direnv/direnv
+zinit ice from"gh-r" as"program" pick"lnav-*/lnav" ; zinit light tstack/lnav
 # }}}
 
 # java {{{
