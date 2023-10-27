@@ -11,7 +11,7 @@ env:
   TERM: xterm-256color
 
 import:
-  - /home/ory/.local/share/zinit/plugins/dracula-alacritty/dracula.yml
+  - $ZINIT[PLUGINS_DIR]/plugins/dracula-alacritty/dracula.toml
 
 key_bindings:
   # https://stackoverflow.com/a/42461580
