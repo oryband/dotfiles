@@ -126,10 +126,10 @@ zinit ice from"gh-r" as"program" bpick"zprintl-*" mv"zprintl-* -> zprint"; zinit
 # }}}
 
 # python {{{
-export PATH="$HOME/.local/bin:$PATH"
-export ZSH_PYENV_LAZY_VIRTUALENV=true
+zinit ice as'command' atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh && git clone https://github.com/pyenv/pyenv-virtualenv ./plugins/pyenv-virtualenv' atinit'export PYENV_ROOT="$PWD"' atpull"%atclone" pick'bin/pyenv' src"zpyenv.zsh" nocompile'!' ; zinit light pyenv/pyenv
+export ZSH_PYENV_LAZY_VIRTUALENV="true"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-zinit light davidparsson/zsh-pyenv-lazy
+zinit ice pick="pyenv-lazy.plugin.zsh" ; zinit light davidparsson/zsh-pyenv-lazy
 # }}}
 
 # javascript {{{
