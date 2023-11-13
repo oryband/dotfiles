@@ -7,3 +7,6 @@ vicmd_symbol = "[❮](bold green)"
 
 [gcloud]
 disabled = true
+
+[python]
+python_binary = ['python']
