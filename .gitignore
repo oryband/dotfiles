@@ -43,7 +43,9 @@
 /.config/evolution/
 /.config/gcloud/
 /.config/gedit/
+/.config/gh-copilot/
 /.config/gh/
+/.config/github-copilot/
 /.config/gnome-control-center/
 /.config/gnome-initial-setup-done
 /.config/goa-1.0/
