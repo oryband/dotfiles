@@ -114,6 +114,10 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > z
 zinit ice from"gh-r" as"program" pick"lnav-*/lnav" ; zinit light tstack/lnav
 # }}}
 
+# Linux Home Brew {{{
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# }}}
+
 # java {{{
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 export PATH="$JAVA_HOME/bin:$PATH"
