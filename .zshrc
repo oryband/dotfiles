@@ -180,7 +180,7 @@ zinit light paulirish/git-open
 zinit ice from"gh-r" as"program"; zinit light jesseduffield/lazygit
 
 # scm_breeze {{{
-zinit ice atpull"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"$HOME/.scm_breeze/scm_breeze.sh"; zinit light scmbreeze/scm_breeze
+zinit ice atclone"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" atpull"%atclone" pick"scm_breeze.sh"; zinit light scmbreeze/scm_breeze
 # }}}
 
 # aliases {{{
