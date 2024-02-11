@@ -76,6 +76,7 @@
 /.config/pulse/cookie
 /.config/pypoetry/
 /.config/solaar/
+/.config/sourcery/
 /.config/spotify/
 /.config/systemd/
 /.config/systemd/user/default.target.wants
@@ -143,6 +144,8 @@
 /.viminf*.tmp
 /.viminfo
 /.virtualenvs/
+/.vscode-oss/
+/.vscode/
 /.wget-hsts
 /.wpa_cli_history
 /.xsession-errors
