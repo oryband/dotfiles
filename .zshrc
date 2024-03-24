@@ -152,9 +152,9 @@ zinit ice from"gh-r" as"program" ; zinit light charmbracelet/glow
 source $HOME/.zsh-secrets
 
 # aliases {{{
-alias c="zi"
-alias c-="zi -"
-alias cd..="zi .."
+alias c="z"
+alias c-="c -"
+alias cd..="c .."
 
 alias cat="batcat"
 
