@@ -2,6 +2,7 @@
 return {
   { "goolord/alpha-nvim", opts = function(_, opts) opts.section.header.val = {} end },
 
+  { "max397574/better-escape.nvim" },
   { "tpope/vim-surround", lazy = false },
   { "tpope/vim-repeat", lazy = false },
   { "bkad/CamelCaseMotion", lazy = false },
