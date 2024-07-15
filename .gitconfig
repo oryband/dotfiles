@@ -73,3 +73,5 @@
 
     tags = tag --list
     undopush = push --force origin HEAD^:master
+[init]
+	defaultBranch = master
