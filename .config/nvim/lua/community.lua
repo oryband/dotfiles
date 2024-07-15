@@ -31,4 +31,6 @@ return {
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.programming-language-support.csv-vim" },
+
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 }
