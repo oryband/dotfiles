@@ -130,6 +130,7 @@ zinit ice from"gh-r" as"program" bpick"zprintl-*" mv"zprintl-* -> zprint"; zinit
 
 # python {{{
 zinit ice as'command' atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh && git clone https://github.com/pyenv/pyenv-virtualenv ./plugins/pyenv-virtualenv' atinit'export PYENV_ROOT="$PWD"' atpull"%atclone" pick'bin/pyenv' src"zpyenv.zsh" nocompile'!' ; zinit light pyenv/pyenv
+export PATH="$HOME/.local/bin:$PATH"
 export ZSH_PYENV_LAZY_VIRTUALENV="true"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 zinit ice pick="pyenv-lazy.plugin.zsh" ; zinit light davidparsson/zsh-pyenv-lazy
@@ -146,6 +147,23 @@ zinit ice from"gh-r" as"program" mv"yq_* -> yq" ; zinit light mikefarah/yq
 
 # markdown {{{
 zinit ice from"gh-r" as"program" ; zinit light charmbracelet/glow
+# }}}
+
+# GPT {{{
+zinit ice from"gh-r" as"program" ver"cli/v1.0.0" ; zinit light plandex-ai/plandex
+
+# shell-gpt
+_sgpt_zsh() {
+if [[ -n "$BUFFER" ]]; then
+    _sgpt_prev_cmd=$BUFFER
+    BUFFER+="⌛"
+    zle -I && zle redisplay
+    BUFFER=$(sgpt --shell <<< "$_sgpt_prev_cmd" --no-interaction)
+    zle end-of-line
+fi
+}
+zle -N _sgpt_zsh
+bindkey '^L' _sgpt_zsh
 # }}}
 
 # source secret env keys, etc.
