@@ -30,4 +30,5 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.programming-language-support.csv-vim" },
 }
