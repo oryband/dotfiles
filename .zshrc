@@ -193,7 +193,7 @@ httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 # }}}
 
 # git {{{
-zinit ice from"gh-r" as"program" pick"gh_*/bin/gh" bpick"*linux_amd64*" ; zinit light cli/cli
+zinit ice from"gh-r" as"program" pick"gh_*/bin/gh" ; zinit light cli/cli
 zinit light paulirish/git-open
 zinit ice from"gh-r" as"program"; zinit light jesseduffield/lazygit
 
