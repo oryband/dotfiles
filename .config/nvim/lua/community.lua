@@ -13,7 +13,18 @@ return {
       opts.previewer_cmd = nil
       opts.picker_cmd = false
       opts.wrap = true
-      opts.ensure_installed = { "python-3.10", "clojure-1.11", "docker", "bash", "markdown" }
+      opts.ensure_installed = {
+        "bash",
+        "clojure-1.11",
+        "docker",
+        "git",
+        "jq",
+        "kubectl",
+        "markdown",
+        "numpy-2.0",
+        "postgresql-17",
+        "python-3.10",
+      }
     end,
   },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
