@@ -150,8 +150,6 @@
 /.viminf*.tmp
 /.viminfo
 /.virtualenvs/
-/.vscode-oss/
-/.vscode/
 /.wget-hsts
 /.wpa_cli_history
 /.xsession-errors
