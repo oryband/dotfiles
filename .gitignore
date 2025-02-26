@@ -19,6 +19,7 @@
 /.config/.gsd-keyboard.settings-ported
 /.config/.nvim/plugin/packer_compiled.lua
 /.config/3T/
+/.config/Claude
 /.config/GIMP/
 /.config/GalaxyBudsClient/
 /.config/Keybase/
