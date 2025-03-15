@@ -144,7 +144,11 @@ zinit ice from"gh-r" as"program" mv"yq_* -> yq" ; zinit light mikefarah/yq
 zinit ice from"gh-r" as"program" ; zinit light charmbracelet/glow
 # }}}
 
-# GPT {{{
+# AI {{{
+zinit light loiccoyle/zsh-github-copilot
+bindkey '^[|' zsh_gh_copilot_explain  # bind Alt+shift+\ to explain
+bindkey '^[\' zsh_gh_copilot_suggest  # bind Alt+\ to suggest
+
 zinit ice from"gh-r" as"program" ver"cli/v1.0.0" ; zinit light plandex-ai/plandex
 
 # shell-gpt
