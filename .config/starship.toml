@@ -5,6 +5,9 @@ success_symbol = "[#](bold green)"
 error_symbol = "[#](bold red)"
 vicmd_symbol = "[❮](bold green)"
 
+[aws]
+disabled = true
+
 [gcloud]
 disabled = true
 
