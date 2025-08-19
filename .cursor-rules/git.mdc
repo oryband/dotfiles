@@ -1,0 +1,7 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+When executing git commands, use the Git MCP.
+Commit messages must abide to Conventional Commits standard.

@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Breaking Down Complex Tasks
+
+If a prompt is complex, or discuss multiple things or tasks, use Sequential Thinking MCP to break down the task into sub-problems.

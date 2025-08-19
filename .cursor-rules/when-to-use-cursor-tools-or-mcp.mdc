@@ -1,0 +1,20 @@
+---
+description: Development and coding style guide
+globs: 
+alwaysApply: true
+---
+# Always prefer Cursor built-in Tools over MCPs over Terminal Commands
+
+For example:
+
+- Always prefer Cursor built-in Grep tool instead of `grep` terminal command
+- Always prefer Cursor built-in List Directory over Filesystem MCP `list_directory` action over `ls` terminal command
+- Always prefer Cursor built-in edit file over Filesystem MCP `edit_file` action over terminal commands.
+- Always prefer Filesystem MCP `move_file` action over `mv` terminal command.
+- Always prefer GitHub MCP `create_pull_request` action instead of calling `gh` command line utility.
+
+And so on.
+
+# Use the most fitting MCP for the job
+
+When deciding to use an MCP, use the most fitting one for the job at hand. For example, if you need to read a GitHub issue's contents, prefer the GitHub MCP over Fetch MCP.
