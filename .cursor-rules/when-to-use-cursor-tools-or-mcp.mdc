@@ -1,9 +1,8 @@
 ---
-description: Development and coding style guide
-globs: 
 alwaysApply: true
 ---
-# Always prefer Cursor built-in Tools over MCPs over Terminal Commands
+
+# Always prefer Cursor built-in Tools over MCP actions over Terminal Commands.
 
 For example:
 
@@ -11,6 +10,7 @@ For example:
 - Always prefer Cursor built-in List Directory over Filesystem MCP `list_directory` action over `ls` terminal command
 - Always prefer Cursor built-in edit file over Filesystem MCP `edit_file` action over terminal commands.
 - Always prefer Filesystem MCP `move_file` action over `mv` terminal command.
+  - Particularly, when renaming a file, move it instead of generating a new file and removing the old one.
 - Always prefer GitHub MCP `create_pull_request` action instead of calling `gh` command line utility.
 
 And so on.

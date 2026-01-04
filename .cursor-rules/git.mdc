@@ -1,7 +1,7 @@
 ---
-description: 
-globs: 
+description:
 alwaysApply: true
 ---
+
 When executing git commands, use the Git MCP.
-Commit messages must abide to Conventional Commits standard.
+Commit messages and branch names must adhere to Conventional Commits standard. You can use Context7 MCP to read it.

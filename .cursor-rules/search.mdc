@@ -1,6 +1,5 @@
 ---
-description: 
-globs: 
 alwaysApply: true
 ---
-When searching the web, use tavily MCP.
+
+When searching the web, use omnisearch MCP.
