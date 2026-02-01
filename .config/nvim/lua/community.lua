@@ -14,14 +14,10 @@ return {
       opts.wrap = true
       opts.ensure_installed = {
         "bash",
-        "docker",
         "git",
         "jq",
         "kubectl",
         "markdown",
-        "numpy-2.0",
-        "postgresql-17",
-        "python-3.10",
       }
     end,
   },
