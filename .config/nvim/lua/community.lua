@@ -15,7 +15,6 @@ return {
       opts.wrap = true
       opts.ensure_installed = {
         "bash",
-        "clojure-1.11",
         "docker",
         "git",
         "jq",
@@ -27,12 +26,9 @@ return {
       }
     end,
   },
-  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.git.blame-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.pack.bash" },
-  { import = "astrocommunity.pack.clojure" },
-  { "gpanders/nvim-parinfer", enabled = false },
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.helm" },
   { import = "astrocommunity.pack.json" },
