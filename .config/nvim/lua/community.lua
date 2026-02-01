@@ -5,7 +5,6 @@ return {
   { "smartcolumn.nvim", opts = { scope = "line", custom_colorcolumn = { python = { 79 }, clojure = { 120 }, gitcommit = { 50, 72 } } }, },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
-  { import = "astrocommunity.completion.copilot-cmp" },
   { import = "astrocommunity.editing-support.nvim-devdocs" },
   {
     "nvim-devdocs",
