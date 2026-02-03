@@ -303,13 +303,13 @@ fi
 
 # gcloud {{{
 # PATH - load immediately (needed for gcloud command)
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
-  source "$HOME/google-cloud-sdk/path.zsh.inc"
+if [ -f "$HOME/.local/google-cloud-sdk/path.zsh.inc" ]; then
+  source "$HOME/.local/google-cloud-sdk/path.zsh.inc"
 fi
 
 # Completions - lazy load with turbo mode
 zinit ice lucid wait'0b' blockf
-zinit snippet "$HOME/google-cloud-sdk/completion.zsh.inc"
+zinit snippet "$HOME/.local/google-cloud-sdk/completion.zsh.inc"
 # }}}
 
 # nvm - lazy loaded via zsh-nvm {{{
