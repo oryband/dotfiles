@@ -2,6 +2,16 @@
 return {
   { "goolord/alpha-nvim", opts = function(_, opts) opts.section.header.val = {} end },
 
+  {
+    "GCBallesteros/jupytext.nvim",
+    lazy = false,
+    opts = {
+      style = "markdown",
+      output_extension = "md",
+      force_ft = "markdown",
+    },
+  },
+
   { "max397574/better-escape.nvim" },
   { "tpope/vim-surround", lazy = false },
   { "tpope/vim-repeat", lazy = false },
@@ -18,6 +28,14 @@ return {
       opts.defaults.mappings.i["<C-p>"] = actions.move_selection_previous
       opts.defaults.mappings.i["<C-j>"] = actions.cycle_history_next
       opts.defaults.mappings.i["<C-k>"] = actions.cycle_history_prev
+
+      opts.pickers = opts.pickers or {}
+      opts.pickers.buffers = {
+        mappings = {
+          i = { ["<C-d>"] = actions.delete_buffer },
+          n = { ["dd"] = actions.delete_buffer },
+        },
+      }
     end,
   },
 

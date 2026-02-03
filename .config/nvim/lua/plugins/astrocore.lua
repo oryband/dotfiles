@@ -4,6 +4,10 @@ return {
   ---@type AstroCoreOpts
   opts = {
     options = {
+      opt = {
+        title = true,
+        titlestring = "%t", -- Just show the tail (filename) instead of full path
+      },
       g = {
         ["conjure#mapping#doc_word"] = "false",
         ["conjure#mapping#def_word"] = "false",
