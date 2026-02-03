@@ -2,6 +2,8 @@
     name = Ory Band
     email = oryband@users.noreply.github.com
     signingkey = CE95A0A7
+[push]
+    autoSetupRemote = true
 [commit]
     gpgSign = true
 [push]
@@ -9,7 +11,8 @@
 [pull]
 	rebase = true
 [credential]
-    helper = cache --timeout=3600
+    helper =
+    helper = cache --timeout=43200
 [apply]
     whitespace = fix
 [core]
@@ -74,4 +77,5 @@
     tags = tag --list
     undopush = push --force origin HEAD^:master
 [init]
-	defaultBranch = master
+    defaultBranch = master
+	templateDir = ~/dotfiles/.git-template
