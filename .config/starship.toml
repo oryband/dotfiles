@@ -1,5 +1,9 @@
 # add_newline = false
 
+# Performance optimizations
+command_timeout = 500  # Reduce timeout from default 500ms (adjust lower if needed)
+scan_timeout = 30      # Fast directory scan (default is 30ms)
+
 [character]
 success_symbol = "[#](bold green)"
 error_symbol = "[#](bold red)"
@@ -13,3 +17,9 @@ disabled = true
 
 [python]
 python_binary = ['python']
+# Performance optimizations
+detect_extensions = []  # Disable auto-detect by file extension
+detect_files = ['.python-version']  # Only detect in dirs with .python-version
+detect_folders = []  # Disable folder-based detection
+# Alternatively, if you want to disable Python module entirely:
+# disabled = true
