@@ -36,6 +36,21 @@ return {
   { import = "astrocommunity.programming-language-support.csv-vim" },
   { import = "astrocommunity.code-runner.molten-nvim" },
   { import = "astrocommunity.pack.quarto" },
+  -- Override treesitter config
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      -- Exclude latex (requires grammar generation, incompatible with tree-sitter CLI 0.26+)
+      if opts.ensure_installed and type(opts.ensure_installed) == "table" then
+        opts.ensure_installed = vim.tbl_filter(function(parser)
+          return parser ~= "latex"
+        end, opts.ensure_installed)
+      end
+      -- Disable treesitter highlighting for markdown (use vim syntax for code block highlighting)
+      opts.highlight = opts.highlight or {}
+      opts.highlight.disable = { "markdown" }
+    end,
+  },
 
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 }

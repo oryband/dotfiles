@@ -11,6 +11,21 @@ return {
       force_ft = "markdown",
     },
   },
+  -- Enable otter.nvim for markdown files (LSP in code blocks)
+  {
+    "jmbuhr/otter.nvim",
+    ft = { "markdown" },
+    opts = {},
+    config = function(_, opts)
+      require("otter").setup(opts)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          require("otter").activate(nil, true, true, nil) -- nil = auto-detect languages
+        end,
+      })
+    end,
+  },
 
   { "max397574/better-escape.nvim" },
   { "tpope/vim-surround", lazy = false },
