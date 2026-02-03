@@ -1,0 +1,119 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__github__*",
+      "mcp__git__*",
+      "mcp__context7__*",
+      "mcp__omnisearch__*",
+      "mcp__sequential-thinking__*",
+      "mcp__postman__*",
+      "WebSearch",
+      "Skill(*)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/.ssh/id_*)",
+      "Read(**/id_rsa)",
+      "Read(**/id_ed25519)",
+      "Read(**/*.pem)",
+      "Read(**/*.p12)",
+      "Read(**/*.pfx)",
+      "Read(**/*.ppk)",
+      "Read(**/*.gpg)",
+      "Read(**/*.pgp)",
+      "Read(**/.aws/credentials)",
+      "Read(**/.aws/**)",
+      "Read(**/.azure/**)",
+      "Read(**/.config/gcloud/**)",
+      "Read(**/.kube/config)",
+      "Read(**/.kube/**)",
+      "Read(**/*vault_pass*)",
+      "Read(**/secrets.yml)",
+      "Read(**/secrets.yaml)",
+      "Read(**/secrets.json)",
+      "Read(**/credentials.json)",
+      "Read(**/.htpasswd)",
+      "Read(**/.netrc)",
+      "Read(**/.npmrc)",
+      "Read(**/.yarnrc)",
+      "Read(**/.pypirc)",
+      "Read(**/*.tfstate)",
+      "Read(**/.git-credentials)",
+      "Read(**/.bash_history)",
+      "Read(**/.zsh_history)",
+      "Read(**/.zsh-secrets)",
+      "Read(**/.pgpass)",
+      "Read(**/.my.cnf)",
+      "Read(**/.docker/config.json)",
+      "Read(**/*.jks)",
+      "Read(**/*.keystore)",
+      "Read(**/*.key)",
+      "Read(.awscreds)",
+      "Read(.certs/**)",
+      "Read(**/secrets/**)",
+      "Read(**/*secret*)",
+      "Read(**/*credential*)",
+      "Read(**/*password*)"
+    ],
+    "defaultMode": "default"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ○ $(basename \"$CLAUDE_PROJECT_DIR\")\" 2>/dev/null; true"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/tmux-summary.sh",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "INPUT=$(cat); SID=$(echo \"$INPUT\" | jq -r '.session_id // empty'); TASK=$(cat /tmp/claude-tmux-summaries/$SID 2>/dev/null); [ -z \"$TASK\" ] && TASK=$(basename \"$CLAUDE_PROJECT_DIR\"); [ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ! $TASK\" 2>/dev/null; true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "INPUT=$(cat); SID=$(echo \"$INPUT\" | jq -r '.session_id // empty'); TASK=$(cat /tmp/claude-tmux-summaries/$SID 2>/dev/null); [ -z \"$TASK\" ] && TASK=$(basename \"$CLAUDE_PROJECT_DIR\"); [ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ✓ $TASK\" 2>/dev/null; true"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TMUX_PANE\" ] && tmux set-window-option -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') automatic-rename on 2>/dev/null; true"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0
+  }
+}

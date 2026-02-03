@@ -1,0 +1,66 @@
+{
+  "$schema": "https://platform.claude.com/docs/schemas/claude-code/keybindings.json",
+  "$docs": "https://code.claude.com/docs/en/keybindings",
+  "bindings": [
+    {
+      "context": "Chat",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "Confirmation",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "Autocomplete",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "Help",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "Settings",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "Select",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "DiffDialog",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "Transcript",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "Footer",
+      "bindings": {
+        "escape": null
+      }
+    },
+    {
+      "context": "Attachments",
+      "bindings": {
+        "escape": null
+      }
+    }
+  ]
+}

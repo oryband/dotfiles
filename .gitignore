@@ -1,5 +1,6 @@
 # global ignores
 .clj-kondo/
+.DS_Store
 .lsp/
 .tags
 
@@ -7,6 +8,12 @@
 
 /.3T/
 /.aspnet/
+
+# AI tools (machine-specific)
+/.cagent/
+/.claude/CLAUDE.md
+/.config/cagent/
+/.cursor/
 /.aws/
 /.awscreds
 /.bash_history
@@ -101,11 +108,31 @@
 /.zshDDPMenv
 /.zsh_sessions/
 
+/.claude.json
+/.claude.json.backup*
+/.claude/cache/
+/.claude/debug/
+/.claude/file-history/
+/.claude/history.jsonl
+/.claude/ide/
+/.claude/paste-cache/
+/.claude/plans/
+/.claude/plugins/
+/.claude/projects/
+/.claude/session-env/
+/.claude/settings.local.json
+/.claude/shell-snapshots/
+/.claude/stats-cache.json
+/.claude/statsig/
+/.claude/tasks/
+/.claude/todos/
+
 /.config/.gsd-keyboard.settings-ported
 /.config/.nvim/plugin/packer_compiled.lua
 /.config/3T/
 /.config/autorandr/
 /.config/autostart/
+/.config/ccstatusline/
 /.config/cef_user_data/
 /.config/chromium/
 /.config/chromium-back-ovfs/
