@@ -21,7 +21,10 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function()
-          require("otter").activate(nil, true, true, nil) -- nil = auto-detect languages
+          -- Defer activation to let LSP attach first, wrap in pcall to suppress errors
+          vim.defer_fn(function()
+            pcall(require("otter").activate, nil, true, true, nil)
+          end, 100)
         end,
       })
     end,

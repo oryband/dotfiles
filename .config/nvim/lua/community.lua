@@ -46,10 +46,21 @@ return {
           return parser ~= "latex"
         end, opts.ensure_installed)
       end
-      -- Disable treesitter highlighting for markdown (use vim syntax for code block highlighting)
-      opts.highlight = opts.highlight or {}
-      opts.highlight.disable = { "markdown" }
     end,
+  },
+  -- Render markdown in-editor (headings, lists, code blocks, etc.)
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  {
+    "render-markdown.nvim",
+    opts = {
+      code = {
+        border = "none", -- Don't hide closing ``` (molten-nvim compatibility)
+        style = "language", -- Only show language icon, no background
+      },
+      heading = {
+        backgrounds = {}, -- Disable heading backgrounds (too bright)
+      },
+    },
   },
 
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
