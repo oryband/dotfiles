@@ -1,24 +1,49 @@
 # credits https://pastebin.com/Tgji4PZv
 
-# path {{{
-export PATH="$HOME/.local/bin:$PATH"
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-# }}}
-
 # zinit {{{
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
-
-# Note: ZINIT[NEW_AUTOLOAD] modes and their issues:
-#   =2: Tries to autoload from plugin dir, breaks system functions (compaudit error)
-#   =1: Uses autoload -X wrapper, breaks comptags (fixed in completion init below)
-#   =0: Uses reload-and-run wrapper, also breaks comptags
-# We use default (=1) and fix comptags issue in "completion initialization" section.
-
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+# }}}
+
+# path {{{
+export PATH="$HOME/.local/bin:$PATH"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+# }}}
+
+# shell options {{{
+setopt NOCLOBBER   # prevent accidental file overwrites with > (use >| to override)
+setopt NO_NOMATCH  # don't error on unmatched globs
+# }}}
+
+# nvm - lazy loaded via zsh-nvm {{{
+export NVM_DIR="$HOME/.nvm"
+export NVM_AUTO_USE=true
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('yarn')
+zinit light lukechilds/zsh-nvm
+# }}}
+
+# pyenv + pyenv-virtualenv - lazy loaded via zsh-pyenv-lazy {{{
+# Installed via Homebrew, lazy loaded via zinit plugin
+export PYENV_ROOT="$HOME/.pyenv"
+export ZSH_PYENV_LAZY_VIRTUALENV=true
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+zinit ice pick="pyenv-lazy.plugin.zsh" ; zinit light davidparsson/zsh-pyenv-lazy
+# Use .python-version files in project directories for version management
+# }}}
+
+# direnv {{{
+# Installed via Homebrew
+eval "$(direnv hook zsh)"
+# }}}
+
+# secrets {{{
+[ -f ~/.zsh-secrets ] && source ~/.zsh-secrets
 # }}}
 
 # prezto modules {{{
@@ -50,41 +75,30 @@ _load_pmodule() {
 # Load modules (order matters)
 _load_pmodule helper      # Helper functions used by other modules
 _load_pmodule environment # General shell options, Smart URLs (url-quote-magic)
+_load_pmodule terminal    # Terminal window/tab titles
 
-# Only load interactive modules outside of Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  _load_pmodule terminal    # Terminal window/tab titles
+# Editor - sets key bindings
+zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:editor' dot-expansion 'yes'
+_load_pmodule editor
 
-  # Editor - sets key bindings
-  zstyle ':prezto:module:editor' key-bindings 'vi'
-  zstyle ':prezto:module:editor' dot-expansion 'yes'
-  _load_pmodule editor
+_load_pmodule history     # History options and aliases
+_load_pmodule directory   # Directory navigation options and aliases (autopushd, cd stack)
+_load_pmodule spectrum    # 256 colors support
+_load_pmodule utility     # Adds -i flags to cp/mv/rm (confirmation prompts)
+_load_pmodule git         # Git aliases (g, gc, gco, etc.)
+_load_pmodule completion  # Completion styles and menu-select widget
 
-  _load_pmodule history     # History options and aliases
-  _load_pmodule directory   # Directory navigation options and aliases (autopushd, cd stack)
-  _load_pmodule spectrum    # 256 colors support
-  _load_pmodule utility     # PROBLEMATIC: adds -i flags to cp/mv/rm that block on confirmation
-  _load_pmodule git         # Git aliases (g, gc, gco, etc.)
-  _load_pmodule completion  # Completion styles and menu-select widget
-
-  # Tmux
-  zstyle ':prezto:module:tmux:session' name '0'
-  _load_pmodule tmux
-fi
+# Tmux
+zstyle ':prezto:module:tmux:session' name '0'
+_load_pmodule tmux
 
 unfunction _load_pmodule
 # }}}
 
-# basic zsh options {{{
-setopt NOCLOBBER  # Prevent accidental file overwrites with > (use >| to override)
-# }}}
-
 # colors {{{
-# Only load visual themes outside of Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  export DRACULA_DISPLAY_GIT=0
-  zinit ice pick"lib/async.zsh" src"dracula.zsh-theme"; zinit light dracula/zsh
-fi
+export DRACULA_DISPLAY_GIT=0
+zinit ice pick"lib/async.zsh" src"dracula.zsh-theme"; zinit light dracula/zsh
 
 # FZF color settings (keep for potential FZF usage)
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
@@ -94,25 +108,15 @@ export FZF_TMUX=1
 
 # misc plugins {{{
 zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
-
-# Only load alias-tips outside of Claude Code (interactive feature)
-if [[ -z "$CLAUDECODE" ]]; then
-  zinit light djui/alias-tips
-fi
+zinit light djui/alias-tips
 # }}}
 
 # prompt {{{
-# Only load starship prompt outside of Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  eval "$(starship init zsh)"
-fi
+eval "$(starship init zsh)"
 # }}}
 
 # tmux {{{
-# TPM (Tmux Plugin Manager) - only load outside of Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  zinit ice lucid wait'!0a' as'null' id-as'tpm' atclone'mkdir -p $HOME/.tmux/plugins; ln -sf $ZINIT[PLUGINS_DIR]/tpm $HOME/.tmux/plugins/tpm' ; zinit light tmux-plugins/tpm
-fi
+zinit ice lucid wait'!0a' as'null' id-as'tpm' atclone'mkdir -p $HOME/.tmux/plugins; ln -sf $ZINIT[PLUGINS_DIR]/tpm $HOME/.tmux/plugins/tpm' ; zinit light tmux-plugins/tpm
 # }}}
 
 # completion {{{
@@ -130,19 +134,13 @@ setopt PATH_DIRS
 # }}}
 
 # suggestions {{{
-# Only load autosuggestions outside of Claude Code (interactive feature)
-if [[ -z "$CLAUDECODE" ]]; then
-  zinit ice wait atload"_zsh_autosuggest_start" lucid; zinit light zsh-users/zsh-autosuggestions
-fi
+zinit ice wait atload"_zsh_autosuggest_start" lucid; zinit light zsh-users/zsh-autosuggestions
 # }}}
 
 # history plugins {{{
-# Only load interactive history plugins outside of Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  zinit ice wait"1" silent pick"zsh-history-substring-search.plugin.zsh" lucid; zinit light zsh-users/zsh-history-substring-search
-  zinit ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zinit light zdharma-continuum/history-search-multi-word
-  zstyle ":plugin:history-search-multi-word" active "standout"
-fi
+zinit ice wait"1" silent pick"zsh-history-substring-search.plugin.zsh" lucid; zinit light zsh-users/zsh-history-substring-search
+zinit ice wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid; zinit light zdharma-continuum/history-search-multi-word
+zstyle ":plugin:history-search-multi-word" active "standout"
 # }}}
 
 # completion style {{{
@@ -174,11 +172,6 @@ autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 # }}}
 
-# shell dev env {{{
-# direnv and lnav installed via Homebrew
-eval "$(direnv hook zsh)"
-# }}}
-
 # macOS Homebrew {{{
 # Homebrew shellenv loaded in .zprofile (removed duplicate)
 
@@ -193,21 +186,8 @@ zinit ice from"gh-r" as"program" pick"bb"; zinit light babashka/babashka
 zinit ice from"gh-r" as"program" bpick"zprintl-*" mv"zprintl-* -> zprint"; zinit light kkinnear/zprint
 # }}}
 
-# python {{{
-# zinit ice as'command' atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh && git clone https://github.com/pyenv/pyenv-virtualenv ./plugins/pyenv-virtualenv' atinit'export PYENV_ROOT="$PWD"' atpull"%atclone" pick'bin/pyenv' src"zpyenv.zsh" nocompile'!' ; zinit light pyenv/pyenv
-# export PATH="$HOME/.local/bin:$PATH"
-# export ZSH_PYENV_LAZY_VIRTUALENV="true"
-# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-# zinit ice pick="pyenv-lazy.plugin.zsh" ; zinit light davidparsson/zsh-pyenv-lazy
-# 
-# pyenv + pyenv-virtualenv - lazy loaded via zsh-pyenv-lazy {{{
-# Installed via Homebrew, lazy loaded via zinit plugin
-export PYENV_ROOT="$HOME/.pyenv"
-export ZSH_PYENV_LAZY_VIRTUALENV=true
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-zinit ice pick="pyenv-lazy.plugin.zsh" ; zinit light davidparsson/zsh-pyenv-lazy
-# Use .python-version files in project directories for version management
-# }}}
+# less {{{
+export LESS='-R --mouse'
 # }}}
 
 # jq {{{
@@ -216,20 +196,17 @@ export JQ_COLORS='0;31:0;39:0;39:0;39:0;32:1;39:1;39'
 # }}}
 
 # aliases {{{
-# Only load interactive-focused aliases outside of Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  alias c="z"
-  alias c-="c -"
-  alias cd..="c .."
-  alias cc="__zoxide_zi"
+alias c="z"
+alias c-="c -"
+alias cd..="c .."
+alias cc="__zoxide_zi"
 
-  alias cat="bat"
-  alias ls="lsd --group-dirs first"
-  alias grep="rg"
-  alias ag="rg"
-  alias tree="lsd --tree"
-  alias vi="nvim"
-fi
+alias cat="bat"
+alias ls="lsd --group-dirs first"
+alias grep="rg"
+alias ag="rg"
+alias tree="lsd --tree"
+alias vi="nvim"
 
 alias tailf="tail -f"
 
@@ -244,33 +221,26 @@ httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 zinit light paulirish/git-open
 
 # scm_breeze {{{
-# Detect if running in Claude Code context
-# Only load SCM Breeze in interactive shells
-if [[ -z "$CLAUDECODE" ]]; then
-  SCM_BREEZE_DISABLE_ASSETS_MANAGEMENT="true"
-  zinit ice atclone"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" atpull"%atclone" pick"scm_breeze.sh"; zinit light scmbreeze/scm_breeze
-fi
+SCM_BREEZE_DISABLE_ASSETS_MANAGEMENT="true"
+zinit ice atclone"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" atpull"%atclone" pick"scm_breeze.sh"; zinit light scmbreeze/scm_breeze
 # }}}
 
 # aliases {{{
-# These git aliases depend on scm_breeze, only load outside Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  alias gc="g c"
-  alias ga="g add"
-  alias gmv="g mv"
-  alias grs="git reset"
-  alias gl="g l"
-  alias gll="g ll"
-  alias gd="git d"
-  alias gds="git ds"
-  alias gdc="git dc"
-  alias gsh="g sh"
-  alias grp="g rp"
-  alias gbr="g br"
-  alias gbdr="g bdr"
-  alias gbdm="g bdm"
-  alias gprune="g prune"
-fi
+alias gc="g c"
+alias ga="g add"
+alias gmv="g mv"
+alias grs="git reset"
+alias gl="g l"
+alias gll="g ll"
+alias gd="git d"
+alias gds="git ds"
+alias gdc="git dc"
+alias gsh="g sh"
+alias grp="g rp"
+alias gbr="g br"
+alias gbdr="g bdr"
+alias gbdm="g bdm"
+alias gprune="g prune"
 # }}}
 # }}}
 
@@ -312,39 +282,14 @@ zinit ice lucid wait'0b' blockf
 zinit snippet "$HOME/.local/google-cloud-sdk/completion.zsh.inc"
 # }}}
 
-# nvm - lazy loaded via zsh-nvm {{{
-# Uses zsh-nvm plugin with NVM_LAZY_LOAD for ~70x faster shell startup
-# NVM will auto-load on first use of: nvm, node, npm, npx, yarn, or global npm packages
-export NVM_DIR="$HOME/.nvm"
-export NVM_AUTO_USE=true  # Auto-switch node versions based on .nvmrc
-export NVM_COMPLETION=true
-
-# Lazy load only in interactive shells, not in Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  export NVM_LAZY_LOAD=true
-  export NVM_LAZY_LOAD_EXTRA_COMMANDS=('yarn')
-else
-  export NVM_LAZY_LOAD=false
-fi
-
-zinit light lukechilds/zsh-nvm
-
-# Add yarn global bin after NVM is available (runs on first node/npm/yarn use)
-if command -v yarn &>/dev/null; then
-  export PATH="$(yarn global bin):$PATH"
-fi
-# }}}
-
 # syntax highlighting {{{
-# NOTE must be last plugin to load - only load outside of Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  zinit ice lucid
-  zinit light zsh-users/zsh-syntax-highlighting
-fi
+# NOTE must be last plugin to load
+zinit ice lucid
+zinit light zsh-users/zsh-syntax-highlighting
 # }}}
 
 # completion initialization {{{
-# PROBLEM: Zinit wraps autoload calls during plugin loading, creating functions like:
+# Zinit wraps autoload calls during plugin loading, creating functions like:
 #   _tags() { local -a fpath; fpath=(...); builtin autoload -X }
 # This extra fpath wrapper changes the function call stack depth, breaking comptags
 # which uses stack depth to track completion tags. Results in errors like:
@@ -380,33 +325,30 @@ zinit cdreplay -q
 
 # fzf {{{
 # fzf must be loaded AFTER compinit for completion to work
-# Only load interactive key-bindings outside Claude Code
-if [[ -z "$CLAUDECODE" ]]; then
-  if [[ -f ~/.fzf.zsh ]]; then
-    source ~/.fzf.zsh
-  elif type brew &>/dev/null; then
-    # Load Homebrew fzf integration
-    [[ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
-    [[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
-  fi
+if [[ -f ~/.fzf.zsh ]]; then
+  source ~/.fzf.zsh
+elif type brew &>/dev/null; then
+  # Load Homebrew fzf integration
+  [[ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+  [[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+fi
 
-  # Ensure Tab is bound to fzf-completion (in case something overrode it)
-  if typeset -f fzf-completion &>/dev/null; then
-    bindkey '^I' fzf-completion
-  fi
+# Ensure Tab is bound to fzf-completion (in case something overrode it)
+if typeset -f fzf-completion &>/dev/null; then
+  bindkey '^I' fzf-completion
 fi
 # }}}
 
 # claude {{{
-export ANTHROPIC_MODEL='claude-opus-4-5'
+export ANTHROPIC_MODEL='claude-opus-4-6'
 export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+export CLAUDE_CODE_ENABLE_TELEMETRY=1
 # }}}
 
 
 # must be called after compinit
 eval "$(zoxide init zsh)"
-
-[ -f ~/.zsh-secrets ] && source ~/.zsh-secrets
 
 # vim:foldlevel=0
 # vim:foldmethod=marker
