@@ -11,7 +11,6 @@
 
 # AI tools (machine-specific)
 /.cagent/
-/.claude/CLAUDE.md
 /.config/cagent/
 /.cursor/
 /.aws/
@@ -114,10 +113,10 @@
 /.claude/*/
 !/.claude/rules/
 !/.claude/scripts/
-/.claude/CLAUDE.md
 /.claude/history.jsonl
 /.claude/settings.local.json
 /.claude/stats-cache.json
+/.claude/work.md
 
 /.config/.gsd-keyboard.settings-ported
 /.config/.nvim/plugin/packer_compiled.lua
