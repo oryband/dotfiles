@@ -33,7 +33,6 @@ return {
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
-  { import = "astrocommunity.programming-language-support.csv-vim" },
   { import = "astrocommunity.code-runner.molten-nvim" },
   { import = "astrocommunity.pack.quarto" },
   -- Override treesitter config

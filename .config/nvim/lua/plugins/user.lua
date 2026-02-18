@@ -34,6 +34,15 @@ return {
   { "tpope/vim-surround", lazy = false },
   { "tpope/vim-repeat", lazy = false },
   { "bkad/CamelCaseMotion", lazy = false },
+  {
+    "hat0uma/csvview.nvim",
+    ft = { "csv", "tsv" },
+    opts = {
+      view = {
+        display_mode = "border",
+      },
+    },
+  },
   { "guns/vim-sexp", ft = { "clojure" }, config = function() vim.api.nvim_set_var("sexp_enable_insert_mode_mappings", 0) end, },
   { "Wansmer/treesj", dependencies = { "nvim-treesitter/nvim-treesitter" }, config = function() require("treesj").setup { use_default_keymaps = false } end, },
 
