@@ -110,13 +110,12 @@
 /.claude.json
 /.claude.json.backup*
 /.claude.json.corrupted*
-/.claude/*/
+/.claude/*
+!/.claude/CLAUDE.md
+!/.claude/keybindings.json
+!/.claude/settings.json
 !/.claude/rules/
 !/.claude/scripts/
-/.claude/history.jsonl
-/.claude/settings.local.json
-/.claude/stats-cache.json
-/.claude/work.md
 
 /.config/.gsd-keyboard.settings-ported
 /.config/.nvim/plugin/packer_compiled.lua
