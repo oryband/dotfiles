@@ -1,14 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(. *)",
       "Bash([ *)",
       "Bash(alias *)",
       "Bash(awk *)",
       "Bash(base64 *)",
       "Bash(basename *)",
       "Bash(brew *)",
-      "Bash(bun *)",
       "Bash(cat *)",
       "Bash(cd *)",
       "Bash(chmod *)",
@@ -16,7 +14,6 @@
       "Bash(column *)",
       "Bash(command *)",
       "Bash(cp *)",
-      "Bash(curl *)",
       "Bash(cut *)",
       "Bash(date *)",
       "Bash(declare *)",
@@ -52,14 +49,11 @@
       "Bash(mdfind *)",
       "Bash(mkdir *)",
       "Bash(mv *)",
-      "Bash(node *)",
-      "Bash(npm *)",
-      "Bash(npx *)",
       "Bash(nvm *)",
+      "Bash(okteto *)",
       "Bash(open *)",
       "Bash(openssl *)",
       "Bash(pgrep *)",
-      "Bash(pip *)",
       "Bash(pkill *)",
       "Bash(plutil *)",
       "Bash(pnpm *)",
@@ -70,8 +64,6 @@
       "Bash(pushd *)",
       "Bash(pwd *)",
       "Bash(pyenv *)",
-      "Bash(python *)",
-      "Bash(python3 *)",
       "Bash(read *)",
       "Bash(readlink *)",
       "Bash(realpath *)",
@@ -85,7 +77,6 @@
       "Bash(shfmt *)",
       "Bash(sleep *)",
       "Bash(sort *)",
-      "Bash(source *)",
       "Bash(stat *)",
       "Bash(tail *)",
       "Bash(tar *)",
@@ -114,35 +105,29 @@
       "Bash(yarn *)",
       "Bash(yes *)",
       "Bash(zoxide *)",
-      "Bash(zsh *)",
       "Edit(/tmp/**)",
       "Edit(/var/tmp/**)",
       "Read(/tmp/**)",
       "Read(/var/tmp/**)",
       "Read(~/Development/**)",
       "Skill(*)",
-      "WebFetch(domain:arxiv.org)",
-      "WebFetch(domain:docs.anthropic.com)",
-      "WebFetch(domain:docs.claude.com)",
-      "WebFetch(domain:docs.cloud.google.com)",
-      "WebFetch(domain:gist.github.com)",
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:medium.com)",
-      "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:stackoverflow.com)",
-      "WebFetch(domain:www.reddit.com)",
+      "WebFetch",
       "WebSearch",
       "Write(/tmp/**)",
       "Write(/var/tmp/**)",
+      "mcp__bigbrain__*",
       "mcp__context7__*",
       "mcp__figma__*",
       "mcp__git__*",
       "mcp__github__*",
       "mcp__langsmith__*",
-      "mcp__omnisearch__*",
+      "mcp__monday-api__*",
+      "mcp__monday-mcp__*",
       "mcp__playwright__*",
       "mcp__postman__*",
-      "mcp__sequential-thinking__*"
+      "mcp__sequential-thinking__*",
+      "mcp__tavily__*",
+      "mcp__vibe__*"
     ],
     "deny": [
       "Read(**/*.gpg)",
@@ -194,6 +179,7 @@
       "~/Development"
     ]
   },
+  "model": "claude-opus-4-6[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -201,7 +187,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/scripts/approve-compound-bash.sh"
+            "command": "~/.claude/scripts/approve-compound-bash.sh",
+            "timeout": 3
           }
         ]
       }
@@ -232,7 +219,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "INPUT=$(cat); SID=$(echo \"$INPUT\" | jq -r '.session_id // empty'); TASK=$(cat /tmp/claude-tmux-summaries/$SID 2>/dev/null); [ -z \"$TASK\" ] && TASK=$(basename \"$CLAUDE_PROJECT_DIR\"); [ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ! $TASK\" 2>/dev/null; true"
+            "command": "INPUT=$(cat); SID=$(echo \"$INPUT\" | jq -r '.session_id // empty'); TASK=$(cat \"/tmp/claude-tmux-summaries/$SID\" 2>/dev/null); [ -z \"$TASK\" ] && TASK=$(basename \"$CLAUDE_PROJECT_DIR\"); [ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ! $TASK\" 2>/dev/null; true"
           }
         ]
       }
@@ -242,7 +229,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "INPUT=$(cat); SID=$(echo \"$INPUT\" | jq -r '.session_id // empty'); TASK=$(cat /tmp/claude-tmux-summaries/$SID 2>/dev/null); [ -z \"$TASK\" ] && TASK=$(basename \"$CLAUDE_PROJECT_DIR\"); [ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ✓ $TASK\" 2>/dev/null; true"
+            "command": "INPUT=$(cat); SID=$(echo \"$INPUT\" | jq -r '.session_id // empty'); TASK=$(cat \"/tmp/claude-tmux-summaries/$SID\" 2>/dev/null); [ -z \"$TASK\" ] && TASK=$(basename \"$CLAUDE_PROJECT_DIR\"); [ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ✓ $TASK\" 2>/dev/null; true"
           }
         ]
       }
@@ -257,6 +244,12 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": false,
+    "hookify@claude-plugins-official": false,
+    "trident-monorepo@agentic-builders-hub": true
   },
   "statusLine": {
     "type": "command",
