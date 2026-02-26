@@ -10,4 +10,8 @@
 - Conventional Commits standard for commit messages and branch names
 - AI-generated PR/issue text must be signed with model info
 
+## NVM & Node
+
+- When running Node and Yarn commands, execute `nvm use` first (no need to source `nvm.sh`) in the working directory to set the correct Node.js version.
+
 @~/.claude/work.md

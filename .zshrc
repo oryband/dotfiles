@@ -19,13 +19,16 @@ setopt NOCLOBBER   # prevent accidental file overwrites with > (use >| to overri
 setopt NO_NOMATCH  # don't error on unmatched globs
 # }}}
 
-# nvm - lazy loaded via zsh-nvm {{{
-export NVM_DIR="$HOME/.nvm"
-export NVM_AUTO_USE=true
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=('yarn')
-zinit light lukechilds/zsh-nvm
+# nvm {{{
+# NVM_DIR exported in .zprofile
+if [[ -n "$CLAUDECODE" ]]; then
+  # Load directly — zinit lazy loader doesn't survive shell snapshot
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+else
+  export NVM_AUTO_USE=true
+  export NVM_COMPLETION=true
+  zinit light lukechilds/zsh-nvm
+fi
 # }}}
 
 # pyenv + pyenv-virtualenv - lazy loaded via zsh-pyenv-lazy {{{
@@ -45,6 +48,14 @@ eval "$(direnv hook zsh)"
 # monday.com {{{
 [ -f ~/.zsh-monday ] && source ~/.zsh-monday
 # }}}
+
+# Claude Code: skip interactive shell setup (prezto, themes, completions,
+# keybindings, etc). Only zinit, PATH, nvm, pyenv, direnv loaded above.
+if [[ -n "$CLAUDECODE" ]]; then
+  export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+  [[ -f "$HOME/.local/google-cloud-sdk/path.zsh.inc" ]] && source "$HOME/.local/google-cloud-sdk/path.zsh.inc"
+  return
+fi
 
 # prezto modules {{{
 # Clone prezto repo once, then load individual modules from it
