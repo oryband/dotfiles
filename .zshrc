@@ -42,8 +42,8 @@ zinit ice pick="pyenv-lazy.plugin.zsh" ; zinit light davidparsson/zsh-pyenv-lazy
 eval "$(direnv hook zsh)"
 # }}}
 
-# secrets {{{
-[ -f ~/.zsh-secrets ] && source ~/.zsh-secrets
+# monday.com {{{
+[ -f ~/.zsh-monday ] && source ~/.zsh-monday
 # }}}
 
 # prezto modules {{{
