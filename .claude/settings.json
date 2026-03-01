@@ -126,7 +126,10 @@
       "mcp__playwright__*",
       "mcp__postman__*",
       "mcp__sequential-thinking__*",
-      "mcp__tavily__*",
+      "mcp__exa-monday__*",
+      "mcp__exa-personal__*",
+      "mcp__tavily-monday__*",
+      "mcp__tavily-personal__*",
       "mcp__vibe__*"
     ],
     "deny": [
@@ -245,15 +248,15 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0
+  },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": false,
     "hookify@claude-plugins-official": false,
     "trident-monorepo@agentic-builders-hub": true
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "npx -y ccstatusline@latest",
-    "padding": 0
   }
 }
