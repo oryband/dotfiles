@@ -2,7 +2,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-  { "smartcolumn.nvim", opts = { scope = "line", custom_colorcolumn = { python = { 79 }, clojure = { 120 }, gitcommit = { 50, 72 } } }, },
+  { "smartcolumn.nvim", opts = { scope = "line", custom_colorcolumn = { python = { 79 }, gitcommit = { 50, 72 } } }, },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
   { import = "astrocommunity.editing-support.nvim-devdocs" },
@@ -29,24 +29,13 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
-  { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.basedpyright" },
+  { import = "astrocommunity.pack.python.ruff" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.code-runner.molten-nvim" },
   { import = "astrocommunity.pack.quarto" },
-  -- Override treesitter config
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      -- Exclude latex (requires grammar generation, incompatible with tree-sitter CLI 0.26+)
-      if opts.ensure_installed and type(opts.ensure_installed) == "table" then
-        opts.ensure_installed = vim.tbl_filter(function(parser)
-          return parser ~= "latex"
-        end, opts.ensure_installed)
-      end
-    end,
-  },
   -- Render markdown in-editor (headings, lists, code blocks, etc.)
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   {
@@ -62,5 +51,5 @@ return {
     },
   },
 
-  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  { import = "astrocommunity.recipes.picker-lsp-mappings" },
 }

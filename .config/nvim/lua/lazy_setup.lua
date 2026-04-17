@@ -1,5 +1,5 @@
 require("lazy").setup({
-  { "AstroNvim/AstroNvim", version = "^4", import = "astronvim.plugins", },
+  { "AstroNvim/AstroNvim", version = "^6", import = "astronvim.plugins", },
   { import = "community" },
   { import = "plugins" },
 } --[[@as LazySpec]], {
