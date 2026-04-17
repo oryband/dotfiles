@@ -8,11 +8,16 @@
 
 /.3T/
 /.aspnet/
+/.Trash/
 
 # AI tools (machine-specific)
+/.axcli/
 /.cagent/
+/.cc-safety-net/
 /.config/cagent/
 /.cursor/
+/.playwright-mcp/
+/.wt-claude/
 /.aws/
 /.awscreds
 /.bash_history
@@ -112,9 +117,7 @@
 /.claude.json.corrupted*
 /.claude/*
 !/.claude/CLAUDE.md
-!/.claude/keybindings.json
 !/.claude/settings.json
-!/.claude/rules/
 !/.claude/scripts/
 
 /.config/.gsd-keyboard.settings-ported
@@ -176,6 +179,7 @@
 /.config/pulse/
 /.config/pypoetry/
 /.config/QtProject.conf
+/.config/raycast/
 /.config/Slack/
 /.config/solaar/
 /.config/sourcery/
