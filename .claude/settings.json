@@ -1,110 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash([ *)",
-      "Bash(alias *)",
-      "Bash(awk *)",
-      "Bash(base64 *)",
-      "Bash(basename *)",
-      "Bash(brew *)",
-      "Bash(cat *)",
-      "Bash(cd *)",
-      "Bash(chmod *)",
-      "Bash(claude *)",
-      "Bash(column *)",
-      "Bash(command *)",
-      "Bash(cp *)",
-      "Bash(cut *)",
-      "Bash(date *)",
-      "Bash(declare *)",
-      "Bash(defaults *)",
-      "Bash(diff *)",
-      "Bash(direnv *)",
-      "Bash(dirname *)",
-      "Bash(docker-compose *)",
-      "Bash(du *)",
-      "Bash(echo *)",
-      "Bash(env *)",
-      "Bash(eslint *)",
-      "Bash(export *)",
-      "Bash(file *)",
-      "Bash(find *)",
-      "Bash(fnm *)",
-      "Bash(gcloud *)",
-      "Bash(gh *)",
-      "Bash(git *)",
-      "Bash(grep *)",
-      "Bash(hash *)",
-      "Bash(head *)",
-      "Bash(hostname *)",
-      "Bash(id *)",
-      "Bash(jest *)",
-      "Bash(jq *)",
-      "Bash(kill *)",
-      "Bash(kubectl *)",
-      "Bash(ln *)",
-      "Bash(local *)",
-      "Bash(ls *)",
-      "Bash(lsof *)",
-      "Bash(mdfind *)",
-      "Bash(mkdir *)",
-      "Bash(mv *)",
-      "Bash(nvm *)",
-      "Bash(okteto *)",
-      "Bash(open *)",
-      "Bash(openssl *)",
-      "Bash(pgrep *)",
-      "Bash(pkill *)",
-      "Bash(plutil *)",
-      "Bash(pnpm *)",
-      "Bash(popd *)",
-      "Bash(prettier *)",
-      "Bash(printf *)",
-      "Bash(ps *)",
-      "Bash(pushd *)",
-      "Bash(pwd *)",
-      "Bash(pyenv *)",
-      "Bash(read *)",
-      "Bash(readlink *)",
-      "Bash(realpath *)",
-      "Bash(rg *)",
-      "Bash(rm *)",
-      "Bash(sed *)",
-      "Bash(seq *)",
-      "Bash(set *)",
-      "Bash(setopt *)",
-      "Bash(shasum *)",
-      "Bash(shfmt *)",
-      "Bash(sleep *)",
-      "Bash(sort *)",
-      "Bash(stat *)",
-      "Bash(tail *)",
-      "Bash(tar *)",
-      "Bash(tee *)",
-      "Bash(test *)",
-      "Bash(timeout *)",
-      "Bash(tmux *)",
-      "Bash(touch *)",
-      "Bash(tput *)",
-      "Bash(tr *)",
-      "Bash(tree *)",
-      "Bash(true *)",
-      "Bash(tsc *)",
-      "Bash(tsx *)",
-      "Bash(turbo *)",
-      "Bash(typeset *)",
-      "Bash(uname *)",
-      "Bash(uniq *)",
-      "Bash(unset *)",
-      "Bash(uv *)",
-      "Bash(vitest *)",
-      "Bash(wc *)",
-      "Bash(which *)",
-      "Bash(whoami *)",
-      "Bash(xargs *)",
-      "Bash(yarn *)",
-      "Bash(yes *)",
-      "Bash(zoxide *)",
+      "Bash(*)",
       "Edit(/tmp/**)",
       "Edit(/var/tmp/**)",
       "Read(/tmp/**)",
@@ -115,22 +12,17 @@
       "WebSearch",
       "Write(/tmp/**)",
       "Write(/var/tmp/**)",
-      "mcp__bigbrain__*",
-      "mcp__context7__*",
-      "mcp__figma__*",
-      "mcp__git__*",
-      "mcp__github__*",
-      "mcp__langsmith__*",
-      "mcp__monday-api__*",
-      "mcp__monday-mcp__*",
-      "mcp__playwright__*",
-      "mcp__postman__*",
-      "mcp__sequential-thinking__*",
-      "mcp__exa-monday__*",
-      "mcp__exa-personal__*",
-      "mcp__tavily-monday__*",
-      "mcp__tavily-personal__*",
-      "mcp__vibe__*"
+      "mcp__chrome-devtools",
+      "mcp__context7",
+      "mcp__exa",
+      "mcp__git",
+      "mcp__github",
+      "mcp__obsidian",
+      "mcp__playwright",
+      "mcp__plugin_slack_slack",
+      "mcp__postman",
+      "mcp__sequential-thinking",
+      "mcp__tavily"
     ],
     "deny": [
       "Read(**/*.gpg)",
@@ -182,7 +74,7 @@
       "~/Development"
     ]
   },
-  "model": "claude-opus-4-6[1m]",
+  "model": "claude-opus-4-7[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -190,8 +82,29 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/scripts/approve-compound-bash.sh",
-            "timeout": 3
+            "command": "/Users/oryba/.local/bin/dcg"
+          },
+          {
+            "type": "command",
+            "command": "node ~/.claude/plugins/marketplaces/everything-claude-code/scripts/hooks/suggest-compact.js"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/.claude/plugins/marketplaces/everything-claude-code/scripts/hooks/suggest-compact.js"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/.claude/plugins/marketplaces/everything-claude-code/scripts/hooks/suggest-compact.js"
           }
         ]
       }
@@ -257,6 +170,16 @@
     "typescript-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": false,
     "hookify@claude-plugins-official": false,
-    "trident-monorepo@agentic-builders-hub": true
+    "slack@claude-plugins-official": true,
+    "everything-claude-code@everything-claude-code": true
+  },
+  "extraKnownMarketplaces": {
+    "everything-claude-code": {
+      "source": {
+        "source": "github",
+        "repo": "affaan-m/everything-claude-code"
+      },
+      "autoUpdate": true
+    }
   }
 }
