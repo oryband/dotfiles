@@ -114,18 +114,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "[ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ○ $(basename \"$CLAUDE_PROJECT_DIR\")\" 2>/dev/null; true"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/tmux-summary.sh",
-            "async": true
+            "command": "~/.claude/scripts/tmux-rename.sh ○ force"
           }
         ]
       }
@@ -135,7 +124,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "INPUT=$(cat); SID=$(echo \"$INPUT\" | jq -r '.session_id // empty'); TASK=$(cat \"/tmp/claude-tmux-summaries/$SID\" 2>/dev/null); [ -z \"$TASK\" ] && TASK=$(basename \"$CLAUDE_PROJECT_DIR\"); [ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ! $TASK\" 2>/dev/null; true"
+            "command": "~/.claude/scripts/tmux-rename.sh !"
           }
         ]
       }
@@ -145,7 +134,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "INPUT=$(cat); SID=$(echo \"$INPUT\" | jq -r '.session_id // empty'); TASK=$(cat \"/tmp/claude-tmux-summaries/$SID\" 2>/dev/null); [ -z \"$TASK\" ] && TASK=$(basename \"$CLAUDE_PROJECT_DIR\"); [ -n \"$TMUX_PANE\" ] && tmux rename-window -t $(tmux display-message -p -t \"$TMUX_PANE\" '#I') \"🤖 ✓ $TASK\" 2>/dev/null; true"
+            "command": "~/.claude/scripts/tmux-rename.sh ✓"
           }
         ]
       }

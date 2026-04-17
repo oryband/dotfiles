@@ -29,7 +29,7 @@
 !/.claude/scripts/
 !/.claude/settings.json
 /.claude/scripts/*
-!/.claude/scripts/tmux-summary.sh
+!/.claude/scripts/tmux-rename.sh
 
 # .config
 /.config/*
