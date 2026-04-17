@@ -351,10 +351,12 @@ fi
 # }}}
 
 # claude {{{
-export ANTHROPIC_MODEL='claude-opus-4-6'
 export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
 export CLAUDE_CODE_ENABLE_TELEMETRY=1
+export CLAUDE_CODE_NO_FLICKER=1
+export ECC_DISABLED_HOOKS=stop:desktop-notify,pre:mcp-health-check,post:mcp-health-check
+export COMPACT_THRESHOLD=150
 # }}}
 
 
@@ -363,3 +365,12 @@ eval "$(zoxide init zsh)"
 
 # vim:foldlevel=0
 # vim:foldmethod=marker
+
+# dcg: warn if hook was silently removed from Claude Code settings
+if command -v dcg &>/dev/null && command -v jq &>/dev/null; then
+  if [ -f "$HOME/.claude/settings.json" ] && \
+     ! jq -e '.hooks.PreToolUse[]? | select(.hooks[]?.command | test("dcg$"))' \
+       "$HOME/.claude/settings.json" &>/dev/null; then
+    printf '\033[1;33m[dcg] Hook missing from ~/.claude/settings.json — run: dcg install\033[0m\n'
+  fi
+fi
