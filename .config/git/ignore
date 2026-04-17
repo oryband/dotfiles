@@ -1,0 +1,4 @@
+# global ignores
+.DS_Store
+.lsp/
+.tags

@@ -18,7 +18,6 @@
 [core]
     editor = $VISUAL
     whitespace = space-before-tab,trailing-space,blank-at-eol,cr-at-eol,blank-at-eof
-    excludesfile = ~/.gitignore
     pager = "diff-so-fancy | less --tabs=4 -RFXi"
 [diff-so-fancy]
     stripLeadingSymbols = false
