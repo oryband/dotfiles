@@ -1,0 +1,13 @@
+font-family = SauceCodePro Nerd Font Mono
+font-style = Light
+font-family-bold = SauceCodePro Nerd Font Mono
+font-style-bold = Medium
+font-family-bold-italic = SauceCodePro Nerd Font Mono
+font-style-bold-italic = Medium Italic
+font-size = 14
+theme = Dracula
+macos-option-as-alt = left
+cursor-style-blink = false
+keybind = shift+enter=text:\n
+bell-features = no-attention,no-system,no-audio,no-title
+mouse-hide-while-typing = true
