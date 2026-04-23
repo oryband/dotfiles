@@ -19,16 +19,9 @@ setopt NOCLOBBER   # prevent accidental file overwrites with > (use >| to overri
 setopt NO_NOMATCH  # don't error on unmatched globs
 # }}}
 
-# nvm {{{
-# NVM_DIR exported in .zprofile
-if [[ -n "$CLAUDECODE" ]]; then
-  # Load directly — zinit lazy loader doesn't survive shell snapshot
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-else
-  export NVM_AUTO_USE=true
-  export NVM_COMPLETION=true
-  zinit light lukechilds/zsh-nvm
-fi
+# fnm {{{
+eval "$(fnm env --shell zsh)"
+alias nvm=fnm  # muscle memory: nvm use -> fnm use
 # }}}
 
 # pyenv + pyenv-virtualenv - lazy loaded via zsh-pyenv-lazy {{{
@@ -119,7 +112,7 @@ export FZF_TMUX=1
 
 # misc plugins {{{
 zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
-zinit light djui/alias-tips
+zinit ice wait'1' lucid; zinit light djui/alias-tips
 # }}}
 
 # prompt {{{
@@ -229,11 +222,14 @@ httpdump() { sysdig -s 2000 -A -c echo_fds proc.name=$1; }
 
 # git {{{
 # gh and lazygit installed via Homebrew
-zinit light paulirish/git-open
+zinit ice wait lucid trigger-load'!git-open'; zinit light paulirish/git-open
 
 # scm_breeze {{{
 SCM_BREEZE_DISABLE_ASSETS_MANAGEMENT="true"
-zinit ice atclone"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" atpull"%atclone" pick"scm_breeze.sh"; zinit light scmbreeze/scm_breeze
+zinit ice wait'1' lucid \
+  atclone"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" atpull"%atclone" \
+  pick"scm_breeze.sh"
+zinit light scmbreeze/scm_breeze
 # }}}
 
 # aliases {{{

@@ -13,13 +13,9 @@ typeset -gU cdpath fpath mailpath path
 # Homebrew - official recommendation for macOS + zsh
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# nvm default node — available system-wide for non-interactive shells,
-# IDE extensions, MCP servers, etc. nvm in .zshrc overrides per-project.
-export NVM_DIR="$HOME/.nvm"
-_nvm_v="$(cat "$NVM_DIR/alias/default" 2>/dev/null)"
-while [[ -n "$_nvm_v" && -r "$NVM_DIR/alias/$_nvm_v" ]]; do _nvm_v="$(cat "$NVM_DIR/alias/$_nvm_v")"; done
-[[ -n "$_nvm_v" ]] && export PATH="$NVM_DIR/versions/node/${_nvm_v}/bin:$PATH"
-unset _nvm_v
+# fnm default node on PATH for non-interactive shells (IDEs, GUI apps).
+# Interactive shells get full fnm env via .zshrc.
+export PATH="$HOME/.local/share/fnm/aliases/default/bin:$PATH"
 
 # set the less input preprocessor.
 # try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
