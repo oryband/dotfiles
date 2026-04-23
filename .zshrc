@@ -38,8 +38,9 @@ zinit ice pick="pyenv-lazy.plugin.zsh" ; zinit light davidparsson/zsh-pyenv-lazy
 eval "$(direnv hook zsh)"
 # }}}
 
-# monday.com {{{
-[ -f ~/.zsh-monday ] && source ~/.zsh-monday
+# secrets & work config {{{
+[ -f ~/.zsh-secrets ] && source ~/.zsh-secrets
+[ -f ~/.zsh-work ] && source ~/.zsh-work
 # }}}
 
 # Claude Code: skip interactive shell setup (prezto, themes, completions,

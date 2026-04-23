@@ -58,6 +58,7 @@
       "Read(**/.pypirc)",
       "Read(**/.ssh/id_*)",
       "Read(**/.yarnrc)",
+      "Read(**/.zsh-work)",
       "Read(**/.zsh_history)",
       "Read(**/credentials.json)",
       "Read(**/id_ed25519)",
