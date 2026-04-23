@@ -1,0 +1,42 @@
+{
+  "_comment": "Global MCP servers loaded by `claude --mcp-config ~/.claude/mcp.json` (alias in .zshrc). Per-repo opt-in MCPs live in mcp-library.json.",
+  "mcpServers": {
+    "sequential-thinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking@latest"
+      ],
+      "env": {
+        "PATH": "${HOME}/.local/share/fnm/aliases/default/bin:${PATH}"
+      }
+    },
+    "git": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-git"
+      ]
+    },
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      }
+    },
+    "tavily": {
+      "type": "http",
+      "url": "https://mcp.tavily.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${TAVILY_API_KEY}"
+      }
+    },
+    "exa": {
+      "type": "http",
+      "url": "https://mcp.exa.ai/mcp?exaApiKey=${EXA_API_KEY}&tools=web_search_exa,get_code_context_exa,company_research_exa,web_search_advanced_exa,crawling_exa,deep_researcher_start,deep_researcher_check",
+      "headers": {}
+    }
+  }
+}

@@ -358,6 +358,10 @@ export CLAUDE_CODE_NO_FLICKER=1
 export ECC_DISABLED_HOOKS=stop:desktop-notify,pre:mcp-health-check,post:mcp-health-check
 export COMPACT_THRESHOLD=150
 
+# load global MCP servers from a clean dotfiles-tracked file
+# (user-scope mcpServers in ~/.claude.json kept empty for committable config)
+alias claude='claude --mcp-config ~/.claude/mcp.json'
+
 # warn if dcg hook was silently removed from Claude Code settings
 if command -v dcg &>/dev/null && command -v jq &>/dev/null; then
   if [ -f "$HOME/.claude/settings.json" ] && \

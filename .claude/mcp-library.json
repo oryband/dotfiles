@@ -1,0 +1,56 @@
+{
+  "_comment": "Reference library of MCP server definitions for per-repo opt-in. NOT loaded automatically. Copy entries into a project's .mcp.json (or run `claude mcp add -s project ...`) to enable for a specific repo.",
+  "mcpServers": {
+    "postman": {
+      "type": "http",
+      "url": "https://mcp.postman.com/minimal",
+      "headers": {
+        "Authorization": "${POSTMAN_API_KEY}"
+      }
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--browser",
+        "chrome"
+      ]
+    },
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--no-usage-statistics"
+      ]
+    },
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "obsidian": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-obsidian"
+      ],
+      "env": {
+        "OBSIDIAN_API_KEY": "${OBSIDIAN_API_KEY}"
+      }
+    },
+    "langsmith": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "langsmith-mcp-server"
+      ],
+      "env": {
+        "LANGSMITH_API_KEY": "${LANGSMITH_API_KEY}",
+        "LANGSMITH_ENDPOINT": "${LANGSMITH_ENDPOINT}"
+      }
+    }
+  }
+}

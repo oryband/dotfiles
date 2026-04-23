@@ -26,6 +26,8 @@
 # .claude
 /.claude/*
 !/.claude/CLAUDE.md
+!/.claude/mcp.json
+!/.claude/mcp-library.json
 !/.claude/scripts/
 !/.claude/settings.json
 /.claude/scripts/*
