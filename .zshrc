@@ -91,7 +91,6 @@ _load_pmodule history     # History options and aliases
 _load_pmodule directory   # Directory navigation options and aliases (autopushd, cd stack)
 _load_pmodule spectrum    # 256 colors support
 _load_pmodule utility     # Adds -i flags to cp/mv/rm (confirmation prompts)
-_load_pmodule git         # Git aliases (g, gc, gco, etc.)
 _load_pmodule completion  # Completion styles and menu-select widget
 
 # Tmux
@@ -178,12 +177,8 @@ autoload -Uz promptinit && promptinit
 # }}}
 
 # macOS Homebrew {{{
-# Homebrew shellenv loaded in .zprofile (removed duplicate)
-
-# Homebrew completions - ISSUE: zinit creinstall is broken (bad set of key/value pairs error)
-# Workaround to update after brew upgrades packages:
-#   cd ~/.local/share/zinit/completions
-#   for comp in /opt/homebrew/share/zsh/site-functions/_*; do [[ -f "$comp" ]] && ln -sf "$comp" .; done
+# Homebrew shellenv loaded in .zprofile
+# Completions: site-functions dir added to fpath by `brew shellenv`, picked up by compinit.
 # }}}
 
 # clojure {{{
@@ -227,8 +222,10 @@ zinit ice wait lucid trigger-load'!git-open'; zinit light paulirish/git-open
 
 # scm_breeze {{{
 SCM_BREEZE_DISABLE_ASSETS_MANAGEMENT="true"
-zinit ice wait'1' lucid \
+zinit ice wait lucid blockf \
+  atinit"autoload -Uz bashcompinit && bashcompinit" \
   atclone"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" atpull"%atclone" \
+  atload"zicdreplay" \
   pick"scm_breeze.sh"
 zinit light scmbreeze/scm_breeze
 # }}}
