@@ -74,7 +74,7 @@
       "~/Development"
     ]
   },
-  "model": "claude-opus-4-7[1m]",
+  "model": "claude-opus-4-7",
   "hooks": {
     "PreToolUse": [
       {
