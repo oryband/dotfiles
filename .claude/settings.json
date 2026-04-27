@@ -25,6 +25,13 @@
       "mcp__tavily"
     ],
     "deny": [
+      "Bash(op *)",
+      "Read(**/.ssh/**)",
+      "Read(**/.gnupg/**)",
+      "Read(**/private-keys-v1.d/**)",
+      "Read(**/openpgp-revocs.d/**)",
+      "Read(**/*.asc)",
+      "Read(**/*.rev)",
       "Read(**/*.gpg)",
       "Read(**/*.jks)",
       "Read(**/*.key)",
@@ -171,5 +178,8 @@
       },
       "autoUpdate": true
     }
-  }
+  },
+  "editorMode": "vim",
+  "preferredNotifChannel": "ghostty",
+  "teammateMode": "auto"
 }

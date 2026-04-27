@@ -1,7 +1,11 @@
 [user]
     name = Ory Band
     email = oryband@users.noreply.github.com
-    signingkey = CE95A0A7
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN8gBa74HGTtgE6/jCnyvTSJ76o/3Ndx23/3t165K3/L
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [push]
     autoSetupRemote = true
 [commit]
