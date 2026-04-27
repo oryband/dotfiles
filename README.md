@@ -1,6 +1,6 @@
 # dotfiles
 
-My main working machine setup. Here be cyber dragons, and optional bugs. 🐉🐛
+My main working machine setup. Here be cyber dragons 🐉, and optional bugs 🐛.
 
 ## Specs & Configuration
 
@@ -38,9 +38,17 @@ A few notable hacks in there:
   `compinit` runs.
 
 `.zprofile` keeps a few login-shell-only bits: `brew shellenv` (the official
-Apple Silicon path setup), an `fnm` default-node entry on `$PATH` so GUI apps
-and IDEs find Node without an interactive shell, and `GPG_TTY` for commit
-signing.
+Apple Silicon path setup) and an `fnm` default-node entry on `$PATH` so GUI
+apps and IDEs find Node without an interactive shell.
+
+## 🔐 Git & SSH ([.gitconfig](.gitconfig), [.ssh/config](.ssh/config))
+
+Commit signing and SSH auth go through the [1Password][1password] SSH agent —
+no private SSH or signing keys live on disk. `.gitconfig` sets
+`gpg.format = ssh` and points `gpg.ssh.program` at `op-ssh-sign`.
+`.ssh/config` scopes `IdentityAgent` to `Host github.com` so okteto and other
+SSH targets keep using their own keypairs. Local signature verification is
+wired via [`.config/git/allowed_signers`](.config/git/allowed_signers).
 
 ## 🤖 Claude Code ([.claude/](.claude))
 
@@ -66,3 +74,4 @@ override it.
 [nvim]: .config/nvim/lua/lazy_setup.lua
 [astro]: https://astronvim.com
 [zinit]: https://github.com/zdharma-continuum/zinit
+[1password]: https://1password.com
