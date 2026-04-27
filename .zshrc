@@ -331,6 +331,12 @@ if typeset -f fzf-completion &>/dev/null; then
 fi
 # }}}
 
+# 1password shell plugins {{{
+# Wraps CLIs (gh, etc.) to source credentials from 1Password instead of
+# their native auth stores. Skipped under CLAUDECODE (which returned earlier).
+[ -f "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
+# }}}
+
 # claude {{{
 export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
