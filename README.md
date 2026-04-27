@@ -1,6 +1,6 @@
 # dotfiles
 
-My main working machine setup. Here be cyber dragons 🐉, and optional bugs 🐛.
+My main working machine setup. Here be cyber dragons 🐉 and optional bugs 🐛.
 
 ## Specs & Configuration
 
