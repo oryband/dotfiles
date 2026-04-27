@@ -10,7 +10,7 @@ return {
       },
       g = {
         python3_host_prog = vim.fn.expand("~/.virtualenvs/neovim/bin/python"),
-        loaded_node_provider = 0, -- Disable Node provider (not needed; Mason LSPs use node from PATH via polish.lua)
+        loaded_node_provider = 0, -- Disable Node provider (not needed; Mason LSPs find node via $PATH, set up by .zprofile's fnm shim)
       },
     },
     features = {
