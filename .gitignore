@@ -71,6 +71,3 @@
 # .ssh
 /.ssh/*
 !/.ssh/config
-!/.ssh/config.d/
-/.ssh/config.d/*
-!/.ssh/config.d/.gitkeep
