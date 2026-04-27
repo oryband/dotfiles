@@ -13,7 +13,6 @@
 !/.gitignore
 !/.gnupg/
 !/.hushlogin
-!/.inputrc
 !/.ripgreprc
 !/.ssh/
 !/.tmux.conf
