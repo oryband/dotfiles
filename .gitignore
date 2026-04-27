@@ -11,7 +11,6 @@
 !/.git.scmbrc
 !/.gitconfig
 !/.gitignore
-!/.gnupg/
 !/.hushlogin
 !/.ripgreprc
 !/.ssh/
@@ -63,10 +62,6 @@
 !/.config/nvim/lua/plugins/astrolsp.lua
 !/.config/nvim/lua/plugins/astroui.lua
 !/.config/nvim/lua/plugins/user.lua
-
-# .gnupg
-/.gnupg/*
-!/.gnupg/gpg-agent.conf
 
 # .ssh
 /.ssh/*

@@ -24,6 +24,3 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then export LESSOPEN="| /usr/bin/env $co
 # temporary files
 if [[ ! -d "$TMPDIR" ]]; then export TMPDIR="/tmp/$LOGNAME"; mkdir -p -m 700 "$TMPDIR"; fi
 TMPPREFIX="${TMPDIR%/}/zsh"
-
-# GPG TTY for signing
-export GPG_TTY=$(tty)
