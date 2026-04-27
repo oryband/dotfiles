@@ -1,5 +1,3 @@
-tap "metalbear-co/mirrord"
-
 brew "bat"
 brew "bats-core"
 brew "diff-so-fancy"
@@ -25,7 +23,6 @@ brew "shfmt"
 brew "starship"
 brew "subversion"
 brew "tmux"
-brew "tree-sitter-cli"
 brew "uv"
 brew "yq"
 brew "zoxide"
