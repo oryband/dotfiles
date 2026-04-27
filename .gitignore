@@ -49,6 +49,7 @@
 !/.config/ghostty/config
 
 /.config/git/*
+!/.config/git/allowed_signers
 !/.config/git/ignore
 
 /.config/nvim/*
