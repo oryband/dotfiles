@@ -217,6 +217,7 @@ zinit light scmbreeze/scm_breeze
 # }}}
 
 # aliases {{{
+alias g="git"
 alias gc="g c"
 alias ga="g add"
 alias gmv="g mv"
