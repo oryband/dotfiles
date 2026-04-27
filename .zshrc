@@ -24,15 +24,6 @@ eval "$(fnm env --shell zsh)"
 alias nvm=fnm  # muscle memory: nvm use -> fnm use
 # }}}
 
-# pyenv + pyenv-virtualenv - lazy loaded via zsh-pyenv-lazy {{{
-# Installed via Homebrew, lazy loaded via zinit plugin
-export PYENV_ROOT="$HOME/.pyenv"
-export ZSH_PYENV_LAZY_VIRTUALENV=true
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-zinit ice pick="pyenv-lazy.plugin.zsh" ; zinit light davidparsson/zsh-pyenv-lazy
-# Use .python-version files in project directories for version management
-# }}}
-
 # direnv {{{
 # Installed via Homebrew
 eval "$(direnv hook zsh)"
@@ -44,7 +35,7 @@ eval "$(direnv hook zsh)"
 # }}}
 
 # Claude Code: skip interactive shell setup (prezto, themes, completions,
-# keybindings, etc). Only zinit, PATH, nvm, pyenv, direnv loaded above.
+# keybindings, etc). Only zinit, PATH, fnm, direnv loaded above.
 if [[ -n "$CLAUDECODE" ]]; then
   export USE_GKE_GCLOUD_AUTH_PLUGIN=True
   [[ -f "$HOME/.local/google-cloud-sdk/path.zsh.inc" ]] && source "$HOME/.local/google-cloud-sdk/path.zsh.inc"
@@ -179,11 +170,6 @@ autoload -Uz promptinit && promptinit
 # macOS Homebrew {{{
 # Homebrew shellenv loaded in .zprofile
 # Completions: site-functions dir added to fpath by `brew shellenv`, picked up by compinit.
-# }}}
-
-# clojure {{{
-zinit ice from"gh-r" as"program" pick"bb"; zinit light babashka/babashka
-zinit ice from"gh-r" as"program" bpick"zprintl-*" mv"zprintl-* -> zprint"; zinit light kkinnear/zprint
 # }}}
 
 # less {{{

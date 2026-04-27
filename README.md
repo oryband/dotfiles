@@ -21,7 +21,7 @@ matter when your `.zshrc` does a lot:
   the prompt renders, so shell startup stays snappy. Autosuggestions, history
   search, syntax highlighting, gcloud completions, scm_breeze — all deferred.
 - **Lazy install + git-based plugins** — first-time clone is automatic, and
-  binary plugins (babashka, zprint, k9s themes) install from GitHub releases
+  binary plugins (e.g. the k9s theme bundle) install from GitHub releases
   via `from"gh-r"`.
 
 A few notable hacks in there:
@@ -30,7 +30,7 @@ A few notable hacks in there:
   longer works for cherry-picking single Prezto modules. Workaround: clone the
   full Prezto repo once and `source` individual module init scripts manually.
 - **Claude Code fast path** — when `$CLAUDECODE` is set, the shell short-circuits
-  after loading just zinit, PATH, fnm, pyenv, and direnv. No prezto, themes,
+  after loading just zinit, PATH, fnm, and direnv. No prezto, themes,
   completions, or keybindings — Claude doesn't need them and they cost startup
   time on every Bash tool call.
 - **compinit guard** — zinit wraps autoload during plugin loads, which breaks
