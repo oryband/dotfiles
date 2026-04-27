@@ -14,7 +14,6 @@
 !/.gnupg/
 !/.hushlogin
 !/.inputrc
-!/.k9s/
 !/.ripgreprc
 !/.ssh/
 !/.tmux.conf
@@ -69,10 +68,6 @@
 # .gnupg
 /.gnupg/*
 !/.gnupg/gpg-agent.conf
-
-# .k9s
-/.k9s/*
-!/.k9s/skin.yml
 
 # .ssh
 /.ssh/*
