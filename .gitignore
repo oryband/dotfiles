@@ -21,6 +21,7 @@
 !/.tmux.conf
 !/.zprofile
 !/.zshrc
+!/Brewfile
 !/README.md
 
 # .claude
