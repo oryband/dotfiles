@@ -127,6 +127,16 @@
         ]
       }
     ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/tmux-rename.sh ●"
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "hooks": [
