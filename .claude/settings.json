@@ -132,7 +132,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/scripts/tmux-rename.sh ●"
+            "command": "~/.claude/scripts/tmux-rename.sh ✻"
           }
         ]
       }
