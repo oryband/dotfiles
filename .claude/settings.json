@@ -174,7 +174,7 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": false,
+    "pyright-lsp@claude-plugins-official": true,
     "hookify@claude-plugins-official": false,
     "slack@claude-plugins-official": true,
     "everything-claude-code@everything-claude-code": true
