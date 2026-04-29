@@ -177,7 +177,8 @@
     "pyright-lsp@claude-plugins-official": true,
     "hookify@claude-plugins-official": false,
     "slack@claude-plugins-official": true,
-    "everything-claude-code@everything-claude-code": true
+    "everything-claude-code@everything-claude-code": true,
+    "astral@astral-sh": true
   },
   "extraKnownMarketplaces": {
     "everything-claude-code": {
@@ -186,6 +187,12 @@
         "repo": "affaan-m/everything-claude-code"
       },
       "autoUpdate": true
+    },
+    "astral-sh": {
+      "source": {
+        "source": "github",
+        "repo": "astral-sh/claude-code-plugins"
+      }
     }
   },
   "editorMode": "vim",
