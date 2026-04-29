@@ -12,13 +12,6 @@
         "PATH": "${HOME}/.local/share/fnm/aliases/default/bin:${PATH}"
       }
     },
-    "git": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": [
-        "mcp-server-git"
-      ]
-    },
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",

@@ -1,9 +1,8 @@
 ## Tool Preferences
 
 1. Built-in tools (Read, Grep, Glob, Edit) over MCP over terminal commands
-2. Exceptions — ALWAYS use MCP for these:
-   - Git MCP for all git operations
-   - `gh` CLI (via Bash) for all GitHub operations (PRs, issues, checks, releases)
+2. Use `git` CLI (via Bash) for all git operations
+3. Use `gh` CLI (via Bash) for all GitHub operations (PRs, issues, checks, releases)
 
 ## Search & Web Tools
 
