@@ -342,7 +342,6 @@ export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
 export CLAUDE_CODE_ENABLE_TELEMETRY=1
 export CLAUDE_CODE_NO_FLICKER=1
-export ECC_DISABLED_HOOKS=stop:desktop-notify,pre:mcp-health-check,post:mcp-health-check
 export COMPACT_THRESHOLD=150
 
 # load global MCP servers from a clean dotfiles-tracked file

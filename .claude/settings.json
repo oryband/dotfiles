@@ -90,28 +90,6 @@
           {
             "type": "command",
             "command": "/Users/oryba/.local/bin/dcg"
-          },
-          {
-            "type": "command",
-            "command": "node ~/.claude/plugins/marketplaces/everything-claude-code/scripts/hooks/suggest-compact.js"
-          }
-        ]
-      },
-      {
-        "matcher": "Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ~/.claude/plugins/marketplaces/everything-claude-code/scripts/hooks/suggest-compact.js"
-          }
-        ]
-      },
-      {
-        "matcher": "Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ~/.claude/plugins/marketplaces/everything-claude-code/scripts/hooks/suggest-compact.js"
           }
         ]
       }
@@ -175,19 +153,10 @@
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "hookify@claude-plugins-official": false,
     "slack@claude-plugins-official": true,
-    "everything-claude-code@everything-claude-code": true,
     "astral@astral-sh": true
   },
   "extraKnownMarketplaces": {
-    "everything-claude-code": {
-      "source": {
-        "source": "github",
-        "repo": "affaan-m/everything-claude-code"
-      },
-      "autoUpdate": true
-    },
     "astral-sh": {
       "source": {
         "source": "github",
