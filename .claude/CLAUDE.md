@@ -1,12 +1,14 @@
 ## Tool Preferences
 
-1. Built-in tools (Read, Grep, Glob, Edit) over MCP over terminal commands
-2. Use `git` CLI (via Bash) for all git operations
-3. Use `gh` CLI (via Bash) for all GitHub operations (PRs, issues, checks, releases)
+Precedence (use the first that fits):
+
+1. **Built-in tools** - `Read`, `Write`, `Edit`, `Grep`, `Glob`
+2. **MCP servers** - when they add capability beyond filesystem (e.g., library docs, web search, structured reasoning)
+3. **Bash** - for `git`, `gh`, and the local CLI tools listed below
+
+Do NOT shell out to `cat`, `head`, `tail`, `find`, or `grep` - use built-in tools.
 
 ## Search & Web Tools
-
-Use the right tool for the job - they are complementary, not interchangeable.
 
 ### Built-in WebSearch / WebFetch
 - **WebSearch**: Quick factual lookups, documentation questions, syntax checks, "what is X"
@@ -32,14 +34,30 @@ Use the right tool for the job - they are complementary, not interchangeable.
 ### Context7 MCP - library documentation
 - Use for API docs and library usage questions - more precise than any web search for this specific use case
 
-## Git & GitHub
+## Local CLI Tools (macOS, Homebrew)
 
-- Conventional Commits standard for commit messages and branch names
-- AI-generated PR/issue text must be signed with model info
+When shelling out via Bash, prefer these over POSIX defaults. Do NOT invoke interactive-only tools (`lazygit`, `k9s`, `nvim`, `lnav`, `fzf`).
 
-## NVM & Node
+### Search & data
+- **`rg`** (ripgrep) only when built-in `Grep` is insufficient (e.g., piping to other commands, rg-specific flags). Config at `~/.ripgreprc`
+- **`fd`** only when built-in `Glob` is insufficient (e.g., regex on filenames, exec-per-file)
+- **`jq`** / **`yq`** for JSON/YAML
 
-- When running Node and Yarn commands, execute `nvm use` first (no need to source `nvm.sh`) in the working directory to set the correct Node.js version.
+### Git & GitHub
+- **Conventions:** Conventional Commits for messages and branch names. AI-generated PR/issue text must be signed with model info
+- **`git-delete-merged-branches`** for branch cleanup
+- **`gitleaks`** - secret scanning. Run before committing files that may touch credentials/configs
+
+### Languages & runtimes
+- **`fnm`** (Fast Node Manager). Run `fnm use` (aliased to `nvm use`) in the project dir before Node/Yarn
+- **`uv`** for Python - replaces `pip`/`venv`/`pip-tools`. See the `astral:uv` skill
+- **`ruff`** linter/formatter and **`ty`** type-checker - see `astral:ruff` and `astral:ty` skills
+- **`go`** for Go; **`yarn`** present but project may dictate npm/pnpm/bun
+- **`shellcheck`** + **`shfmt`** for shell scripts; **`bats-core`** for bash tests
+
+### Environment & secrets
+- **`direnv`** auto-loaded - if a project has `.envrc`, env vars come from it (run `direnv allow` if blocked)
+- **`op`** (1Password CLI) is **denied for Claude** (`Bash(op *)` in deny-list). Ask the user to run `op` themselves
 
 ## Sequential Thinking MCP
 
