@@ -59,6 +59,10 @@ When shelling out via Bash, prefer these over POSIX defaults. Do NOT invoke inte
 - **`direnv`** auto-loaded - if a project has `.envrc`, env vars come from it (run `direnv allow` if blocked)
 - **`op`** (1Password CLI) is **denied for Claude** (`Bash(op *)` in deny-list). Ask the user to run `op` themselves
 
+## Obsidian Vault
+
+When the user asks to use Obsidian or work with their notes, operate on the markdown files at `~/Documents/Obsidian Vault/` via `Read`/`Write`/`Edit`/`Grep`/`Glob`.
+
 ## Sequential Thinking MCP
 
 Use for problems that benefit from explicit, auditable reasoning with revision capability:
