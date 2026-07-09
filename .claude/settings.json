@@ -89,7 +89,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/oryba/.local/bin/dcg"
+            "command": "/Users/ory.band/.local/bin/dcg"
           }
         ]
       }
