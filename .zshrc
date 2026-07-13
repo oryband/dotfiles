@@ -270,8 +270,10 @@ if [ -f "$HOME/.local/google-cloud-sdk/path.zsh.inc" ]; then
 fi
 
 # Completions - lazy load with turbo mode
-zinit ice lucid wait'0b' blockf
-zinit snippet "$HOME/.local/google-cloud-sdk/completion.zsh.inc"
+if [ -f "$HOME/.local/google-cloud-sdk/completion.zsh.inc" ]; then
+  zinit ice lucid wait'0b' blockf
+  zinit snippet "$HOME/.local/google-cloud-sdk/completion.zsh.inc"
+fi
 # }}}
 
 # syntax highlighting {{{
